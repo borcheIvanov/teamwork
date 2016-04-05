@@ -46,8 +46,9 @@ public class EmployeeController {
 		currentemployee.setName(employee.getName());
 		currentemployee.setSurname(employee.getSurname());
 		currentemployee.setEmail(employee.getEmail());
-		currentemployee.setInvited(employee.getInvited());
-		currentemployee.setHosting(employee.getHosting());
+		currentemployee.setUsername(employee.getUsername());
+		currentemployee.setPassword(employee.getPassword());
+		currentemployee.setActive(employee.isActive());
 		
 		return employeeService.save(currentemployee);
 	}

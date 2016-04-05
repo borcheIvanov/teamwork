@@ -1,16 +1,18 @@
 package mk.polarcape.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="Employee")
@@ -36,13 +38,13 @@ public class Employee {
 	@NotEmpty
 	private String username, password;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinColumn(name = "invited_id")
-	private Event invited;
+	@OneToMany(mappedBy = "invited")
+	@JsonIgnore
+	private List<Employee_event> invitedGuests;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinColumn(name = "hosting_id")
-	private Event hosting;
+	@OneToMany(mappedBy = "hosting")
+	@JsonIgnore
+	private List<Employee_event> hostingParty;
 	
 	
 ////////////////////////////////////////////////////////
@@ -70,21 +72,6 @@ public class Employee {
 	public void setActive(boolean active) {
 		this.active = active;
 	}	
-
-	public Event getHosting() {
-		return hosting;
-	}
-
-	public void setHosting(Event hosting) {
-		this.hosting = hosting;
-	}
-	public Event getInvited() {
-		return invited;
-	}
-
-	public void setInvited(Event invited) {
-		this.invited = invited;
-	}
 	
 	public Long getId() {
 		return id;
@@ -123,8 +110,23 @@ public class Employee {
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", money=" + money + ", Name=" + Name + ", Surname=" + Surname + ", email="
-				+ email + ", active=" + active + ", username=" + username + ", password=" + password + ", invited="
-				+ invited + ", hosting=" + hosting + "]";
+				+ email + ", active=" + active + ", username=" + username + ", password=" + password + "]";
+	}
+
+	public List<Employee_event> getInvitedGuests() {
+		return invitedGuests;
+	}
+
+	public void setInvitedGuests(List<Employee_event> invitedGuests) {
+		this.invitedGuests = invitedGuests;
+	}
+
+	public List<Employee_event> getHostingParty() {
+		return hostingParty;
+	}
+
+	public void setHostingParty(List<Employee_event> hostingParty) {
+		this.hostingParty = hostingParty;
 	}
 
 }

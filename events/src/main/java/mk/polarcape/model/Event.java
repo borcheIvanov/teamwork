@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,22 +21,11 @@ public class Event {
 	private String name;
 	private double budget;
 	
-	@ManyToMany(mappedBy = "invited")
+	@OneToMany(mappedBy = "events")
 	@JsonIgnore
-	private List<Employee> invitedGuests;
+	private List<Employee_event> events;
 	
-	@ManyToMany(mappedBy = "hosting")
-	@JsonIgnore
-	private List<Employee> hostingParty;
-
-	public List<Employee> getHostingParty() {
-		return hostingParty;
-	}
-
-	public void setHostingParty(List<Employee> hostingParty) {
-		this.hostingParty = hostingParty;
-	}
-
+/////////////////////////////
 	public String getName() {
 		return name;
 	}
@@ -55,19 +44,18 @@ public class Event {
 
 	@Override
 	public String toString() {
-		return "Events [naem=" + name + ", budget=" + budget + ", invitedGuests=" + invitedGuests + ", hostingParty="
-				+ hostingParty + ", id=" + id + "]";
-	}
-
-	public List<Employee> getInvitedGuests() {
-		return invitedGuests;
-	}
-
-	public void setInvitedGuests(List<Employee> invitedGuests) {
-		this.invitedGuests = invitedGuests;
+		return "Events [naem=" + name + ", budget=" + budget + ", invitedGuests="+"]";
 	}
 
 	
+
+	public List<Employee_event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(List<Employee_event> events) {
+		this.events = events;
+	}
 
 	public Long getId() {
 		return id;
