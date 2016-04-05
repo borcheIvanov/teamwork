@@ -10,6 +10,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 @Table(name="Employee")
 public class Employee {
@@ -30,6 +32,9 @@ public class Employee {
 	private String email;
 	
 	private boolean active;
+
+	@NotEmpty
+	private String username, password;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinColumn(name = "invited_id")
@@ -42,6 +47,22 @@ public class Employee {
 	
 ////////////////////////////////////////////////////////
 	///////get set
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 	public boolean isActive() {
 		return active;
 	}
@@ -90,13 +111,6 @@ public class Employee {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
-	@Override
-	public String toString() {
-		return "People [Name=" + Name + ", Surname=" + Surname + ", email=" + email + ", active=" + active + ", invited="
-				+ invited + ", hosting=" + hosting + ", id=" + id + ", money=" + money + "]";
-	}
 
 	public double getMoney() {
 		return money;
@@ -106,9 +120,11 @@ public class Employee {
 		this.money = money;
 	}
 	
-	
-
-	
-
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", money=" + money + ", Name=" + Name + ", Surname=" + Surname + ", email="
+				+ email + ", active=" + active + ", username=" + username + ", password=" + password + ", invited="
+				+ invited + ", hosting=" + hosting + "]";
+	}
 
 }

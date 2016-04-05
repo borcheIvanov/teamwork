@@ -37,8 +37,9 @@ public class EmployeeServiceImpl implements EmployeeService{
 		return (ArrayList<Employee>) employeeRepository.getInvitedEmployeeForEventId(id);
 	}
 
-	
-	
+	public Employee login(String username, String pass) {
+		return employeeRepository.login(username, pass);
+	}
 	
 	
 }

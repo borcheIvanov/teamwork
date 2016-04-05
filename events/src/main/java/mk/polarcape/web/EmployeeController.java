@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import mk.polarcape.model.Login;
 import mk.polarcape.model.Employee;
-import mk.polarcape.service.LoginService;
 import mk.polarcape.service.EmployeeService;
 
 @RestController
@@ -21,8 +19,6 @@ import mk.polarcape.service.EmployeeService;
 public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
-	@Autowired
-	private LoginService loginService;
 
 	@RequestMapping(value = "/employee", method = RequestMethod.GET)
 	@ResponseBody
@@ -64,8 +60,8 @@ public class EmployeeController {
 	
 	@RequestMapping(value = "/login/{username}/{pass}", method = RequestMethod.GET)
 	@ResponseBody
-	public Login login(@PathVariable String username, @PathVariable String pass) {
-		return loginService.login(username, pass);
+	public Employee login(@PathVariable String username, @PathVariable String pass) {
+		return employeeService.login(username, pass);
 	}
 	
 }

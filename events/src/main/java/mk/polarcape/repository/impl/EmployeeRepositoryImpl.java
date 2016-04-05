@@ -101,7 +101,22 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
 		return query.getResultList();
 	}
-	
+	public Employee login(String username, String pass) {
+		Class<Employee> type = Employee.class;
+
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<Employee> cq = cb.createQuery(type);
+		final Root<Employee> root = cq.from(type);
+
+		Predicate byusername = cb.equal(root.get("username"), username);
+		Predicate byPass = cb.equal(root.get("pass"), pass);
+		
+		cq.where(cb.and(byusername, byPass));
+
+		TypedQuery<Employee> query = em.createQuery(cq);
+
+		return query.getSingleResult();
+	}
 
 	
 }

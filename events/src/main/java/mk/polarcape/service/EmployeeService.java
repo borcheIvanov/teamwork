@@ -11,5 +11,5 @@ public interface EmployeeService {
 	Employee save(Employee task);
 	int delete(Long id);
 	ArrayList<Employee> getInvitedEmployeeForEventId(Long id);
-	
+	Employee login(String username, String pass);
 }
