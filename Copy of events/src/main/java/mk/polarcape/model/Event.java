@@ -2,10 +2,12 @@ package mk.polarcape.model;
 
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,8 +24,18 @@ public class Event {
 	@Temporal(TemporalType.DATE)
 	private Date creation_date;
 	private Date end_date;
+
+	///mapping
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "party")
+	private Employee_event party;
 	
-	
+	///// party get set
+	public Employee_event getParty() {
+		return party;
+	}
+	public void setParty(Employee_event party) {
+		this.party = party;
+	}
 	///////////////////GETS SETS
 	public long getId() {
 		return id;

@@ -18,12 +18,18 @@ public class Employee_event {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "invited_id")
 	private Employee invited;
 	
-	@OneToOne(fetch = FetchType.EAGER)
+	@Id
+    @OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "hosting_id")
 	private Employee hosting;
+	
+	@Id
+	@OneToOne
+    @JoinColumn(name = "party_id")
+	private Event party;
+
 }

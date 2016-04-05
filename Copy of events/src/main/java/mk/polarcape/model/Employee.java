@@ -2,6 +2,7 @@ package mk.polarcape.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,8 +11,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name="Employee")
 public class Employee {
@@ -23,15 +22,31 @@ public class Employee {
 	@Size(min=1, max=40)
 	private String name,surname,email;
 	
-	@OneToMany(mappedBy = "invited")
-	@JsonIgnore
-	private List<Employee> invitedGuests;
+	private boolean active;
+	//////maping
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "hosting")
+	private Employee_event hosting;
 	
-	@OneToOne(mappedBy = "hosting")
-	@JsonIgnore
-	private Employee hostingParty;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "invited")
+	private List<Employee_event> invited;
 	
-	
+	/////mapping getters setters
+	public Employee_event getHosting() {
+		return hosting;
+	}
+
+	public void setHosting(Employee_event hosting) {
+		this.hosting = hosting;
+	}
+
+	public List<Employee_event> getInvited() {
+		return invited;
+	}
+
+	public void setInvited(List<Employee_event> invited) {
+		this.invited = invited;
+	}
+
 	///////////////setters and getters
 	public long getId() {
 		return id;
@@ -63,6 +78,14 @@ public class Employee {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 	
 	
