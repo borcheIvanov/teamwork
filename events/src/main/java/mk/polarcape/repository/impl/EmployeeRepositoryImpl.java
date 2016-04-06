@@ -38,7 +38,38 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 		return query.getSingleResult();
 
 	}
+	public Employee findByUsername(String username) {
+		Class<Employee> type = Employee.class;
 
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<Employee> cq = cb.createQuery(type);
+		final Root<Employee> root = cq.from(type);
+
+		Predicate byusername = cb.equal(root.get("username"), username);
+
+		cq.where(byusername);
+
+		TypedQuery<Employee> query = em.createQuery(cq);
+
+		return query.getSingleResult();
+
+	}
+	public Employee findByEmail(String email) {
+		Class<Employee> type = Employee.class;
+
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<Employee> cq = cb.createQuery(type);
+		final Root<Employee> root = cq.from(type);
+
+		Predicate byEmail = cb.equal(root.get("email"), email);
+
+		cq.where(byEmail);
+
+		TypedQuery<Employee> query = em.createQuery(cq);
+
+		return query.getSingleResult();
+
+	}
 	public List<Employee> findAll() {
 		Class<Employee> type = Employee.class;
 

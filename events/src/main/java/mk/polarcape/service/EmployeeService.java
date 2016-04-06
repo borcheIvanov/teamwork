@@ -6,6 +6,8 @@ import mk.polarcape.model.Employee;
 
 public interface EmployeeService {
 	Employee findById(Long id);
+	Employee findByUsername(String username);
+	Employee findByEmail(String email);
 	List<Employee> findAll();
 	Employee save(Employee task);
 	int delete(Long id);

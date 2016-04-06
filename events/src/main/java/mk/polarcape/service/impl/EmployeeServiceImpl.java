@@ -19,6 +19,12 @@ public class EmployeeServiceImpl implements EmployeeService{
 	public Employee findById(Long id) {
 		return employeeRepository.findById(id);
 	}
+	public Employee findByUsername(String username) {
+		return employeeRepository.findByUsername(username);
+	}
+	public Employee findByEmail(String email) {
+		return employeeRepository.findByEmail(email);
+	}
 
 	public List<Employee> findAll() {
 		return employeeRepository.findAll();

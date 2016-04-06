@@ -32,6 +32,7 @@ public class EventController {
 	public Event getEventsById(@PathVariable Long id) {
 		return eventService.findById(id);
 	}
+	
 
 	@RequestMapping(value = "/event", method = RequestMethod.POST)
 	@ResponseBody
