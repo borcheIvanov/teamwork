@@ -1,19 +1,22 @@
-var app = angular.module('myApp', ['ngRoute']);
+angular.module('myApp', ['ui.router', 'log', 'reg', 'getService', 'postService', 'event'])
 
-app.config(function($routeProvider){
-	$routeProvider
-	.when('/',{
+.config(function($stateProvider, $urlRouterProvider){
+	$stateProvider
+	.state('login',{
+		url: '',
 		templateUrl: 'login.html',
 		controller: 'logCtrl'
 	})
-	.when('/register',{
-		templateUrl: 'register.html'
+	.state('register',{
+		url:'/register',
+		templateUrl: 'register.html',
+		controller: 'regCtrl'
 	})
-	.otherwise({
-		redirectTo: '/'
-	});
-});
-
-app.controller('logCtrl', function($scope, $location){
+	.state('events', {
+		url: '/events',
+		templateUrl: 'events.html',
+		controller: 'eventsCtrl'
+	})
 	
 });
+
