@@ -1,4 +1,4 @@
-angular.module('myApp', ['ui.router', 'log', 'reg', 'getService', 'postService'])
+angular.module('myApp', ['ui.router', 'log', 'reg', 'getService', 'postService', 'event'])
 
 .config(function($stateProvider, $urlRouterProvider){
 	$stateProvider
@@ -11,6 +11,11 @@ angular.module('myApp', ['ui.router', 'log', 'reg', 'getService', 'postService']
 		url:'/register',
 		templateUrl: 'register.html',
 		controller: 'regCtrl'
+	})
+	.state('events', {
+		url: '/events',
+		templateUrl: 'events.html',
+		controller: 'eventsCtrl'
 	})
 	
 });

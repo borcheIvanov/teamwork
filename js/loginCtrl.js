@@ -2,17 +2,17 @@ angular.module('log',[])
 .controller('logCtrl', function($scope, get){
 	$scope.init = function(){
 		$scope.error = '';
-		$scope.email = '';
+		$scope.userName = '';
 		$scope.password = '';
 	};
 	
 	$scope.access = function(){
-		get.login()
+		get.login($scope.userName, $scope.password)
 		.then(function(res){
 			console.log(res);
 		})
-		.then(function(err){
-			console.log(err);
+		.then(function(){
+			
 		})
 	};
 	

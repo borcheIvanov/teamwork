@@ -25,17 +25,22 @@ angular.module('reg', [])
 	
 	$scope.submit = function(){
 		var mail = true;
-		var userName = true;
+		var uName = true;
 		var temp = {
 			'name': $scope.firstName,
 			'surname': $scope.surName,
-			'active': true,
+			'username': $scope.userName,
+			'active': 'true',
 			'email': $scope.email,
+			'password': $scope.password
 		}
 		
 		for(i = 0; i < $scope.users.length; i++){
-			if($scope.users[i].email == $scope.email){
+			if($scope.users[i].email === $scope.email){
 				mail = false;
+			}
+			if($scope.userName === $scope.users[i].username){
+				uName = false;
 			}
 		}
 		
@@ -43,10 +48,12 @@ angular.module('reg', [])
 			$scope.error = 'password missmatch';
 		}else if(mail === false){
 			$scope.error = 'Email already in use.';
-			
+		}else if(uName === false){
+			$scope.error = 'Username taken.';
 		}else{
 			post.user(temp)
 			.then(function(){
+				
 				$scope.init();
 			})
 			.then(function(){

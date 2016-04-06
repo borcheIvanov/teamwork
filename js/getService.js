@@ -6,7 +6,7 @@ angular.module('getService', [])
 	data.users = function(){
 		var defer = $q.defer();
 		
-		$http.get('http://localhost:8080/events/api/people')
+		$http.get(url + '/api/employee')
 		.success(function(res){
 			
 			data.gg = res;
@@ -19,10 +19,11 @@ angular.module('getService', [])
 		return defer.promise;
 		
 	};
+	
 	data.events = function(){
 		var defer = $q.defer();
 		
-		$http.get('http://localhost:8080/src/api/task')
+		$http.get(url + '/api/event')
 		.success(function(res){
 			data.gg = res;
 			defer.resolve(res);
@@ -31,19 +32,22 @@ angular.module('getService', [])
 			defer.reject(err);
 		})
 		return defer.promise;
-	}
+	};
+	
 	data.login = function(user, pass){
 		var defer = $q.defer();
 		
-		$http.get('http://localhost:8080/events/api/login/' + user + '/' + pass)
+		$http.get(url + '/api/login/' + user + '/' + pass)
 		.success(function(res){
 			defer.resolve(res);
+			console.log('welcome');
 		})
 		.error(function(err, status){
 			defer.reject(err);
+			console.log('log in');
 		})
 		return defer.promise;
-	}
+	};
 	
 	return data;
 });
