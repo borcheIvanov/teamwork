@@ -26,16 +26,16 @@ public class EmployeeController {
 		return employeeService.findAll();
 	}
 
-	@RequestMapping(value = "/employee/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/employeeid/{id}", method = RequestMethod.GET)
 	public Employee getemployeeById(@PathVariable Long id) {
 		return employeeService.findById(id);
 	}
-	@RequestMapping(value = "/employee/{username}", method = RequestMethod.GET)
+	@RequestMapping(value = "/employeeusername/{username}", method = RequestMethod.GET)
 	@ResponseBody
 	public Employee getemployeeByUsername(@PathVariable String username) {
 		return employeeService.findByUsername(username);
 	}
-	@RequestMapping(value = "/employee/{email}", method = RequestMethod.GET)
+	@RequestMapping(value = "/employeemail/{email}", method = RequestMethod.GET)
 	@ResponseBody
 	public Employee getemployeeByEmail(@PathVariable String email) {
 		return employeeService.findByEmail(email);
