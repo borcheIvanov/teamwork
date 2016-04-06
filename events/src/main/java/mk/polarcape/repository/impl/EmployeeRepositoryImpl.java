@@ -85,22 +85,6 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 		return changes;
 
 	}
-
-	public List<Employee> getInvitedEmployeeForEventId(Long id) {
-		Class<Employee> type = Employee.class;
-
-		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<Employee> cq = cb.createQuery(type);
-		final Root<Employee> root = cq.from(type);
-
-		Predicate byInvited = cb.equal(root.get("invited"), id);
-
-		cq.where(byInvited);
-
-		TypedQuery<Employee> query = em.createQuery(cq);
-
-		return query.getResultList();
-	}
 	public Employee login(String username, String pass) {
 		Class<Employee> type = Employee.class;
 
@@ -109,7 +93,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 		final Root<Employee> root = cq.from(type);
 
 		Predicate byusername = cb.equal(root.get("username"), username);
-		Predicate byPass = cb.equal(root.get("pass"), pass);
+		Predicate byPass = cb.equal(root.get("password"), pass);
 		
 		cq.where(cb.and(byusername, byPass));
 

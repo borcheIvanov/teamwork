@@ -1,5 +1,7 @@
 package mk.polarcape.model;
 
+
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -8,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -25,6 +28,11 @@ public class Event {
 	@JsonIgnore
 	private List<Employee_event> events;
 	
+	 
+	    @NotNull
+	    private Date createdDate= new Date();
+	    
+	    private Date expirationDate;
 /////////////////////////////
 	public String getName() {
 		return name;
@@ -32,6 +40,19 @@ public class Event {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+
+	public Date getExpirationDate() {
+		return expirationDate;
+	}
+
+	public void setExpirationDate(Date expirationDate){
+		this.expirationDate = expirationDate;
+	}
+
+	public Date getCreatedDate() {
+		return createdDate;
 	}
 
 	public double getBudget() {

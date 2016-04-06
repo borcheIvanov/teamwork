@@ -1,6 +1,5 @@
 package mk.polarcape.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +30,6 @@ public class EmployeeServiceImpl implements EmployeeService{
 
 	public int delete(Long id) {
 		return employeeRepository.delete(id);
-	}
-
-	public ArrayList<Employee> getInvitedEmployeeForEventId(Long id) {
-		return (ArrayList<Employee>) employeeRepository.getInvitedEmployeeForEventId(id);
 	}
 
 	public Employee login(String username, String pass) {

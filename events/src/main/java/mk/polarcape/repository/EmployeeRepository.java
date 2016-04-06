@@ -9,7 +9,6 @@ public interface EmployeeRepository {
 	List<Employee> findAll();
 	Employee save(Employee task);
 	int delete(Long id);
-	List<Employee> getInvitedEmployeeForEventId(Long id);
 	Employee login(String username, String pass);
 	
 }
