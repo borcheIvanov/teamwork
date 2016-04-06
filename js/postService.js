@@ -20,6 +20,21 @@ angular.module('postService',[])
 		return defer.promise;
 	};
 	
+	data.events = function(evnt){
+		var defer = $q.defer();
+		
+		$http.post(url + '/api/event', evnt, config)
+		.success(function(res){
+			defer.resolve(res);
+			console.log('Event successfuly created!');
+		})
+		.error(function(err, status){
+			defer.reject(err);
+			console.log('Error!');
+		})
+		return defer.promise;
+	};
+	
 	
 	return data;
 });

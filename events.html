@@ -1,6 +1,21 @@
 <form> 
-	Title: <input type="text"> <br>
-	Budget: <input type="number"> <br>
-	Deadline: <input type="date">  <br>
-	<button type="button"> create event </button>
+	Title: <input type="text" ng-model="eventName"> <br>
+	Budget: <input type="number" ng-model="eventBudget"> <br>
+	Deadline: <input type="date" ng-model="eventDate">  <br>
+	<button type="button" ng-click="createEvent()"> create event </button> <br>
+	<div ng-repeat="user in users">
+		<input type="checkbox" value="{{user.username}}" ng-checked="selection.indexOf(user.username) > -1" ng-click="toggleSelection(user.id)"> {{user.username}} <br>
+	</div> <br>
+
+	{{selection}} <br>
+	
 </form>
+<br><hr>
+<div ng-repeat="e in events">
+<p>
+name: {{e.name}} <br>
+budget: {{e.budget}}<br>
+createdDate: {{e.createdDate}}<br>
+expirationDate: {{e.expirationDate}}
+</p>
+</div>
