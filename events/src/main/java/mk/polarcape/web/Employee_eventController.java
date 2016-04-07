@@ -30,7 +30,7 @@ public class Employee_eventController {
 	public Employee_event getEmployee_eventById(@PathVariable Long id) {
 		return Employee_eventService.findById(id);
 	}
-	////////////////////spec
+	////////////////////specialni
 	@RequestMapping(value = "/empeventinv/{events_id}", method = RequestMethod.GET)
 	public List<Employee_event> getEmployee_eventInvited(@PathVariable Long events_id) {
 		return Employee_eventService.selectInvited(events_id);
