@@ -12,6 +12,7 @@ angular.module('event', [])
 		
 		$scope.getEvents();
 		$scope.getUsers();
+		
 	};
 	
 	$scope.getEvents = function(){
@@ -40,13 +41,49 @@ angular.module('event', [])
 			'budget': $scope.eventBudget,
 			'expirationDate': $scope.eventDate
 		}
+		var money = ($scope.eventBudget) / ($scope.selection.length);
+ 		var newId;
+		//console.log($scope.selection);
+		newId = $scope.events[$scope.events.length-1].id + 1;
+		
+		for(i = 0; i < $scope.selection.length; i++){
+			var temp2 = {
+				'events_id': newId,
+				'hosting_id': '7',
+				'invited_id': $scope.selection[i]
+			}
+			post.empEvent(temp2)
+			.then(function(){
+				
+			})
+			.then(function(){
+				
+			})
+		}
+		$scope.postEvents(temp);
+		
+		
+	};
+	
+	$scope.postEvents = function(temp){
 		
 		post.events(temp)
 		.then(function(){
 			$scope.init();
 		})
 		.then(function(){
+			
+		});
+	};
+	
+	$scope.postEmpEvent = function(empEvent){
 		
+		post.empEvent(empEvent)
+		.then(function(){
+			$scope.init();
+		})
+		.then(function(){
+			
 		})
 	};
 	
