@@ -31,11 +31,14 @@ public class Employee_eventController {
 		return Employee_eventService.findById(id);
 	}
 	////////////////////spec
-	@RequestMapping(value = "/empevent/{invited_id}/{events_id}", method = RequestMethod.GET)
-	public List<Employee_event> getEmployee_eventInvited(@PathVariable Long invited_id,@PathVariable Long events_id) {
-		return Employee_eventService.selectInvited(invited_id, events_id);
+	@RequestMapping(value = "/empeventinv/{events_id}", method = RequestMethod.GET)
+	public List<Employee_event> getEmployee_eventInvited(@PathVariable Long events_id) {
+		return Employee_eventService.selectInvited(events_id);
 	}
-
+	@RequestMapping(value = "/empeventhost/{hosting_id}", method = RequestMethod.GET)
+	public List<Employee_event> getEmployee_eventHosting(@PathVariable Long hosting_id) {
+		return Employee_eventService.selectHosting(hosting_id);
+	}
 	@RequestMapping(value="/empevent", method = RequestMethod.POST)
 	@ResponseBody
 	public Employee_event createEmployee_event(@RequestBody Employee_event Employee_event){
