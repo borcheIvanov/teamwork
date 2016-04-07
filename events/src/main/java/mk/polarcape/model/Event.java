@@ -24,9 +24,9 @@ public class Event {
 	private String name;
 	private double budget;
 	
-	@OneToMany(mappedBy = "events")
+	@OneToMany(mappedBy = "events_id")
 	@JsonIgnore
-	private List<Employee_event> events;
+	private List<Employee_event> events_id;
 	
 	 
 	    @NotNull
@@ -70,12 +70,12 @@ public class Event {
 
 	
 
-	public List<Employee_event> getEvents() {
-		return events;
+	public List<Employee_event> getEvents_id() {
+		return events_id;
 	}
 
-	public void setEvents(List<Employee_event> events) {
-		this.events = events;
+	public void setEvents_id(List<Employee_event> events_id) {
+		this.events_id = events_id;
 	}
 
 	public Long getId() {

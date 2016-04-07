@@ -40,11 +40,11 @@ public class Employee {
 	@NotEmpty
 	private String password;
 	
-	@OneToMany(mappedBy = "invited")
+	@OneToMany(mappedBy = "invited_id")
 	@JsonIgnore
 	private List<Employee_event> invitedGuests;
 	
-	@OneToMany(mappedBy = "hosting")
+	@OneToMany(mappedBy = "hosting_id")
 	@JsonIgnore
 	private List<Employee_event> hostingParty;
 	

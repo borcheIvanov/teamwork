@@ -51,9 +51,9 @@ public class Employee_eventController {
 	public Employee_event updateEmployee_event(@PathVariable Long id, @RequestBody Employee_event Employee_event){
 		Employee_event currentEmployee_event = Employee_eventService.findById(id);
 		
-		currentEmployee_event.setHosting(Employee_event.getHosting());
-		currentEmployee_event.setInvited(Employee_event.getInvited());
-		currentEmployee_event.setEvents(Employee_event.getEvents());
+		currentEmployee_event.setHosting_id(Employee_event.getHosting_id());
+		currentEmployee_event.setInvited_id(Employee_event.getInvited_id());
+		currentEmployee_event.setEvents_id(Employee_event.getEvents_id());
 		currentEmployee_event.setMoneyOWNED(Employee_event.getMoneyOWNED());
 		
 		return Employee_eventService.save(currentEmployee_event);

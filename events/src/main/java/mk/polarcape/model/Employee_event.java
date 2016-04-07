@@ -19,15 +19,15 @@ public class Employee_event {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "invited_id")
-	private Employee invited;
+	private Employee invited_id;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "hosting_id")
-	private Employee hosting;
+	private Employee hosting_id;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "events_id")
-	private Event events;
+	private Event events_id;
 	
 	private double moneyOWNED;
 	
@@ -40,28 +40,28 @@ public class Employee_event {
 		this.id = id;
 	}
 
-	public Employee getInvited() {
-		return invited;
+	public Employee getInvited_id() {
+		return invited_id;
 	}
 
-	public void setInvited(Employee invited) {
-		this.invited = invited;
+	public void setInvited_id(Employee invited_id) {
+		this.invited_id = invited_id;
 	}
 
-	public Employee getHosting() {
-		return hosting;
+	public Employee getHosting_id() {
+		return hosting_id;
 	}
 
-	public void setHosting(Employee hosting) {
-		this.hosting = hosting;
+	public void setHosting_id(Employee hosting_id) {
+		this.hosting_id = hosting_id;
 	}
 
-	public Event getEvents() {
-		return events;
+	public Event getEvents_id() {
+		return events_id;
 	}
 
-	public void setEvents(Event events) {
-		this.events = events;
+	public void setEvents_id(Event events_id) {
+		this.events_id = events_id;
 	}
 
 	public double getMoneyOWNED() {

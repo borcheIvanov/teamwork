@@ -93,7 +93,7 @@ public class Employee_eventRepositoryImpl implements Employee_eventRepository {
 		final CriteriaQuery<Employee_event> cq = cb.createQuery(type);
 		final Root<Employee_event> root = cq.from(type);
 	
-		Predicate p2 = cb.equal(root.get("events"), events_id);
+		Predicate p2 = cb.equal(root.get("events_id"), events_id);
 		
 		cq.where(p2);
 
@@ -107,7 +107,7 @@ public class Employee_eventRepositoryImpl implements Employee_eventRepository {
 		final CriteriaQuery<Employee_event> cq = cb.createQuery(type);
 		final Root<Employee_event> root = cq.from(type);
 	
-		Predicate p2 = cb.equal(root.get("hosting"), hosting_id);
+		Predicate p2 = cb.equal(root.get("hosting_id"), hosting_id);
 		
 		cq.where(p2);
 
