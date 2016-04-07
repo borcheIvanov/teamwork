@@ -35,7 +35,7 @@ public class EmployeeController {
 	public Employee getemployeeByUsername(@PathVariable String username) {
 		return employeeService.findByUsername(username);
 	}
-	@RequestMapping(value = "/employeemail/{email}", method = RequestMethod.GET)
+	@RequestMapping(value = "/employeemail/{email:.+}", method = RequestMethod.GET)
 	@ResponseBody
 	public Employee getemployeeByEmail(@PathVariable String email) {
 		return employeeService.findByEmail(email);
