@@ -132,6 +132,4 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
 		return query.getSingleResult();
 	}
-
-	
 }

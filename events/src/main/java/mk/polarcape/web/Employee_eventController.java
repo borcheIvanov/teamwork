@@ -26,19 +26,24 @@ public class Employee_eventController {
 		return Employee_eventService.findAll();
 	}
 
-	@RequestMapping(value = "/Empevent/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/empevent/{id}", method = RequestMethod.GET)
 	public Employee_event getEmployee_eventById(@PathVariable Long id) {
 		return Employee_eventService.findById(id);
 	}
+	////////////////////spec
+	@RequestMapping(value = "/empevent/{invited_id}/{events_id}", method = RequestMethod.GET)
+	public List<Employee_event> getEmployee_eventInvited(@PathVariable Long invited_id,@PathVariable Long events_id) {
+		return Employee_eventService.selectInvited(invited_id, events_id);
+	}
 
-	@RequestMapping(value="/Empevent", method = RequestMethod.POST)
+	@RequestMapping(value="/empevent", method = RequestMethod.POST)
 	@ResponseBody
 	public Employee_event createEmployee_event(@RequestBody Employee_event Employee_event){
 		return Employee_eventService.save(Employee_event);
 	}
 	
 
-	@RequestMapping(value="/Empevent/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value="/empevent/{id}", method = RequestMethod.PUT)
 	@ResponseBody
 	public Employee_event updateEmployee_event(@PathVariable Long id, @RequestBody Employee_event Employee_event){
 		Employee_event currentEmployee_event = Employee_eventService.findById(id);
@@ -51,7 +56,7 @@ public class Employee_eventController {
 		return Employee_eventService.save(currentEmployee_event);
 	}
 	
-	@RequestMapping(value="/Empevent/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value="/empevent/{id}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public int deleteEmployee_event(@PathVariable Long id){
 		return Employee_eventService.delete(id);
