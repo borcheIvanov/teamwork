@@ -41,6 +41,7 @@ angular.module('getService', [])
 		.success(function(res){
 			defer.resolve(res);
 			console.log('welcome');
+			
 		})
 		.error(function(err, status){
 			defer.reject(err);
