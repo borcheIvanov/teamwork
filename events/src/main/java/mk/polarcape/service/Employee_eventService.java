@@ -9,4 +9,6 @@ public interface Employee_eventService {
 	List<Employee_event> findAll();
 	Employee_event save(Employee_event task);
 	int delete(Long id);
+	///other
+	public List<Employee_event> selectInvited(Long invited_id,Long events_id);
 }

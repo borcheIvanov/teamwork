@@ -1,14 +1,17 @@
 angular.module('event', [])
 .controller('eventsCtrl', function($scope, get, post){
+	
 	$scope.init = function(){
 		$scope.events = [];
 		$scope.users = [];
+		$scope.selection = [];
+		
 		$scope.eventName = '';
 		$scope.eventDate = '';
 		$scope.eventBudget = '';
+		
 		$scope.getEvents();
 		$scope.getUsers();
-		$scope.selection = [];
 	};
 	
 	$scope.getEvents = function(){

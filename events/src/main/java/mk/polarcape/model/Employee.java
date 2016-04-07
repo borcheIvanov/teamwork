@@ -2,6 +2,7 @@ package mk.polarcape.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,22 +22,23 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	private double money;
-	
+		
 	@Size(min=1, max=30)
 	private String Name;
 	
 	@Size(min=1, max=30)
 	private String Surname;
 	
-	@Size(min=3, max=50)
+	@Column(name = "email", nullable = false, unique=true)
 	private String email;
 	
 	private boolean active;
 
+	@Column(name = "username", nullable = false, unique=true)
+	private String username;
+	
 	@NotEmpty
-	private String username, password;
+	private String password;
 	
 	@OneToMany(mappedBy = "invited")
 	@JsonIgnore
@@ -98,18 +100,10 @@ public class Employee {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public double getMoney() {
-		return money;
-	}
-
-	public void setMoney(double money) {
-		this.money = money;
-	}
 	
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", money=" + money + ", Name=" + Name + ", Surname=" + Surname + ", email="
+		return "Employee [id=" + id + ", Name=" + Name + ", Surname=" + Surname + ", email="
 				+ email + ", active=" + active + ", username=" + username + ", password=" + password + "]";
 	}
 

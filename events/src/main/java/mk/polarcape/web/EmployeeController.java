@@ -30,7 +30,7 @@ public class EmployeeController {
 	public Employee getemployeeById(@PathVariable Long id) {
 		return employeeService.findById(id);
 	}
-	@RequestMapping(value = "/employeeusername/{username}", method = RequestMethod.GET)
+	@RequestMapping(value = "/employeeusername/{username}", method = RequestMethod.GET,produces="application/json")
 	@ResponseBody
 	public Employee getemployeeByUsername(@PathVariable String username) {
 		return employeeService.findByUsername(username);
@@ -40,6 +40,7 @@ public class EmployeeController {
 	public Employee getemployeeByEmail(@PathVariable String email) {
 		return employeeService.findByEmail(email);
 	}
+	
 	@RequestMapping(value="/employee", method = RequestMethod.POST)
 	@ResponseBody
 	public Employee createemployee(@RequestBody Employee employee){
