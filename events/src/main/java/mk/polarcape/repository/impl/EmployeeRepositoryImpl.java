@@ -12,6 +12,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Repository;
 
 import mk.polarcape.model.Employee;
@@ -116,20 +117,23 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 		return changes;
 
 	}
-	public Employee login(String username, String pass) {
+	public Employee login(String username, String pass){
+		TypedQuery<Employee> query = null;
+		Employee emp=findByUsername(username);
+		String pw_hash=emp.getPassword();
+		//String pw_hash = BCrypt.hashpw(password, BCrypt.gensalt(10)); 
+		if (BCrypt.checkpw(pass, pw_hash)){
 		Class<Employee> type = Employee.class;
-
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 		CriteriaQuery<Employee> cq = cb.createQuery(type);
 		final Root<Employee> root = cq.from(type);
 
 		Predicate byusername = cb.equal(root.get("username"), username);
-		Predicate byPass = cb.equal(root.get("password"), pass);
-		
-		cq.where(cb.and(byusername, byPass));
+		cq.where(byusername);
 
-		TypedQuery<Employee> query = em.createQuery(cq);
-
+		query = em.createQuery(cq);
+				}
 		return query.getSingleResult();
+		
 	}
 }

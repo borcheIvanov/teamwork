@@ -56,13 +56,14 @@ public class Employee {
 	}
 
 	public void setUsername(String username) {
+		
 		this.username = username;
 	}
 
+	//org.springframework.security.crypto.bcrypt.BCrypt
 	public String getPassword() {
 		return password;
 	}
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
