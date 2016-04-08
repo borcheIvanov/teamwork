@@ -1,5 +1,5 @@
 angular.module('getService', [])
-.service('get', function($http, $q){
+.service('get', function($http, $q, logged){
 	var data = this;
 	data.gg = [];
 	
@@ -40,7 +40,10 @@ angular.module('getService', [])
 		$http.get(url + '/api/login/' + user + '/' + pass)
 		.success(function(res){
 			defer.resolve(res);
-			console.log('welcome');
+			var temp = res;
+			console.log(temp);
+			logged.id = temp.id;
+			logged.username = temp.username;
 			
 		})
 		.error(function(err, status){
