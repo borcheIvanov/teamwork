@@ -19,6 +19,10 @@ angular.module('event', [])
 		get.events()
 		.then(function(res){
 			$scope.events = res;
+			for(i = 0; i < $scope.events.length; i++){
+				$scope.events[i].createdDate = $scope.dateFunc($scope.events[i].createdDate);
+				$scope.events[i].expirationDate = $scope.dateFunc($scope.events[i].expirationDate);
+			}
 		})
 		.then(function(){
 			
@@ -87,6 +91,12 @@ angular.module('event', [])
 		})
 	};
 	
+	$scope.dateFunc = function(date){
+		var temp = new Date(date).toUTCString().split(' ');
+		temp = temp[1] + ' ' + temp[2] + ' ' + temp[3]; 
+		return temp;
+	};
+	
 	$scope.toggleSelection = function(name){
 		var idx = $scope.selection.indexOf(name);
 		if(idx > -1){
@@ -97,6 +107,7 @@ angular.module('event', [])
 		}
 	};
 
+	
 	
 	
 	
