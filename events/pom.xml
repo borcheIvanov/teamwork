@@ -63,6 +63,11 @@
     </dependencyManagement>
 
     <dependencies>
+     <!-- milos add -->
+  <dependency>
+  <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+  </dependency>
         <dependency>
             <groupId>org.jadira.usertype</groupId>
             <artifactId>usertype.core</artifactId>
