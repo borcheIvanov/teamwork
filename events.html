@@ -11,11 +11,28 @@
 	
 </form>
 <br><hr>
-<div ng-repeat="e in events">
+<div ng-repeat="e in events" onclick="document.getElementById('id01').style.display='block'" style="cursor:pointer" ng-click="eventPanel(e.id)">
 	<p>
 		name: {{e.name}} <br>
 		budget: {{e.budget}}<br>
 		createdDate: {{e.createdDate}}<br>
 		expirationDate: {{e.expirationDate}}
 	</p>
+</div>
+
+<div id="id01" class="w3-modal">
+  <div class="w3-modal-content">
+    <header class="w3-container w3-teal"> 
+      <span onclick="document.getElementById('id01').style.display='none'" 
+      class="w3-closebtn">×</span>
+      <h2> {{panel[0].events_id.name}} </h2>
+    </header>
+    <div class="w3-container">
+      <p>Some text..</p>
+      <p>Some text..</p>
+    </div>
+    <footer class="w3-container w3-teal">
+      <p>Modal Footer</p>
+    </footer>
+  </div>
 </div>

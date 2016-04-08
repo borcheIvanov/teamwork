@@ -109,7 +109,17 @@ angular.module('event', [])
 		}
 	};
 
-	
+	$scope.eventPanel = function(id){
+		get.eventPan(id)
+		.then(function(res){
+			$scope.panel = res;
+			console.log($scope.panel);
+		})
+		.then(function(){
+			
+		})
+		
+	};
 	
 	
 	
