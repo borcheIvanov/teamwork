@@ -29,8 +29,11 @@ public class Employee_eventServiceImpl implements Employee_eventService {
 	public int delete(Long id) {
 		return Employee_eventRepository.delete(id);
 	}
-	public List<Employee_event> selectInvited(Long invited_id,Long events_id){
-		return Employee_eventRepository.selectInvited(invited_id, events_id);
+	public List<Employee_event> selectInvited(Long events_id){
+		return Employee_eventRepository.selectInvited(events_id);
+	}
+	public List<Employee_event> selectHosting(Long hosting_id){
+		return Employee_eventRepository.selectHosting(hosting_id);
 	}
 
 }

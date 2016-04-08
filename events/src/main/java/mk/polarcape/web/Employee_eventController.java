@@ -30,12 +30,15 @@ public class Employee_eventController {
 	public Employee_event getEmployee_eventById(@PathVariable Long id) {
 		return Employee_eventService.findById(id);
 	}
-	////////////////////spec
-	@RequestMapping(value = "/empevent/{invited_id}/{events_id}", method = RequestMethod.GET)
-	public List<Employee_event> getEmployee_eventInvited(@PathVariable Long invited_id,@PathVariable Long events_id) {
-		return Employee_eventService.selectInvited(invited_id, events_id);
+	////////////////////specialni
+	@RequestMapping(value = "/empeventinv/{events_id}", method = RequestMethod.GET)
+	public List<Employee_event> getEmployee_eventInvited(@PathVariable Long events_id) {
+		return Employee_eventService.selectInvited(events_id);
 	}
-
+	@RequestMapping(value = "/empeventhost/{hosting_id}", method = RequestMethod.GET)
+	public List<Employee_event> getEmployee_eventHosting(@PathVariable Long hosting_id) {
+		return Employee_eventService.selectHosting(hosting_id);
+	}
 	@RequestMapping(value="/empevent", method = RequestMethod.POST)
 	@ResponseBody
 	public Employee_event createEmployee_event(@RequestBody Employee_event Employee_event){
@@ -48,9 +51,9 @@ public class Employee_eventController {
 	public Employee_event updateEmployee_event(@PathVariable Long id, @RequestBody Employee_event Employee_event){
 		Employee_event currentEmployee_event = Employee_eventService.findById(id);
 		
-		currentEmployee_event.setHosting(Employee_event.getHosting());
-		currentEmployee_event.setInvited(Employee_event.getInvited());
-		currentEmployee_event.setEvents(Employee_event.getEvents());
+		currentEmployee_event.setHosting_id(Employee_event.getHosting_id());
+		currentEmployee_event.setInvited_id(Employee_event.getInvited_id());
+		currentEmployee_event.setEvents_id(Employee_event.getEvents_id());
 		currentEmployee_event.setMoneyOWNED(Employee_event.getMoneyOWNED());
 		
 		return Employee_eventService.save(currentEmployee_event);

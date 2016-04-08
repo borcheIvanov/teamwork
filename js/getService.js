@@ -41,7 +41,6 @@ angular.module('getService', [])
 		.success(function(res){
 			defer.resolve(res);
 			var temp = res;
-			console.log(temp);
 			logged.id = temp.id;
 			logged.username = temp.username;
 			

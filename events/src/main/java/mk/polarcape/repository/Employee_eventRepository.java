@@ -11,6 +11,7 @@ public interface Employee_eventRepository {
 	Employee_event save(Employee_event task);
 	int delete(Long id);
 	///
-	public List<Employee_event> selectInvited(Long invited_id,Long events_id);
+	public List<Employee_event> selectInvited(Long events_id);
+	public List<Employee_event> selectHosting(Long hosting_id);
 	
 }

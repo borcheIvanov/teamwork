@@ -1,6 +1,5 @@
 package mk.polarcape.repository.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -87,22 +86,29 @@ public class Employee_eventRepositoryImpl implements Employee_eventRepository {
 
 	}
 
-	public List<Employee_event> selectInvited(Long invited_id,Long events_id) {
+	public List<Employee_event> selectInvited(Long events_id) {
 		Class<Employee_event> type = Employee_event.class;
 
 		final CriteriaBuilder cb = em.getCriteriaBuilder();
 		final CriteriaQuery<Employee_event> cq = cb.createQuery(type);
 		final Root<Employee_event> root = cq.from(type);
-		List<Predicate> criteriaList = new ArrayList<Predicate>();
-
-
-		Predicate p1 = cb.equal(root.get("invited"), invited_id);
-		Predicate p2 = cb.equal(root.get("events"), events_id);
+	
+		Predicate p2 = cb.equal(root.get("events_id"), events_id);
 		
-		criteriaList.add(p1);
-		criteriaList.add(p2);
-		cb.and(criteriaList.toArray(new Predicate[0]));
-		cq.where(p1);
+		cq.where(p2);
+
+		final TypedQuery<Employee_event> query = em.createQuery(cq);
+		return query.getResultList();
+	}
+	public List<Employee_event> selectHosting(Long hosting_id) {
+		Class<Employee_event> type = Employee_event.class;
+
+		final CriteriaBuilder cb = em.getCriteriaBuilder();
+		final CriteriaQuery<Employee_event> cq = cb.createQuery(type);
+		final Root<Employee_event> root = cq.from(type);
+	
+		Predicate p2 = cb.equal(root.get("hosting_id"), hosting_id);
+		
 		cq.where(p2);
 
 		final TypedQuery<Employee_event> query = em.createQuery(cq);
