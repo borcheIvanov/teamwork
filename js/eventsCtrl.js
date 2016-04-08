@@ -1,20 +1,28 @@
 angular.module('event', [])
-.controller('eventsCtrl', function($scope, get, post){
+.controller('eventsCtrl', function($scope, get, post, logged){
+	
 	$scope.init = function(){
 		$scope.events = [];
 		$scope.users = [];
+		$scope.selection = [];
+		
 		$scope.eventName = '';
 		$scope.eventDate = '';
 		$scope.eventBudget = '';
+		
 		$scope.getEvents();
 		$scope.getUsers();
-		$scope.selection = [];
+		
 	};
 	
 	$scope.getEvents = function(){
 		get.events()
 		.then(function(res){
 			$scope.events = res;
+			for(i = 0; i < $scope.events.length; i++){
+				$scope.events[i].createdDate = $scope.dateFunc($scope.events[i].createdDate);
+				$scope.events[i].expirationDate = $scope.dateFunc($scope.events[i].expirationDate);
+			}
 		})
 		.then(function(){
 			
@@ -37,14 +45,53 @@ angular.module('event', [])
 			'budget': $scope.eventBudget,
 			'expirationDate': $scope.eventDate
 		}
+		var money = ($scope.eventBudget) / ($scope.selection.length);
+ 		
+		$scope.postEvents(temp);
+		$scope.getEvents();
+		
+		var newId = $scope.events[$scope.events.length-1].id + 1;
+		
+		for(i = 0; i < $scope.selection.length; i++){
+			var temp2 = {"invited_id":{"id":$scope.selection[i]},"hosting_id":{"id":logged.id},"events_id":{"id":newId},"moneyOWNED":money};
+			post.empEvent(temp2)
+			.then(function(){
+				
+			})
+			.then(function(){
+				
+			})
+		}
+		
+		$scope.init();
+	};
+	
+	$scope.postEvents = function(temp){
 		
 		post.events(temp)
 		.then(function(){
 			$scope.init();
 		})
 		.then(function(){
+			
+		});
+	};
+	
+	$scope.postEmpEvent = function(empEvent){
 		
+		post.empEvent(empEvent)
+		.then(function(){
+			$scope.init();
 		})
+		.then(function(){
+			
+		})
+	};
+	
+	$scope.dateFunc = function(date){
+		var temp = new Date(date).toUTCString().split(' ');
+		temp = temp[1] + ' ' + temp[2] + ' ' + temp[3]; 
+		return temp;
 	};
 	
 	$scope.toggleSelection = function(name){
@@ -57,6 +104,7 @@ angular.module('event', [])
 		}
 	};
 
+	//wtf^
 	
 	
 	
