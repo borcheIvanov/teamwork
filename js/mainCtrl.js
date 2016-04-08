@@ -19,6 +19,7 @@ angular.module('myApp', ['ui.router', 'log', 'reg', 'getService', 'postService',
 	});
 	$urlRouterProvider.otherwise('/');
 })
+
 .run(function(logged, $rootScope, $state) {
     $rootScope.$on('$stateChangeStart',
         function(event, toState, toParams, fromState, fromParams){

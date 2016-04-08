@@ -1,5 +1,5 @@
 angular.module('event', [])
-.controller('eventsCtrl', function($scope, get, post){
+.controller('eventsCtrl', function($scope, get, post, logged){
 	
 	$scope.init = function(){
 		$scope.events = [];
@@ -52,9 +52,9 @@ angular.module('event', [])
 		
 		for(i = 0; i < $scope.selection.length; i++){
 			var temp2 = {
-				'events_id': newId,
-				'hosting_id': '7',
-				'invited_id': $scope.selection[i]
+				'events': {'id': newId},
+				'hosting': {'id': logged.id},
+				'invited': {'id': $scope.selection[i]}
 			}
 			post.empEvent(temp2)
 			.then(function(){
