@@ -24,8 +24,8 @@ angular.module('myApp', ['ui.router', 'log', 'reg', 'getService', 'postService',
     $rootScope.$on('$stateChangeStart',
         function(event, toState, toParams, fromState, fromParams){
 			if(toState.name === 'events' &&  logged.username === ''){
-				event.preventDefault();
-				$state.go('login');
+				//event.preventDefault();
+				//$state.go('login');
 			}
 		});
 });

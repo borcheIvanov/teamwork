@@ -53,5 +53,18 @@ angular.module('getService', [])
 		return defer.promise;
 	};
 	
+	data.eventPan = function(id){
+		var defer = $q.defer();
+		
+		$http.get(url + '/api/empeventinv/' + id)
+		.success(function(res){
+			defer.resolve(res);
+		})
+		.error(function(err,status){
+			defer.reject(err);
+		})
+		return defer.promise;
+	};
+	
 	return data;
 });
