@@ -58,7 +58,7 @@ angular.module('reg', [])
 			})
 			.then(function(){
 				
-			});
+			})
 		}
 	};
 	
