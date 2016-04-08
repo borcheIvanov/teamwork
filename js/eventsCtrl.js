@@ -44,17 +44,19 @@ angular.module('event', [])
 			'name' : $scope.eventName,
 			'budget': $scope.eventBudget,
 			'expirationDate': $scope.eventDate
+			
 		}
 		var money = ($scope.eventBudget) / ($scope.selection.length);
- 		var newId;
-		//console.log($scope.selection);
-		newId = $scope.events[$scope.events.length-1].id + 1;
+		$scope.postEvents(temp);
+ 		$scope.getEvents();
+		var newId = $scope.events[$scope.events.length-1].id + 1;
 		
 		for(i = 0; i < $scope.selection.length; i++){
 			var temp2 = {
-				'events': {'id': newId},
-				'hosting': {'id': logged.id},
-				'invited': {'id': $scope.selection[i]}
+				'events_id': {'id': newId},
+				'hosting_id': {'id': logged.id},
+				'invited_id': {'id': $scope.selection[i]},
+				'moneyOWNED' : money
 			}
 			post.empEvent(temp2)
 			.then(function(){
@@ -64,7 +66,7 @@ angular.module('event', [])
 				
 			})
 		}
-		$scope.postEvents(temp);
+		
 		
 		
 	};
