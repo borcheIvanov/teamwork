@@ -66,7 +66,7 @@ public class EmployeeController {
 		currentemployee.setUsername(employee.getUsername());
 		currentemployee.setPassword(pw_hash);
 		currentemployee.setActive(employee.isActive());
-	//	System.out.println("json password after hashing :" + currentemployee.getPassword());
+	//	System.out.println("password after hashing :" + currentemployee.getPassword());
 		
 		return employeeService.save(currentemployee);
 	}
