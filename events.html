@@ -26,13 +26,15 @@
       <span onclick="document.getElementById('id01').style.display='none'" 
       class="w3-closebtn">×</span>
       <h2> {{panel[0].events_id.name}} </h2>
+	  <p> Created: {{panel[0].events_id.createdDate}} By: {{panel[0].hosting_id.name}} </p>
     </header>
     <div class="w3-container">
-      <p>Some text..</p>
-      <p>Some text..</p>
+      <ul ng-repeat="p in panel">
+		 <li>  {{p.invited_id.name}} </li>
+	  </ul>
     </div>
     <footer class="w3-container w3-teal">
-      <p>Modal Footer</p>
+      <p>Expiration date: {{panel[0].events_id.expirationDate}}</p>
     </footer>
   </div>
 </div>

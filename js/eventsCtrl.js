@@ -113,6 +113,8 @@ angular.module('event', [])
 		get.eventPan(id)
 		.then(function(res){
 			$scope.panel = res;
+			$scope.panel[0].events_id.createdDate = $scope.dateFunc($scope.panel[0].events_id.createdDate);
+			$scope.panel[0].events_id.expirationDate = $scope.dateFunc($scope.panel[0].events_id.expirationDate);
 			console.log($scope.panel);
 		})
 		.then(function(){
