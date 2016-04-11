@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,6 +45,8 @@ public class EmployeeController {
 	@RequestMapping(value="/employee", method = RequestMethod.POST)
 	@ResponseBody
 	public Employee createemployee(@RequestBody Employee employee){
+		String pw_hash = BCrypt.hashpw(employee.getPassword(), BCrypt.gensalt(10)); 
+		employee.setPassword(pw_hash);
 		return employeeService.save(employee);
 	}
 	
@@ -53,12 +56,17 @@ public class EmployeeController {
 	public Employee updateemployee(@PathVariable Long id, @RequestBody Employee employee){
 		Employee currentemployee = employeeService.findById(id);
 		
+	//	System.out.println("json password is :" + employee.getPassword());
 		currentemployee.setName(employee.getName());
 		currentemployee.setSurname(employee.getSurname());
 		currentemployee.setEmail(employee.getEmail());
+		///////////////////////////
+		String pw_hash = BCrypt.hashpw(employee.getPassword(), BCrypt.gensalt(10)); 
+		/////////////////////////
 		currentemployee.setUsername(employee.getUsername());
-		currentemployee.setPassword(employee.getPassword());
+		currentemployee.setPassword(pw_hash);
 		currentemployee.setActive(employee.isActive());
+	//	System.out.println("json password after hashing :" + currentemployee.getPassword());
 		
 		return employeeService.save(currentemployee);
 	}
@@ -72,7 +80,6 @@ public class EmployeeController {
 	@RequestMapping(value = "/login/{username}/{pass}", method = RequestMethod.GET)
 	@ResponseBody
 	public Employee login(@PathVariable String username, @PathVariable String pass) {
-		return employeeService.login(username, pass);
+		return employeeService.login(username,  pass);
 	}
-	
 }
