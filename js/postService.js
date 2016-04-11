@@ -8,9 +8,10 @@ angular.module('postService',[])
 	};
 	data.user = function(user){
 		var defer = $q.defer();
-		$http.post( url + '/api/employee', user, config)
+		$http.post(url + '/api/employee', user, config)
 		.success(function(res){
 			defer.resolve(res);
+			console.log(res);
 			
 		})
 		.error(function(err, status){
