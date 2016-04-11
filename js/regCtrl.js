@@ -52,7 +52,7 @@ angular.module('reg', [])
 			$scope.error = 'Username taken.';
 		}else{
 			post.user(temp)
-			.then(function(){
+			.then(function(res){
 				
 				$scope.init();
 			})
