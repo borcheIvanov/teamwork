@@ -32,12 +32,35 @@
 							-->
 							
 							<div class="btn-group">
-  								<button data-toggle="dropdown" class="btn dropdown-toggle"  data-placeholder="Please select">Checked option <span class="caret"></span></button>
-    								<ul class="dropdown-menu">
-      									<li><input type="checkbox" id="id"><label for="ID" name="name" value="value">Label</label></li>
-    
-    								</ul>
+  								<button  ng-click="showUsers()" class="btn dropdown-toggle"  data-placeholder="Please select">Invite users<span class="caret"></span></button>
+    								
 							</div>
+							
+							<div ng-hide="clicked">
+								<div class="row">
+									<div class="col-sm-6">
+									Click to select user
+										<table class="table table-condensed table-hover" style="height:200px; background-color:grey; color:white">
+											
+											<tr ng-repeat="user in users">
+												<td ng-click="select($index)"> {{user.username}} </td>
+											</tr>
+											
+										</table>
+									</div>
+									<div class="col-sm-6">
+										Selected users
+										<table class="table table-condensed table-hover" style="height:200px; background-color:grey; color:white">
+											
+											<tr ng-repeat="user in selection">
+												<td> {{user.username}} </td>
+											</tr>
+											
+										</table>
+									</div>
+								</div>
+							</div>
+							
 							<button type="button" ng-click="createEvent()" class="btn btn-block">Create Event</button>
 						</form>
 						
