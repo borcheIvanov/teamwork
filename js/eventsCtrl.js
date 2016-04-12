@@ -89,14 +89,28 @@ angular.module('event', [])
 	
 	$scope.select = function(index){
 		$scope.selection.push($scope.users[index]);
-		/*for(i = 0; i < $scope.users.length; i++){
-			if($scope.users[i] === index){
+		for(i = 0; i < $scope.users.length; i++){
+			if(i === index){
 				for(j = i; j < $scope.users.length-1; j++ ){
 					$scope.users[j] = $scope.users[j+1];
 				}
 			}
 		}
-		$scope.users.length = $scope.users.length - 1; */
+		$scope.users.length = $scope.users.length - 1; 
+	};
+	
+	$scope.deselect = function(index){
+		console.log(index);
+		$scope.users.push($scope.selection[index]);
+		for(i = 0; i < $scope.selection.length; i++){
+			if(i === index){
+				for(j = i; j < $scope.selection.length-1; j++ ){
+					$scope.selection[j] = $scope.selection[j+1];
+				}
+			}
+			console.log($scope.selection);
+		}
+		$scope.users.length = $scope.users.length - 1; 
 	};
 
 	$scope.eventPanel = function(id){

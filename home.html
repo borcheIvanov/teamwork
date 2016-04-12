@@ -52,8 +52,8 @@
 										Selected users
 										<table class="table table-condensed table-hover" style="height:200px; background-color:grey; color:white">
 											
-											<tr ng-repeat="user in selection">
-												<td> {{user.username}} </td>
+											<tr ng-repeat="user in users">
+												<td ng-click="select($index)"> {{user.username}} </td>
 											</tr>
 											
 										</table>
