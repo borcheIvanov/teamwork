@@ -1,0 +1,25 @@
+<div>
+<br>
+<h1>emp events</h1>
+
+<br>
+current user hosting events
+<ul>
+  <li ng-repeat="x in eventhost">
+  {{$index}} -- invited username:{{x.invited_id.username}} -- invited id: {{ x.invited_id.id}} -- money owned to you: {{x.moneyOWNED}} -- event name {{x.events_id.name}}
+  </li>
+</ul>
+current user invited to events
+<ul>
+  <li ng-repeat="x in eventwhere">
+  {{$index}} -- host username:{{x.hosting_id.username}} -- host id: {{ x.hosting_id.id}} -- money owned to host: {{x.moneyOWNED}}
+  </li>
+</ul>
+invited people to event
+<ul>
+  <li ng-repeat="x in eventinv">
+  {{$index}} -- host username:{{x.hosting_id.username}} -- invited username:{{x.invited_id.username}} -- money owned: {{x.moneyOWNED}}
+  </li>
+</ul>
+
+</div>

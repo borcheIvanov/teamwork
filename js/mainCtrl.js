@@ -1,4 +1,4 @@
-angular.module('myApp', ['ui.router', 'log', 'reg', 'getService', 'postService', 'event', 'value'])
+angular.module('myApp', ['ui.router', 'log', 'reg', 'getService', 'postService', 'event', 'value','mybills'])
 
 .config(function($stateProvider, $urlRouterProvider){
 	$stateProvider
@@ -16,6 +16,11 @@ angular.module('myApp', ['ui.router', 'log', 'reg', 'getService', 'postService',
 		url: '/events',
 		templateUrl: 'events.html',
 		controller: 'eventsCtrl'
+	})
+	.state('mybills', {
+		url: '/mybills',
+		templateUrl: 'mybills.html',
+		controller: 'mybillsCtrl'
 	});
 	$urlRouterProvider.otherwise('/');
 })
@@ -24,9 +29,11 @@ angular.module('myApp', ['ui.router', 'log', 'reg', 'getService', 'postService',
     $rootScope.$on('$stateChangeStart',
         function(event, toState, toParams, fromState, fromParams){
 			if(toState.name === 'events' &&  logged.username === ''){
-				//event.preventDefault();
-				//$state.go('login');
+				event.preventDefault();
+				$state.go('login');
 			}
+			
 		});
-});
+})
+
 

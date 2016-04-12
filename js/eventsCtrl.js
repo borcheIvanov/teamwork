@@ -1,5 +1,5 @@
 angular.module('event', [])
-.controller('eventsCtrl', function($scope, get, post, logged){
+.controller('eventsCtrl', function($scope, get, post, logged, $rootScope){
 	
 	$scope.init = function(){
 		$scope.events = [];
@@ -23,6 +23,8 @@ angular.module('event', [])
 				$scope.events[i].createdDate = $scope.dateFunc($scope.events[i].createdDate);
 				$scope.events[i].expirationDate = $scope.dateFunc($scope.events[i].expirationDate);
 			}
+			$rootScope.newId = $scope.events[$scope.events.length-1].id + 1;
+			
 		})
 		.then(function(){
 			
@@ -49,26 +51,22 @@ angular.module('event', [])
 		var money = ($scope.eventBudget) / ($scope.selection.length);
 		$scope.postEvents(temp);
  		$scope.getEvents();
-		var newId = $scope.events[$scope.events.length-1].id + 1;
 		
-		for(i = 0; i < $scope.selection.length; i++){
-			var temp2 = {
-				'events_id': {'id': newId},
-				'hosting_id': {'id': logged.id},
-				'invited_id': {'id': $scope.selection[i]},
-				'moneyOWNED' : money
-			}
-			post.empEvent(temp2)
-			.then(function(){
-				
-			})
-			.then(function(){
-				
-			})
-		}
-		
-		
-		
+				for(i = 0; i < $scope.selection.length; i++){
+					var temp2 = {
+						'events_id': {'id': $rootScope.newId},
+						'hosting_id': {'id': logged.id},
+						'invited_id': {'id': $scope.selection[i]},
+						'moneyOWNED' : money
+					}
+					post.empEvent(temp2)
+					.then(function(){
+						
+					})
+					.then(function(){
+						
+					})
+				}
 	};
 	
 	$scope.postEvents = function(temp){
@@ -80,17 +78,6 @@ angular.module('event', [])
 		.then(function(){
 			
 		});
-	};
-	
-	$scope.postEmpEvent = function(empEvent){
-		
-		post.empEvent(empEvent)
-		.then(function(){
-			$scope.init();
-		})
-		.then(function(){
-			
-		})
 	};
 	
 	$scope.dateFunc = function(date){
