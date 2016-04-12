@@ -13,8 +13,8 @@ angular.module('myApp', ['ui.router', 'log', 'reg', 'getService', 'postService',
 		controller: 'regCtrl'
 	})
 	.state('events', {
-		url: '/events',
-		templateUrl: 'events.html',
+		url: '/home',
+		templateUrl: 'home.html',
 		controller: 'eventsCtrl'
 	})
 	.state('mybills', {
