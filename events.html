@@ -1,16 +1,67 @@
-<br><br><br>
-<form> 
-	Title: <input type="text" ng-model="eventName"> <br>
-	Budget: <input type="number" ng-model="eventBudget"> <br>
-	Deadline: <input type="date" ng-model="eventDate">  <br>
-	<button type="button" ng-click="createEvent()"> create event </button> <br>
-	<div ng-repeat="user in users">
-		<input type="checkbox" value="{{user.username}}" ng-checked="selection.indexOf(user.username) > -1" ng-click="toggleSelection(user.id)"> {{user.username}} <br>
-	</div> <br>
-
-	{{selection}} <br>
-	
-</form>
+<div class="top-content">
+	 <!--  <div class="overlay dark"></div>-->
+	<div class="inner-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2 text">
+					<!--  <div class="logo">
+						<h1><a href="#">Polar Cape</a></h1>                        	
+                	</div>-->
+                    <div class="description"></div>
+				</div> 
+			</div>
+			<div class="row">
+				<div class="col-sm-6 form-box">
+					<div class="form-bottom">
+						<form role="form" class="registration-form" name="regForm">	
+							<div class="form-group">
+								<label class="sr-only" for="form-title">Title</label>
+								<input type="text" name="username" placeholder="Title..." class="form-title form-control" id="form-title" ng-model="eventName" required>
+							</div>
+							<div class="form-group">
+								<label class="sr-only" for="form-budget">Budget</label>
+								<input type="number" name="name" placeholder="Budget..." class="form-first-name form-control no-border" id="form-budget" ng-model="eventBudget" required>
+							</div>
+							<div class="form-group">
+								<label class="sr-only" for="form-deadline">Deadline:</label>
+								<input type="date" name="surname" placeholder="Deadline:..." class="form-last-name form-control" id="form-deadline" ng-model="eventDate" required>
+							</div>
+							<!--  <div ng-repeat="user in users">
+								<input type="checkbox" value="{{user.username}}" ng-checked="selection.indexOf(user.username) > -1" ng-click="toggleSelection(user.id)"> {{user.username}} <br>
+							</div>
+							-->
+							
+							<div class="btn-group">
+  								<button data-toggle="dropdown" class="btn dropdown-toggle"  data-placeholder="Please select">Checked option <span class="caret"></span></button>
+    								<ul class="dropdown-menu">
+      									<li><input type="checkbox" id="id"><label for="ID" name="name" value="value">Label</label></li>
+    
+    								</ul>
+							</div>
+							<button type="button" ng-click="createEvent()" class="btn btn-block">Create Event</button>
+						</form>
+						
+					</div>
+					<div class="form-bottom">
+					</div>
+				</div>
+				<div class="col-sm-6 form-box-event">
+					<div class="form-list">
+							<h3 class="register-text text-center">List of Events</h3>
+					</div>
+					<div class="form-bottom">
+						<div>
+							<span><a>Birthday Event</a></span>
+							<span><a>Monika</a></span>
+							<span><a>Budget</a></span>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 <br><hr>
 <div ng-repeat="e in events" onclick="document.getElementById('id01').style.display='block'" style="cursor:pointer" ng-click="eventPanel(e.id)">
 	<p>
@@ -27,7 +78,7 @@
       <span onclick="document.getElementById('id01').style.display='none'" 
       class="w3-closebtn">×</span>
       <h2> {{panel[0].events_id.name}} </h2>
-	  <p> Created: {{panel[0].events_id.createdDate}} By: {{panel[0].hosting_id.username}} </p>
+	  <p> Created: {{panel[0].events_id.createdDate}} By: {{panel[0].hosting_id.name}} </p>
     </header>
     <div class="w3-container">
       <ul ng-repeat="p in panel">
