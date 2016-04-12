@@ -9,6 +9,7 @@ angular.module('event', [])
 		$scope.eventName = '';
 		$scope.eventDate = '';
 		$scope.eventBudget = '';
+		$scope.clicked = true;
 		
 		$scope.getEvents();
 		$scope.getUsers();
@@ -86,14 +87,16 @@ angular.module('event', [])
 		return temp;
 	};
 	
-	$scope.toggleSelection = function(name){
-		var idx = $scope.selection.indexOf(name);
-		if(idx > -1){
-			$scope.selection.splice(idx, 1);
+	$scope.select = function(index){
+		$scope.selection.push($scope.users[index]);
+		/*for(i = 0; i < $scope.users.length; i++){
+			if($scope.users[i] === index){
+				for(j = i; j < $scope.users.length-1; j++ ){
+					$scope.users[j] = $scope.users[j+1];
+				}
+			}
 		}
-		else{
-			$scope.selection.push(name);
-		}
+		$scope.users.length = $scope.users.length - 1; */
 	};
 
 	$scope.eventPanel = function(id){
@@ -108,6 +111,14 @@ angular.module('event', [])
 			
 		})
 		
+	};
+	
+	$scope.showUsers = function(){
+		if($scope.clicked === true){
+			$scope.clicked = false;
+		}else{
+			$scope.clicked = true;
+		}
 	};
 	
 	
