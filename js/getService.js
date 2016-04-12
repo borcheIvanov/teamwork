@@ -66,5 +66,44 @@ angular.module('getService', [])
 		return defer.promise;
 	};
 	
+	data.eventhost = function(id){
+		var defer = $q.defer();
+		
+		$http.get(url + '/api/empeventhost/' + id)
+		.success(function(res){
+			defer.resolve(res);
+		})
+		.error(function(err,status){
+			defer.reject(err);
+		})
+		return defer.promise;
+	};
+	
+	data.eventinv = function(id){
+		var defer = $q.defer();
+		
+		$http.get(url + '/api/empeventinv/' + id)
+		.success(function(res){
+			defer.resolve(res);
+		})
+		.error(function(err,status){
+			defer.reject(err);
+		})
+		return defer.promise;
+	};
+	
+	data.eventwhere = function(id){
+		var defer = $q.defer();
+		
+		$http.get(url + '/api/empeventwhere/' + id)
+		.success(function(res){
+			defer.resolve(res);
+		})
+		.error(function(err,status){
+			defer.reject(err);
+		})
+		return defer.promise;
+	};
+	
 	return data;
 });
