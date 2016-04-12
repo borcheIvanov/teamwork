@@ -36,4 +36,9 @@ public class Employee_eventServiceImpl implements Employee_eventService {
 		return Employee_eventRepository.selectHosting(hosting_id);
 	}
 
+	public List<Employee_event> selectWhere(Long invited_id) {
+		return Employee_eventRepository.selectWhere(invited_id);
+	
+	}
+
 }

@@ -39,6 +39,10 @@ public class Employee_eventController {
 	public List<Employee_event> getEmployee_eventHosting(@PathVariable Long hosting_id) {
 		return Employee_eventService.selectHosting(hosting_id);
 	}
+	@RequestMapping(value = "/empeventwhere/{invited_id}", method = RequestMethod.GET)
+	public List<Employee_event> getEmployee_eventWhere(@PathVariable Long invited_id) {
+		return Employee_eventService.selectWhere(invited_id);
+	}
 	@RequestMapping(value="/empevent", method = RequestMethod.POST)
 	@ResponseBody
 	public Employee_event createEmployee_event(@RequestBody Employee_event Employee_event){

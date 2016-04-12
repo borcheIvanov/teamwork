@@ -40,12 +40,13 @@ public class EmployeeController {
 	@ResponseBody
 	public Employee getemployeeByEmail(@PathVariable String email) {
 		return employeeService.findByEmail(email);
-	}
-	
+	}	
 	@RequestMapping(value="/employee", method = RequestMethod.POST)
 	@ResponseBody
 	public Employee createemployee(@RequestBody Employee employee){
+		//////////////////////////////////
 		String pw_hash = BCrypt.hashpw(employee.getPassword(), BCrypt.gensalt(10)); 
+		/////////////////
 		employee.setPassword(pw_hash);
 		return employeeService.save(employee);
 	}

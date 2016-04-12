@@ -114,4 +114,19 @@ public class Employee_eventRepositoryImpl implements Employee_eventRepository {
 		final TypedQuery<Employee_event> query = em.createQuery(cq);
 		return query.getResultList();
 	}
+
+	public List<Employee_event> selectWhere(Long invited_id) {
+		Class<Employee_event> type = Employee_event.class;
+
+		final CriteriaBuilder cb = em.getCriteriaBuilder();
+		final CriteriaQuery<Employee_event> cq = cb.createQuery(type);
+		final Root<Employee_event> root = cq.from(type);
+	
+		Predicate p2 = cb.equal(root.get("invited_id"), invited_id);
+		
+		cq.where(p2);
+
+		final TypedQuery<Employee_event> query = em.createQuery(cq);
+		return query.getResultList();
+	}
 }
