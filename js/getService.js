@@ -1,5 +1,5 @@
 angular.module('getService', [])
-.service('get', function($http, $q, logged){
+.service('get', function($http, $q, logged, $cookies){
 	var data = this;
 	data.gg = [];
 	
@@ -44,6 +44,9 @@ angular.module('getService', [])
 			console.log(temp);
 			logged.id = temp.id;
 			logged.username = temp.username;
+			
+			$cookies.put('cookie_username', logged.username);
+			$cookies.put('cookie_id', logged.id);
 			
 		})
 		.error(function(err, status){
