@@ -10,6 +10,7 @@ $scope.init = function(){
 	$scope.getEventwhere();
 	$scope.getEventinv();
 };
+
 console.log(logged.id);
 $scope.getEventhost = function(){
 		get.eventhost(logged.id)
@@ -33,8 +34,8 @@ $scope.getEventhost = function(){
 		})
 	};
 	
-	$scope.getEventinv = function(){
-		get.eventinv(1)
+	$scope.getEventinv = function(id){
+		get.eventinv(id)
 		.then(function(res){
 			$scope.eventinv = res;
 			

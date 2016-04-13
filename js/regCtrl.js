@@ -1,5 +1,5 @@
 angular.module('reg', [])
-.controller('regCtrl', function($scope, get, post){
+.controller('regCtrl', function($scope, get, post, $state){
 	
 	$scope.init = function(){
 		$scope.getAll();
@@ -54,11 +54,20 @@ angular.module('reg', [])
 			post.user(temp)
 			.then(function(res){
 				
-				$scope.init();
+				get.login($scope.userName, $scope.password)
+				.then(function(res){
+					$scope.error = '';
+					$state.go('events');
+				})
+				.then(function(err, status){
+					
+				});
+				
 			})
 			.then(function(){
 				
 			})
+		
 		}
 	};
 	
