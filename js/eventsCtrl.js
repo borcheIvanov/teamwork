@@ -97,6 +97,7 @@ angular.module('event', [])
 			}
 		}
 		$scope.users.length = $scope.users.length - 1; 
+		console.log(index);
 	};
 	
 	$scope.deselect = function(index){
