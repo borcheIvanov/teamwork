@@ -314,6 +314,17 @@ button.btn.btn-block {
   	-o-background-size: cover;
   	background-size: cover;
 }
+.top-content-mybills {
+	background: url(../images/mybills-bg.jpg) no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+
+.overlay {
+    background: rgba(24,64,76,0.6);
+}
 
 .navbar {
 	margin-bottom: 0;
@@ -413,7 +424,7 @@ ul.navbar-nav li a:hover:after, ul.navbar-nav li a:focus:after {
     min-height: 100%;
     top: 0;
     left: 0;
-    background: #000;
+    background: rgba(241, 246, 247, 0.9);
     opacity: 0.4;
     filter: alpha(opacity=40);
 }
