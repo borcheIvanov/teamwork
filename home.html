@@ -26,10 +26,7 @@
 								<label class="sr-only" for="form-deadline">Deadline:</label>
 								<input type="date" name="surname" placeholder="Deadline:..." class="form-last-name form-control" id="form-deadline" ng-model="eventDate" required>
 							</div>
-							<!--  <div ng-repeat="user in users">
-								<input type="checkbox" value="{{user.username}}" ng-checked="selection.indexOf(user.username) > -1" ng-click="toggleSelection(user.id)"> {{user.username}} <br>
-							</div>
-							-->
+							
 							
 							<div class="btn-group">
   								<button  ng-click="showUsers()" class="btn dropdown-toggle"  data-placeholder="Please select">Invite users<span class="caret"></span></button>
@@ -53,7 +50,7 @@
 										<table class="table table-condensed table-hover" style="height:200px; background-color:grey; color:white">
 											
 											<tr ng-repeat="user in users">
-												<td ng-click="select($index)"> {{user.username}} </td>
+												<td ng-click="select('bla')"> {{user.username}} </td>
 											</tr>
 											
 										</table>
@@ -74,9 +71,9 @@
 					</div>
 					<div class="form-bottom">
 						<div>
-							<span><a>Birthday Event</a></span>
-							<span><a>Monika</a></span>
-							<span><a>Budget</a></span>
+							<span><a>Birthday Event</a></span> <br>
+							<span><a>Monika</a></span> <br>
+							<span><a>Budget</a></span> <br>
 						</div>
 					</div>
 					
