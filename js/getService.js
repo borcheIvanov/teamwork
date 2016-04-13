@@ -48,6 +48,7 @@ angular.module('getService', [])
 			$cookies.put('cookie_username', logged.username);
 			$cookies.put('cookie_id', logged.id);
 			
+			
 		})
 		.error(function(err, status){
 			defer.reject(err);

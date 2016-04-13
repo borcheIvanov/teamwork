@@ -33,11 +33,11 @@
     								
 							</div>
 							
-							<div ng-hide="clicked">
+							<div ng-hide="clicked"  style="height:200px">
 								<div class="row">
 									<div class="col-sm-6">
 									Click to select user
-										<table class="table table-condensed table-hover" style="height:200px; background-color:grey; color:white">
+										<table  style="color:white; cursor:pointer" >
 											
 											<tr ng-repeat="user in users">
 												<td ng-click="select($index)"> {{user.username}} </td>
@@ -47,10 +47,10 @@
 									</div>
 									<div class="col-sm-6">
 										Selected users
-										<table class="table table-condensed table-hover" style="height:200px; background-color:grey; color:white">
+										<table  style="color:white; cursor:pointer">
 											
-											<tr ng-repeat="user in users">
-												<td ng-click="select('bla')"> {{user.username}} </td>
+											<tr ng-repeat="user in selection">
+												<td ng-click="deselect($index)"> {{user.username}} </td>
 											</tr>
 											
 										</table>
@@ -58,7 +58,7 @@
 								</div>
 							</div>
 							
-							<button type="button" ng-click="createEvent()" class="btn btn-block">Create Event</button>
+							<button type="button" ng-click="createEvent()" class="btn btn-block"> Create Event </button>
 						</form>
 						
 					</div>
@@ -70,10 +70,9 @@
 							<h3 class="register-text text-center">List of Events</h3>
 					</div>
 					<div class="form-bottom">
-						<div>
-							<span><a>Birthday Event</a></span> <br>
-							<span><a>Monika</a></span> <br>
-							<span><a>Budget</a></span> <br>
+						<div ng-repeat="event in events">
+							<span style="cursor:pointer" ng-click="eventPanel(event.id)"> <a> {{event.name}} <br> Budget: {{event.budget}} <br> {{event.expirationDate}}</a></span> <hr>
+							
 						</div>
 					</div>
 					

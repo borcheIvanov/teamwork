@@ -1,5 +1,5 @@
 angular.module('event', [])
-.controller('eventsCtrl', function($scope, get, post, logged, $rootScope){
+.controller('eventsCtrl', function($scope, get, post, logged){
 	
 	$scope.init = function(){
 		$scope.events = [];
@@ -24,8 +24,6 @@ angular.module('event', [])
 				$scope.events[i].createdDate = $scope.dateFunc($scope.events[i].createdDate);
 				$scope.events[i].expirationDate = $scope.dateFunc($scope.events[i].expirationDate);
 			}
-			$rootScope.newId = $scope.events[$scope.events.length-1].id + 1;
-			
 		})
 		.then(function(){
 			
@@ -50,31 +48,50 @@ angular.module('event', [])
 			
 		}
 		var money = ($scope.eventBudget) / ($scope.selection.length);
-		$scope.postEvents(temp);
- 		$scope.getEvents();
 		
-				for(i = 0; i < $scope.selection.length; i++){
-					var temp2 = {
-						'events_id': {'id': $rootScope.newId},
-						'hosting_id': {'id': logged.id},
-						'invited_id': {'id': $scope.selection[i]},
-						'moneyOWNED' : money
+		document.body.style.cursor = 'progress';
+		
+			post.events(temp)
+			.then(function(){
+				get.events()
+				.then(function(res){
+					var lastId = res;
+					var newId = lastId[lastId.length-1].id;
+					
+					console.log($scope.selection);
+					for(i = 0; i < $scope.selection.length; i++){
+						var temp2 = {
+							'events_id': {'id': newId},
+							'hosting_id': {'id': logged.id},
+							'invited_id': {'id': $scope.selection[i].id},
+							'moneyOWNED' : money
+						}
+						post.empEvent(temp2)
+						.then(function(){
+							
+						})
+						.then(function(){
+							
+						})
 					}
-					post.empEvent(temp2)
-					.then(function(){
-						
-					})
-					.then(function(){
-						
-					})
-				}
+					document.body.style.cursor = 'auto';
+					$scope.init();
+				})
+				.then(function(){
+					
+				})
+			})
+			.then(function(){
+				
+			});	
+			
 	};
 	
 	$scope.postEvents = function(temp){
 		
 		post.events(temp)
 		.then(function(){
-			$scope.init();
+			
 		})
 		.then(function(){
 			
@@ -97,11 +114,11 @@ angular.module('event', [])
 			}
 		}
 		$scope.users.length = $scope.users.length - 1; 
-		console.log(index);
+		
 	};
 	
 	$scope.deselect = function(index){
-		console.log(index);
+		
 		$scope.users.push($scope.selection[index]);
 		for(i = 0; i < $scope.selection.length; i++){
 			if(i === index){
@@ -109,9 +126,9 @@ angular.module('event', [])
 					$scope.selection[j] = $scope.selection[j+1];
 				}
 			}
-			console.log($scope.selection);
+			
 		}
-		$scope.users.length = $scope.users.length - 1; 
+		$scope.selection.length = $scope.selection.length - 1; 
 	};
 
 	$scope.eventPanel = function(id){
