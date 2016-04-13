@@ -36,6 +36,10 @@ h3 {
     line-height: 30px;
 }
 
+h4.fweight {
+	font-weight: 300;
+}
+
 .form-top-left .login-text, .register-text {
 	color: #fff;
 }
@@ -410,6 +414,36 @@ ul.navbar-nav li a:hover:after, ul.navbar-nav li a:focus:after {
     opacity: 1;
 }
 
+a.list-group-item.active {
+    background-color: #3E3C3D;
+    opacity: 0.8;
+    border: none;
+}
+
+.modal-header {
+    background: #EC008C;
+    opacity: 0.8;
+    color: #fff;
+    border-radius: 4px 4px 0 0;
+    border-bottom: grey;
+}
+
+.modal-body {
+    background: #EAE7E9;
+    opacity: 0.7;
+}
+
+a.list-group-item.active {
+    background-color: #3E3C3D;
+    border: none;
+}
+
+.modal-footer {
+    background: #D3D6D6;
+}
+
+
+
 -webkit-text-fill-color: red !important;
 
 
@@ -427,6 +461,10 @@ ul.navbar-nav li a:hover:after, ul.navbar-nav li a:focus:after {
     background: rgba(241, 246, 247, 0.9);
     opacity: 0.4;
     filter: alpha(opacity=40);
+}
+
+div#b {
+    display: block;
 }
 
 

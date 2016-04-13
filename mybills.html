@@ -7,14 +7,65 @@
 			            <h3>Events Informations</h3>
 			            <!-- tabs left -->
 			            <div class="tabbable">
-			                <ul class="nav nav-pills nav-stacked col-md-3">
-			                    <li class="active"><a href="#a" data-toggle="tab" onclick="return false;">current user hosting events</a></li>
-			                    <li><a href="#b" data-toggle="tab" onclick="return false;">current user invited to events</a></li>
-			                </ul>
-			                <div class="tab-content col-md-9">
-			                    <div class="tab-pane active  text-center" id="a"><a href="#" style="color: white;">Wedding Events &nbsp Budget: 500$</a></div>
-			                    <div class="tab-pane" id="b">Secondo sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.</div>
-			                </div>
+			            	
+				                <ul class="nav nav-pills nav-stacked col-md-3">
+				                    <li class="active"><a href="#a #myModal" data-toggle="tab" onclick="return false;">current user hosting events</a></li>
+				                    
+				                    <li><a href="#b #yourModal" data-toggle="tab" onclick="return false;">current user invited to events</a></li>
+				                    
+				                </ul>
+			                
+			             
+				                <div class="tab-content col-md-9">
+				                    <div class="tab-pane active  text-center" id="a">
+				                    	<a data-toggle="modal" href="#myModal" style="color: white;" onclick="return false;">Wedding Events &nbsp Budget: 500$</a>
+				                    	<div id="myModal" class="modal fade" role="dialog">
+										<div class="modal-dialog">
+										    <!-- Modal content-->
+										    <div class="modal-content">
+										      	<div class="modal-header">
+											        <button type="button" class="close" data-dismiss="modal">&times;</button>
+											        <h4 class="modal-title fweight">All invited users on Weddind Event</h4>
+										      	</div>
+										      	<div class="modal-body">
+										      		<div class="list-group">
+														  <a href="#" class="list-group-item active" onclick="return false;">
+														    <h4 class="list-group-item-heading text-left fweight">User Name: </h4>
+														    <h4 class="list-group-item-heading text-left fweight">User Debt: </h4>
+														  </a>
+													</div>
+										      	</div>
+										      	<div class="modal-footer">
+										        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										      	</div>
+										    </div>
+									  	</div>
+									</div>
+				                    </div>
+		                    	
+		                    	
+				                    <div class="tab-pane" text-center id="b">
+				                    	<a data-toggle="modal" href="#yourModal" style="color: white;" onclick="return false;">List of events on current user</a>
+				                    	<div id="yourModal" class="modal fade" role="dialog">
+										<div class="modal-dialog">
+										    <!-- Modal content-->
+										    <div class="modal-content">
+											    <div class="modal-header">
+											        <button type="button" class="close" data-dismiss="modal">&times;</button>
+											        <h4 class="modal-title">Modal Header</h4>
+											    </div>
+												<div class="modal-body">
+													<p>Some text in the modal.</p>
+												</div>
+										 		<div class="modal-footer">
+										        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										  		</div>
+										    </div>
+										</div>
+									</div>
+				                    </div>
+				                </div>
+		                	
 			            </div>
 			            <!-- /tabs -->
 			        </div>
