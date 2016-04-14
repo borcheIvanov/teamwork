@@ -1,4 +1,4 @@
-angular.module('myApp', ['ui.router', 'log', 'reg', 'getService', 'postService', 'event', 'value', 'mybills', 'ngCookies'])
+angular.module('myApp', ['ui.router', 'log', 'reg', 'getService', 'postService', 'event', 'value', 'mybills', 'ngCookies', 'putService'])
 
 .config(function($stateProvider, $urlRouterProvider){
 	$stateProvider

@@ -9,19 +9,18 @@
 			            <div class="tabbable">
 			                <ul class="nav nav-pills nav-stacked col-md-3">
 			                    <li class="active"><a href="#hosting-events" data-toggle="tab" onclick="return false;" ng-click="switchPanel()"> See your hosting events </a></li>
-			                    <li><a href="#invited-to-events" data-toggle="tab" onclick="return false;" ng-click="switchPanel()"> See events you are invited to </a></li>
+			                    <li><a href="#invited-to-events" data-toggle="tab" onclick="return false;" ng-click="switchPanel(); getEventwhere()"> See events you are invited to </a></li>
 			                </ul>
-			                <div class="tab-content col-md-9 all-events-list-accoridon-div" ng-repeat="event in eventhost">
+			                <div class="col-md-9" >
 							
-			                    <div class="tab-pane active  text-center" id="hosting-events" ng-hide="switched">
-									
-										<a data-toggle="modal" href="#modal-view-bills" style="color: black;" onclick="return false;" data-toggle="tooltip" title="Click to see more..." ng-click="getEventinv(event.events_id.name)"> {{event.events_id.name}} &nbsp; Budget: {{event.events_id.budget}} den. &nbsp; &nbsp; Created on: {{event.events_id.createdDate}} &nbsp; &nbsp; Deadline: {{event.events_id.expirationDate}}</a> <hr>
-									
+			                    <div class="tab-pane active  text-center" id="hosting-events" ng-hide="switched" ng-repeat="event in new_inv">	
+									<p data-toggle="modal" href="#modal-view-bills" style="color: black;cursor:pointer" onclick="return false;" data-toggle="tooltip" title="Click to see more..." ng-click="getEventinv(event.events_id.id)"> {{event.events_id.name}} &nbsp; Budget: {{event.events_id.budget}} den. &nbsp; &nbsp; Created on: {{event.events_id.createdDate}} &nbsp; &nbsp; Deadline: {{event.events_id.expirationDate}}</p> 
 							   </div>
 							   
-			                    <div class="tab-pane" text-center id="invited-to-events" ng-show="switched">
-			                    	<a data-toggle="modal" href="#modal-view-bills" style="color: black;" onclick="return false;"  data-toggle="tooltip" title="Click to see more...">List of events that the current user is invited</a> 
+			                    <div class="tab-pane text-center" id="invited-to-events" ng-show="switched" ng-repeat="event in eventwhere">
+			                    	<p data-toggle="modal" href="#modalNew" style="color: black; cursor:pointer" onclick="return false;"  data-toggle="tooltip" title="Click to see more..."> {{event.events_id.name}} created by: {{event.hosting_id.username}}</p> 
 			                    </div>
+								
 			                </div> 
 			            </div>
 			        </div>
@@ -35,15 +34,30 @@
 		    <!-- Modal content-->
 		    <div class="modal-content">
 		      	<div class="modal-header">
-			        <h4 class="modal-title fweight">List of all invited users on Weddind Event</h4>
+			        <h4 class="modal-title fweight">List of invited users on {{eventinv[0].events_id.name}} </h4>
 		      	</div>
 		      	<div class="modal-body">
-		      		<div class="list-group">
-					    <h4 class="list-group-item-heading text-left fweight">Meri Boskovska &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-500 den.</h4>
-					    <h4 class="list-group-item-heading text-left fweight">Kire Mojsovski &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-500 den.</h4>
-					    <h4 class="list-group-item-heading text-left fweight">Maja Angelova</h4>
-					    <h4 class="list-group-item-heading text-left fweight">Kristina Boskovska</h4>
-					    <h4 class="list-group-item-heading text-left fweight">Tome Kostovski</h4>
+		      		<div class="list-group" ng-repeat="user in eventinv">
+					    <h4 class="list-group-item-heading text-left fweight"> {{user.invited_id.name}} {{user.invited_id.surname}} ({{user.invited_id.username}})  <span style="float:right"> -{{user.moneyOWNED}} den. &emsp; <button ng-click="payMoney(user.id)"> Paid </button> </span> </h4>
+					</div>
+		      	</div>
+		      	<div class="modal-footer">
+		        	<button type="button" class="btn btn-default" data-dismiss="modal"> Close </button>
+		      	</div>
+		    </div>
+	  	</div>
+	</div>
+	
+	<div id="modalNew" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+		    <!-- Modal content-->
+		    <div class="modal-content">
+		      	<div class="modal-header">
+			        <h4 class="modal-title fweight">List</h4>
+		      	</div>
+		      	<div class="modal-body">
+		      		<div class="list-group" ng-repeat="user in eventinv">
+					    <h4 class="list-group-item-heading text-left fweight"> new modal <span style="float:right"> -{{user.moneyOWNED}} den. &emsp; <button> Paid </button> </span> </h4>
 					</div>
 		      	</div>
 		      	<div class="modal-footer">
