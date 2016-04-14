@@ -38,13 +38,14 @@ public class Employee_eventServiceImpl implements Employee_eventService {
 	public Employee_event save(Employee_event Employee_event) {
 	         Event evn = EventRepository.findById(Employee_event.getEvents_id().getId());
 	         Employee emp = EmployeeRepository.findById(Employee_event.getInvited_id().getId());
+	         Employee emph = EmployeeRepository.findById(Employee_event.getHosting_id().getId());
 	        SimpleMailMessage mailMessage=new SimpleMailMessage();
 	          try{     
 	       mailMessage.setTo(emp.getEmail());
-	       mailMessage.setFrom("polarcape@outlook.com");
+	       mailMessage.setFrom("milospolarcape@outlook.com");
 	        mailMessage.setSubject("Event");
 	        mailMessage.setText("Dear " +emp.getName() +"\n "+emp.getEmail() + "\n You have been invited to attend the event: "
-	        		+ evn.getName() + " created by:" + emp.getName() + "\n"
+	        		+ evn.getName() + " created by:" + emph.getName() + "\n"
 	        				+ "money for the event is "+ Employee_event.getMoneyOWNED() );
 	        
 	        System.out.println("Dear " +emp.getName() +"\n "+emp.getEmail() +"\n You have been invited to attend the event: "
