@@ -8,17 +8,21 @@
 			            <!-- tabs -->
 			            <div class="tabbable">
 			                <ul class="nav nav-pills nav-stacked col-md-3">
-			                    <li class="active"><a href="#hosting-events" data-toggle="tab" onclick="return false;">See your hosting events</a></li>
-			                    <li><a href="#invited-to-events" data-toggle="tab" onclick="return false;">See events you are invited to</a></li>
+			                    <li class="active"><a href="#hosting-events" data-toggle="tab" onclick="return false;" ng-click="switchPanel()"> See your hosting events </a></li>
+			                    <li><a href="#invited-to-events" data-toggle="tab" onclick="return false;" ng-click="switchPanel()"> See events you are invited to </a></li>
 			                </ul>
-			                <div class="tab-content col-md-9 all-events-list-accoridon-div">
-			                    <div class="tab-pane active  text-center" id="hosting-events">
-			                    	<a data-toggle="modal" href="#modal-view-bills" style="color: black;" onclick="return false;" data-toggle="tooltip" title="Click to see more...">Wedding Event &nbsp Budget: 500$ &nbsp&nbsp Created on-12 may 2016 &nbsp&nbsp Deadline-30 may 2016</a>
+			                <div class="tab-content col-md-9 all-events-list-accoridon-div" ng-repeat="event in eventhost">
+							
+			                    <div class="tab-pane active  text-center" id="hosting-events" ng-hide="switched">
+									
+										<a data-toggle="modal" href="#modal-view-bills" style="color: black;" onclick="return false;" data-toggle="tooltip" title="Click to see more..." ng-click="getEventinv(event.events_id.name)"> {{event.events_id.name}} &nbsp; Budget: {{event.events_id.budget}} den. &nbsp; &nbsp; Created on: {{event.events_id.createdDate}} &nbsp; &nbsp; Deadline: {{event.events_id.expirationDate}}</a> <hr>
+									
+							   </div>
+							   
+			                    <div class="tab-pane" text-center id="invited-to-events" ng-show="switched">
+			                    	<a data-toggle="modal" href="#modal-view-bills" style="color: black;" onclick="return false;"  data-toggle="tooltip" title="Click to see more...">List of events that the current user is invited</a> 
 			                    </div>
-			                    <div class="tab-pane" text-center id="invited-to-events">
-			                    	<a data-toggle="modal" href="#modal-view-bills" style="color: black;" onclick="return false;"  data-toggle="tooltip" title="Click to see more...">List of events that the current user is invited</a>
-			                    </div>
-			                </div>
+			                </div> 
 			            </div>
 			        </div>
 			    </div>
@@ -35,15 +39,15 @@
 		      	</div>
 		      	<div class="modal-body">
 		      		<div class="list-group">
-					    <h4 class="list-group-item-heading text-left fweight">Meri Boskovska &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-500$</h4>
-					    <h4 class="list-group-item-heading text-left fweight">Kire Mojsovski &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-500$</h4>
+					    <h4 class="list-group-item-heading text-left fweight">Meri Boskovska &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-500 den.</h4>
+					    <h4 class="list-group-item-heading text-left fweight">Kire Mojsovski &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-500 den.</h4>
 					    <h4 class="list-group-item-heading text-left fweight">Maja Angelova</h4>
 					    <h4 class="list-group-item-heading text-left fweight">Kristina Boskovska</h4>
 					    <h4 class="list-group-item-heading text-left fweight">Tome Kostovski</h4>
 					</div>
 		      	</div>
 		      	<div class="modal-footer">
-		        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        	<button type="button" class="btn btn-default" data-dismiss="modal"> Close </button>
 		      	</div>
 		    </div>
 	  	</div>
