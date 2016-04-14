@@ -1,5 +1,5 @@
 <div class="top-content">
-	  <!-- <div class="overlay dark"></div> -->
+	<!-- <div class="home-overlay"></div>  -->
 	<div class="inner-bg">
 		<div class="container">
 			<div class="row">
@@ -12,7 +12,7 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-6 form-box">
-					<div class="form-bottom">
+					<div class="form-bottom  pos-events">
 						<form role="form" class="registration-form" name="regForm">	
 							<div class="form-group">
 								<label class="sr-only" for="form-title">Title</label>
@@ -36,7 +36,7 @@
 							<div ng-hide="clicked">
 								<div class="row">
 									<div class="col-sm-6" style="overflow:auto; height:200px">
-									Click to select user
+									<span class="sellect-user-color">Click to select user</span>
 										<table class="table"  style="color:white; cursor:pointer" >
 											
 											<tr ng-repeat="user in users">
@@ -46,7 +46,7 @@
 										</table>
 									</div>
 									<div class="col-sm-6" style="overflow:auto; height:200px">
-										Selected users
+										<span class="user-color">Selected users</span>
 										<table  class="table" style="color:white; cursor:pointer">
 											
 											<tr ng-repeat="user in selection">
@@ -69,9 +69,9 @@
 					<div class="form-list">
 							<h3 class="register-text text-center">List of Events</h3>
 					</div>
-					<div class="form-bottom">
-						<div ng-repeat="event in events">
-							<span style="cursor:pointer" ng-click="eventPanel(event.id)"> <a> {{event.name}} <br> Budget: {{event.budget}} <br> {{event.expirationDate}}</a></span> <hr>
+					<div class="form-bottom list-bg" style="overflow:auto; height: 416px">
+						<div class="events-border" ng-repeat="event in events">
+							<span style="cursor:pointer" ng-click="eventPanel(event.id)"> <a class="list-color"> {{event.name}} <br> Budget: {{event.budget}} <br> {{event.expirationDate}}</a></span> 
 							
 						</div>
 					</div>
