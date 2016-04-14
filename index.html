@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="js/libs/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	 
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	
@@ -21,20 +21,24 @@
     <script src="js/background-image-stretch.js"></script>
 	
 	
-	<!-- Controllers -->
+	<!-- References -->
 	<script src="js/mainCtrl.js"> </script>
 	<script src="js/uiRouter.js"> </script>
 	<script src="js/ngCookies.js"> </script>
 	<script src="js/globals.js"> </script>
 	
+	<!-- Services -->
+	<script src="js/getService.js"> </script>
+	<script src="js/postService.js"> </script>
+	<script src="js/putService.js"> </script>
+	<script src="js/value.js"> </script>
+	
+	<!-- Controllers -->
 	<script src="js/loginCtrl.js"> </script>
 	<script src="js/regCtrl.js"> </script>
 	<script src="js/eventsCtrl.js"> </script>
 	<script src="js/mybillsCtrl.js"> </script>
 	
-	<script src="js/getService.js"> </script>
-	<script src="js/postService.js"> </script>
-	<script src="js/value.js"> </script>
 	
 </head>
 <body ng-app="myApp">
@@ -63,8 +67,7 @@
 </nav>
 
 
-<div ui-view>
-</div>
+<div ui-view> </div>
 
 </body>
 </html>

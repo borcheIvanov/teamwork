@@ -44,8 +44,8 @@ angular.module('event', [])
 		var temp = {
 			'name' : $scope.eventName,
 			'budget': $scope.eventBudget,
-			'expirationDate': $scope.eventDate
-			
+			'expirationDate': $scope.eventDate,
+			'createdBy': logged.username
 		}
 		var money = ($scope.eventBudget) / ($scope.selection.length);
 		
