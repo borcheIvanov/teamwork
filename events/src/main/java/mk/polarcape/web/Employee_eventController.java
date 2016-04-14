@@ -19,6 +19,18 @@ import mk.polarcape.service.Employee_eventService;
 public class Employee_eventController {
 	@Autowired
 	private Employee_eventService Employee_eventService;
+	
+	/*@Scheduled(fixedRate=5000)
+	private void mailoNotifier(){
+		Employee_eventService.mailNotifier();
+		System.out.println("inside checking");
+	};
+	
+	
+	public Employee_eventController() {
+		mailoNotifier();
+	}*/
+
 
 	@RequestMapping(value = "/empevent", method = RequestMethod.GET)
 	@ResponseBody
@@ -68,4 +80,6 @@ public class Employee_eventController {
 	public int deleteEmployee_event(@PathVariable Long id){
 		return Employee_eventService.delete(id);
 }
+	
 }
+
