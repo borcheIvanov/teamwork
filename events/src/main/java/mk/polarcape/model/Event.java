@@ -33,6 +33,8 @@ public class Event {
 	    private Date createdDate= new Date();
 	    
 	    private Date expirationDate;
+	    
+	    private String createdBy;
 /////////////////////////////
 	public String getName() {
 		return name;
@@ -61,6 +63,14 @@ public class Event {
 
 	public void setBudget(double budget) {
 		this.budget = budget;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
 	}
 
 	@Override
