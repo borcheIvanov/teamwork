@@ -1,79 +1,53 @@
 <div class="top-content-mybills">
-	<div class="overlay"></div>
+	<div class="overlay main-div-bills"></div>
 		<div class="inner-bg">
 			<div class="container">
 			    <div class="row">
 			        <div class="col-md-12">
-			            <h3>Events Informations</h3>
-			            <!-- tabs left -->
+			            <h3 class="event-info-header">Events Information</h3>
+			            <!-- tabs -->
 			            <div class="tabbable">
-			            	
-				                <ul class="nav nav-pills nav-stacked col-md-3">
-				                    <li class="active"><a href="#a #myModal" data-toggle="tab" onclick="return false;">current user hosting events</a></li>
-				                    
-				                    <li><a href="#b #yourModal" data-toggle="tab" onclick="return false;">current user invited to events</a></li>
-				                    
-				                </ul>
-			                
-			             
-				                <div class="tab-content col-md-9">
-				                    <div class="tab-pane active  text-center" id="a">
-				                    	<a data-toggle="modal" href="#myModal" style="color: white;" onclick="return false;">Wedding Events &nbsp Budget: 500$</a>
-				                    	<div id="myModal" class="modal fade" role="dialog">
-										<div class="modal-dialog">
-										    <!-- Modal content-->
-										    <div class="modal-content">
-										      	<div class="modal-header">
-											        <button type="button" class="close" data-dismiss="modal">&times;</button>
-											        <h4 class="modal-title fweight">All invited users on Weddind Event</h4>
-										      	</div>
-										      	<div class="modal-body">
-										      		<div class="list-group">
-														  <a href="#" class="list-group-item active" onclick="return false;">
-														    <h4 class="list-group-item-heading text-left fweight">User Name: </h4>
-														    <h4 class="list-group-item-heading text-left fweight">User Debt: </h4>
-														  </a>
-													</div>
-										      	</div>
-										      	<div class="modal-footer">
-										        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-										      	</div>
-										    </div>
-									  	</div>
-									</div>
-				                    </div>
-		                    	
-		                    	
-				                    <div class="tab-pane" text-center id="b">
-				                    	<a data-toggle="modal" href="#yourModal" style="color: white;" onclick="return false;">List of events on current user</a>
-				                    	<div id="yourModal" class="modal fade" role="dialog">
-										<div class="modal-dialog">
-										    <!-- Modal content-->
-										    <div class="modal-content">
-											    <div class="modal-header">
-											        <button type="button" class="close" data-dismiss="modal">&times;</button>
-											        <h4 class="modal-title">Modal Header</h4>
-											    </div>
-												<div class="modal-body">
-													<p>Some text in the modal.</p>
-												</div>
-										 		<div class="modal-footer">
-										        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-										  		</div>
-										    </div>
-										</div>
-									</div>
-				                    </div>
-				                </div>
-		                	
+			                <ul class="nav nav-pills nav-stacked col-md-3">
+			                    <li class="active"><a href="#hosting-events" data-toggle="tab" onclick="return false;">See your hosting events</a></li>
+			                    <li><a href="#invited-to-events" data-toggle="tab" onclick="return false;">See events you are invited to</a></li>
+			                </ul>
+			                <div class="tab-content col-md-9 all-events-list-accoridon-div">
+			                    <div class="tab-pane active  text-center" id="hosting-events">
+			                    	<a data-toggle="modal" href="#modal-view-bills" style="color: black;" onclick="return false;" data-toggle="tooltip" title="Click to see more...">Wedding Event &nbsp Budget: 500$ &nbsp&nbsp Created on-12 may 2016 &nbsp&nbsp Deadline-30 may 2016</a>
+			                    </div>
+			                    <div class="tab-pane" text-center id="invited-to-events">
+			                    	<a data-toggle="modal" href="#modal-view-bills" style="color: black;" onclick="return false;"  data-toggle="tooltip" title="Click to see more...">List of events that the current user is invited</a>
+			                    </div>
+			                </div>
 			            </div>
-			            <!-- /tabs -->
 			        </div>
 			    </div>
-			    <!-- /row -->
 			</div>
 		</div>
 	</div> 
+	
+	<div id="modal-view-bills" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+		    <!-- Modal content-->
+		    <div class="modal-content">
+		      	<div class="modal-header">
+			        <h4 class="modal-title fweight">List of all invited users on Weddind Event</h4>
+		      	</div>
+		      	<div class="modal-body">
+		      		<div class="list-group">
+					    <h4 class="list-group-item-heading text-left fweight">Meri Boskovska &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-500$</h4>
+					    <h4 class="list-group-item-heading text-left fweight">Kire Mojsovski &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;-500$</h4>
+					    <h4 class="list-group-item-heading text-left fweight">Maja Angelova</h4>
+					    <h4 class="list-group-item-heading text-left fweight">Kristina Boskovska</h4>
+					    <h4 class="list-group-item-heading text-left fweight">Tome Kostovski</h4>
+					</div>
+		      	</div>
+		      	<div class="modal-footer">
+		        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      	</div>
+		    </div>
+	  	</div>
+	</div>
             
 <!-- <br>
 <h1>emp events</h1>

@@ -33,11 +33,11 @@
     								
 							</div>
 							
-							<div ng-hide="clicked"  style="height:200px">
+							<div ng-hide="clicked">
 								<div class="row">
-									<div class="col-sm-6">
+									<div class="col-sm-6" style="overflow:auto; height:200px">
 									Click to select user
-										<table  style="color:white; cursor:pointer" >
+										<table class="table"  style="color:white; cursor:pointer" >
 											
 											<tr ng-repeat="user in users">
 												<td ng-click="select($index)"> {{user.username}} </td>
@@ -45,9 +45,9 @@
 											
 										</table>
 									</div>
-									<div class="col-sm-6">
+									<div class="col-sm-6" style="overflow:auto; height:200px">
 										Selected users
-										<table  style="color:white; cursor:pointer">
+										<table  class="table" style="color:white; cursor:pointer">
 											
 											<tr ng-repeat="user in selection">
 												<td ng-click="deselect($index)"> {{user.username}} </td>

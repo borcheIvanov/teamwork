@@ -8,7 +8,7 @@ body {
 }
 
 a, a:hover, a:focus {
-	color: #4aaf51;
+	color: #333;
 	text-decoration: none;
     -o-transition: all .3s;
     -moz-transition: all .3s;
@@ -38,6 +38,10 @@ h3 {
 
 h4.fweight {
 	font-weight: 300;
+}
+
+h4.list-group-item-heading {
+	color: black;
 }
 
 .form-top-left .login-text, .register-text {
@@ -442,8 +446,6 @@ a.list-group-item.active {
     background: #D3D6D6;
 }
 
-
-
 -webkit-text-fill-color: red !important;
 
 
@@ -463,10 +465,23 @@ a.list-group-item.active {
     filter: alpha(opacity=40);
 }
 
+.main-div-bills {
+	opacity: 0.8 !important;
+}
+
 div#b {
     display: block;
 }
 
+.event-info-header {
+	color: black !important;
+    font-weight: 400 !important;
+    padding-left: 263px;
+}
+
+#invited-to-events, #hosting-events {
+    background-color: greenyellow;
+}
 
 /***** Media queries *****/
 
@@ -478,7 +493,7 @@ div#b {
 	
 	.inner-bg {
 	 padding: 60px 0 110px 0; 
-}
+	}
 
 }
 
@@ -486,7 +501,7 @@ div#b {
 	
 	h1, h2 {
 	 font-size: 32px;
-}
+	}
 
 }
 
