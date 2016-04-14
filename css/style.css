@@ -483,6 +483,52 @@ div#b {
     background-color: greenyellow;
 }
 
+.form-bottom.list-bg {
+    background: rgba(119, 189, 210, 0.42);
+    background: -webkit-linear-gradient(left top, red, yellow);
+    background: -o-linear-gradient(bottom right, red, yellow);
+    background: -moz-linear-gradient(bottom right, red, yellow);
+    background: linear-gradient(to bottom right, rgba(242, 222, 222, 0), rgba(242, 222, 222, 0.45));
+    opacity: 0.8;
+}
+
+a.list-color.ng-binding {
+    color: #fff;
+}
+
+.form-bottom.pos-events {
+    position: fixed;
+}
+
+.home-overlay {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    /*background: rgba(241, 246, 247, 0.9);*/
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    background: -webkit-linear-gradient(left, rgba(228, 0, 121, 0.75) 10%, rgba(0, 145, 234, 0.75) 90%);
+    background: -moz-linear-gradient(left, rgba(228, 0, 121, 0.75) 10%, rgba(0, 145, 234, 0.75) 90%);
+    background: -ms-linear-gradient(left, rgba(228, 0, 121, 0.75) 10%, rgba(0, 145, 234, 0.75) 90%);
+    background: -o-linear-gradient(left, rgba(228, 0, 121, 0.75) 10%, rgba(0, 145, 234, 0.75) 90%);
+    background: linear-gradient(left, rgba(228, 0, 121, 0.75) 10%, rgba(0, 145, 234, 0.75) 90%);
+}
+
+span.sellect-user-color {
+    color: #fff;
+}
+
+span.user-color {
+    color: #fff;
+}
+
+div.ng-scope.events-border {
+    content: "";
+    border-bottom: 1px solid #3E3C3D;
+}
+
 /***** Media queries *****/
 
 @media (min-width: 992px) and (max-width: 1199px) {}
