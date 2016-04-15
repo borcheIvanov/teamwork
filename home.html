@@ -12,7 +12,7 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-6 form-box">
-					<div class="form-bottom  pos-events">
+					<div class="form-bottom">
 						<form role="form" class="registration-form" name="regForm">	
 							<div class="form-group">
 								<label class="sr-only" for="form-title">Title</label>
@@ -24,60 +24,78 @@
 							</div>
 							<div class="form-group">
 								<label class="sr-only" for="form-deadline">Deadline:</label>
-								<input type="date" name="surname" placeholder="Deadline:..." class="form-last-name form-control" id="form-deadline" ng-model="eventDate" required>
+								<input type="date" name="surname" placeholder="Deadline:..." class="form-last-name form-control date-color" id="form-deadline" ng-model="eventDate" required>
 							</div>
-							
-							
 							<div class="btn-group">
   								<button  ng-click="showUsers()" class="btn dropdown-toggle"  data-placeholder="Please select">Invite users<span class="caret"></span></button>
-    								
 							</div>
-							
 							<div ng-hide="clicked">
 								<div class="row">
-									<div class="col-sm-6" style="overflow:auto; height:200px">
+									<div class="col-sm-6" style="overflow: auto; height: 200px">
 									<span class="sellect-user-color">Click to select user</span>
 										<table class="table"  style="color:white; cursor:pointer" >
-											
 											<tr ng-repeat="user in users">
 												<td ng-click="select($index)"> {{user.username}} </td>
 											</tr>
-											
 										</table>
 									</div>
-									<div class="col-sm-6" style="overflow:auto; height:200px">
+									<div class="col-sm-6" style="overflow: auto; height: 200px">
 										<span class="user-color">Selected users</span>
 										<table  class="table" style="color:white; cursor:pointer">
-											
 											<tr ng-repeat="user in selection">
 												<td ng-click="deselect($index)"> {{user.username}} </td>
 											</tr>
-											
 										</table>
 									</div>
 								</div>
 							</div>
-							
 							<button type="button" ng-click="createEvent()" class="btn btn-block"> Create Event </button>
 						</form>
-						
-					</div>
-					<div class="form-bottom">
 					</div>
 				</div>
 				<div class="col-sm-6 form-box-event">
 					<div class="form-list">
-							<h3 class="register-text text-center">List of Events</h3>
+						<h3 class="register-text text-center">List of Events</h3>
 					</div>
-					<div class="form-bottom list-bg" style="overflow:auto; height: 416px">
-						<div class="events-border" ng-repeat="event in events">
-							<span style="cursor:pointer" ng-click="eventPanel(event.id)"> <a class="list-color"> {{event.name}} <br> Budget: {{event.budget}} <br> {{event.expirationDate}}</a></span> 
-							
+					<div class="form-bottom list-bg">
+						<div class="col-xs-12 events-border" ng-repeat="event in events">
+							<span style="cursor:pointer" ng-click="eventPanel(event.id)"> 
+								<div class="col-xs-6">
+									<h3 class="name-event">{{event.name}}</h3>
+								</div>
+								<div class="col-xs-6 text-right">
+								<div>
+									<i class="fa fa-calendar"></i>
+									<span class="calendar-name">Posted on: {{event.createdDate}}</span>
+								</div>
+								<div>
+									<i class="fa fa-user"></i>
+									<span class="posted-by">Posted by: {{event.createdBy}}</span>
+								</div>
+								</div>
+							</span> 
 						</div>
 					</div>
-					
 				</div>
+			</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+
+<!-- This is temorary and will be removed -->
+<script>
+$('.list-bg').slimScroll({
+    color: '#00f',
+    size: '10px',
+    height: '500px',
+    alwaysVisible: true
+});
+</script>
+
+
+
+
+
+
