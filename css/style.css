@@ -214,6 +214,10 @@ input[type="date"]
     transition: all .3s;
 }
 
+input#form-deadline {
+    color: gray !important;
+}
+
 input[type="text"]:focus, 
 input[type="password"]:focus,
 input[type="email"]:focus,
@@ -496,10 +500,6 @@ a.list-color.ng-binding {
     color: #fff;
 }
 
-.form-bottom.pos-events {
-    position: fixed;
-}
-
 .home-overlay {
     position: absolute;
     width: 100%;
@@ -522,6 +522,23 @@ span.sellect-user-color {
 
 span.user-color {
     color: #fff;
+}
+
+h3.name-event {
+    color: #fff;
+}
+
+h3.name-event.ng-binding {
+    font-size: 19px;
+}
+
+i.fa.fa-calendar, i.fa.fa-user {
+    color: #fff;
+}
+
+span.calendar-name, span.posted-by {
+    color: #fff;
+    padding-left: 1px;
 }
 
 div.ng-scope.events-border {
