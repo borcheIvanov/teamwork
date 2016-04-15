@@ -1,6 +1,5 @@
 package mk.polarcape.service.impl;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,7 +77,7 @@ public class Employee_eventServiceImpl implements Employee_eventService {
 	
 	}
 	
-	///send mail to people who didnt pay 1 day prior expiration date
+	/*///send mail to people who didnt pay 1 day prior expiration date
 	public void mailNotifier(){
 		Date cd =new Date();//datum current
 		List<Event> evn = EventRepository.findAll();
@@ -109,5 +108,5 @@ public class Employee_eventServiceImpl implements Employee_eventService {
 				}//for ee
 				}// if exp date
 				}// for ev
-	}
+	}*/
 }
