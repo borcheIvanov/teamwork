@@ -35,7 +35,7 @@
 							
 							<div ng-hide="clicked">
 								<div class="row">
-									<div class="col-sm-6" style="overflow:auto; height:200px">
+									<div class="col-sm-6" style="overflow: auto; height: 200px">
 									<span class="sellect-user-color">Click to select user</span>
 										<table class="table"  style="color:white; cursor:pointer" >
 											
@@ -45,7 +45,7 @@
 											
 										</table>
 									</div>
-									<div class="col-sm-6" style="overflow:auto; height:200px">
+									<div class="col-sm-6" style="overflow: auto; height: 200px">
 										<span class="user-color">Selected users</span>
 										<table  class="table" style="color:white; cursor:pointer">
 											
@@ -69,7 +69,7 @@
 					<div class="form-list">
 							<h3 class="register-text text-center">List of Events</h3>
 					</div>
-					<div class="form-bottom list-bg" style="overflow:auto; height: 416px">
+					<div class="form-bottom list-bg">
 						<div class="events-border" ng-repeat="event in events">
 							<span style="cursor:pointer" ng-click="eventPanel(event.id)"> <a class="list-color"> {{event.name}} <br> Budget: {{event.budget}} <br> {{event.expirationDate}}</a></span> 
 							
@@ -81,3 +81,20 @@
 		</div>
 	</div>
 </div>
+
+
+<!-- This is temorary and will be removed -->
+<script>
+$('.list-bg').slimScroll({
+    color: '#00f',
+    size: '10px',
+    height: '500px',
+    alwaysVisible: true
+});
+</script>
+
+
+
+
+
+
