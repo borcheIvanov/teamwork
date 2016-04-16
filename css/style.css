@@ -19,6 +19,11 @@ a, a:hover, a:focus {
 
 .sign-up-description-text, .sign-in-description-text{
 	font-weight: 400;
+	color: #4aaf51;
+}
+
+a.sign-up-description-text:hover, :focus, a.sign-in-description-text:hover, :focus {
+    color: #fff;
 }
 
 h1, h2 {
@@ -470,7 +475,24 @@ a.list-group-item.active {
 }
 
 .main-div-bills {
-	opacity: 0.8 !important;
+	opacity: 0.4 !important;
+	position: fixed;
+    width: 1349px;
+}
+
+.main-div-home {
+	position: fixed;
+    width: 1349px;
+}
+
+.main-div-register {
+	position: fixed;
+    width: 1349px;
+}
+
+.main-div-login {
+	position: fixed;
+    width: 1349px;
 }
 
 div#b {
@@ -481,10 +503,19 @@ div#b {
 	color: black !important;
     font-weight: 400 !important;
     padding-left: 263px;
+    background-color: #EC008C;
 }
 
-#invited-to-events, #hosting-events {
+#events-background {
     background-color: greenyellow;
+}
+
+.hosting-events-paragraf:hover {
+    font-weight: 500;
+}
+
+.invited-to-events-paragraf:hover {
+	font-weight: 500;
 }
 
 .form-bottom.list-bg {
