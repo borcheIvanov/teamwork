@@ -1,5 +1,5 @@
 <div class="top-content-mybills">
-	<div class="overlay main-div-bills"></div>
+	<div class="main-div-bills"></div>
 	<div class="inner-bg">
 		<div class="container">
 		    <div class="row">
@@ -7,11 +7,11 @@
 		            <h3 class="event-info-header">Events Information</h3>
 		            <!-- tabs -->
 		            <div class="tabbable">
-		                <ul class="nav nav-pills nav-stacked col-md-3">
-		                    <li class="active"><a href="#hosting-events" data-toggle="tab" onclick="return false;" ng-click="switchPanel()"> See your hosting events </a></li>
-		                    <li><a href="#invited-to-events" data-toggle="tab" onclick="return false;" ng-click="switchPanel(); getEventwhere()"> See events you are invited to </a></li>
+		                <ul class="nav nav-pills nav-stacked col-md-3 two-tabs">
+		                    <li class="active"><a class="see-hosting-events" href="#hosting-events" data-toggle="tab" onclick="return false;" ng-click="switchPanel()"> See your hosting events </a></li>
+		                    <li><a class="events-invited-to" href="#invited-to-events" data-toggle="tab" onclick="return false;" ng-click="switchPanel(); getEventwhere()"> See events you are invited to </a></li>
 		                </ul>
-		                <div id="events-background" class="col-md-9" >
+		                <div id="events-background" class="col-md-9 pre-scrollable" >
 		                    <div class="tab-pane active  text-center" id="hosting-events" ng-hide="switched" ng-repeat="event in new_inv">
 		                    	<span style="color: black;"class="fa fa-star"></span>	
 								<p class="hosting-events-paragraf" data-toggle="modal" href="#modal-view-bills" style="color: black;cursor:pointer" onclick="return false;" data-toggle="tooltip" title="Click to see more..." ng-click="getEventinv(event.events_id.id)">Event: {{event.events_id.name}} &nbsp; Budget: {{event.events_id.budget}} den. &nbsp; &nbsp; Created on: {{event.events_id.createdDate}} &nbsp; &nbsp; Deadline: {{event.events_id.expirationDate}}</p> 
@@ -44,7 +44,7 @@
 	      	<div class="modal-footer">
 			
 				Money collected: {{moneyCol}} den.&emsp;&emsp; Money to collect:{{moneyReq}} den. &emsp;&emsp;
-	        	<button type="button" class="btn btn-default" data-dismiss="modal"> Close </button>
+	        	<button type="button" class="btn btn-default modal-button-hover" data-dismiss="modal"> Close </button>
 	      	</div>
 	    </div>
   	</div>
@@ -66,7 +66,7 @@
 				</div>
 	      	</div>
 	      	<div class="modal-footer">
-	        	<button type="button" class="btn btn-default" data-dismiss="modal"> Close </button>
+	        	<button type="button" class="btn btn-default modal-button-hover" data-dismiss="modal"> Close </button>
 	      	</div>
 	    </div>
   	</div>
