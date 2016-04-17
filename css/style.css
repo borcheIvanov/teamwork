@@ -100,8 +100,8 @@ img {
 	margin-top: 61px;
 }
 
-.btn-group {
-    width: 505px;
+.btn-group.invite-users-width {
+    width: 100%;
 }
 
 button.btn.dropdown-toggle {
@@ -157,6 +157,10 @@ button.btn.dropdown-toggle {
 	-webkit-border-radius: 0 0 4px 4px;
 	border-radius: 0 0 4px 4px;
 	text-align: left;
+}
+
+.list-events-padding {
+	padding: 8px 25px 30px 25px;
 }
 
 .form-group {
@@ -263,7 +267,7 @@ button.btn {
     margin: 0;
     padding: 0 20px;
     vertical-align: middle;
-    background: #4aaf51;
+    background: rgb(83, 226, 93);
     border: 0;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
@@ -470,7 +474,7 @@ a.list-group-item.active {
     top: 0;
     left: 0;
     background: rgba(241, 246, 247, 0.9);
-    opacity: 0.4;
+    opacity: 0.2;
     filter: alpha(opacity=40);
 }
 
@@ -523,7 +527,7 @@ div#b {
     background: -webkit-linear-gradient(left top, red, yellow);
     background: -o-linear-gradient(bottom right, red, yellow);
     background: -moz-linear-gradient(bottom right, red, yellow);
-    background: linear-gradient(to bottom right, rgba(242, 222, 222, 0), rgba(242, 222, 222, 0.45));
+    background: linear-gradient(to bottom right, rgb(83, 226, 93), rgba(242, 222, 222, 0.81));
     opacity: 0.8;
 }
 
@@ -556,7 +560,10 @@ span.user-color {
 }
 
 h3.name-event {
-    color: #fff;
+   	color: #131212;
+    font-weight: 400;
+    margin-top: 13px;
+    margin-bottom: 0;
 }
 
 h3.name-event.ng-binding {
@@ -564,12 +571,13 @@ h3.name-event.ng-binding {
 }
 
 i.fa.fa-calendar, i.fa.fa-user {
-    color: #fff;
+     color: #F10993;
 }
 
 span.calendar-name, span.posted-by {
-    color: #fff;
+    color: #131212;
     padding-left: 1px;
+    font-weight: 400;
 }
 
 div.ng-scope.events-border {

@@ -26,7 +26,7 @@
 								<label class="sr-only" for="form-deadline">Deadline:</label>
 								<input type="date" name="surname" placeholder="Deadline:..." class="form-last-name form-control date-color" id="form-deadline" ng-model="eventDate" required>
 							</div>
-							<div class="btn-group">
+							<div class="btn-group invite-users-width">
   								<button  ng-click="showUsers()" class="btn dropdown-toggle"  data-placeholder="Please select">Invite users<span class="caret"></span></button>
 							</div>
 							<div ng-hide="clicked">
@@ -57,7 +57,7 @@
 					<div class="form-list">
 						<h3 class="register-text text-center">List of Events</h3>
 					</div>
-					<div class="form-bottom list-bg">
+					<div class="form-bottom list-bg list-events-padding">
 						<div class="col-xs-12 events-border" ng-repeat="event in events">
 							<span style="cursor:pointer" ng-click="eventPanel(event.id)"> 
 								<div class="col-xs-6">
