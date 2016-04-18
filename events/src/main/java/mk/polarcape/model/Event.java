@@ -24,6 +24,8 @@ public class Event {
 	private String name;
 	private double budget;
 	
+	
+	
 	@OneToMany(mappedBy = "events_id")
 	@JsonIgnore
 	private List<Employee_event> events_id;
@@ -35,6 +37,8 @@ public class Event {
 	    private Date expirationDate;
 	    
 	    private String createdBy;
+	    
+	    private Boolean archived;
 /////////////////////////////
 	public String getName() {
 		return name;
@@ -96,5 +100,13 @@ public class Event {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Boolean getArchived() {
+		return archived;
+	}
+
+	public void setArchived(Boolean archived) {
+		this.archived = archived;
 	}
 }
