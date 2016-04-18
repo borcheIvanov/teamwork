@@ -601,7 +601,7 @@ div.ng-scope.events-border {
 }
 
 .pre-scrollable{
- 	max-height: 400px;
+ 	max-height: 500px;
 }
 
 #events-background::-webkit-scrollbar-track {
@@ -654,7 +654,6 @@ div.ng-scope.events-border {
 	.event-info-header {
 		margin-right: 15px;
 }
-	
 	
 
 }

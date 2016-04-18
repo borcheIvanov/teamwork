@@ -57,7 +57,7 @@
 					<div class="form-list">
 						<h3 class="register-text text-center">List of Events</h3>
 					</div>
-					<div class="form-bottom list-bg list-events-padding">
+					<div id="events-background" class="form-bottom pre-scrollable list-events-padding list-bg">
 						<div class="col-xs-12 events-border" ng-repeat="event in events">
 							<span style="cursor:pointer" ng-click="eventPanel(event.id)"> 
 								<div class="col-xs-6">
@@ -82,20 +82,3 @@
 		</div>
 	</div>
 </div>
-
-
-<!-- This is temorary and will be removed -->
-<script>
-$('.list-bg').slimScroll({
-    color: '#00f',
-    size: '10px',
-    height: '500px',
-    alwaysVisible: true
-});
-</script>
-
-
-
-
-
-
