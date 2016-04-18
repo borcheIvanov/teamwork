@@ -7,6 +7,14 @@ body {
     text-align: center;
 }
 
+body { 
+	background: url(../images/mybills-background.jpg) no-repeat center center; 
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
 a, a:hover, a:focus {
 	color: #333;
 	text-decoration: none;
@@ -19,6 +27,27 @@ a, a:hover, a:focus {
 
 .sign-up-description-text, .sign-in-description-text{
 	font-weight: 400;
+	color: #4aaf51;
+}
+
+a.sign-up-description-text:hover, :focus, a.sign-in-description-text:hover, :focus {
+    color: #fff;
+}
+
+ul.two-tabs>li:not(.active) {
+  border: 1px solid #fff;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+ul.two-tabs>li:not(.active)>a {
+ 	color: #fff;
+}
+
+ul.two-tabs>li:not(.active)>a:hover {
+ 	color: black;
 }
 
 h1, h2 {
@@ -95,8 +124,8 @@ img {
 	margin-top: 61px;
 }
 
-.btn-group {
-    width: 505px;
+.btn-group.invite-users-width {
+    width: 100%;
 }
 
 button.btn.dropdown-toggle {
@@ -152,6 +181,10 @@ button.btn.dropdown-toggle {
 	-webkit-border-radius: 0 0 4px 4px;
 	border-radius: 0 0 4px 4px;
 	text-align: left;
+}
+
+.list-events-padding {
+	padding: 8px 25px 30px 25px;
 }
 
 .form-group {
@@ -258,7 +291,7 @@ button.btn {
     margin: 0;
     padding: 0 20px;
     vertical-align: middle;
-    background: #4aaf51;
+    background: rgb(83, 226, 93);
     border: 0;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
@@ -311,6 +344,10 @@ button.btn.btn-block {
     opacity: 1;
 }
 
+button.btn.btn-default.modal-button-hover:hover {
+    background: rgba(83, 226, 93, 0.93);
+}
+
 .top-content { 
   background: url(../images/login-background.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -321,13 +358,6 @@ button.btn.btn-block {
 
 .top-content-events {
 	background: url(../images/e1.jpg) no-repeat center center fixed; 
-  	-webkit-background-size: cover;
-  	-moz-background-size: cover;
-  	-o-background-size: cover;
-  	background-size: cover;
-}
-.top-content-mybills {
-	background: url(../images/mybills-bg.jpg) no-repeat center center fixed; 
   	-webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
@@ -465,12 +495,23 @@ a.list-group-item.active {
     top: 0;
     left: 0;
     background: rgba(241, 246, 247, 0.9);
-    opacity: 0.4;
+    opacity: 0.2;
     filter: alpha(opacity=40);
 }
 
-.main-div-bills {
-	opacity: 0.8 !important;
+.main-div-home {
+	position: fixed;
+    width: 1349px;
+}
+
+.main-div-register {
+	position: fixed;
+    width: 1349px;
+}
+
+.main-div-login {
+	position: fixed;
+    width: 1349px;
 }
 
 div#b {
@@ -481,10 +522,19 @@ div#b {
 	color: black !important;
     font-weight: 400 !important;
     padding-left: 263px;
+    background-color: #EC008C;
 }
 
-#invited-to-events, #hosting-events {
-    background-color: greenyellow;
+#events-background {
+    background-color: rgb(83, 226, 93);
+}
+
+.hosting-events-paragraf:hover {
+    font-weight: 500;
+}
+
+.invited-to-events-paragraf:hover {
+	font-weight: 500;
 }
 
 .form-bottom.list-bg {
@@ -492,7 +542,7 @@ div#b {
     background: -webkit-linear-gradient(left top, red, yellow);
     background: -o-linear-gradient(bottom right, red, yellow);
     background: -moz-linear-gradient(bottom right, red, yellow);
-    background: linear-gradient(to bottom right, rgba(242, 222, 222, 0), rgba(242, 222, 222, 0.45));
+    background: linear-gradient(to bottom right, rgb(83, 226, 93), rgba(242, 222, 222, 0.81));
     opacity: 0.8;
 }
 
@@ -525,7 +575,10 @@ span.user-color {
 }
 
 h3.name-event {
-    color: #fff;
+   	color: #131212;
+    font-weight: 400;
+    margin-top: 13px;
+    margin-bottom: 0;
 }
 
 h3.name-event.ng-binding {
@@ -533,12 +586,13 @@ h3.name-event.ng-binding {
 }
 
 i.fa.fa-calendar, i.fa.fa-user {
-    color: #fff;
+     color: #F10993;
 }
 
 span.calendar-name, span.posted-by {
-    color: #fff;
+    color: #131212;
     padding-left: 1px;
+    font-weight: 400;
 }
 
 div.ng-scope.events-border {
@@ -546,25 +600,61 @@ div.ng-scope.events-border {
     border-bottom: 1px solid #3E3C3D;
 }
 
+.pre-scrollable{
+ 	max-height: 500px;
+}
+
+#events-background::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+#events-background::-webkit-scrollbar {
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#events-background::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
 /***** Media queries *****/
 
 @media (min-width: 992px) and (max-width: 1199px) {}
 
-@media (min-width: 768px) and (max-width: 991px) {}
+@media (min-width: 768px) and (max-width: 991px) {
+	
+	.event-info-header {
+	    padding-left: 0;
+	    margin-right: 15px;
+}
+
+}
 
 @media (max-width: 767px) {
 	
 	.inner-bg {
-	 padding: 60px 0 110px 0; 
+	 	padding: 60px 0 110px 0; 
 	}
+	.event-info-header {
+	    padding-left: 0;
+	    margin-right: 14px;
+}
 
 }
 
 @media (max-width: 415px) {
 	
 	h1, h2 {
-	 font-size: 32px;
+		font-size: 32px;
 	}
+	.event-info-header {
+		margin-right: 15px;
+}
+	
 
 }
 

@@ -1,5 +1,5 @@
 <div class="top-content">
-	<!-- <div class="home-overlay"></div>  -->
+	<div class="overlay main-div-home"></div>
 	<div class="inner-bg">
 		<div class="container">
 			<div class="row">
@@ -26,7 +26,7 @@
 								<label class="sr-only" for="form-deadline">Deadline:</label>
 								<input type="date" name="surname" placeholder="Deadline:..." class="form-last-name form-control date-color" id="form-deadline" ng-model="eventDate" required>
 							</div>
-							<div class="btn-group">
+							<div class="btn-group invite-users-width">
   								<button  ng-click="showUsers()" class="btn dropdown-toggle"  data-placeholder="Please select">Invite users<span class="caret"></span></button>
 							</div>
 							<div ng-hide="clicked">
@@ -57,7 +57,7 @@
 					<div class="form-list">
 						<h3 class="register-text text-center">List of Events</h3>
 					</div>
-					<div class="form-bottom list-bg">
+					<div id="events-background" class="form-bottom pre-scrollable list-events-padding list-bg">
 						<div class="col-xs-12 events-border" ng-repeat="event in events">
 							<span style="cursor:pointer" ng-click="eventPanel(event.id)"> 
 								<div class="col-xs-6">
@@ -82,20 +82,3 @@
 		</div>
 	</div>
 </div>
-
-
-<!-- This is temorary and will be removed -->
-<script>
-$('.list-bg').slimScroll({
-    color: '#00f',
-    size: '10px',
-    height: '500px',
-    alwaysVisible: true
-});
-</script>
-
-
-
-
-
-
