@@ -36,22 +36,29 @@ public class Employee_eventServiceImpl implements Employee_eventService {
 	}
 
 	public Employee_event save(Employee_event Employee_event) {
-		//get needed event and employees
+		//get needed event and employees stavi IF ako money e 0
 	         Event evn = EventRepository.findById(Employee_event.getEvents_id().getId());
 	         Employee emp = EmployeeRepository.findById(Employee_event.getInvited_id().getId());
 	         Employee emph = EmployeeRepository.findById(Employee_event.getHosting_id().getId());
 	        SimpleMailMessage mailMessage=new SimpleMailMessage();
 	          try{     
+	        	  if(Employee_event.getMoneyOWNED()==0){/* za PUT koga se menuva moneyOWNED na 0; NOT TESTED YET
+	        		  mailMessage.setTo(emp.getEmail());
+	       	       mailMessage.setFrom("polarcape@outlook.com");
+	       	        mailMessage.setSubject("Event");
+	       	        mailMessage.setText("Dear " +emp.getName() +"\n "+emp.getEmail() + "\n Thank You for paying for the event: "
+	       	        		+ evn.getName() + ". Event created by: " + emph.getName() + "\n\n Sincerely,\n Polarcape team");*/
+	        	  }else{// za POST pri kreiranje
 	       mailMessage.setTo(emp.getEmail());
 	       mailMessage.setFrom("polarcape@outlook.com");
 	        mailMessage.setSubject("Event");
 	        mailMessage.setText("Dear " +emp.getName() +"\n "+emp.getEmail() + "\n You have been invited to attend the event: "
 	        		+ evn.getName() + ". Event created by:" + emph.getName() + ".\n"
-	        				+ "Money for the event is "+ Employee_event.getMoneyOWNED() + "\n Have a nice time !!!" );
-	        
-	        System.out.println("Dear " +emp.getName() +"\n "+emp.getEmail() +"\n You have been invited to attend the event: "
+	        				+ "Money for the event is "+ Employee_event.getMoneyOWNED() + "\n\n Sincerely,\n Polarcape team" );
+	          }
+	   /*     System.out.println("Dear " +emp.getName() +"\n "+emp.getEmail() +"\n You have been invited to attend the event: "
 	        		+ evn.getName() + " created by: " + emp.getName() + "\n"
-    				+ " money for the event is "+ Employee_event.getMoneyOWNED() );
+    				+ " money for the event is "+ Employee_event.getMoneyOWNED() );*/
 	        javaMailService.send(mailMessage);
 	          }
 	          catch(Exception e){
@@ -77,36 +84,4 @@ public class Employee_eventServiceImpl implements Employee_eventService {
 	
 	}
 	
-	/*///send mail to people who didnt pay 1 day prior expiration date
-	public void mailNotifier(){
-		Date cd =new Date();//datum current
-		List<Event> evn = EventRepository.findAll();
-		for(Event ev:evn){
-			Date dayBefore = new Date(ev.getExpirationDate().getTime() - 24*3600*1000);
-			if(cd.compareTo(dayBefore)>=0){
-			List<Employee_event> empev = Employee_eventRepository.selectInvited(ev.getId());
-			for(Employee_event ee:empev){
-				if(ee.getMoneyOWNED()>0){
-       SimpleMailMessage mailMessage=new SimpleMailMessage();
-         try{     
-      mailMessage.setTo(ee.getInvited_id().getEmail());
-      mailMessage.setFrom("polarcape@outlook.com");
-       mailMessage.setSubject("Event");
-       mailMessage.setText("Dear " +ee.getInvited_id().getName() +"\n "+ee.getInvited_id().getEmail() + "\n You have to pay for the event: "
-       		+ ev.getName() + ". Event created by:" + ev.getCreatedBy() + ".\n"
-       				+ " Expiration date is in 1 day. Money to pay " + ee.getMoneyOWNED() );
-       javaMailService.send(mailMessage);
-       System.out.println("Dear " +ee.getInvited_id().getName() +"\n "+ee.getInvited_id().getEmail() + "\n You have to pay for the event: "
-          		+ ev.getName() + ". Event created by:" + ev.getCreatedBy() + ".\n"
-   				+ " Expiration date is in 1 day. Money to pay " + ee.getMoneyOWNED() );
-         }
-         catch(Exception e){
-       	  System.out.println("greska");
-       	  System.out.println(e);
-         }
-				}//if money
-				}//for ee
-				}// if exp date
-				}// for ev
-	}*/
 }

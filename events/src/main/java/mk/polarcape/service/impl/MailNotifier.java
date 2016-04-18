@@ -46,9 +46,9 @@ public class MailNotifier {
 	       				+ " Expiration date is in 1 day. Money to pay " + ee.getMoneyOWNED() );
 	       javaMailService.send(mailMessage);
 	       
-	       System.out.println("Dear " +ee.getInvited_id().getName() +"\n "+ee.getInvited_id().getEmail() + "\n You have to pay for the event: "
+	      /* System.out.println("Dear " +ee.getInvited_id().getName() +"\n "+ee.getInvited_id().getEmail() + "\n You have to pay for the event: "
 	          		+ ev.getName() + ". Event created by:" + ee.getHosting_id().getName() + ".\n"
-	   				+ " Expiration date is in less than 1 day. Money to pay " + ee.getMoneyOWNED() );
+	   				+ " Expiration date is in less than 1 day. Money to pay " + ee.getMoneyOWNED() );*/
 	         }
 	         catch(Exception e){
 	       	  System.out.println("greska");
