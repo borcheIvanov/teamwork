@@ -75,7 +75,9 @@ public class Event {
 
 	@Override
 	public String toString() {
-		return "Events [naem=" + name + ", budget=" + budget + ", invitedGuests="+"]";
+		return "Event [id=" + id + ", name=" + name + ", budget=" + budget + ", events_id=" + events_id
+				+ ", createdDate=" + createdDate + ", expirationDate=" + expirationDate + ", createdBy=" + createdBy
+				+ "]";
 	}
 
 	
