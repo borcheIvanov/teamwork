@@ -12,9 +12,14 @@ angular.module('myApp', ['ui.router', 'log', 'reg', 'getService', 'postService',
 		templateUrl: 'register.html',
 		controller: 'regCtrl'
 	})
-	.state('events', {
+	.state('home', {
 		url: '/home',
 		templateUrl: 'home.html',
+		controller: 'eventsCtrl'
+	})
+	.state('events', {
+		url: '/events',
+		templateUrl: 'events.html',
 		controller: 'eventsCtrl'
 	})
 	.state('mybills', {
