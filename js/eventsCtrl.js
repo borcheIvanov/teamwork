@@ -18,6 +18,7 @@ angular.module('event', [])
 		
 		$scope.getEventwhere();
 		$scope.getEventhost();
+		$scope.getUsers();
 		
 	};
 	
@@ -79,7 +80,7 @@ angular.module('event', [])
 		})
 	};
 	
-/*	$scope.getUsers = function(){
+	$scope.getUsers = function(){
 		get.users()
 		.then(function(res){
 			$scope.users = res;
@@ -88,7 +89,7 @@ angular.module('event', [])
 			
 		})
 	};
-*/
+
 	
 /*	$scope.createEvent = function(){
 		
@@ -144,7 +145,7 @@ angular.module('event', [])
 		return temp;
 	};
 	
-/*
+
 	$scope.select = function(index){
 		$scope.selection.push($scope.users[index]);
 		for(i = 0; i < $scope.users.length; i++){
@@ -170,7 +171,7 @@ angular.module('event', [])
 		}
 		$scope.selection.length = $scope.selection.length - 1; 
 	};
-*/
+
 	
 	$scope.eventPanel = function(id){
 		get.eventPan(id)
@@ -185,14 +186,14 @@ angular.module('event', [])
 	};
 
 	
-/*	$scope.showUsers = function(){
+	$scope.showUsers = function(){
 		if($scope.clicked === true){
 			$scope.clicked = false;
 		}else{
 			$scope.clicked = true;
 		}
 	};
-*/
+
 	
 	
 	$scope.init();

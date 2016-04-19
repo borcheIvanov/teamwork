@@ -8,7 +8,7 @@ body {
 }
 
 body { 
-	background: url(../images/people_22.jpg) no-repeat center center fixed; 
+	background: url(../images/people_22.jpg) no-repeat 50% 0% fixed; 
 	-moz-background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
@@ -348,6 +348,10 @@ button.btn.btn-default.modal-button-hover:hover {
     background: rgba(83, 226, 93, 0.93);
 }
 
+.top-big-link {
+    margin-top: 45px;
+}
+
 .top-content { 
   background: url(../images/login-background.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -572,6 +576,14 @@ span.sellect-user-color {
 
 span.user-color {
     color: #fff;
+}
+
+span.sellect-user-color-events {
+    color: black;
+}
+
+span.user-color-events {
+    color: black;
 }
 
 h3.name-event {
