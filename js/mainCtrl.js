@@ -56,7 +56,7 @@ angular.module('myApp', ['ui.router', 'log', 'reg', 'getService', 'postService',
 			}
 			if(toState.name === 'login' && logged.username !== ''){
 				event.preventDefault();
-				$state.go('events');
+				$state.go('home');
 			}
 		});
 })
