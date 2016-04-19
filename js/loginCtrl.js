@@ -3,13 +3,10 @@ angular.module('log',[])
 	$scope.init = function(){
 		$scope.error = '';
 		$scope.userName = '';
-		$scope.password = '';
-		
-		
+		$scope.password = ''
 	};
 	
 	$scope.access = function(){
-		
 		get.login($scope.userName, $scope.password)
 		.then(function(res){
 			$scope.error = '';
@@ -18,12 +15,13 @@ angular.module('log',[])
 		.then(function(err, status){
 			
 		});
-		$scope.error = 'Wrong username or password';	
+		
+		$scope.error = 'Wrong username or password';
+		
 		$scope.userName = '';
 		$scope.password = '';
+		
 	};
-	
-	
 	
 	$scope.init();
 })

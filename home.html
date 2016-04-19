@@ -2,77 +2,56 @@
 	<div class="overlay main-div-home"></div>
 	<div class="inner-bg">
 		<div class="container">
+			
 			<div class="row">
-				<div class="col-sm-8 col-sm-offset-2 text">
-					<!--  <div class="logo">
-						<h1><a href="#">Polar Cape</a></h1>                        	
-                	</div>-->
-                    <div class="description"></div>
-				</div> 
-			</div>
-			<div class="row">
-				<div class="col-sm-6 form-box">
-					<div class="form-bottom">
-						<form role="form" class="registration-form" name="regForm">	
-							<div class="form-group">
-								<label class="sr-only" for="form-title">Title</label>
-								<input type="text" name="username" placeholder="Title..." class="form-title form-control" id="form-title" ng-model="eventName" required>
-							</div>
-							<div class="form-group">
-								<label class="sr-only" for="form-budget">Budget</label>
-								<input type="number" name="name" placeholder="Budget..." class="form-first-name form-control no-border" id="form-budget" ng-model="eventBudget" required>
-							</div>
-							<div class="form-group">
-								<label class="sr-only" for="form-deadline">Deadline:</label>
-								<input type="date" name="surname" placeholder="Deadline:..." class="form-last-name form-control date-color" id="form-deadline" ng-model="eventDate" required>
-							</div>
-							<div class="btn-group invite-users-width">
-  								<button  ng-click="showUsers()" class="btn dropdown-toggle"  data-placeholder="Please select">Invite users<span class="caret"></span></button>
-							</div>
-							<div ng-hide="clicked">
-								<div class="row">
-									<div class="col-sm-6" style="overflow: auto; height: 200px">
-									<span class="sellect-user-color">Click to select user</span>
-										<table class="table"  style="color:white; cursor:pointer" >
-											<tr ng-repeat="user in users">
-												<td ng-click="select($index)"> {{user.username}} </td>
-											</tr>
-										</table>
-									</div>
-									<div class="col-sm-6" style="overflow: auto; height: 200px">
-										<span class="user-color">Selected users</span>
-										<table  class="table" style="color:white; cursor:pointer">
-											<tr ng-repeat="user in selection">
-												<td ng-click="deselect($index)"> {{user.username}} </td>
-											</tr>
-										</table>
-									</div>
-								</div>
-							</div>
-							<button type="button" ng-click="createEvent()" class="btn btn-block"> Create Event </button>
-						</form>
-					</div>
-				</div>
 				<div class="col-sm-6 form-box-event">
 					<div class="form-list">
-						<h3 class="register-text text-center">List of Events</h3>
+						<h3 class="register-text text-center">Dolzam</h3>
 					</div>
 					<div id="events-background" class="form-bottom pre-scrollable list-events-padding list-bg">
-						<div class="col-xs-12 events-border" ng-repeat="event in events">
-							<span style="cursor:pointer" ng-click="eventPanel(event.id)"> 
+						<div class="col-xs-12 events-border" ng-repeat="event in eventwhere">
+							<span ng-click="eventPanel(event.id)"  data-toggle="modal" href="#modalNew" style="color: black; cursor:pointer" onclick="return false;" > 
 								<div class="col-xs-6">
-									<h3 class="name-event">{{event.name}}</h3>
+									<h3 class="name-event">to: {{event.hosting_id.name}}</h3>
 								</div>
 								<div class="col-xs-6 text-right">
 								<div>
-									<i class="fa fa-calendar"></i>
-									<span class="calendar-name">Posted on: {{event.createdDate}}</span>
+									
+									<span class="calendar-name">money: {{event.moneyOWNED}}</span>
 								</div>
 								<div>
-									<i class="fa fa-user"></i>
-									<span class="posted-by">Posted by: {{event.createdBy}}</span>
+									
+									<span class="posted-by">for: {{event.events_id.name}}</span>
 								</div>
 								</div>
+							</span> 
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-sm-6 form-box-event">
+					<div class="form-list">
+						<h3 class="register-text text-center">Mi dolzat</h3>
+					</div>
+					<div id="events-background" class="form-bottom pre-scrollable list-events-padding list-bg">
+					
+						<div class="col-xs-12 events-border" ng-repeat="event in eHost">
+							<span style="cursor:pointer" ng-click="eventPanel(event.id)"  data-toggle="modal" href="#modalOld" style="color: black; cursor:pointer" onclick="return false;"> 
+								<div class="col-xs-6">
+									<h3 class="name-event">user: {{event.invited_id.name}}</h3>
+								</div>
+								<div class="col-xs-6 text-right">
+								<div>
+									
+									<span class="calendar-name">Owe: {{event.moneyOWNED}}</span>
+								</div>
+								<div>
+									
+									<span class="posted-by">For: {{event.events_id.name}}</span>
+								</div>
+								<button type="button" style="float:right"  ng-click="payMoney(event.id)"> Has paid </button>
+								</div>
+								
 							</span> 
 						</div>
 					</div>
@@ -81,4 +60,51 @@
 			</div>
 		</div>
 	</div>
+
+<div id="modalNew" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      	<div class="modal-header">
+		        <h4 class="modal-title fweight">Event name: &nbsp; {{panel.events_id.name}}</h4>
+	      	</div>
+	      	<div class="modal-body" style="padding-right:100px">
+	      		<div class="list-group">
+				    <h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Event budget:  <span style="float:right"> {{panel.events_id.budget}} den. </span> </h4>
+					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Created on: <span style="float:right"> {{panel.events_id.createdDate}}  </span> </h4>
+					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Deadline:  <span style="float:right"> {{panel.events_id.expirationDate}} </span> </h4>
+					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Created by:<span style="float:right">  {{panel.hosting_id.name}}  </span> </h4>
+					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; I should pay:<span style="float:right">  {{panel.moneyOWNED}} den.  </span> </h4>
+					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; <span style="float:right">  <button type="button"> pay your debt! </button>  </span> </h4>
+				</div>
+	      	</div>
+	      	<div class="modal-footer">
+	        	<button type="button" class="btn btn-default modal-button-hover" data-dismiss="modal"> Close </button>
+	      	</div>
+	    </div>
+  	</div>
+</div>
+
+<div id="modalOld" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      	<div class="modal-header">
+		        <h4 class="modal-title fweight">Event name: &nbsp; {{panel.events_id.name}}</h4>
+	      	</div>
+	      	<div class="modal-body" style="padding-right:100px">
+	      		<div class="list-group">
+				    <h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Event budget:  <span style="float:right"> {{panel.events_id.budget}} den. </span> </h4>
+					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Created on: <span style="float:right"> {{panel.events_id.createdDate}}  </span> </h4>
+					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Deadline:  <span style="float:right"> {{panel.events_id.expirationDate}} </span> </h4>
+					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Created by:<span style="float:right">  {{panel.hosting_id.name}}  </span> </h4>
+					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; This user should pay you:<span style="float:right">  {{panel.moneyOWNED}} den.  </span> </h4>
+					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; <span style="float:right">  <button type="button"> The user has paid! </button>  </span> </h4>
+				</div>
+	      	</div>
+	      	<div class="modal-footer">
+	        	<button type="button" class="btn btn-default modal-button-hover" data-dismiss="modal"> Close </button>
+	      	</div>
+	    </div>
+  	</div>
 </div>
