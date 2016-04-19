@@ -1,4 +1,4 @@
-angular.module('myApp', ['ui.router', 'log', 'reg', 'getService', 'postService', 'event', 'value', 'mybills', 'ngCookies', 'putService'])
+angular.module('myApp', ['ui.router', 'log', 'reg', 'getService', 'postService', 'event', 'value', 'mybills', 'ngCookies', 'putService', 'newEvents'])
 
 .config(function($stateProvider, $urlRouterProvider){
 	$stateProvider
@@ -20,7 +20,7 @@ angular.module('myApp', ['ui.router', 'log', 'reg', 'getService', 'postService',
 	.state('events', {
 		url: '/events',
 		templateUrl: 'events.html',
-		controller: 'eventsCtrl'
+		controller: 'newEventsCtrl'
 	})
 	.state('mybills', {
 		url: '/mybills',

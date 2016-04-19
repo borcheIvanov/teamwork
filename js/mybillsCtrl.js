@@ -18,8 +18,8 @@ $scope.init = function(){
 		.then(function(res){
 			$scope.eventhost = res;
 			for(i = 0; i < $scope.eventhost.length; i++){
-			$scope.eventhost[i].events_id.createdDate = $scope.dateFunc($scope.eventhost[i].events_id.createdDate);
-			$scope.eventhost[i].events_id.expirationDate = $scope.dateFunc($scope.eventhost[i].events_id.expirationDate);
+			$scope.eventhost[i].events_id.createdDate = get.dateFunc($scope.eventhost[i].events_id.createdDate);
+			$scope.eventhost[i].events_id.expirationDate = get.dateFunc($scope.eventhost[i].events_id.expirationDate);
 			}
 			/*
 			for(i = 0; i < $scope.eventhost.length; i++){
@@ -49,6 +49,7 @@ $scope.init = function(){
 		})
 	};
 	
+/*
 	$scope.getEventinv = function(id){
 		
 		get.eventinv(id)
@@ -67,21 +68,15 @@ $scope.init = function(){
 			
 		})
 	};
-	
-	$scope.dateFunc = function(date){
-		var temp = new Date(date).toUTCString().split(' ');
-		temp = temp[1] + ' ' + temp[2] + ' ' + temp[3]; 
-		return temp;
-	};
+*/
 	
 	$scope.invPanel = function(id){
 		get.eventId(id)
 		.then(function(res){
 			$scope.secPanel = res;
-			$scope.secPanel.createdDate = $scope.dateFunc($scope.secPanel.createdDate);
-			$scope.secPanel.expirationDate = $scope.dateFunc($scope.secPanel.expirationDate);
+			$scope.secPanel.createdDate = get.dateFunc($scope.secPanel.createdDate);
+			$scope.secPanel.expirationDate = get.dateFunc($scope.secPanel.expirationDate);
 			
-			console.log($scope.totalMoney);
 		})
 		.then(function(){
 			
