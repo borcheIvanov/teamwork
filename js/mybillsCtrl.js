@@ -18,6 +18,7 @@ $scope.init = function(){
 	
 	$scope.getEventhost();
 	$scope.getEventwhere();
+	$scope.$apply;
 };
 
 
@@ -118,7 +119,7 @@ $scope.getEventhost = function(){
 		.then(function(){
 			
 		})
-	}
+	};
 
 	
 	$scope.init();

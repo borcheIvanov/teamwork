@@ -60,7 +60,7 @@ angular.module('getService', [])
 	data.eventPan = function(id){
 		var defer = $q.defer();
 		
-		$http.get(url + '/api/empeventinv/' + id)
+		$http.get(url + '/api/empevent/' + id)
 		.success(function(res){
 			defer.resolve(res);
 		})
