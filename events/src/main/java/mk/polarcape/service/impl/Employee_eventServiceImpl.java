@@ -42,19 +42,21 @@ public class Employee_eventServiceImpl implements Employee_eventService {
 	         Employee emph = EmployeeRepository.findById(Employee_event.getHosting_id().getId());
 	        SimpleMailMessage mailMessage=new SimpleMailMessage();
 	          try{     
-	        	  if(Employee_event.getMoneyOWNED()==0){/* za PUT koga se menuva moneyOWNED na 0; NOT TESTED YET
-	        		  mailMessage.setTo(emp.getEmail());
-	       	       mailMessage.setFrom("polarcape@outlook.com");
-	       	        mailMessage.setSubject("Event");
-	       	        mailMessage.setText("Dear " +emp.getName() +"\n "+emp.getEmail() + "\n Thank You for paying for the event: "
-	       	        		+ evn.getName() + ". Event created by: " + emph.getName() + "\n\n Sincerely,\n Polarcape team");*/
-	        	  }else{// za POST pri kreiranje
+	        	  if(Employee_event.getMoneyOWNED()!=0){// za POST pri kreiranje
 	       mailMessage.setTo(emp.getEmail());
 	       mailMessage.setFrom("polarcape@outlook.com");
 	        mailMessage.setSubject("Event");
 	        mailMessage.setText("Dear " +emp.getName() +"\n "+emp.getEmail() + "\n You have been invited to attend the event: "
 	        		+ evn.getName() + ". Event created by:" + emph.getName() + ".\n"
 	        				+ "Money for the event is "+ Employee_event.getMoneyOWNED() + "\n\n Sincerely,\n Polarcape team" );
+	          }else{
+	        	  mailMessage.setTo(emp.getEmail());
+	   	       mailMessage.setFrom("polarcape@outlook.com");
+	   	        mailMessage.setSubject("Event");
+	   	        mailMessage.setText("Dear " +emp.getName() +" ( "+emp.getEmail() + " )\n Thank you for paying for the event: "
+	   	        		+ evn.getName() + ". Event created by:" + emph.getName() + ".\n" 
+	   	        		+ "\n\n Sincerely,\n Polarcape team" );
+	        	  
 	          }
 	   /*     System.out.println("Dear " +emp.getName() +"\n "+emp.getEmail() +"\n You have been invited to attend the event: "
 	        		+ evn.getName() + " created by: " + emp.getName() + "\n"
