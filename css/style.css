@@ -633,6 +633,65 @@ div.ng-scope.events-border {
 	background-color: #555;
 }
 
+
+/*My Bills*/
+h2 {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.table-bordered {
+  border: 1px solid #ddd !important;
+}
+
+table caption {
+	padding: .5em 0;
+}
+
+@media screen and (max-width: 767px) {
+  table caption {
+    display: none;
+  }
+}
+
+.p {
+  text-align: center;
+  padding-top: 140px;
+  font-size: 14px;
+}
+
+table.table.table-bordered.table-hover.table-bg-color {
+    background-color: #fcfcfc;
+}
+
+caption.text-center.bg-caption {
+    background: #ddd;
+}
+
+thead.bg-thead {
+    background: #dff0d8;
+}
+
+.btn-toolbar {
+    margin-bottom: 20px;
+}
+
+tbody.color-tbody {
+    color: black;
+    text-align: left;
+}
+thead.bg-thead.color-thead {
+    color: #555;
+}
+
+td.star-color {
+    color: #6D6E70;
+    vertical-align: middle !important;
+    text-align: center;
+    display: block;
+}
+
+
 /***** Media queries *****/
 
 @media (min-width: 992px) and (max-width: 1199px) {}
