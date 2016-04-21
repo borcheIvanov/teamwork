@@ -17,6 +17,8 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import mk.polarcape.model.Employee;
+
 class StatelessLoginFilter extends AbstractAuthenticationProcessingFilter {
 
 	private final TokenAuthenticationService tokenAuthenticationService;
@@ -34,7 +36,7 @@ class StatelessLoginFilter extends AbstractAuthenticationProcessingFilter {
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
 			throws AuthenticationException, IOException, ServletException {
 
-		final User user = new ObjectMapper().readValue(request.getInputStream(), User.class);
+		final Employee user = new ObjectMapper().readValue(request.getInputStream(), Employee.class);
 		final UsernamePasswordAuthenticationToken loginToken = new UsernamePasswordAuthenticationToken(
 				user.getUsername(), user.getPassword());
 		return getAuthenticationManager().authenticate(loginToken);
@@ -45,7 +47,7 @@ class StatelessLoginFilter extends AbstractAuthenticationProcessingFilter {
 			FilterChain chain, Authentication authentication) throws IOException, ServletException {
 
 		// Lookup the complete User object from the database and create an Authentication for it
-		final User authenticatedUser = userDetailsService.loadUserByUsername(authentication.getName());
+		final Employee authenticatedUser = userDetailsService.loadUserByUsername(authentication.getName());
 		final UserAuthentication userAuthentication = new UserAuthentication(authenticatedUser);
 
 		// Add the custom token as HTTP header to the response

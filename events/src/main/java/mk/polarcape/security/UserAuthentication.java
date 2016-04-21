@@ -5,12 +5,18 @@ import java.util.Collection;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 
+import mk.polarcape.model.Employee;
+
 public class UserAuthentication implements Authentication {
 
-	private final User user;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8918840031907510095L;
+	private final Employee user;
 	private boolean authenticated = true;
 
-	public UserAuthentication(User user) {
+	public UserAuthentication(Employee user) {
 		this.user = user;
 	}
 
@@ -30,7 +36,7 @@ public class UserAuthentication implements Authentication {
 	}
 
 	@Override
-	public User getDetails() {
+	public Employee getDetails() {
 		return user;
 	}
 

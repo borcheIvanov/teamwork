@@ -11,7 +11,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.filter.CharacterEncodingFilter;
-
+import mk.polarcape.model.Employee;
+import mk.polarcape.model.UserRole;
+import mk.polarcape.repository.EmployeeRepository;
 @EnableAutoConfiguration
 @Configuration
 @ComponentScan
@@ -25,7 +27,7 @@ public class StatelessAuthentication {
 	public InitializingBean insertDefaultUsers() {
 		return new InitializingBean() {
 			@Autowired
-			private UserRepository userRepository;
+			private EmployeeRepository userRepository;
 
 			@Override
 			public void afterPropertiesSet() {
@@ -34,7 +36,7 @@ public class StatelessAuthentication {
 			}
 
 			private void addUser(String username, String password) {
-				User user = new User();
+				Employee user = new Employee();
 				user.setUsername(username);
 				user.setPassword(new BCryptPasswordEncoder().encode(password));
 				user.grantRole(username.equals("admin") ? UserRole.ADMIN : UserRole.USER);

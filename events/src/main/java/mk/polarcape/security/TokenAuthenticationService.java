@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
+import mk.polarcape.model.Employee;
+
 @Service
 public class TokenAuthenticationService {
 
@@ -23,7 +25,7 @@ public class TokenAuthenticationService {
 	}
 
 	public void addAuthentication(HttpServletResponse response, UserAuthentication authentication) {
-		final User user = authentication.getDetails();
+		final Employee user = authentication.getDetails();
 		user.setExpires(System.currentTimeMillis() + TEN_DAYS);
 		response.addHeader(AUTH_HEADER_NAME, tokenHandler.createTokenForUser(user));
 	}
@@ -31,7 +33,7 @@ public class TokenAuthenticationService {
 	public Authentication getAuthentication(HttpServletRequest request) {
 		final String token = request.getHeader(AUTH_HEADER_NAME);
 		if (token != null) {
-			final User user = tokenHandler.parseUserFromToken(token);
+			final Employee user = tokenHandler.parseUserFromToken(token);
 			if (user != null) {
 				return new UserAuthentication(user);
 			}

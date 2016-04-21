@@ -1,32 +1,47 @@
-package mk.polarcape.security;
+package mk.polarcape.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.security.core.GrantedAuthority;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import mk.polarcape.model.Employee;
+
 @Entity
+@Table(name="UserAuthority")
 @IdClass(UserAuthority.class)
 public class UserAuthority implements GrantedAuthority {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6341601918657865452L;
+
 	@NotNull
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "employee_id")
 	@JsonIgnore
 	@Id
-	private User user;
-
+	private Employee employee_id;
+	
 	@NotNull
 	@Id
 	private String authority;
 
-	public User getUser() {
-		return user;
+	public Employee getUser() {
+		return employee_id;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUser(Employee employee) {
+		this.employee_id = employee;
 	}
 
 	@Override
