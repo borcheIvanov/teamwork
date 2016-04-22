@@ -633,6 +633,23 @@ div.ng-scope.events-border {
 	background-color: #555;
 }
 
+#mybills-background::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+#mybills-background::-webkit-scrollbar {
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#mybills-background::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
 
 /*My Bills*/
 h2 {
@@ -686,9 +703,7 @@ thead.bg-thead.color-thead {
 
 td.star-color {
     color: #6D6E70;
-    vertical-align: middle !important;
     text-align: center;
-    display: block;
 }
 
 

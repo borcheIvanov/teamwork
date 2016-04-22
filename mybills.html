@@ -80,9 +80,9 @@
     			   				</ul>
     			   			</div>
     			   		</div>
-						<div class="table-responsive" data-pattern="priority-columns">
+						<div id="mybills-background" class="table-responsive pre-scrollable" data-pattern="priority-columns">
 						  <table class="table table-bordered table-hover table-bg-color">
-						    <caption class="text-center bg-caption">An example of a responsive table</caption>
+						    <caption class="text-center bg-caption">Here will be the search box</caption>
 						    <thead class="bg-thead color-thead">
 						      <tr>
 						        <th></th>
@@ -94,30 +94,22 @@
 						      </tr>
 						    </thead>
 						    <tbody class="color-tbody">
-						      <tr>
+						      <tr ng-repeat="x in eventhost">
 						        <td class="star-color"><i class="fa fa-star"></i></td>
-						        <td>Slagjana</td>
-						        <td>Birthday</td>
-						        <td>1000den.</td>
-						        <td>Paid</td>
-						        <td>30.04.2016</td>
-						      </tr>
-						      <tr>
-						        <td class="star-color"><i class="fa fa-star"></i></td>
-						        <td>Monika</td>
-						        <td>Wedding</td>
-						        <td>2500den.</td>
-						        <td>Waiting - pay…</td>
-						        <td>30.04.2016</td>
+						        <td>{{x.invited_id.name}}</td>
+						        <td>{{x.events_id.name}}</td>
+						        <td>{{x.moneyOWNED}}</td>
+						        <td><div ng-show="x.moneyOWNED === 0.0"> Has paid </div> <div ng-hide="x.moneyOWNED === 0.0"> Not paid </div></td>
+						        <td>{{x.events_id.expirationDate}}</td>
 						      </tr>
 						    </tbody>
 						    <tfoot>
 						      <tr>
-						        <td colspan="6" class="text-center">Data retrieved from <a href="#" target="_blank">infoplease</a> and <a href="#" target="_blank">worldometers</a>.</td>
+						        <td colspan="6" class="text-center">Here will be pagination</td>
 						      </tr>
 						    </tfoot>
 						  </table>
-						</div><!--end of .table-responsive-->
+						</div>
     				</div>
   				</div>
 			</div>
