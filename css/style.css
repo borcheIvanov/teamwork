@@ -633,6 +633,99 @@ div.ng-scope.events-border {
 	background-color: #555;
 }
 
+#mybills-background::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+#mybills-background::-webkit-scrollbar {
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#mybills-background::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
+
+/*My Bills*/
+h2 {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.table-bordered {
+  border: 1px solid #ddd !important;
+}
+
+table caption {
+	padding: .5em 0;
+}
+
+@media screen and (max-width: 767px) {
+  table caption {
+    display: none;
+  }
+}
+
+.p {
+  text-align: center;
+  padding-top: 140px;
+  font-size: 14px;
+}
+
+table.table.table-bordered.table-hover.table-bg-color {
+    background-color: #fcfcfc;
+}
+
+caption.text-center.bg-caption {
+    background: #ddd;
+}
+
+thead.bg-thead {
+    background: #dff0d8;
+}
+
+.btn-toolbar {
+    margin-bottom: 20px;
+}
+
+tbody.color-tbody {
+    color: black;
+    text-align: left;
+}
+thead.bg-thead.color-thead {
+    color: #555;
+}
+
+td.star-color {
+    color:#337ab7;
+    text-align: center;
+}
+
+.table-hover>tbody>tr:hover {
+    background-color: #c0c0c0;
+}
+
+.has-paid {
+	color:rgb(83, 226, 93);
+}
+
+.not-paid {
+	color:red;
+}
+
+div#datatable-responsive_length {
+    margin: 20px 0;
+}
+select.form-control.display-select {
+    display: inline-block;
+    width: initial;
+}
+
 /***** Media queries *****/
 
 @media (min-width: 992px) and (max-width: 1199px) {}

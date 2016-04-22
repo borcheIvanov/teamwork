@@ -1,38 +1,73 @@
 <div class="top-content-mybills">
 	<div class="main-div-bills"></div>
-	<div class="inner-bg">
+	<div class="inner-bg"> 
 		<div class="container">
-		    <div class="row">
-				<div class="col-sm-6">
-						<h2 style="text-align:center; color:white"> My bills </h2>
-				</div>
-				<div class="col-sm-6">
-					<input type="text" class="form-control" placeholder="Search bills" ng-model="searching">
-				</div>
-			</div>
-						
-						<div class="table-responsive">
-							<table class="table table-bordered" style="color:white">
-								<thead>
-									<th> User </th>
-									<th> Event </th>
-									<th> Money </th>
-									<th> Status </th>
-								</thead>
-								<tbody>
-									<tr ng-repeat="x in eventhost | filter:searching">
-										<td> <i class="fa fa-info" aria-hidden="true" style="cursor:pointer" ng-mouseover="info(x.id)" data-toggle="tooltip" data-placement="bottom" title="name:          {{userId.invited_id.name}} &#013;Surname:    {{userId.invited_id.surname}} &#013;Username:  {{userId.invited_id.username}}&#013;Email:          {{userId.invited_id.email}}"></i> &nbsp;  {{x.invited_id.name}} </td>
-										<td> {{x.events_id.name}} </td>
-										<td> {{x.moneyOWNED}} </td>
-										<td> <div class="well well-sm" style="background-color:#3DF544; margin-bottom:1px" ng-show="x.moneyOWNED === 0.0" > Has paid </div> <div class="well well-sm" style="background-color:#FA3E3E; margin-bottom:1px" ng-hide="x.moneyOWNED === 0.0" > Not paid </div> </td>
-									</td>
-								</tbody>
-							</table>
+  			<div class="row">
+    			<div class="col-xs-12">
+    				<div class="table-wrapper">
+    					<div class="btn-toolbar">
+    						<div class="btn-group">
+								<button type="button" class="btn btn-success btn-filter first-button-color" data-target="paid-out">Paid out</button>
+								<button type="button" class="btn btn-danger btn-filter second-button-color" data-target="pending">Pending</button>
+							</div>
+    						<div class="pull-right">
+    							<input type="text" class="mybills-search" placeholder="Search bills" ng-model="searching">
+    			   			</div>
+    			   		</div>
+						<div id="mybills-background" class="table-responsive" data-pattern="priority-columns">
+						  <table class="table table-bordered table-hover table-bg-color">
+						    <caption class="text-center bg-caption">Here you can see all users invited to your events</caption>
+						    <thead class="bg-thead color-thead">
+						      <tr>
+						        <th></th>
+						        <th data-priority="1">User</th>
+						        <th data-priority="2">Event</th>
+						        <th data-priority="3">Price</th>
+						        <th data-priority="4">Status</th>
+						        <th data-priority="5">Expiry Day</th>
+						      </tr>
+						    </thead>
+						    <tbody class="color-tbody">
+						      <tr ng-repeat="x in eventhost | filter:searching"">
+						        <td class="star-color"><i class="fa fa-star" style="cursor:pointer" ng-mouseover="info(x.id)" data-toggle="tooltip" data-placement="bottom" title="name:          {{userId.invited_id.name}} &#013;Surname:    {{userId.invited_id.surname}} &#013;Username:  {{userId.invited_id.username}}&#013;Email:          {{userId.invited_id.email}}"></i></td>
+						        <td>{{x.invited_id.name}}</td>
+						        <td>{{x.events_id.name}}</td>
+						        <td>{{x.moneyOWNED}}</td>
+						        <td><div class="has-paid" ng-show="x.moneyOWNED === 0.0"> Has paid </div> <div class="not-paid" ng-hide="x.moneyOWNED === 0.0"> Not paid </div></td>
+						        <td>{{x.events_id.expirationDate}}</td>
+						      </tr>
+						    </tbody>
+						    <tfoot>
+						      <tr>
+				      		 	<td colspan="6" class="">
+						      		<div class="dataTables_length pull-left" id="datatable-responsive_length">
+							      		<label>
+								      		<select name="datatable-responsive_length" aria-controls="datatable-responsive" class="form-control display-select">
+									      		<option value="10">10</option>
+									      		<option value="25">25</option>
+									      		<option value="50">50</option>
+									      		<option value="100">100</option>
+								      		</select>
+							      		 	records per page
+							      		 </label>
+						      		 </div>
+									<ul class="pagination pull-right">
+										<li class="disabled"><a href="#">&laquo;</a></li>
+										<li class="active"><a href="#">1</a></li>
+										<li><a href="#">2</a></li>
+										<li><a href="#">3</a></li>
+										<li><a href="#">4</a></li>
+										<li><a href="#">5</a></li>
+										<li><a href="#">&raquo;</a></li>
+									</ul>
+								</td>
+						      </tr>
+						    </tfoot>
+						  </table>
 						</div>
-		    
+    				</div>
+  				</div>
+			</div>
 		</div>
 	</div>
-</div> 
-	
-
-	
+</div>	
