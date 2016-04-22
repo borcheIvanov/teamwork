@@ -6,8 +6,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -62,8 +64,7 @@ public class Employee implements UserDetails {
 	@NotNull
 	private boolean accountEnabled;
 //////////////
-	@OneToMany(mappedBy = "employee_id")
-	private Set<UserAuthority> authorities;
+	
 		
 	public Employee(String username, Date expires) {
 		this.username = username;
@@ -82,15 +83,16 @@ public class Employee implements UserDetails {
 	private String password;
 	
 	@OneToMany(mappedBy = "invited_id")
-	@JsonIgnore
+	
 	private List<Employee_event> invitedGuests;
 	
 	@OneToMany(mappedBy = "hosting_id")
-	@JsonIgnore
+	
 	private List<Employee_event> hostingParty;
 	
 	
-	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "employee", fetch = FetchType.EAGER, orphanRemoval = true)
+	private Set<UserAuthority> authorities;
 ////////////////////////////////////////////////////////
 	///////get set
 	public String getUsername() {
@@ -147,7 +149,7 @@ public class Employee implements UserDetails {
 		return "Employee [id=" + id + ", Name=" + Name + ", Surname=" + Surname + ", email="
 				+ email + ", active=" + active + ", username=" + username + ", password=" + password + "]";
 	}
-
+	@JsonIgnore
 	public List<Employee_event> getInvitedGuests() {
 		return invitedGuests;
 	}
@@ -155,7 +157,7 @@ public class Employee implements UserDetails {
 	public void setInvitedGuests(List<Employee_event> invitedGuests) {
 		this.invitedGuests = invitedGuests;
 	}
-
+	@JsonIgnore
 	public List<Employee_event> getHostingParty() {
 		return hostingParty;
 	}

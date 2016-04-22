@@ -1,9 +1,5 @@
 package mk.polarcape.model;
 
-import mk.polarcape.model.Employee;
-import mk.polarcape.model.UserAuthority;
-import mk.polarcape.model.UserRole;
-
 public enum UserRole {
 	USER, ADMIN;
 

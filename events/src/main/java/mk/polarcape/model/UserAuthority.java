@@ -4,17 +4,17 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.ColumnDefault;
 import org.springframework.security.core.GrantedAuthority;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import mk.polarcape.model.Employee;
-
+//////////mozno e potreba od racno kreiranje na tabelata
 @Entity
 @Table(name="UserAuthority")
 @IdClass(UserAuthority.class)
@@ -24,24 +24,24 @@ public class UserAuthority implements GrantedAuthority {
 	 * 
 	 */
 	private static final long serialVersionUID = -6341601918657865452L;
-
 	@NotNull
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "employee_id")
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonIgnore
 	@Id
-	private Employee employee_id;
+	private Employee employee;
+	
 	
 	@NotNull
 	@Id
+	@ColumnDefault("ADMIN")
 	private String authority;
 
 	public Employee getUser() {
-		return employee_id;
+		return employee;
 	}
 
 	public void setUser(Employee employee) {
-		this.employee_id = employee;
+		this.employee = employee;
 	}
 
 	@Override
