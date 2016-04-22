@@ -718,6 +718,14 @@ td.star-color {
 	color:red;
 }
 
+div#datatable-responsive_length {
+    margin: 20px 0;
+}
+select.form-control.display-select {
+    display: inline-block;
+    width: initial;
+}
+
 /***** Media queries *****/
 
 @media (min-width: 992px) and (max-width: 1199px) {}
