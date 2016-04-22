@@ -9,6 +9,7 @@ angular.module('myApp')
 		$scope.moneyRest = 0.0;
 		
 		$scope.getSth();
+		
 	};
 	
 	$scope.getSth = function(){
@@ -34,13 +35,14 @@ angular.module('myApp')
 			}
 			$scope.moneyRest = $scope.moneyTotal - $scope.moneyPaid;
 			$scope.printPie();
+			
 		})
 	};
 	
 	$scope.printPie = function(){
 		$scope.data = [
-		  {label: "To collect: "+ $scope.moneyRest, value: $scope.moneyRest, color: "red"}, 
-		  {label: "Collected: "+ $scope.moneyPaid, value: $scope.moneyPaid, color: "#00ff00"}
+		  {label: "To collect: ", value: $scope.moneyRest, color: "red"}, 
+		  {label: "Collected: ", value: $scope.moneyPaid, color: "#00ff00"}
 		  
 		];
 
@@ -49,27 +51,67 @@ angular.module('myApp')
 		];
 		
 		$scope.options = {thickness: 80};
+		
 	};
 	
+	
 	$scope.init();
-	
 })
 
-.controller('statsTwoCtrl', function($scope){
+.controller('statsTwoCtrl', function($scope, get, logged){
+	
+	$scope.init = function(){
+		$scope.numArr = [];
+		$scope.userArr = [];
+		$scope.numArr2 = [];
+		$scope.chartArray = [];
+		$scope.chartPrint = [];
 		
+		$scope.getNumbers();
+	};
 	
-	$scope.data = [
-	  {label: "12", value: 12.2, color: "red"}, 
-	  {label: "45", value: 45, color: "#00ff00"},
-	  {label: "10", value: 10, color: "rgb(0, 0, 255)"}
-	];
+	$scope.getNumbers = function(){
+		get.eventhost(logged.id)
+		.then(function(res){
+			$scope.userArr = res;
+			$scope.printChart();
+		})
+		.then(function(){
+			
+		})
+	};
+	
+	$scope.printChart = function(){
+		
+		for(i = 0; i < $scope.userArr.length; i++){
+			
+			$scope.chartArray.push({'x': $scope.userArr[i].invited_id.name, 'y': [ $scope.userArr[i].moneyOWNED, 500 ]});
+		}
+		
+		$scope.chartArray.forEach(function(n) {
+					
+						$scope.chartPrint.push(n);
+					});
+		
+		
+		$scope.config = {
+			title: 'paid/not paid',
+			tooltips: true,
+			labels: false,
+			legend: {
+				display: true,
+				position: 'right'
+			}
+		};
 
-	$scope.gauge_data = [
-	  {label: "CPU", value: 75, suffix: "%", color: "steelblue"}
-	];
+		$scope.data = {
+				series: ['Paid', 'Owe'],
+				data: $scope.chartPrint
+			};
+	};
 	
-	$scope.options = {thickness: 80};
 	
-
+	$scope.init();
 })
+
 
