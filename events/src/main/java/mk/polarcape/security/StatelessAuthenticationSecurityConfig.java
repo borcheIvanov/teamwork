@@ -38,26 +38,23 @@ public class StatelessAuthenticationSecurityConfig extends WebSecurityConfigurer
 				.authorizeRequests()
 								
 				//allow anonymous resource requests
-				.antMatchers("/").permitAll()
-				.antMatchers("/favicon.ico").permitAll()
-				.antMatchers("/resources/**").permitAll()
+				.antMatchers("/api/resources/**").permitAll()
 				
 				//allow anonymous POSTs to login
-				.antMatchers(HttpMethod.POST, "/api/login").permitAll()
+				.antMatchers(HttpMethod.GET, "/api/login").permitAll()
 				
 				.antMatchers(HttpMethod.POST, "/api/employee").permitAll()
 				
-				//allow anonymous GETs to API
-				.antMatchers(HttpMethod.GET, "/api/**").permitAll()
 				
 				//defined Admin only API area
-				.antMatchers("/admin/**").hasRole("ADMIN")
-				.antMatchers(HttpMethod.PUT, "/api/employee/**").hasRole("ADMIN")
-				.antMatchers(HttpMethod.PUT, "/api/event/**").hasRole("ADMIN")
-				.antMatchers(HttpMethod.PUT, "/api/empevent/**").hasRole("ADMIN")
+				.antMatchers(HttpMethod.GET,"/api/users/**").hasRole("ADMIN")
+				.antMatchers(HttpMethod.PUT, "/api/**").hasRole("ADMIN")
+				.antMatchers(HttpMethod.GET, "/api/**").hasRole("ADMIN")
+				.antMatchers(HttpMethod.POST, "/api/**").hasRole("ADMIN")
+				.antMatchers(HttpMethod.DELETE, "/api/**").hasRole("ADMIN")
 				
 				//all other request need to be authenticated
-				.anyRequest().hasRole("USER").and()				
+				.anyRequest().hasRole("ADMIN").and()				
 		
 				// custom JSON based authentication by POST of {"username":"<name>","password":"<password>"} which sets the token header upon authentication
 				.addFilterBefore(new StatelessLoginFilter("/api/login", tokenAuthenticationService, userDetailsService, authenticationManager()), UsernamePasswordAuthenticationFilter.class)

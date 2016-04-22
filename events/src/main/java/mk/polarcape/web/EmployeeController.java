@@ -3,7 +3,11 @@ package mk.polarcape.web;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +17,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import mk.polarcape.model.Employee;
+import mk.polarcape.model.UserRole;
+import mk.polarcape.security.UserAuthentication;
 import mk.polarcape.service.EmployeeService;
 
 @RestController
@@ -20,6 +26,7 @@ import mk.polarcape.service.EmployeeService;
 public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
+	
 
 	@RequestMapping(value = "/employee", method = RequestMethod.GET)
 	@ResponseBody
@@ -82,5 +89,40 @@ public class EmployeeController {
 	@ResponseBody
 	public Employee login(@PathVariable String username, @PathVariable String pass) {
 		return employeeService.login(username,  pass);
+	}
+	@RequestMapping(value = "/users/current", method = RequestMethod.GET)
+	public Employee getCurrent() {
+		final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if (authentication instanceof UserAuthentication) {
+			return (Employee) authentication.getDetails();
+		}
+		return new Employee(authentication.getName()); //anonymous user support
+	}
+
+	@RequestMapping(value = "/users/{user}/grant/role/{role}", method = RequestMethod.POST)
+	public ResponseEntity<String> grantRole(@PathVariable Employee user, @PathVariable UserRole role) {
+		if (user == null) {
+			return new ResponseEntity<String>("invalid user id", HttpStatus.UNPROCESSABLE_ENTITY);
+		}
+
+		user.grantRole(role);
+		employeeService.save(user);
+		return new ResponseEntity<String>("role granted", HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/users/{user}/revoke/role/{role}", method = RequestMethod.POST)
+	public ResponseEntity<String> revokeRole(@PathVariable Employee user, @PathVariable UserRole role) {
+		if (user == null) {
+			return new ResponseEntity<String>("invalid user id", HttpStatus.UNPROCESSABLE_ENTITY);
+		}
+
+		user.revokeRole(role);
+		employeeService.save(user);
+		return new ResponseEntity<String>("role revoked", HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/users", method = RequestMethod.GET)
+	public List<Employee> list() {
+		return employeeService.findAll();
 	}
 }
