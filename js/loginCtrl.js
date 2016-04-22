@@ -1,4 +1,4 @@
-angular.module('log',[])
+angular.module('myApp')
 .controller('logCtrl', function($scope, get, logged, $state){
 	$scope.init = function(){
 		$scope.error = '';

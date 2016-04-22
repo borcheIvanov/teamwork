@@ -24,8 +24,9 @@
 					<hr>
 					
 					<div ng-repeat="x in myEvents |filter:searchVal">
+						
 						<div class="well well-sm" style="color:black; cursor:pointer" ng-click="eventPanel(x.id)" data-toggle="modal" href="#simplyModal" style="color: black; cursor:pointer" onclick="return false;">
-							
+								
 									<h3>{{x.events_id.name}}</h3>
 								
 									<i class="fa fa-calendar"></i>
@@ -110,12 +111,21 @@
 	    <!-- Modal content-->
 	    <div class="modal-content">
 	      	<div class="modal-header">
-		        <h4 class="modal-title fweight">Event: &nbsp;  {{panel.events_id.name}} </h4>
+		        <h4 class="modal-title fweight">
+					Event: &nbsp;  {{panel.events_id.name}}  
+					
+					<span style="float:right" onClick="alert('blaaa')">	
+						<i class="fa fa-pencil" data-toggle="tooltip" data-placement="bottom" title="Edit" style="cursor:pointer"></i> &nbsp;
+						<i class="fa fa-close" data-toggle="tooltip" data-placement="bottom" title="Move to Archive" style="cursor:pointer"></i> &nbsp;
+						<i class="fa fa-trash" data-toggle="tooltip" data-placement="bottom" title="Delete event" style="cursor:pointer"></i>&nbsp;
+					</span>
+					
+				</h4>
 	      	</div>
 	      	<div class="modal-body">
-				<h4 class="list-group-item-heading text-left fweight"> Invited <span style="float:right"> Event budget:&emsp; {{panel.events_id.budget}} den. &emsp;&emsp;&emsp;&emsp; </span> </h4> <hr>
+				<h4 class="list-group-item-heading text-left fweight"> Invited <span style="float:right"> Event budget:&emsp; {{eventinv[0].events_id.budget}} den. &emsp;&emsp;&emsp;&emsp; </span> </h4> <hr>
 	      		<div class="list-group" ng-repeat="user in eventinv">
-				    <h4 class="list-group-item-heading text-left fweight"> {{user.invited_id.name}} {{user.invited_id.surname}} ({{user.invited_id.username}})  <span style="float:right"> -{{moneyEach}} den. &emsp; <button ng-click="payMoney(user.id)" ng-hide="user.moneyOWNED === 0.0"> Paid </button> <span class="fa fa-check-square-o" style="color:green; font-size:25px; margin-left:13px; margin-right:14px" ng-show="user.moneyOWNED === 0.0"> </span> </span> </h4>
+				    <h4 class="list-group-item-heading text-left fweight"> {{user.invited_id.name}} {{user.invited_id.surname}} ({{user.invited_id.username}})  <span style="float:right"> -{{user.moneyOWNED	}} den. &emsp; <button ng-click="payMoney(user.id)" ng-hide="user.moneyOWNED === 0.0"> Paid </button> <span class="fa fa-check-square-o" style="color:green; font-size:25px; margin-left:13px; margin-right:14px" ng-show="user.moneyOWNED === 0.0"> </span> </span> </h4>
 				</div>
 	      	</div>
 	      	<div class="modal-footer">

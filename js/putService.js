@@ -1,4 +1,4 @@
-angular.module('putService', [])
+angular.module('myApp')
 .service('put', function($q, $http){
 	var data = this;
 	

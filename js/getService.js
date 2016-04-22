@@ -1,4 +1,4 @@
-angular.module('getService', [])
+angular.module('myApp')
 .service('get', function($http, $q, logged, $cookies){
 	var data = this;
 	data.gg = [];

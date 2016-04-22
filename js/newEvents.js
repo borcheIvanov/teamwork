@@ -1,4 +1,4 @@
-angular.module('newEvents', [])
+angular.module('myApp')
 .controller('newEventsCtrl', function($scope, get, logged){
 	$scope.init = function(){
 		$scope.eventhost = [];
@@ -7,6 +7,7 @@ angular.module('newEvents', [])
 		$scope.users = [];
 		$scope.panel = [];
 		
+		$scope.id = '';
 		$scope.error = '';
 		$scope.eventName = '';
 		$scope.eventDate = '';

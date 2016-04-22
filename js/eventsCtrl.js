@@ -1,4 +1,4 @@
-angular.module('event', [])
+angular.module('myApp')
 .controller('eventsCtrl', function($scope, get, post, logged, put){
 	
 	$scope.init = function(){

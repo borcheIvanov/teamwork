@@ -1,4 +1,4 @@
-angular.module('postService',[])
+angular.module('myApp')
 .service('post', function($http, $q){
 	var data = this;
 	var config = {
