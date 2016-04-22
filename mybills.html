@@ -7,8 +7,9 @@
     				<div class="table-wrapper">
     					<div class="btn-toolbar">
     						<div class="btn-group">
-								<button type="button" class="btn btn-success btn-filter first-button-color" data-target="paid-out">Paid out</button>
-								<button type="button" class="btn btn-danger btn-filter second-button-color" data-target="pending">Pending</button>
+								<button type="button" class="btn btn-danger btn-filter second-button-color" ng-click="filterFunc('all')">All bills</button>
+								<button type="button" class="btn btn-success btn-filter first-button-color" ng-click="filterFunc('paid')">Paid out</button>
+								<button type="button" class="btn btn-danger btn-filter second-button-color" ng-click="filterFunc('notPaid')">Pending</button>
 							</div>
     						<div class="pull-right">
     							<input type="text" class="mybills-search" placeholder="Search bills" ng-model="searching">
@@ -16,7 +17,7 @@
     			   		</div>
 						<div id="mybills-background" class="table-responsive" data-pattern="priority-columns">
 						  <table class="table table-bordered table-hover table-bg-color">
-						    <caption class="text-center bg-caption">Here you can see all users invited to your events</caption>
+						    <caption class="text-center bg-caption"> <h4> {{label}} </h4> </caption>
 						    <thead class="bg-thead color-thead">
 						      <tr>
 						        <th></th>
@@ -28,7 +29,7 @@
 						      </tr>
 						    </thead>
 						    <tbody class="color-tbody">
-						      <tr ng-repeat="x in eventhost | filter:searching"">
+						      <tr ng-repeat="x in eventhost | filter:searching | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
 						        <td class="star-color"><i class="fa fa-star" style="cursor:pointer" ng-mouseover="info(x.id)" data-toggle="tooltip" data-placement="bottom" title="name:          {{userId.invited_id.name}} &#013;Surname:    {{userId.invited_id.surname}} &#013;Username:  {{userId.invited_id.username}}&#013;Email:          {{userId.invited_id.email}}"></i></td>
 						        <td>{{x.invited_id.name}}</td>
 						        <td>{{x.events_id.name}}</td>
@@ -42,24 +43,25 @@
 				      		 	<td colspan="6" class="">
 						      		<div class="dataTables_length pull-left" id="datatable-responsive_length">
 							      		<label>
-								      		<select name="datatable-responsive_length" aria-controls="datatable-responsive" class="form-control display-select">
+								      		<select name="datatable-responsive_length" aria-controls="datatable-responsive" class="form-control display-select" style="color:grey" ng-model="pagesPer" ng-click="pages()">
+									      		<option value="5">5</option>
 									      		<option value="10">10</option>
-									      		<option value="25">25</option>
-									      		<option value="50">50</option>
-									      		<option value="100">100</option>
+									      		<option value="15">15</option>
+									      		<option value="20">20</option>
 								      		</select>
 							      		 	records per page
 							      		 </label>
 						      		 </div>
+									 
+									
 									<ul class="pagination pull-right">
-										<li class="disabled"><a href="#">&laquo;</a></li>
-										<li class="active"><a href="#">1</a></li>
-										<li><a href="#">2</a></li>
-										<li><a href="#">3</a></li>
-										<li><a href="#">4</a></li>
-										<li><a href="#">5</a></li>
-										<li><a href="#">&raquo;</a></li>
+										<li><a href="" ng-click="pagination.prevPage()">&laquo;</a></li>
+										  <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: n == pagination.page}">
+										  <a href="" ng-click="pagination.toPageId(n)">{{n + 1}}</a>
+										  </li>
+										  <li><a href="" ng-click="pagination.nextPage()">&raquo;</a></li>
 									</ul>
+									
 								</td>
 						      </tr>
 						    </tfoot>

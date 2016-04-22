@@ -1,38 +1,30 @@
 angular.module('myApp')
-.controller('mybillsCtrl', function($scope, get, logged, put){
+.controller('mybillsCtrl', function($scope, get, logged, Pagination){
 	
 $scope.init = function(){
 	$scope.eventhost = []; //eventi kreirani od host = current user
 	$scope.eventwhere = [];
-	$scope.eventinv = []; // pokanetite na kilknatiot event
 	$scope.userId = [];
+	$scope.tempArr = [];
+	$scope.initArr = [];
+
+	$scope.label = 'Displaying all bills.';
 	
 	$scope.getEventhost();
 	$scope.getEventwhere();
-
+	
 };
-
 
 	$scope.getEventhost = function(){
 		get.eventhost(logged.id)
 		.then(function(res){
 			$scope.eventhost = res;
 			for(i = 0; i < $scope.eventhost.length; i++){
-			$scope.eventhost[i].events_id.createdDate = get.dateFunc($scope.eventhost[i].events_id.createdDate);
-			$scope.eventhost[i].events_id.expirationDate = get.dateFunc($scope.eventhost[i].events_id.expirationDate);
+				$scope.eventhost[i].events_id.createdDate = get.dateFunc($scope.eventhost[i].events_id.createdDate);
+				$scope.eventhost[i].events_id.expirationDate = get.dateFunc($scope.eventhost[i].events_id.expirationDate);
 			}
-			/*
-			for(i = 0; i < $scope.eventhost.length; i++){
-				if(i === 0){
-					$scope.new_inv.push($scope.eventhost[0]);
-				}
-				if(i !== 0){
-					if($scope.eventhost[i].events_id.id !== $scope.eventhost[i-1].events_id.id){
-						$scope.new_inv.push($scope.eventhost[i]);
-					}
-				}
-			} */
-			console.log($scope.eventhost);
+			$scope.initArr = $scope.eventhost;
+			$scope.pages();
 		})
 		.then(function(){
 			
@@ -48,27 +40,6 @@ $scope.init = function(){
 			
 		})
 	};
-	
-/*
-	$scope.getEventinv = function(id){
-		
-		get.eventinv(id)
-		.then(function(res){
-			$scope.init();
-			$scope.eventinv = res;
-			$scope.numInv = $scope.eventinv.length;
-			$scope.totalMoney = $scope.eventinv[0].events_id.budget;
-			for(i = 0; i < $scope.eventinv.length; i++){
-				$scope.moneyReq -= $scope.eventinv[i].moneyOWNED;
-			}
-			$scope.moneyCol = $scope.totalMoney + $scope.moneyReq;
-			$scope.moneyEach = $scope.totalMoney / $scope.numInv;
-		})
-		.then(function(){
-			
-		})
-	};
-*/
 	
 	$scope.invPanel = function(id){
 		get.eventId(id)
@@ -91,8 +62,39 @@ $scope.init = function(){
 		.then(function(){
 			
 		})
-	}
+	};
+	
+	$scope.filterFunc = function(condition){
+		
+		if(condition === 'notPaid'){
+			$scope.tempArr = $scope.initArr;
+			$scope.eventhost=[];
+			for(i = 0; i < $scope.tempArr.length; i++){
+				if($scope.tempArr[i].moneyOWNED !== 0.0){
+					$scope.eventhost.push($scope.tempArr[i]);
+				}
+			}
+		}else if(condition === 'paid'){
+			$scope.tempArr = $scope.initArr;
+			$scope.eventhost=[];
+			for(i = 0; i < $scope.tempArr.length; i++){
+				if($scope.tempArr[i].moneyOWNED === 0.0){
+					$scope.eventhost.push($scope.tempArr[i]);
+				}
+			}
+		}else{
+			$scope.eventhost = $scope.initArr;
+		}
+		$scope.label = 'Displaying ' + condition + ' bills.';
+		$scope.pages();
+	};
 
+	$scope.pages = function(){
+		
+		$scope.pagination = Pagination.getNew($scope.pagesPer);
+		$scope.pagination.numPages = Math.ceil($scope.eventhost.length / $scope.pagination.perPage);
+		
+	};
 	
 	$scope.init();
 });

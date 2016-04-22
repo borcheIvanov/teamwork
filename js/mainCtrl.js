@@ -1,4 +1,4 @@
-angular.module('myApp', ['ui.router', 'ngCookies', 'n3-pie-chart'])
+angular.module('myApp', ['ui.router', 'ngCookies', 'n3-pie-chart', 'simplePagination'])
 
 .config(function($stateProvider, $urlRouterProvider){
 	$stateProvider
