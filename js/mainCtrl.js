@@ -1,4 +1,4 @@
-angular.module('myApp', ['ui.router', 'ngCookies', 'n3-pie-chart', 'simplePagination'])
+angular.module('myApp', ['ui.router', 'ngCookies', 'n3-pie-chart', 'simplePagination', 'angularCharts'])
 
 .config(function($stateProvider, $urlRouterProvider){
 	$stateProvider
@@ -32,6 +32,11 @@ angular.module('myApp', ['ui.router', 'ngCookies', 'n3-pie-chart', 'simplePagina
 		templateUrl: 'stats.html',
 		controller: 'statsCtrl'
 	})
+	.state('archive', {
+		url: '/archive',
+		templateUrl: 'archive.html',
+		controller: 'statsCtrl'
+	})
 	.state('logout', {
 		url:'/logout',
 		controller: 'logoutCtrl'
@@ -51,14 +56,11 @@ angular.module('myApp', ['ui.router', 'ngCookies', 'n3-pie-chart', 'simplePagina
     $rootScope.$on('$stateChangeStart',
         function(event, toState, toParams, fromState, fromParams){
 			
-			if(toState.name === 'events' && logged.username === ''){
+			if(toState.name !== 'login' && logged.username === ''){
 				event.preventDefault();
 				$state.go('login');
 			}
-			if(toState.name === 'mybills' && logged.username === ''){
-				event.preventDefault();
-				$state.go('login');
-			}
+			
 			if(toState.name === 'login' && logged.username !== ''){
 				event.preventDefault();
 				$state.go('home');

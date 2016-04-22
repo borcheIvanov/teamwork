@@ -3,12 +3,20 @@
 <br>
 <hr>
 
-<div class="row">
-	<div class="col-md-6">
+<div class="container">
+	<div>
 		<h2 style="color:white"> Total budget: {{moneyTotal}} </h2>
 		<pie-chart data="data" options="options" style="height:300px"></pie-chart>
 	</div>
-	<div class="col-md-6" ng-controller="statsTwoCtrl">
-		<h2 style="color:white"> mats </h2>
-		<pie-chart data="data" options="options" style="height:300px"></pie-chart>
+	<br><br><br>
+	<div  ng-controller="statsTwoCtrl">
+		<h2 style="color:white"> Bars </h2>
+		
+		<div 
+			data-ac-chart="'bar'" 
+			data-ac-data="data" 
+			data-ac-config="config" 
+			class="chart" style="width: auto; height: 400px">
+		</div>
 	</div>
+</div>
