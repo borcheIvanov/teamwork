@@ -85,7 +85,7 @@ public class Employee_eventRepositoryImpl implements Employee_eventRepository {
 		return changes;
 
 	}
-
+//////////////////
 	public List<Employee_event> selectInvited(Long events_id) {
 		Class<Employee_event> type = Employee_event.class;
 

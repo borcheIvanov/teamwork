@@ -31,6 +31,7 @@ public class Employee_event {
 	
 	private double moneyOWNED;
 	
+	private boolean flag;//platil ne platil
 ////////////////////
 	public Long getId() {
 		return id;
@@ -70,6 +71,14 @@ public class Employee_event {
 
 	public void setMoneyOWNED(double moneyOWNED) {
 		this.moneyOWNED = moneyOWNED;
+	}
+
+	public boolean isFlag() {
+		return flag;
+	}
+
+	public void setFlag(boolean flag) {
+		this.flag = flag;
 	}
 	
 }

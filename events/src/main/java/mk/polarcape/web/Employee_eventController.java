@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import mk.polarcape.model.Employee_event;
 import mk.polarcape.service.Employee_eventService;
+import mk.polarcape.service.impl.MailNotifier;
 
 @RestController
 @RequestMapping(value = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -20,16 +22,17 @@ public class Employee_eventController {
 	@Autowired
 	private Employee_eventService Employee_eventService;
 	
-	/*@Scheduled(fixedRate=5000)
-	private void mailoNotifier(){
-		Employee_eventService.mailNotifier();
-		System.out.println("inside checking");
+	
+	
+	
+	@Autowired  MailNotifier MailNotifier;
+	
+	
+	///scheduled task every day check people that didnt pay 1 day prior expiration
+	public void MailNotifier(){
+		MailNotifier.mailNotifier();
+		System.out.println("mail notifier");
 	};
-	
-	
-	public Employee_eventController() {
-		mailoNotifier();
-	}*/
 
 
 	@RequestMapping(value = "/empevent", method = RequestMethod.GET)
@@ -57,7 +60,9 @@ public class Employee_eventController {
 	}
 	@RequestMapping(value="/empevent", method = RequestMethod.POST)
 	@ResponseBody
-	public Employee_event createEmployee_event(@RequestBody Employee_event Employee_event){
+	public Employee_event createEmployee_event(@RequestBody Employee_event Employee_event,@RequestParam String selected){
+		Integer c=Integer.parseInt(selected);
+		Employee_event.setMoneyOWNED(Employee_event.getEvents_id().getBudget()/c);//selected e broj na povikani useri
 		return Employee_eventService.save(Employee_event);
 	}
 	
@@ -70,6 +75,7 @@ public class Employee_eventController {
 		currentEmployee_event.setHosting_id(Employee_event.getHosting_id());
 		currentEmployee_event.setInvited_id(Employee_event.getInvited_id());
 		currentEmployee_event.setEvents_id(Employee_event.getEvents_id());
+		currentEmployee_event.setFlag(Employee_event.isFlag());
 		currentEmployee_event.setMoneyOWNED(Employee_event.getMoneyOWNED());
 		
 		return Employee_eventService.save(currentEmployee_event);
@@ -79,7 +85,6 @@ public class Employee_eventController {
 	@ResponseBody
 	public int deleteEmployee_event(@PathVariable Long id){
 		return Employee_eventService.delete(id);
-}
-	
+	}
 }
 
