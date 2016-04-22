@@ -1,4 +1,4 @@
-angular.module('mybills', [])
+angular.module('myApp')
 .controller('mybillsCtrl', function($scope, get, logged, put){
 	
 $scope.init = function(){

@@ -1,4 +1,4 @@
-angular.module('myApp', ['ui.router', 'log', 'reg', 'getService', 'postService', 'event', 'value', 'mybills', 'ngCookies', 'putService', 'newEvents'])
+angular.module('myApp', ['ui.router', 'ngCookies', 'n3-pie-chart'])
 
 .config(function($stateProvider, $urlRouterProvider){
 	$stateProvider
@@ -26,6 +26,11 @@ angular.module('myApp', ['ui.router', 'log', 'reg', 'getService', 'postService',
 		url: '/mybills',
 		templateUrl: 'mybills.html',
 		controller: 'mybillsCtrl'
+	})
+	.state('stats', {
+		url: '/stats',
+		templateUrl: 'stats.html',
+		controller: 'statsCtrl'
 	})
 	.state('logout', {
 		url:'/logout',

@@ -1,4 +1,4 @@
-angular.module('reg', [])
+angular.module('myApp')
 .controller('regCtrl', function($scope, get, post, $state){
 	
 	$scope.init = function(){

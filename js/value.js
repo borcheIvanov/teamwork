@@ -1,4 +1,4 @@
-angular.module('value', [])
+angular.module('myApp')
 .value('logged', {
 	'id': '',
 	'username': ''
