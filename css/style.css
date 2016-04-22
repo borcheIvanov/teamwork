@@ -702,10 +702,21 @@ thead.bg-thead.color-thead {
 }
 
 td.star-color {
-    color: #6D6E70;
+    color:#337ab7;
     text-align: center;
 }
 
+.table-hover>tbody>tr:hover {
+    background-color: #c0c0c0;
+}
+
+.has-paid {
+	color:rgb(83, 226, 93);
+}
+
+.not-paid {
+	color:red;
+}
 
 /***** Media queries *****/
 

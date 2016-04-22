@@ -1,52 +1,6 @@
-<!-- 
-
-<div class="top-content-mybills">
-	<div class="main-div-bills"></div>
-	<div class="inner-bg">
-		<div class="container">
-		    <div class="row">
-				<div class="col-sm-6">
-						<h2 style="text-align:center; color:white"> My bills </h2>
-				</div>
-				<div class="col-sm-6">
-					<input type="text" class="form-control" placeholder="Search bills" ng-model="searching">
-				</div>
-			</div>
-						
-						<div class="table-responsive">
-							<table class="table table-bordered" style="color:white">
-								<thead>
-									<th> User </th>
-									<th> Event </th>
-									<th> Money </th>
-									<th> Status </th>
-								</thead>
-								<tbody>
-									<tr ng-repeat="x in eventhost | filter:searching">
-										<td> <i class="fa fa-info" aria-hidden="true" style="cursor:pointer" ng-mouseover="info(x.id)" data-toggle="tooltip" data-placement="bottom" title="name:          {{userId.invited_id.name}} &#013;Surname:    {{userId.invited_id.surname}} &#013;Username:  {{userId.invited_id.username}}&#013;Email:          {{userId.invited_id.email}}"></i> &nbsp;  {{x.invited_id.name}} </td>
-										<td> {{x.events_id.name}} </td>
-										<td> {{x.moneyOWNED}} </td>
-										<td> <div class="well well-sm" style="background-color:#3DF544; margin-bottom:1px" ng-show="x.moneyOWNED === 0.0" > Has paid </div> <div class="well well-sm" style="background-color:#FA3E3E; margin-bottom:1px" ng-hide="x.moneyOWNED === 0.0" > Not paid </div> </td>
-									</td>
-								</tbody>
-							</table>
-						</div>
-		    
-		</div>
-	</div>
-</div> 
-	
- -->
- 
- 
- 
- 
- 
- 
 <div class="top-content-mybills">
 	<div class="main-div-bills"></div>
 	<div class="inner-bg"> 
- 		<h2>My Bills</h2>
 		<div class="container">
   			<div class="row">
     			<div class="col-xs-12">
@@ -54,58 +8,49 @@
     					<div class="btn-toolbar">
     						<div class="btn-group focus-btn-group">
     							<button class="btn btn-default btn-primary">
-    								<span class="glyphicon glyphicon-screenshot"></span> Focus
+    								<span class="glyphicon glyphicon-screenshot"></span>My bills
     							</button>
     						</div>
-    						<div class="btn-group dropdown-btn-group pull-right">
-    							<button class="btn btn-default">Display all</button>
-    							<button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Display 
-    							<span class="caret"></span>
-    							</button>
-    							<ul class="dropdown-menu">
-    								<li class="checkbox-row">
-    									<input type="checkbox" name="toggle-id6e65f0a53b1c2-col-1" id="toggle-id6e65f0a53b1c2-col-1" value="id6e65f0a53b1c2-col-1">
-    			 						<label for="toggle-id6e65f0a53b1c2-col-1">Languages</label>
-    			 					</li>
-    			 					<li class="checkbox-row">
-    			 						<input type="checkbox" name="toggle-id6e65f0a53b1c2-col-2" id="toggle-id6e65f0a53b1c2-col-2" value="id6e65f0a53b1c2-col-2">
-    			  						<label for="toggle-id6e65f0a53b1c2-col-2">Population</label>
-    			  					</li>
-    			  					<li class="checkbox-row">
-    			  						<input type="checkbox" name="toggle-id6e65f0a53b1c2-col-3" id="toggle-id6e65f0a53b1c2-col-3" value="id6e65f0a53b1c2-col-3"> 
-    			  						<label for="toggle-id6e65f0a53b1c2-col-3">Median Age</label></li>
-    			  					<li class="checkbox-row"><input type="checkbox" name="toggle-id6e65f0a53b1c2-col-4" id="toggle-id6e65f0a53b1c2-col-4" value="id6e65f0a53b1c2-col-4">
-    			   						<label for="toggle-id6e65f0a53b1c2-col-4">Area (Km²)</label>
-    			   					</li>
-    			   				</ul>
+    						<div class="pull-right">
+    							<input type="text" class="mybills-search" placeholder="Search bills" ng-model="searching">
     			   			</div>
     			   		</div>
-						<div id="mybills-background" class="table-responsive pre-scrollable" data-pattern="priority-columns">
+						<div id="mybills-background" class="table-responsive" data-pattern="priority-columns">
 						  <table class="table table-bordered table-hover table-bg-color">
-						    <caption class="text-center bg-caption">Here will be the search box</caption>
+						    <caption class="text-center bg-caption">Here you can see all users invited to your events</caption>
 						    <thead class="bg-thead color-thead">
 						      <tr>
 						        <th></th>
-						        <th data-priority="2">User</th>
-						        <th data-priority="3">Event</th>
-						        <th data-priority="4">Price</th>
+						        <th data-priority="1">User</th>
+						        <th data-priority="2">Event</th>
+						        <th data-priority="3">Price</th>
 						        <th data-priority="4">Status</th>
-						        <th data-priority="4">Expiry Day</th>
+						        <th data-priority="5">Expiry Day</th>
 						      </tr>
 						    </thead>
 						    <tbody class="color-tbody">
-						      <tr ng-repeat="x in eventhost">
-						        <td class="star-color"><i class="fa fa-star"></i></td>
+						      <tr ng-repeat="x in eventhost | filter:searching"">
+						        <td class="star-color"><i class="fa fa-star" style="cursor:pointer" ng-mouseover="info(x.id)" data-toggle="tooltip" data-placement="bottom" title="name:          {{userId.invited_id.name}} &#013;Surname:    {{userId.invited_id.surname}} &#013;Username:  {{userId.invited_id.username}}&#013;Email:          {{userId.invited_id.email}}"></i></td>
 						        <td>{{x.invited_id.name}}</td>
 						        <td>{{x.events_id.name}}</td>
 						        <td>{{x.moneyOWNED}}</td>
-						        <td><div ng-show="x.moneyOWNED === 0.0"> Has paid </div> <div ng-hide="x.moneyOWNED === 0.0"> Not paid </div></td>
+						        <td><div class="has-paid" ng-show="x.moneyOWNED === 0.0"> Has paid </div> <div class="not-paid" ng-hide="x.moneyOWNED === 0.0"> Not paid </div></td>
 						        <td>{{x.events_id.expirationDate}}</td>
 						      </tr>
 						    </tbody>
 						    <tfoot>
 						      <tr>
-						        <td colspan="6" class="text-center">Here will be pagination</td>
+				      		 	<td colspan="6" class="text-center">
+									<ul class="pagination">
+										<li class="disabled"><a href="#">&laquo;</a></li>
+										<li class="active"><a href="#">1</a></li>
+										<li><a href="#">2</a></li>
+										<li><a href="#">3</a></li>
+										<li><a href="#">4</a></li>
+										<li><a href="#">5</a></li>
+										<li><a href="#">&raquo;</a></li>
+									</ul>
+								</td>
 						      </tr>
 						    </tfoot>
 						  </table>
