@@ -1,3 +1,5 @@
+<!-- 
+
 <div class="top-content">
 	<div class="overlay main-div-home"></div>
 	<div class="inner-bg">
@@ -64,7 +66,7 @@
 <div id="modalNew" class="modal fade" role="dialog">
 	<div class="modal-dialog">
 	    <!-- Modal content-->
-	    <div class="modal-content">
+<!--     <div class="modal-content">
 	      	<div class="modal-header">
 		        <h4 class="modal-title fweight">Event name: &nbsp; {{panel.events_id.name}}</h4>
 	      	</div>
@@ -88,7 +90,7 @@
 <div id="modalOld" class="modal fade" role="dialog">
 	<div class="modal-dialog">
 	    <!-- Modal content-->
-	    <div class="modal-content">
+<!--      <div class="modal-content">
 	      	<div class="modal-header">
 		        <h4 class="modal-title fweight">Event name: &nbsp; {{panel.events_id.name}}</h4>
 	      	</div>
@@ -108,3 +110,569 @@
 	    </div>
   	</div>
 </div>
+
+
+ -->
+ 
+ <!--  
+<div class="top-content-mybills">
+	<div class="inner-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6">
+							<div class="table-wrapper">
+						<div id="mybills-background" class="table-responsive" data-pattern="priority-columns">
+						  <table class="table table-bordered table-hover table-bg-color">
+						    <caption class="text-center bg-caption">A list of users that I owe</caption>
+						    <thead class="bg-thead color-thead">
+						      <tr>
+						        <th></th>
+						        <th data-priority="1">User</th>
+						        <th data-priority="2">Event</th>
+						        <th data-priority="3">Price</th>
+						        <th data-priority="4">Expiry Day</th>
+						        <th data-priority="4">Status</th>
+						      </tr>
+						    </thead>
+						    <tbody class="color-tbody">
+						      <tr ng-repeat="x in eventhost | filter:searching" ng-click="eventPanel(event.id)"  data-toggle="modal" href="#modalNew" style="color: black; cursor:pointer" onclick="return false;" >
+						        <td class="star-color"><i class="fa fa-star" style="cursor:pointer" ng-mouseover="info(x.id)" data-toggle="tooltip" data-placement="bottom" title="name: {{userId.invited_id.name}} &#013;Surname: {{userId.invited_id.surname}} &#013;Username:  {{userId.invited_id.username}}&#013;Email:  {{userId.invited_id.email}}"></i></td>
+						        <td>{{x.invited_id.name}}</td>
+						        <td>{{x.events_id.name}}</td>
+						        <td>{{x.moneyOWNED}}</td>
+						        <td>{{x.events_id.expirationDate}}</td>
+						        <td>
+						        	<div class="not-paid">
+						        	 	<button class="btn btn-default btn-danger btn-pay-style" type="button" ng-click="payMoney(event.id)"> Pay Money </button>
+						        	</div>
+						        </td>
+						      </tr>
+						    </tbody>
+						    <tfoot>
+						      <tr>
+				      		 	<td colspan="6" class="">
+						      		<div class="dataTables_length pull-left" id="datatable-responsive_length">
+							      		<label>
+								      		<select name="datatable-responsive_length" aria-controls="datatable-responsive" class="form-control display-select">
+									      		<option value="10">10</option>
+									      		<option value="25">25</option>
+									      		<option value="50">50</option>
+									      		<option value="100">100</option>
+								      		</select>
+							      		 	records per page
+							      		 </label>
+						      		 </div>
+									<ul class="pagination pull-right">
+										<li class="disabled"><a href="#">&laquo;</a></li>
+										<li class="active"><a href="#">1</a></li>
+										<li><a href="#">2</a></li>
+										<li><a href="#">3</a></li>
+										<li><a href="#">4</a></li>
+										<li><a href="#">5</a></li>
+										<li><a href="#">&raquo;</a></li>
+									</ul>
+								</td>
+						      </tr>
+						    </tfoot>
+						  </table>
+						</div>
+					</div>
+				</div>					
+				<div class="col-sm-6">
+    						<div class="table-wrapper">
+						<div id="mybills-background" class="table-responsive" data-pattern="priority-columns">
+						  <table class="table table-bordered table-hover table-bg-color">
+						    <caption class="text-center bg-caption">A list of users who owe</caption>
+						    <thead class="bg-thead color-thead">
+						      <tr>
+						        <th></th>
+						        <th data-priority="1">User</th>
+						        <th data-priority="2">Event</th>
+						        <th data-priority="3">Price</th>
+						        <th data-priority="4">Status</th>
+						      </tr>
+						    </thead>
+						    <tbody class="color-tbody">
+						      <tr ng-repeat="x in eventhost | filter:searching" ng-click="eventPanel(event.id)"  data-toggle="modal" href="#modalOld" style="color: black; cursor:pointer" onclick="return false;">
+						        <td class="star-color"><i class="fa fa-star" style="cursor:pointer" ng-mouseover="info(x.id)" data-toggle="tooltip" data-placement="bottom" title="name: {{userId.invited_id.name}} &#013;Surname: {{userId.invited_id.surname}} &#013;Username:  {{userId.invited_id.username}}&#013;Email: {{userId.invited_id.email}}"></i></td>
+						        <td>{{x.invited_id.name}}</td>
+						        <td>{{x.events_id.name}}</td>
+						        <td>{{x.moneyOWNED}}</td>
+						        <td>
+						        	<div class="has-paid" ng-show="x.moneyOWNED === 0.0">
+						        		<button class="btn btn-default btn-success btn-has-paid-style" type="button" ng-click="payMoney(event.id)"> Has paid </button>
+						        	</div>
+						        	<div class="not-paid" ng-hide="x.moneyOWNED === 0.0">
+						        	 	<button class="btn btn-default btn-danger btn-not-paid-style" type="button" ng-click="payMoney(event.id)"> Not paid </button>
+						        	</div>
+						        </td>
+						      </tr>
+						    </tbody>
+						    <tfoot>
+						      <tr>
+				      		 	<td colspan="6" class="">
+						      		<div class="dataTables_length pull-left" id="datatable-responsive_length">
+							      		<label>
+								      		<select name="datatable-responsive_length" aria-controls="datatable-responsive" class="form-control display-select">
+									      		<option value="10">10</option>
+									      		<option value="25">25</option>
+									      		<option value="50">50</option>
+									      		<option value="100">100</option>
+								      		</select>
+							      		 	records per page
+							      		 </label>
+						      		 </div>
+									<ul class="pagination pull-right">
+										<li class="disabled"><a href="#">&laquo;</a></li>
+										<li class="active"><a href="#">1</a></li>
+										<li><a href="#">2</a></li>
+										<li><a href="#">3</a></li>
+										<li><a href="#">4</a></li>
+										<li><a href="#">5</a></li>
+										<li><a href="#">&raquo;</a></li>
+									</ul>
+								</td>
+						      </tr>
+						    </tfoot>
+						  </table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="modalNew" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+	    <!-- Modal content-->
+<!--     <div class="modal-content">
+	      	<div class="modal-header">
+		        <h4 class="modal-title fweight">Event name: &nbsp; {{panel.events_id.name}}</h4>
+	      	</div>
+	      	<div class="modal-body" style="padding-right:100px">
+	      		<div class="list-group">
+				    <h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Event budget:  <span style="float:right"> {{panel.events_id.budget}} den. </span> </h4>
+					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Created on: <span style="float:right"> {{panel.events_id.createdDate}}  </span> </h4>
+					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Deadline:  <span style="float:right"> {{panel.events_id.expirationDate}} </span> </h4>
+					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Created by:<span style="float:right">  {{panel.hosting_id.name}}  </span> </h4>
+					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; I should pay:<span style="float:right">  {{panel.moneyOWNED}} den.  </span> </h4>
+					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; <span style="float:right">  <button type="button"> pay your debt! </button>  </span> </h4>
+				</div>
+	      	</div>
+	      	<div class="modal-footer">
+	        	<button type="button" class="btn btn-default modal-button-hover" data-dismiss="modal"> Close </button>
+	      	</div>
+	    </div>
+  	</div>
+</div>
+
+<div id="modalOld" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+	    <!-- Modal content-->
+<!-- 	    <div class="modal-content">
+	      	<div class="modal-header">
+		        <h4 class="modal-title fweight">Event name: &nbsp; {{panel.events_id.name}}</h4>
+	      	</div>
+	      	<div class="modal-body" style="padding-right:100px">
+	      		<div class="list-group">
+				    <h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Event budget:  <span style="float:right"> {{panel.events_id.budget}} den. </span> </h4>
+					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Created on: <span style="float:right"> {{panel.events_id.createdDate}}  </span> </h4>
+					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Deadline:  <span style="float:right"> {{panel.events_id.expirationDate}} </span> </h4>
+					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Created by:<span style="float:right">  {{panel.hosting_id.name}}  </span> </h4>
+					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; This user should pay you:<span style="float:right">  {{panel.moneyOWNED}} den.  </span> </h4>
+					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; <span style="float:right">  <button type="button"> The user has paid! </button>  </span> </h4>
+				</div>
+	      	</div>
+	      	<div class="modal-footer">
+	        	<button type="button" class="btn btn-default modal-button-hover" data-dismiss="modal"> Close </button>
+	      	</div>
+	    </div>
+  	</div>
+</div>
+-->
+
+
+
+
+<div class="top-content-mybills">
+	<div class="inner-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="row">
+						<div class="col-xs-12">
+							<h3>Tables</h3>
+							<div class="table-header">
+								A list of users that I owe
+							</div>
+							<div id="table_wrapper" class="dataTable_wrapper">
+								<div class="row">
+									<div class="col-xs-12">
+										<div id="user-owe" class="user-owe-search">
+											<label>Search:<input type="search" class="form-control input-sm "></label>
+										</div>
+									</div>
+								</div>
+								<div class="table-responsive">
+									<table id="simple-table" class="table table-striped table-bordered table-hover dataTable ">
+										<thead>
+											<tr>
+												<th class="detail-col">Details</th>
+												<th>User</th>
+												<th>Event</th>
+												<th>Price</th>
+												<th><i class="fa fa-clock-o bigger-clock-icon"></i>Expiry Day</th>
+												<th>Status</th>
+											</tr>
+										</thead>
+										<tbody class="tbody-home">
+											<tr>
+												<td class="center">
+													<div class="action-button">
+														<a href="#logged-user-owe-collapse-row" class="green show-detail-btn detail-angle-icon" title="Show Details" data-toggle="collapse" onclick="return false;"><i class="fa fa-angle-double-up"></i><span class="sr-only">Details</span></a>
+													</div> 
+												</td>
+												<td>Slagjana</td>
+												<td>Birthday Party</td>
+												<td>1000den.</td>
+												<td>30 April 2016</td>
+												<td><span class="label label-sm label-danger">Pay Money</span></td>
+											</tr>
+											<tr id="logged-user-owe-collapse-row" class="collapse detail-row">
+												<td colspan="8">
+													<div class="table-detail">
+														<div class="row">
+															<div class="col-xs-12 col-sm-2">
+																<div class="text-center">
+																	<img height="150" class="thumbnail inline no-margin-bottom" alt="Slagjana's picture" src="images/slagjana.jpg">
+																	<br>
+																	<div class="width-80 label label-info label-xlg">
+																		<div class="inline position-relative">
+																			<a class="user-title-label" href="#">
+																				<i class="user-icon fa fa-circle light-green"></i>
+																				&nbsp;
+																				<span class="white">Slagjana</span>
+																			</a>
+																		</div>
+																	</div>
+																</div>
+															</div>
+					
+															<div class="col-xs-12 col-sm-7">
+																<div class="space visible-xs"></div>
+					
+																<div class="profile-user-info profile-user-info-striped">
+																	<div class="profile-info-row">
+																		<div class="profile-info-name"> Username </div>
+					
+																		<div class="profile-info-value">
+																			<span>Slagjana</span>
+																		</div>
+																	</div>
+					
+																	<div class="profile-info-row">
+																		<div class="profile-info-name"> Event Name </div>
+					
+																		<div class="profile-info-value">
+																			<i class="fa fa-map-marker light-orange bigger-map-marker"></i>
+																			<span>Baby Party</span>
+																		</div>
+																	</div>
+					
+																	<div class="profile-info-row">
+																		<div class="profile-info-name"> Event budget </div>
+					
+																		<div class="profile-info-value">
+																			<span>3500den.</span>
+																		</div>
+																	</div>
+					
+																	<div class="profile-info-row">
+																		<div class="profile-info-name"> Created on: </div>
+					
+																		<div class="profile-info-value">
+																			<span>2016/04/20</span>
+																		</div>
+																	</div>
+					
+																	<div class="profile-info-row">
+																		<div class="profile-info-name"> Deadline </div>
+					
+																		<div class="profile-info-value">
+																			<span>2016/04/30</span>
+																		</div>
+																	</div>
+					
+																	<div class="profile-info-row">
+																		<div class="profile-info-name"> Created By: </div>
+					
+																		<div class="profile-info-value">
+																			<span>Jasmina</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+					
+															<div class="col-xs-12 col-sm-3">
+																<div class="space visible-xs"></div>
+																<h4 class="header blue lighter less-margin">I should pay: 875den.</h4>
+					
+																<div class="space-6"></div>
+					
+																<form>
+																	
+					
+																	<div class="hr hr-dotted"></div>
+					
+																	<div class="clearfix">
+																		
+					
+																		<button class="btn btn-sm btn-danger btn-round pay-my-dept-btn" type="button">
+																			Pay my debt
+																			<i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+																		</button>
+																	</div>
+																</form>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td class="center">
+													<div class="action-button">
+														<a href="" class="green show-detail-btn bigger-angle-icon" title="Show Details"><i class="fa fa-angle-double-up"></i><span class="sr-only">Details</span></a>
+													</div> 
+												</td>
+												<td>Slagjana</td>
+												<td>Birthday Party</td>
+												<td>1000den.</td>
+												<td>30 April 2016</td>
+												<td><span class="label label-sm label-danger">Pay Money</span></td>
+											</tr>
+											<tr>
+												<td class="center">
+													<div class=action-button>
+														<a href="" class="green show-detail-btn bigger-angle-icon" title="Show Details"><i class="fa fa-angle-double-up"></i><span class="sr-only">Details</span></a>
+													</div> 
+												</td>
+												<td>Slagjana</td>
+												<td>Birthday Party</td>
+												<td>1000den.</td>
+												<td>30 April 2016</td>
+												<td><span class="label label-sm label-danger">Pay Money</span></td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="row">
+										<div class="col-xs-12">
+											<div class="dataTable_paginate">
+												<ul class="pagination">
+													<li class="paginate_button previous disabled"><a href="#">&laquo;</a></li>
+													<li class="paginate_button active"><a href="#">1</a></li>
+													<li class="paginate_button"><a href="#">2</a></li>
+													<li class="paginate_button"><a href="#">3</a></li>
+													<li class="paginate_button"><a href="#">4</a></li>
+													<li class="paginate_button next"><a href="#">&raquo;</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<!-- User owe table begin -->
+					
+					<div class="row">
+						<div class="col-xs-12">
+							<h3>Tables</h3>
+							<div class="table-header">
+								A list of users who owe
+							</div>
+							<div id="table_wrapper" class="dataTable_wrapper">
+								<div class="row">
+									<div class="col-xs-12">
+										<div id="user-owe" class="user-owe-search">
+											<label>Search:<input type="search" class="form-control input-sm "></label>
+										</div>
+									</div>
+								</div>
+								<div class="table-responsive">
+									<table id="simple-table" class="table table-striped table-bordered table-hover dataTable ">
+										<thead>
+											<tr>
+												<th class="detail-col">Details</th>
+												<th>User</th>
+												<th>Event</th>
+												<th>Price</th>
+												<th><i class="fa fa-clock-o bigger-clock-icon"></i>Expiry Day</th>
+												<th>Status</th>
+											</tr>
+										</thead>
+										<tbody class="tbody-home">
+											<tr>
+												<td class="center">
+													<div class="action-button">
+														<a href="#user-owe-collapse-row" class="green show-detail-btn detail-angle-icon" title="Show Details" data-toggle="collapse" onclick="return false;"><i class="fa fa-angle-double-up"></i><span class="sr-only">Details</span></a>
+													</div> 
+												</td>
+												<td>Slagjana</td>
+												<td>Baby Party</td>
+												<td>1000den.</td>
+												<td>30 April 2016</td>
+												<td><span class="label label-sm label-success">Has paid</span></td>
+											</tr>
+											<tr id="user-owe-collapse-row" class="collapse detail-row">
+												<td colspan="8">
+													<div class="table-detail">
+														<div class="row">
+															<div class="col-xs-12 col-sm-2">
+																<div class="text-center">
+																	<img height="150" class="thumbnail inline no-margin-bottom" alt="Slagjana's picture" src="images/slagjana.jpg">
+																	<br>
+																	<div class="width-80 label label-info label-xlg">
+																		<div class="inline position-relative">
+																			<a class="user-title-label" href="#">
+																				<i class="user-icon fa fa-circle light-green"></i>
+																				&nbsp;
+																				<span class="white">Slagjana</span>
+																			</a>
+																		</div>
+																	</div>
+																</div>
+															</div>
+					
+															<div class="col-xs-12 col-sm-7">
+																<div class="space visible-xs"></div>
+					
+																<div class="profile-user-info profile-user-info-striped">
+																	<div class="profile-info-row">
+																		<div class="profile-info-name"> Username </div>
+					
+																		<div class="profile-info-value">
+																			<span>Slagjana</span>
+																		</div>
+																	</div>
+					
+																	<div class="profile-info-row">
+																		<div class="profile-info-name"> Event Name </div>
+					
+																		<div class="profile-info-value">
+																			<i class="fa fa-file-text-o light-orange bigger-map-marker"></i>
+																			<span>Baby Party</span>
+																		</div>
+																	</div>
+					
+																	<div class="profile-info-row">
+																		<div class="profile-info-name"> Event budget </div>
+					
+																		<div class="profile-info-value">
+																			<span>3500den.</span>
+																		</div>
+																	</div>
+					
+																	<div class="profile-info-row">
+																		<div class="profile-info-name"> Created on: </div>
+					
+																		<div class="profile-info-value">
+																			<span>2016/04/20</span>
+																		</div>
+																	</div>
+					
+																	<div class="profile-info-row">
+																		<div class="profile-info-name"> Deadline </div>
+					
+																		<div class="profile-info-value">
+																			<span>2016/04/30</span>
+																		</div>
+																	</div>
+					
+																	<div class="profile-info-row">
+																		<div class="profile-info-name"> Created By: </div>
+					
+																		<div class="profile-info-value">
+																			<span>Jasmina</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+					
+															<div class="col-xs-12 col-sm-3">
+																<div class="space visible-xs"></div>
+																<h4 class="header blue lighter less-margin">This user should pay me: 875den.</h4>
+					
+																<div class="space-6"></div>
+					
+																<form>
+																	
+					
+																	<div class="hr hr-dotted"></div>
+					
+																	<div class="clearfix">
+																		
+					
+																		<button class="btn btn-sm btn-danger btn-round pay-my-dept-btn" type="button">
+																			The user has paid
+																			<i class="fa fa-arrow-right icon-on-right bigger-110"></i>
+																		</button>
+																	</div>
+																</form>
+															</div>
+														</div>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td class="center">
+													<div class="action-button">
+														<a href="" class="green show-detail-btn bigger-angle-icon" title="Show Details"><i class="fa fa-angle-double-up"></i><span class="sr-only">Details</span></a>
+													</div> 
+												</td>
+												<td>Slagjana</td>
+												<td>Baby Party</td>
+												<td>1000den.</td>
+												<td>30 April 2016</td>
+												<td><span class="label label-sm label-danger">Has paid</span></td>
+											</tr>
+											<tr>
+												<td class="center">
+													<div class=action-button>
+														<a href="" class="green show-detail-btn bigger-angle-icon" title="Show Details"><i class="fa fa-angle-double-up"></i><span class="sr-only">Details</span></a>
+													</div> 
+												</td>
+												<td>Slagjana</td>
+												<td>Baby Party</td>
+												<td>1000den.</td>
+												<td>30 April 2016</td>
+												<td><span class="label label-sm label-danger">Has paid</span></td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="row">
+										<div class="col-xs-12">
+											<div class="dataTable_paginate">
+												<ul class="pagination">
+													<li class="paginate_button previous disabled"><a href="#">&laquo;</a></li>
+													<li class="paginate_button active"><a href="#">1</a></li>
+													<li class="paginate_button"><a href="#">2</a></li>
+													<li class="paginate_button"><a href="#">3</a></li>
+													<li class="paginate_button"><a href="#">4</a></li>
+													<li class="paginate_button next"><a href="#">&raquo;</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+				
+ 
