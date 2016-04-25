@@ -1,5 +1,5 @@
 angular.module('myApp')
-.controller('newEventsCtrl', function($scope, get, logged){
+.controller('newEventsCtrl', function($scope, get, logged, Pagination){
 	$scope.init = function(){
 		$scope.eventhost = [];
 		$scope.myEvents = [];
@@ -49,7 +49,7 @@ angular.module('myApp')
 					}
 				}
 			} 
-
+			$scope.pages();
 		})
 		.then(function(){
 			
@@ -115,6 +115,13 @@ angular.module('myApp')
 		.then(function(){
 			
 		})
+	};
+	
+	$scope.pages = function(){
+		
+		$scope.pagination = Pagination.getNew(3);
+		$scope.pagination.numPages = Math.ceil($scope.myEvents.length / $scope.pagination.perPage);
+		
 	};
 	
 	
