@@ -40,6 +40,9 @@ angular.module('myApp')
 					$scope.eHost.push($scope.eventhost[i]);
 				}
 			}
+			for(i = 0; i < $scope.eHost.length; i++){
+				$scope.eHost[i].moneyOWNED = Math.ceil($scope.eHost[i].moneyOWNED);
+			}
 		})
 		.then(function(){
 			
