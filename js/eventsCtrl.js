@@ -68,6 +68,8 @@ angular.module('myApp')
 		get.eventwhere(logged.id)
 		.then(function(res){
 			$scope.eventwhere = res;
+			$scope.eventwhere[0].events_id.expirationDate = get.dateFunc($scope.eventwhere[0].events_id.expirationDate);
+			console.log($scope.eventwhere);
 		})
 		.then(function(){
 			
