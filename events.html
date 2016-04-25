@@ -23,7 +23,7 @@
 					
 					<hr>
 					
-					<div ng-repeat="x in myEvents |filter:searchVal">
+					<div ng-repeat="x in myEvents |filter:searchVal | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
 						
 						<div class="well well-sm" style="color:black; cursor:pointer" ng-click="eventPanel(x.id)" data-toggle="modal" href="#simplyModal" style="color: black; cursor:pointer" onclick="return false;">
 								
@@ -39,6 +39,14 @@
 								
 						</div>
 					</div>
+					
+					<ul class="pagination pull-right">
+						<li><a href="" ng-click="pagination.prevPage()">&laquo;</a></li>
+						<li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: n == pagination.page}">
+						<a href="" ng-click="pagination.toPageId(n)">{{n + 1}}</a>
+						</li>
+						<li><a href="" ng-click="pagination.nextPage()">&raquo;</a></li>
+					</ul>
 	  				
 				</div>
 			</div>

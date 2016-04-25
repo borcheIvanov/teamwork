@@ -58,6 +58,8 @@ $scope.init = function(){
 		get.eventPan(id)
 		.then(function(res){
 			$scope.userId = res;
+			$scope.userId.events_id.createdDate = get.dateFunc($scope.userId.events_id.createdDate);
+			$scope.userId.events_id.expirationDate = get.dateFunc($scope.userId.events_id.expirationDate);
 		})
 		.then(function(){
 			

@@ -30,9 +30,9 @@
 						    </thead>
 						    <tbody class="color-tbody">
 						      <tr ng-repeat="x in eventhost | filter:searching | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
-						        <td class="star-color"><i class="fa fa-star" style="cursor:pointer" ng-mouseover="info(x.id)" data-toggle="tooltip" data-placement="bottom" title="name:          {{userId.invited_id.name}} &#013;Surname:    {{userId.invited_id.surname}} &#013;Username:  {{userId.invited_id.username}}&#013;Email:          {{userId.invited_id.email}}"></i></td>
+						        <td class="star-color"><i class="fa fa-user" style="cursor:pointer" ng-mouseover="info(x.id)" data-toggle="tooltip" data-placement="bottom" title="name:          {{userId.invited_id.name}} &#013;Surname:    {{userId.invited_id.surname}} &#013;Username:  {{userId.invited_id.username}}&#013;Email:          {{userId.invited_id.email}}"></i></td>
 						        <td>{{x.invited_id.name}}</td>
-						        <td>{{x.events_id.name}}</td>
+						        <td>  <i class="fa fa-info" style="cursor:pointer" ng-mouseover="info(x.id)" data-toggle="tooltip" data-placement="bottom" title="name:        {{userId.events_id.name}} &#013;Created:    {{userId.events_id.createdDate}} &#013;Expiry:        {{userId.events_id.expirationDate}}&#013;Budget:     {{userId.events_id.budget}} den."></i> &nbsp; {{x.events_id.name}}</td>
 						        <td>{{x.moneyOWNED}}</td>
 						        <td><div class="has-paid" ng-show="x.moneyOWNED === 0.0"> Has paid </div> <div class="not-paid" ng-hide="x.moneyOWNED === 0.0"> Not paid </div></td>
 						        <td>{{x.events_id.expirationDate}}</td>
