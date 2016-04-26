@@ -16,37 +16,40 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/libs/jquery.slimscroll.min.js"></script>
 	
-	<!--Angular-->
-	<script src="js/angular.min.js"> </script>
 	<script src="js/libs/jquery.backstretch.min.js"></script>
-	<script src="js/simplePagination.js"> </script>
+	
+	<!--core-->
+	<script src="js/core/angular.min.js"> </script>
+	<script src="js/core/simplePagination.js"> </script>
+	<script src="js/core/uiRouter.js"> </script>
+	<script src="js/core/ngCookies.js"> </script>
+	<script src="js/core/angular-charts.min.js"> </script>
+	<script src="js/core/pie-chart.min.js"> </script>
+	<script src="js/core/d3.min.js"> </script>
    
     
-	<!-- References -->
-	<script src="js/mainCtrl.js"> </script>
-	<script src="js/uiRouter.js"> </script>
-	<script src="js/ngCookies.js"> </script>
-	<script src="js/globals.js"> </script>
+	<!-- app -->
+	<script src="js/app.module.js"> </script>
+	<script src="js/app.states.js"> </script>
 	
 	
 	<!-- Services -->
-	<script src="js/getService.js"> </script>
-	<script src="js/postService.js"> </script>
-	<script src="js/putService.js"> </script>
-	<script src="js/value.js"> </script>
-	<script src="js/funkcii.js"> </script>
+	<script src="js/services/user.service.js"> </script>
+	<script src="js/services/event.service.js"> </script>
+	<script src="js/services/empEvent.service.js"> </script>
+	<script src="js/services/login.service.js"> </script>
+	<script src="js/services/date.service.js"> </script>
+	<script src="js/services/session.service.js"> </script>
+	
 	
 	<!-- Controllers -->
-	<script src="js/loginCtrl.js"> </script>
-	<script src="js/regCtrl.js"> </script>
-	<script src="js/eventsCtrl.js"> </script>
-	<script src="js/mybillsCtrl.js"> </script>
-	<script src="js/newEvents.js"> </script>
-	<script src="js/statsCtrl.js"> </script>
-	
-	<script src="js/angular-charts.min.js"> </script>
-	<script src="js/pie-chart.min.js"> </script>
-	<script src="js/d3.min.js"></script>
+	<script src="js/controllers/login.controller.js"> </script>
+	<script src="js/controllers/registration.controller.js"> </script>
+	<script src="js/controllers/home.controller.js"> </script>
+	<script src="js/controllers/mybills.controller.js"> </script>
+	<script src="js/controllers/events.controller.js"> </script>
+	<script src="js/controllers/stats.controller.js"> </script>
+	<script src="js/controllers/logout.controller.js"> </script>
 	
 	
 </head>
@@ -79,6 +82,6 @@
 
 
 <div ui-view> </div>
-<script src="js/background-image-stretch.js"></script>
+<script src="js/libs/background-image-stretch.js"></script>
 </body>
 </html>

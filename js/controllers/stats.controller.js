@@ -1,5 +1,5 @@
 angular.module('myApp')
-.controller('statsCtrl', function($scope, get, logged){
+.controller('StatsController', function($scope, empEvent, logged){
 	$scope.init = function(){
 		$scope.arr2 = [];
 		$scope.arr = [];
@@ -13,7 +13,7 @@ angular.module('myApp')
 	};
 	
 	$scope.getSth = function(){
-		get.eventhost(logged.id)
+		empEvent.eventhost(logged.id)
 		.then(function(res){
 			$scope.arr2 = res;
 			for(i = 0; i < $scope.arr2.length; i++){
@@ -58,7 +58,7 @@ angular.module('myApp')
 	$scope.init();
 })
 
-.controller('statsTwoCtrl', function($scope, get, logged){
+.controller('statsTwoCtrl', function($scope, empEvent, logged){
 	
 	$scope.init = function(){
 		$scope.numArr = [];
@@ -71,7 +71,7 @@ angular.module('myApp')
 	};
 	
 	$scope.getNumbers = function(){
-		get.eventhost(logged.id)
+		empEvent.eventhost(logged.id)
 		.then(function(res){
 			$scope.userArr = res;
 			$scope.printChart();

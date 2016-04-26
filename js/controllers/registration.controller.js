@@ -1,5 +1,5 @@
 angular.module('myApp')
-.controller('regCtrl', function($scope, get, post, $state){
+.controller('RegistrationController', function($scope,  user, logger, $state){
 	
 	$scope.init = function(){
 		$scope.getAll();
@@ -13,7 +13,7 @@ angular.module('myApp')
 	};
 	
 	$scope.getAll = function(){
-		get.users()
+		user.getUsers()
 		.then(function(res){
 			//success
 			$scope.users = res;
@@ -51,10 +51,10 @@ angular.module('myApp')
 		}else if(uName === false){
 			$scope.error = 'Username taken.';
 		}else{
-			post.user(temp)
+			user.postUser(temp)
 			.then(function(res){
 				
-				get.login($scope.userName, $scope.password)
+				logger.login($scope.userName, $scope.password)
 				.then(function(res){
 					$scope.error = '';
 					$state.go('events');

@@ -1,5 +1,5 @@
 angular.module('myApp')
-.controller('logCtrl', function($scope, get, logged, $state){
+.controller('LoginController', function($scope, logger, logged, $state){
 	$scope.init = function(){
 		$scope.error = '';
 		$scope.userName = '';
@@ -7,7 +7,7 @@ angular.module('myApp')
 	};
 	
 	$scope.access = function(){
-		get.login($scope.userName, $scope.password)
+		logger.login($scope.userName, $scope.password)
 		.then(function(res){
 			$scope.error = '';
 			$state.go('events');

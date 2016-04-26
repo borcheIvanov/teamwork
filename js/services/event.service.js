@@ -1,27 +1,45 @@
 angular.module('myApp')
-.service('post', function($http, $q){
+.service('events', function($http, $q){
 	var data = this;
+	
 	var config = {
 		headers : {
 			'Content-Type': 'application/json'
 		}
 	};
-	data.user = function(user){
+	
+	//////////////////////////////get
+
+	data.getEvents = function(){
 		var defer = $q.defer();
-		$http.post(url + '/api/employee', user, config)
+		
+		$http.get(url + '/api/event')
 		.success(function(res){
+			data.gg = res;
 			defer.resolve(res);
-			console.log(res);
-			
 		})
 		.error(function(err, status){
 			defer.reject(err);
-			alert('fail');
-		});
+		})
 		return defer.promise;
 	};
 	
-	data.events = function(evnt){
+	data.getEventById = function(id){
+		var defer = $q.defer();
+		
+		$http.get(url + '/api/event/' + id)
+		.success(function(res){
+			defer.resolve(res);
+		})
+		.error(function(err,status){
+			defer.reject(err);
+		})
+		return defer.promise;
+	};
+	
+	//////////////////////////////post
+	
+	data.postEvent = function(evnt){
 		var defer = $q.defer();
 		
 		$http.post(url + '/api/event', evnt, config)
@@ -36,18 +54,6 @@ angular.module('myApp')
 		return defer.promise;
 	};
 	
-	data.empEvent = function(empEvent){
-		var defer = $q.defer();
-		
-		$http.post(url + '/api/empevent', empEvent, config)
-		.success(function(res){
-			defer.resolve(res);
-		})
-		.error(function(err, status){
-			defer.reject(err);
-		})
-		return defer.promise;
-	};
 	
 	
 	return data;

@@ -1,5 +1,5 @@
 angular.module('myApp')
-.controller('eventsCtrl', function($scope, get, post, logged, put){
+.controller('HomeController', function($scope, empEvent, date, logged){
 	
 	$scope.init = function(){
 		$scope.events = [];
@@ -13,6 +13,7 @@ angular.module('myApp')
 		
 	};
 	
+	/*
 	$scope.getEvents = function(){
 		get.events()
 		.then(function(res){
@@ -25,15 +26,15 @@ angular.module('myApp')
 		.then(function(){
 			
 		})
-	};
+	};  */
 	
 	$scope.getEventhost = function(){
-		get.eventhost(logged.id)
+		empEvent.eventhost(logged.id)
 		.then(function(res){
 			$scope.eventhost = res;
 			for(i = 0; i < $scope.eventhost.length; i++){
-			$scope.eventhost[i].events_id.createdDate = get.dateFunc($scope.eventhost[i].events_id.createdDate);
-			$scope.eventhost[i].events_id.expirationDate = get.dateFunc($scope.eventhost[i].events_id.expirationDate);
+			$scope.eventhost[i].events_id.createdDate = date.Func($scope.eventhost[i].events_id.createdDate);
+			$scope.eventhost[i].events_id.expirationDate = date.Func($scope.eventhost[i].events_id.expirationDate);
 			}
 			for(i = 0; i < $scope.eventhost.length; i++){
 				if($scope.eventhost[i].moneyOWNED !== 0.0){
@@ -65,10 +66,10 @@ angular.module('myApp')
 	};
 	
 	$scope.getEventwhere = function(){
-		get.eventwhere(logged.id)
+		empEvent.eventwhere(logged.id)
 		.then(function(res){
 			$scope.eventwhere = res;
-			$scope.eventwhere[0].events_id.expirationDate = get.dateFunc($scope.eventwhere[0].events_id.expirationDate);
+			$scope.eventwhere[0].events_id.expirationDate = date.Func($scope.eventwhere[0].events_id.expirationDate);
 			console.log($scope.eventwhere);
 		})
 		.then(function(){
@@ -125,15 +126,12 @@ angular.module('myApp')
 	};
 */
 	
-
-
-	
 	$scope.eventPanel = function(id){
-		get.eventPan(id)
+		empEvent.eventPan(id)
 		.then(function(res){
 			$scope.panel = res;
-			$scope.panel.events_id.createdDate = get.dateFunc($scope.panel.events_id.createdDate);
-			$scope.panel.events_id.expirationDate = get.dateFunc($scope.panel.events_id.expirationDate);
+			$scope.panel.events_id.createdDate = date.Func($scope.panel.events_id.createdDate);
+			$scope.panel.events_id.expirationDate = date.Func($scope.panel.events_id.expirationDate);
 		})
 		.then(function(){
 			

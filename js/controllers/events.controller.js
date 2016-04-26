@@ -1,5 +1,5 @@
 angular.module('myApp')
-.controller('newEventsCtrl', function($scope, get, logged, Pagination){
+.controller('EventsController', function($scope, user, logged, empEvent, date, Pagination){
 	$scope.init = function(){
 		$scope.eventhost = [];
 		$scope.myEvents = [];
@@ -21,7 +21,7 @@ angular.module('myApp')
 	// -------------------------------------
 	
 	$scope.getUsers = function(){
-		get.users()
+		user.getUsers()
 		.then(function(res){
 			$scope.users = res;
 		})
@@ -31,12 +31,12 @@ angular.module('myApp')
 	};
 	
 	$scope.getEventhost = function(){
-		get.eventhost(logged.id)
+		empEvent.eventhost(logged.id)
 		.then(function(res){
 			$scope.eventhost = res;
 			for(i = 0; i < $scope.eventhost.length; i++){
-			$scope.eventhost[i].events_id.createdDate = get.dateFunc($scope.eventhost[i].events_id.createdDate);
-			$scope.eventhost[i].events_id.expirationDate = get.dateFunc($scope.eventhost[i].events_id.expirationDate);
+			$scope.eventhost[i].events_id.createdDate = date.Func($scope.eventhost[i].events_id.createdDate);
+			$scope.eventhost[i].events_id.expirationDate = date.Func($scope.eventhost[i].events_id.expirationDate);
 			}
 			
 			for(i = 0; i < $scope.eventhost.length; i++){
@@ -91,11 +91,11 @@ angular.module('myApp')
 	};
 	
 	$scope.eventPanel = function(id){
-		get.eventPan(id)
+		empEvent.eventPan(id)
 		.then(function(res){
 			$scope.panel = res;
-			$scope.panel.events_id.createdDate = get.dateFunc($scope.panel.events_id.createdDate);
-			$scope.panel.events_id.expirationDate = get.dateFunc($scope.panel.events_id.expirationDate);
+			$scope.panel.events_id.createdDate = date.Func($scope.panel.events_id.createdDate);
+			$scope.panel.events_id.expirationDate = date.Func($scope.panel.events_id.expirationDate);
 			$scope.getEventinv($scope.panel.events_id.id);
 		})
 		.then(function(){
@@ -105,7 +105,7 @@ angular.module('myApp')
 	
 	$scope.getEventinv = function(id){
 		
-		get.eventinv(id)
+		empEvent.eventinv(id)
 		.then(function(res){
 			$scope.init();
 			$scope.eventinv = res;
