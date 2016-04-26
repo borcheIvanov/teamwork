@@ -13,7 +13,7 @@ angular.module('myApp', ['ui.router', 'ngCookies', 'n3-pie-chart', 'simplePagina
     $rootScope.$on('$stateChangeStart',
         function(event, toState, toParams, fromState, fromParams){
 			
-			if(toState.name !== 'login' && logged.username === ''){
+			if(toState.name !== 'login' && logged.username === '' && toState.name !== 'register'){
 				event.preventDefault();
 				$state.go('login');
 			}
