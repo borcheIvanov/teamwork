@@ -1,5 +1,5 @@
 angular.module('myApp')
-.controller('HomeController', function($scope, empEvent, date, logged){
+.controller('HomeController', function($scope, empEvent, date, logged, Pagination){
 	
 	$scope.init = function(){
 		$scope.events = [];
@@ -13,20 +13,6 @@ angular.module('myApp')
 		
 	};
 	
-	/*
-	$scope.getEvents = function(){
-		get.events()
-		.then(function(res){
-			$scope.events = res;
-			for(i = 0; i < $scope.events.length; i++){
-				$scope.events[i].createdDate = get.dateFunc($scope.events[i].createdDate);
-				$scope.events[i].expirationDate = get.dateFunc($scope.events[i].expirationDate);
-			}
-		})
-		.then(function(){
-			
-		})
-	};  */
 	
 	$scope.getEventhost = function(){
 		empEvent.eventhost(logged.id)
@@ -44,6 +30,7 @@ angular.module('myApp')
 			for(i = 0; i < $scope.eHost.length; i++){
 				$scope.eHost[i].moneyOWNED = Math.ceil($scope.eHost[i].moneyOWNED);
 			}
+			$scope.pages();
 		})
 		.then(function(){
 			
@@ -70,7 +57,7 @@ angular.module('myApp')
 		.then(function(res){
 			$scope.eventwhere = res;
 			$scope.eventwhere[0].events_id.expirationDate = date.Func($scope.eventwhere[0].events_id.expirationDate);
-			console.log($scope.eventwhere);
+			$scope.pages();
 		})
 		.then(function(){
 			
@@ -138,10 +125,12 @@ angular.module('myApp')
 		})
 	};
 
-	
-	
+$scope.pages = function(){
+		
+		$scope.pagination = Pagination.getNew(5);
+		$scope.pagination.numPages = Math.ceil($scope.eventhost.length / $scope.pagination.perPage);
+		
+	};	
 
-	
-	
 	$scope.init();
 })
