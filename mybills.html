@@ -1,3 +1,5 @@
+<!--  
+
 <div class="top-content-mybills">
 	<div class="main-div-bills"></div>
 	<div class="inner-bg"> 
@@ -34,11 +36,11 @@
 						        <td>{{x.invited_id.name}}</td>
 						        <td>  <i class="fa fa-info" style="cursor:pointer" ng-mouseover="info(x.id)" data-toggle="tooltip" data-placement="bottom" title="name:        {{userId.events_id.name}} &#013;Created:    {{userId.events_id.createdDate}} &#013;Expiry:        {{userId.events_id.expirationDate}}&#013;Budget:     {{userId.events_id.budget}} den."></i> &nbsp; {{x.events_id.name}}</td>
 						        <td>{{x.moneyOWNED}}</td>
-						        <td><div class="has-paid" ng-show="x.moneyOWNED === 0.0"> Has paid </div> <div class="not-paid" ng-hide="x.moneyOWNED === 0.0"> Not paid </div></td>
+						        <td><div class="has-paid" ng-show="x.moneyOWNED === 0.0"><span class="label label-sm label-success">Has paid</span> </div> <div class="not-paid" ng-hide="x.moneyOWNED === 0.0"><span class="label label-sm label-danger">Not paid</span></div></td>
 						        <td>{{x.events_id.expirationDate}}</td>
 						      </tr>
 						    </tbody>
-						    <tfoot>
+						    <tfoot class="tfood-mybills">
 						      <tr>
 				      		 	<td colspan="6" class="">
 						      		<div class="dataTables_length pull-left" id="datatable-responsive_length">
@@ -73,3 +75,103 @@
 		</div>
 	</div>
 </div>	
+
+-->
+
+
+
+<div class="top-content-mybills">
+	<div class="inner-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="row">
+						<div class="col-xs-12">
+							<h3>Tables</h3>
+							<div class="clearfix">
+								<div class="pull-right tableTools-container">
+									<div class="btn-group">
+										<a class="btn btn-outlined btn-primary" ng-click="filterFunc('all')">All bills</a>
+										<a class="btn btn-outlined btn-success" ng-click="filterFunc('paid')">Paid out</a>
+										<a class="btn btn-outlined btn-danger" ng-click="filterFunc('notPaid')">Panding</a>
+									</div>
+								</div>
+							</div>
+							<div class="table-header">
+								Displaying all bills
+							</div>
+							<div id="display-all-bills-wrapper" class="dataTable_wrapper">
+								<div class="row">
+									<div class="col-xs-6">
+										<div id="display-records" class="display-records-lenght form-inline">
+											<label>Display
+												<select class="form-control input-sm" ng-model="pagesPer" ng-click="pages()">
+													<option value="5">5</option>
+													<option value="10">10</option>
+													<option value="25">25</option>
+													<option value="50">50</option>
+													<option value="100">100</option>
+												</select>
+												records
+											</label>
+										</div>
+									</div>
+									<div class="col-xs-6">
+										<div id="user-owe" class="user-owe-search">
+											<label>Search:<input type="search" class="form-control input-sm" ng-model="searching"></label>
+										</div>
+									</div>
+								</div>
+								<div class="table-responsive table-responsive-home">
+									<table id="simple-table" class="table table-striped table-bordered table-hover dataTable ">
+										<thead>
+											<tr>
+												<th class="detail-col">Details</th>
+												<th>User</th>
+												<th>Event</th>
+												<th>Price</th>
+												<th>Status</th>
+												<th><i class="fa fa-clock-o bigger-clock-icon"></i>Expiry Day</th>
+											</tr>
+										</thead>
+										<tbody class="tbody-home">
+											<tr ng-repeat="x in eventhost | filter:searching | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
+												<td class="center">
+													<div class="action-button">
+														<a href="#logged-user-owe-collapse-row" class="green show-detail-btn detail-angle-icon" title="Show Details" data-toggle="collapse" onclick="return false;"><i class="fa fa-angle-double-up" style="cursor:pointer" ng-mouseover="info(x.id)" data-toggle="tooltip" data-placement="bottom" title="name:          {{userId.invited_id.name}} &#013;Surname:    {{userId.invited_id.surname}} &#013;Username:  {{userId.invited_id.username}}&#013;Email:          {{userId.invited_id.email}}"></i><span class="sr-only">Details</span></a>
+													</div> 
+												</td>
+												<td>{{x.invited_id.name}}</td>
+										        <td>  <i class="fa fa-info" style="cursor:pointer" ng-mouseover="info(x.id)" data-toggle="tooltip" data-placement="bottom" title="name:        {{userId.events_id.name}} &#013;Created:    {{userId.events_id.createdDate}} &#013;Expiry:        {{userId.events_id.expirationDate}}&#013;Budget:     {{userId.events_id.budget}} den."></i> &nbsp; {{x.events_id.name}}</td>
+										        <td>{{x.moneyOWNED}}</td>
+										        <td><div class="has-paid" ng-show="x.moneyOWNED === 0.0"><span class="label label-sm label-success">Has paid</span> </div> <div class="not-paid" ng-hide="x.moneyOWNED === 0.0"><span class="label label-sm label-danger">Not paid</span></div></td>
+										        <td>{{x.events_id.expirationDate}}</td>
+											</tr>
+											
+										</tbody>
+									</table>
+								</div>
+								<div class="row">
+										<div class="col-xs-12">
+											<div class="dataTable_paginate">
+												<ul class="pagination pull-right">
+													<li><a href="" ng-click="pagination.prevPage()">&laquo;</a></li>
+													  <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: n == pagination.page}">
+													  <a href="" ng-click="pagination.toPageId(n)">{{n + 1}}</a>
+													  </li>
+													  <li><a href="" ng-click="pagination.nextPage()">&raquo;</a></li>
+												</ul>
+											</div>
+										</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+					
