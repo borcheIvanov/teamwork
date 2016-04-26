@@ -292,6 +292,9 @@
 </div>
 -->
 
+
+
+
 <div class="top-content-mybills">
 	<div class="inner-bg">
 		<div class="container">
@@ -307,7 +310,7 @@
 								<div class="row">
 									<div class="col-xs-12">
 										<div id="user-owe" class="user-owe-search">
-											<label>Search:<input type="search" class="form-control input-sm " ng-model="firstSearch"></label>
+											<label>Search:<input type="search" class="form-control input-sm "></label>
 										</div>
 									</div>
 								</div>
@@ -324,16 +327,16 @@
 											</tr>
 										</thead>
 										<tbody class="tbody-home">
-											<tr ng-repeat="event in eventwhere | filter:firstSearch">
+											<tr>
 												<td class="center">
 													<div class="action-button">
-														<a href="#logged-user-owe-collapse-row" class="green show-detail-btn detail-angle-icon" title="Show Details" data-toggle="collapse" onclick="return false;" ng-click="eventPanel(event.id)"><i class="fa fa-angle-double-up"></i><span class="sr-only">Details</span></a>
+														<a href="#logged-user-owe-collapse-row" class="green show-detail-btn detail-angle-icon" title="Show Details" data-toggle="collapse" onclick="return false;"><i class="fa fa-angle-double-up"></i><span class="sr-only">Details</span></a>
 													</div> 
 												</td>
-												<td>{{event.hosting_id.name}}</td>
-												<td>{{event.events_id.name}}</td>
-												<td>{{event.moneyOWNED}}den.</td>
-												<td>{{event.events_id.expirationDate}}</td>
+												<td>Slagjana</td>
+												<td>Birthday Party</td>
+												<td>1000den.</td>
+												<td>30 April 2016</td>
 												<td><span class="label label-sm label-danger">Pay Money</span></td>
 											</tr>
 											<tr id="logged-user-owe-collapse-row" class="collapse detail-row">
@@ -349,7 +352,7 @@
 																			<a class="user-title-label" href="#">
 																				<i class="user-icon fa fa-circle light-green"></i>
 																				&nbsp;
-																				<span class="white">{{panel.invited_id.name}}</span>
+																				<span class="white">Slagjana</span>
 																			</a>
 																		</div>
 																	</div>
@@ -364,7 +367,7 @@
 																		<div class="profile-info-name"> Username </div>
 					
 																		<div class="profile-info-value">
-																			<span>{{panel.invited_id.username}}</span>
+																			<span>Slagjana</span>
 																		</div>
 																	</div>
 					
@@ -373,7 +376,7 @@
 					
 																		<div class="profile-info-value">
 																			<i class="fa fa-map-marker light-orange bigger-map-marker"></i>
-																			<span>{{panel.events_id.name}}</span>
+																			<span>Baby Party</span>
 																		</div>
 																	</div>
 					
@@ -381,7 +384,7 @@
 																		<div class="profile-info-name"> Event budget </div>
 					
 																		<div class="profile-info-value">
-																			<span>{{panel.events_id.budget}}den.</span>
+																			<span>3500den.</span>
 																		</div>
 																	</div>
 					
@@ -389,7 +392,7 @@
 																		<div class="profile-info-name"> Created on: </div>
 					
 																		<div class="profile-info-value">
-																			<span>{{panel.events_id.createdDate}}</span>
+																			<span>2016/04/20</span>
 																		</div>
 																	</div>
 					
@@ -397,7 +400,7 @@
 																		<div class="profile-info-name"> Deadline </div>
 					
 																		<div class="profile-info-value">
-																			<span>{{panel.events_id.expirationDate}}</span>
+																			<span>2016/04/30</span>
 																		</div>
 																	</div>
 					
@@ -405,7 +408,7 @@
 																		<div class="profile-info-name"> Created By: </div>
 					
 																		<div class="profile-info-value">
-																			<span>{{panel.events_id.createdBy}}</span>
+																			<span>Jasmina</span>
 																		</div>
 																	</div>
 																</div>
@@ -413,7 +416,7 @@
 					
 															<div class="col-xs-12 col-sm-3">
 																<div class="space visible-xs"></div>
-																<h4 class="header blue lighter less-margin">I should pay: {{panel.moneyOWNED}}den.</h4>
+																<h4 class="header blue lighter less-margin">I should pay: 875den.</h4>
 					
 																<div class="space-6"></div>
 					
@@ -436,18 +439,42 @@
 													</div>
 												</td>
 											</tr>
-											
+											<tr>
+												<td class="center">
+													<div class="action-button">
+														<a href="" class="green show-detail-btn bigger-angle-icon" title="Show Details"><i class="fa fa-angle-double-up"></i><span class="sr-only">Details</span></a>
+													</div> 
+												</td>
+												<td>Slagjana</td>
+												<td>Birthday Party</td>
+												<td>1000den.</td>
+												<td>30 April 2016</td>
+												<td><span class="label label-sm label-danger">Pay Money</span></td>
+											</tr>
+											<tr>
+												<td class="center">
+													<div class=action-button>
+														<a href="" class="green show-detail-btn bigger-angle-icon" title="Show Details"><i class="fa fa-angle-double-up"></i><span class="sr-only">Details</span></a>
+													</div> 
+												</td>
+												<td>Slagjana</td>
+												<td>Birthday Party</td>
+												<td>1000den.</td>
+												<td>30 April 2016</td>
+												<td><span class="label label-sm label-danger">Pay Money</span></td>
+											</tr>
 										</tbody>
 									</table>
 									<div class="row">
 										<div class="col-xs-12">
 											<div class="dataTable_paginate">
-												<ul class="pagination pull-right">
-													<li><a href="" ng-click="pagination.prevPage()">&laquo;</a></li>
-													<li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: n == pagination.page}">
-													<a href="" ng-click="pagination.toPageId(n)">{{n + 1}}</a>
-													</li>
-													<li><a href="" ng-click="pagination.nextPage()">&raquo;</a></li>
+												<ul class="pagination">
+													<li class="paginate_button previous disabled"><a href="#">&laquo;</a></li>
+													<li class="paginate_button active"><a href="#">1</a></li>
+													<li class="paginate_button"><a href="#">2</a></li>
+													<li class="paginate_button"><a href="#">3</a></li>
+													<li class="paginate_button"><a href="#">4</a></li>
+													<li class="paginate_button next"><a href="#">&raquo;</a></li>
 												</ul>
 											</div>
 										</div>
@@ -463,13 +490,13 @@
 						<div class="col-xs-12">
 							<h3>Tables</h3>
 							<div class="table-header">
-								A list of users who owe me
+								A list of users who owe
 							</div>
 							<div id="table_wrapper" class="dataTable_wrapper">
 								<div class="row">
 									<div class="col-xs-12">
 										<div id="user-owe" class="user-owe-search">
-											<label>Search:<input type="search" class="form-control input-sm " ng-model="secondSearch"></label>
+											<label>Search:<input type="search" class="form-control input-sm "></label>
 										</div>
 									</div>
 								</div>
@@ -486,17 +513,16 @@
 											</tr>
 										</thead>
 										<tbody class="tbody-home">
-											
-											<tr ng-repeat="event in eHost | filter:secondSearch">
+											<tr>
 												<td class="center">
-													<div class="action-button" >
-														<a href="#user-owe-collapse-row" class="green show-detail-btn detail-angle-icon" title="Show Details" data-toggle="collapse" onclick="return false;" ng-click="eventPanel(event.id)"><i class="fa fa-angle-double-up"></i><span class="sr-only">Details</span></a>
+													<div class="action-button">
+														<a href="#user-owe-collapse-row" class="green show-detail-btn detail-angle-icon" title="Show Details" data-toggle="collapse" onclick="return false;"><i class="fa fa-angle-double-up"></i><span class="sr-only">Details</span></a>
 													</div> 
 												</td>
-												<td>{{event.invited_id.name}}</td>
-												<td>{{event.events_id.name}}</td>
-												<td>{{event.moneyOWNED}}den.</td>
-												<td>{{event.events_id.expirationDate}}</td>
+												<td>Slagjana</td>
+												<td>Baby Party</td>
+												<td>1000den.</td>
+												<td>30 April 2016</td>
 												<td><span class="label label-sm label-success">Has paid</span></td>
 											</tr>
 											<tr id="user-owe-collapse-row" class="collapse detail-row">
@@ -512,7 +538,7 @@
 																			<a class="user-title-label" href="#">
 																				<i class="user-icon fa fa-circle light-green"></i>
 																				&nbsp;
-																				<span class="white">{{panel.hosting_id.name}}</span>
+																				<span class="white">Slagjana</span>
 																			</a>
 																		</div>
 																	</div>
@@ -527,7 +553,7 @@
 																		<div class="profile-info-name"> Username </div>
 					
 																		<div class="profile-info-value">
-																			<span>{{panel.invited_id.username}}</span>
+																			<span>Slagjana</span>
 																		</div>
 																	</div>
 					
@@ -536,7 +562,7 @@
 					
 																		<div class="profile-info-value">
 																			<i class="fa fa-file-text-o light-orange bigger-map-marker"></i>
-																			<span>{{panel.events_id.expirationDate}}</span>
+																			<span>Baby Party</span>
 																		</div>
 																	</div>
 					
@@ -544,7 +570,7 @@
 																		<div class="profile-info-name"> Event budget </div>
 					
 																		<div class="profile-info-value">
-																			<span>{{panel.events_id.budget}}den.</span>
+																			<span>3500den.</span>
 																		</div>
 																	</div>
 					
@@ -552,7 +578,7 @@
 																		<div class="profile-info-name"> Created on: </div>
 					
 																		<div class="profile-info-value">
-																			<span>{{panel.events_id.createdDate}}</span>
+																			<span>2016/04/20</span>
 																		</div>
 																	</div>
 					
@@ -560,7 +586,7 @@
 																		<div class="profile-info-name"> Deadline </div>
 					
 																		<div class="profile-info-value">
-																			<span>{{panel.events_id.expirationDate}}</span>
+																			<span>2016/04/30</span>
 																		</div>
 																	</div>
 					
@@ -568,7 +594,7 @@
 																		<div class="profile-info-name"> Created By: </div>
 					
 																		<div class="profile-info-value">
-																			<span>{{panel.events_id.createdBy}}</span>
+																			<span>Jasmina</span>
 																		</div>
 																	</div>
 																</div>
@@ -576,7 +602,7 @@
 					
 															<div class="col-xs-12 col-sm-3">
 																<div class="space visible-xs"></div>
-																<h4 class="header blue lighter less-margin">This user should pay me: {{panel.moneyOWNED}}den.</h4>
+																<h4 class="header blue lighter less-margin">This user should pay me: 875den.</h4>
 					
 																<div class="space-6"></div>
 					
@@ -599,18 +625,42 @@
 													</div>
 												</td>
 											</tr>
-											
+											<tr>
+												<td class="center">
+													<div class="action-button">
+														<a href="" class="green show-detail-btn bigger-angle-icon" title="Show Details"><i class="fa fa-angle-double-up"></i><span class="sr-only">Details</span></a>
+													</div> 
+												</td>
+												<td>Slagjana</td>
+												<td>Baby Party</td>
+												<td>1000den.</td>
+												<td>30 April 2016</td>
+												<td><span class="label label-sm label-danger">Has paid</span></td>
+											</tr>
+											<tr>
+												<td class="center">
+													<div class=action-button>
+														<a href="" class="green show-detail-btn bigger-angle-icon" title="Show Details"><i class="fa fa-angle-double-up"></i><span class="sr-only">Details</span></a>
+													</div> 
+												</td>
+												<td>Slagjana</td>
+												<td>Baby Party</td>
+												<td>1000den.</td>
+												<td>30 April 2016</td>
+												<td><span class="label label-sm label-danger">Has paid</span></td>
+											</tr>
 										</tbody>
 									</table>
 									<div class="row">
 										<div class="col-xs-12">
 											<div class="dataTable_paginate">
-												<ul class="pagination pull-right">
-													<li><a href="" ng-click="pagination.prevPage()">&laquo;</a></li>
-													<li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: n == pagination.page}">
-													<a href="" ng-click="pagination.toPageId(n)">{{n + 1}}</a>
-													</li>
-													<li><a href="" ng-click="pagination.nextPage()">&raquo;</a></li>
+												<ul class="pagination">
+													<li class="paginate_button previous disabled"><a href="#">&laquo;</a></li>
+													<li class="paginate_button active"><a href="#">1</a></li>
+													<li class="paginate_button"><a href="#">2</a></li>
+													<li class="paginate_button"><a href="#">3</a></li>
+													<li class="paginate_button"><a href="#">4</a></li>
+													<li class="paginate_button next"><a href="#">&raquo;</a></li>
 												</ul>
 											</div>
 										</div>
