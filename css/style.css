@@ -682,7 +682,8 @@ table.table.table-bordered.table-hover.table-bg-color {
 }
 
 caption.text-center.bg-caption {
-    background: #ddd;
+    background-color: #307ECC;
+    color: #FFF;
 }
 
 thead.bg-thead {
@@ -701,13 +702,18 @@ thead.bg-thead.color-thead {
     color: #555;
 }
 
+tfoot.tfood-mybills {
+    background: #EFF3F8;
+    border: 1px solid #e0e0e0;
+}
+
 td.star-color {
     color:#337ab7;
     text-align: center;
 }
 
 .table-hover>tbody>tr:hover {
-    background-color: #c0c0c0;
+    background-color: #EFF3F8;
 }
 
 .has-paid {
@@ -983,7 +989,6 @@ button.btn.btn-sm.btn-danger.btn-round.pay-my-dept-btn:active, button.btn.btn-sm
     font-size: 17px;
     line-height: 38px;
     padding-left: 12px;
-    margin-bottom: 1px;
     font-weight: 400;
 }
 
@@ -1060,6 +1065,123 @@ table.dataTable {
 .table-responsive.table-responsive-home {
     margin-bottom: 0;
 }
+
+
+/*Mybills new*/
+/*
+.tableTools-container {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.btn.btn-bold {
+    border-bottom-width: 2px;
+}
+
+.btn.btn-white {
+    border-width: 1px;
+    background-color: #FFF!important;
+    text-shadow: none!important;
+}
+
+.btn-white.btn-primary {
+    border-color: #8aafce;
+    color: #6688a6!important;
+}
+
+ .btn.btn-white:focus.btn-bold {
+    box-shadow: inset 1px 1px 3px 0 rgba(0,0,0,.15)!important;
+}
+
+.btn-white.btn-primary:hover {
+    background-color: #eaf2f8!important;
+    border-color: #8aafce;
+    color: #537c9f!important;
+}*/
+
+
+
+.tableTools-container {
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.btn-outlined {
+    border-radius: 0;
+    -webkit-transition: all 0.3s;
+       -moz-transition: all 0.3s;
+            transition: all 0.3s;
+}
+.btn-outlined.btn-primary {
+    background: #fff;
+    border: 2px solid #428bca;
+    color: #428bca;
+}
+.btn-outlined.btn-primary:hover,
+.btn-outlined.btn-primary:active {
+    color: #FFF;
+    background: #428bca;
+    border-color: #428bca:
+}
+
+.btn-outlined.btn-success {
+    background: #fff;
+    border: 2px solid #5cb85c;
+    color: #5cb85c;
+}
+
+.btn-outlined.btn-success:hover,
+.btn-outlined.btn-success:active {
+    color: #FFF;
+    background: #47a447;
+}
+
+.btn-outlined.btn-danger {
+    background: #fff;
+    border: 2px solid #d9534f;
+    color: #d9534f;
+}
+.btn-outlined.btn-danger:hover,
+.btn-outlined.btn-danger:active {
+    color: #FFF;
+    background: #d2322d;
+}
+
+.dataTable_wrapper label {
+    display: inline-block;
+    font-weight: 400;
+}
+
+.dataTable_wrapper select {
+    margin-bottom: 0!important;
+    margin: 0 4px;
+}
+
+.display-records-lenght select {
+    height: 25px;
+    padding: 2px 3px;
+}
+
+select.input-sm {
+    border-radius: 0;
+    padding: 2px 3px;
+}
+
+.form-control, select {
+    border-radius: 0;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+    color: #858585;
+    background-color: #FFF;
+    border: 1px solid #D5D5D5;
+}
+
+.display-records-lenght {
+	text-align: left;
+}
+
+
+
 
 
 /***** Media queries *****/
