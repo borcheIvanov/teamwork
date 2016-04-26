@@ -30,7 +30,6 @@ angular.module('myApp')
 			'name': $scope.firstName,
 			'surname': $scope.surName,
 			'username': $scope.userName,
-			'active': 'true',
 			'email': $scope.email,
 			'password': $scope.password
 		}
