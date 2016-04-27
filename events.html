@@ -79,13 +79,13 @@
 								<input type="date" name="surname" placeholder="Deadline:..." class="form-last-name form-control date-color" id="form-deadline" ng-model="eventDate" required>
 							</div>
 							<div class="btn-group invite-users-width">
-										<button  ng-click="showUsers()" class="btn dropdown-toggle"  data-placeholder="Please select">Invite users<span class="caret"></span></button>
+										<button  ng-click="showUsers()" class="btn dropdown-toggle  invite-users-btn"  data-placeholder="Please select">Invite users<span class="caret"></span></button>
 							</div>
 							<div ng-hide="clicked">
 								<div class="row">
 									<div class="col-sm-6" style="overflow: auto; height: 200px; color: gray">
 									<span class="sellect-user-color-events">Click to select user</span>
-										<table class="table"  style="color:red; cursor:pointer" >
+										<table class="table"  style="color:#000; cursor:pointer; background:#C1C1C1" >
 											<tr ng-repeat="user in users">
 												<td ng-click="select($index)"> {{user.username}} </td>
 											</tr>
@@ -93,7 +93,7 @@
 									</div>
 									<div class="col-sm-6" style="overflow: auto; height: 200px color: gray">
 										<span class="user-color-events">Selected users</span>
-										<table  class="table" style="color:red; cursor:pointer">
+										<table  class="table" style="color:#000; cursor:pointer; background:#C1C1C1">
 											<tr ng-repeat="user in selection">
 												<td ng-click="deselect($index)"> {{user.username}} </td>
 											</tr>
