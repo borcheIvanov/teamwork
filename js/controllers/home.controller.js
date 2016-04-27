@@ -1,5 +1,5 @@
 angular.module('myApp')
-.controller('HomeController', function($scope, empEvent, date, fullDate, logged, Pagination){
+.controller('HomeController', function($scope, empEvent, date, logged, Pagination){
 	
 	$scope.init = function(){
 		$scope.events = [];
@@ -19,7 +19,7 @@ angular.module('myApp')
 		.then(function(res){
 			$scope.eventhost = res;
 			
-			$scope.eventhost = fullDate.Func($scope.eventhost);
+			$scope.eventhost = date.empEventDate($scope.eventhost);
 			
 			for(i = 0; i < $scope.eventhost.length; i++){
 				if($scope.eventhost[i].moneyOWNED !== 0.0){
@@ -40,7 +40,7 @@ angular.module('myApp')
 		empEvent.eventwhere(logged.id)
 		.then(function(res){
 			$scope.eventwhere = res;
-			$scope.eventwhere = fullDate.Func($scope.eventwhere);
+			$scope.eventwhere = date.empEventDate($scope.eventwhere);
 			$scope.pagesSec();
 		})
 		.then(function(){
@@ -52,8 +52,8 @@ angular.module('myApp')
 		empEvent.eventPan(id)
 		.then(function(res){
 			$scope.panel = res;
-			$scope.panel.events_id.createdDate = date.Func($scope.panel.events_id.createdDate);
-			$scope.panel.events_id.expirationDate = date.Func($scope.panel.events_id.expirationDate);
+			$scope.panel.events_id.createdDate = date.oneByOne($scope.panel.events_id.createdDate);
+			$scope.panel.events_id.expirationDate = date.oneByOne($scope.panel.events_id.expirationDate);
 		})
 		.then(function(){
 			

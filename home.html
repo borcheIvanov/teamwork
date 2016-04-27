@@ -323,7 +323,7 @@
 												<th>Status</th>
 											</tr>
 										</thead>
-										<tbody class="tbody-home" ng-repeat="event in eventwhere | filter:firstSearch | filter:searching | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
+										<tbody class="tbody-home" ng-repeat="event in eventwhere | filter:firstSearch | startFrom: paginationSec.page * paginationSec.perPage | limitTo: paginationSec.perPage">
 											<tr>
 												<td class="center">
 													<div class="action-button">
@@ -447,11 +447,11 @@
 										<div class="col-xs-12">
 											<div class="dataTable_paginate">
 												<ul class="pagination pull-right">
-													<li><a href="" ng-click="pagination.prevPage()">&laquo;</a></li>
+													<li><a href="" ng-hide="pagination.page == 0" ng-click="paginationSec.prevPage()">&laquo;</a></li>
 													<li ng-repeat="n in [] | range: paginationSec.numPages" ng-class="{active: n == paginationSec.page}">
 													<a href="" ng-click="pagination.toPageId(n)">{{n + 1}}</a>
 													</li>
-													<li><a href="" ng-click="pagination.nextPage()">&raquo;</a></li>
+													<li><a href="" ng-hide="pagination.page + 1 >= pagination.numPages" ng-click="paginationSec.nextPage()">&raquo;</a></li>
 												</ul>
 											</div>
 										</div>
@@ -489,7 +489,7 @@
 												<th>Status</th>
 											</tr>
 										</thead>
-										<tbody class="tbody-home" ng-repeat="event in eHost | filter:secondSearch | filter:searching | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
+										<tbody class="tbody-home" ng-repeat="event in eHost | filter:secondSearch | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
 											
 											<tr>
 												<td class="center">
@@ -618,11 +618,11 @@
 										<div class="col-xs-12">
 											<div class="dataTable_paginate">
 												<ul class="pagination pull-right">
-													<li><a href="" ng-click="pagination.prevPage()">&laquo;</a></li>
+													<li><a href="" ng-hide="pagination.page == 0" ng-click="pagination.prevPage()">&laquo;</a></li>
 													<li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: n == pagination.page}">
 													<a href="" ng-click="pagination.toPageId(n)">{{n + 1}}</a>
 													</li>
-													<li><a href="" ng-click="pagination.nextPage()">&raquo;</a></li>
+													<li><a href="" ng-hide="pagination.page + 1 >= pagination.numPages" ng-click="pagination.nextPage()">&raquo;</a></li>
 												</ul>
 											</div>
 										</div>
