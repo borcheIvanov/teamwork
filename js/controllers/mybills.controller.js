@@ -18,10 +18,8 @@ $scope.init = function(){
 		empEvent.eventhost(logged.id)
 		.then(function(res){
 			$scope.eventhost = res;
-			for(i = 0; i < $scope.eventhost.length; i++){
-				$scope.eventhost[i].events_id.createdDate = date.Func($scope.eventhost[i].events_id.createdDate);
-				$scope.eventhost[i].events_id.expirationDate = date.Func($scope.eventhost[i].events_id.expirationDate);
-			}
+			$scope.eventhost = date.empEventDate($scope.eventhost);
+			
 			$scope.initArr = $scope.eventhost;
 			$scope.pages();
 		})
@@ -34,8 +32,8 @@ $scope.init = function(){
 		empEvent.eventPan(id)
 		.then(function(res){
 			$scope.userId = res;
-			$scope.userId.events_id.createdDate = date.Func($scope.userId.events_id.createdDate);
-			$scope.userId.events_id.expirationDate = date.Func($scope.userId.events_id.expirationDate);
+			$scope.userId.events_id.createdDate = date.oneByOne($scope.userId.events_id.createdDate);
+			$scope.userId.events_id.expirationDate = date.oneByOne($scope.userId.events_id.expirationDate);
 		})
 		.then(function(){
 			

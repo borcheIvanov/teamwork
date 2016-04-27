@@ -34,7 +34,7 @@ angular.module('myApp')
 	.state('archive', {
 		url: '/archive',
 		templateUrl: 'archive.html',
-		controller: 'StatsController'
+		controller: 'ArchiveController'
 	})
 	.state('logout', {
 		url:'/logout',

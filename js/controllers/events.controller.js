@@ -1,5 +1,5 @@
 angular.module('myApp')
-.controller('EventsController', function($scope, user, logged, empEvent, date, fullDate, events, Pagination){
+.controller('EventsController', function($scope, user, logged, date, empEvent, events, Pagination){
 	$scope.init = function(){
 		$scope.eventhost = [];
 		$scope.myEvents = [];
@@ -15,7 +15,7 @@ angular.module('myApp')
 		$scope.clicked = true;
 		
 		$scope.getEventhost();
-		$scope.getUsers();
+		
 	};
 	
 	// -------------------------------------
@@ -64,6 +64,7 @@ angular.module('myApp')
 						empEvent.postArray(temp3)
 						.then(function(){
 							console.log('posted');
+							$scope.getEventhost();
 						})
 						.then(function(){
 							
@@ -87,7 +88,7 @@ angular.module('myApp')
 		.then(function(res){
 			$scope.eventhost = res;
 			
-			$scope.eventhost = fullDate.Func($scope.eventhost);
+			$scope.eventhost = date.empEventDate($scope.eventhost);
 			
 			for(i = 0; i < $scope.eventhost.length; i++){
 				if(i === 0){
@@ -114,7 +115,7 @@ angular.module('myApp')
 		}
 	};
 	
-		$scope.select = function(index){
+	$scope.select = function(index){
 		$scope.selection.push($scope.users[index]);
 		for(i = 0; i < $scope.users.length; i++){
 			if(i === index){
@@ -144,8 +145,8 @@ angular.module('myApp')
 		empEvent.eventPan(id)
 		.then(function(res){
 			$scope.panel = res;
-			$scope.panel.events_id.createdDate = date.Func($scope.panel.events_id.createdDate);
-			$scope.panel.events_id.expirationDate = date.Func($scope.panel.events_id.expirationDate);
+			$scope.panel.events_id.createdDate = date.oneByOne($scope.panel.events_id.createdDate);
+			$scope.panel.events_id.expirationDate = date.oneByOne($scope.panel.events_id.expirationDate);
 			$scope.getEventinv($scope.panel.events_id.id);
 		})
 		.then(function(){

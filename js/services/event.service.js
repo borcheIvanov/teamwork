@@ -24,6 +24,19 @@ angular.module('myApp')
 		return defer.promise;
 	};
 	
+	data.getClosed = function(){
+		var defer = $q.defer();
+		
+		$http.get(url + '/api/eventclosed')
+		.success(function(res){
+			defer.resolve(res);
+		})
+		.error(function(err, status){
+			defer.reject(err);
+		})
+		return defer.promise;
+	}
+	
 	data.getEventById = function(id){
 		var defer = $q.defer();
 		
