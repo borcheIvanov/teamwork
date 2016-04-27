@@ -64,7 +64,7 @@ angular.module('myApp')
 	
 	//////////////////////////////post
 	
-	data.empEvent = function(empEvent){
+	data.postArray = function(empEvent){
 		var defer = $q.defer();
 		
 		$http.post(url + '/api/empevent', empEvent, config)

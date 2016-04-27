@@ -1,5 +1,5 @@
 angular.module('myApp')
-.controller('EventsController', function($scope, user, logged, empEvent, date, Pagination){
+.controller('EventsController', function($scope, user, logged, empEvent, date, events, Pagination){
 	$scope.init = function(){
 		$scope.eventhost = [];
 		$scope.myEvents = [];
@@ -32,19 +32,21 @@ angular.module('myApp')
 	
 	$scope.createEvent = function(){
 		
+		var temp3 = [];
+		var temp2 = {};
 		var temp = {
 			'name' : $scope.eventName,
 			'budget': $scope.eventBudget,
 			'expirationDate': $scope.eventDate,
 			'createdBy': logged.username
+			
 		}
-		var money = ($scope.eventBudget) / ($scope.selection.length);
 		
 		document.body.style.cursor = 'progress';
 		
-			post.events(temp)
+			events.postEvent(temp)
 			.then(function(){
-				get.events()
+				events.getEvents()
 				.then(function(res){
 					var lastId = res;
 					var newId = lastId[lastId.length-1].id;
@@ -55,16 +57,18 @@ angular.module('myApp')
 							'events_id': {'id': newId},
 							'hosting_id': {'id': logged.id},
 							'invited_id': {'id': $scope.selection[i].id},
-							'moneyOWNED' : money
 						}
-						post.empEvent(temp2)
-						.then(function(){
-							
-						})
-						.then(function(){
-							
-						})
+						temp3.push(temp2);
+						console.log(temp3);
 					}
+						empEvent.postArray(temp3)
+						.then(function(){
+							console.log('posted');
+						})
+						.then(function(){
+							
+						})
+					
 					document.body.style.cursor = 'auto';
 					$scope.init();
 				})
