@@ -50,13 +50,14 @@ angular.module('myApp')
 				.then(function(res){
 					var lastId = res;
 					var newId = lastId[lastId.length-1].id;
+					var eveBug = lastId[lastId.length-1].budget;
 					
 					console.log($scope.selection);
 					for(i = 0; i < $scope.selection.length; i++){
 						var temp2 = {
-							'events_id': {'id': newId},
+							'events_id': {'id': newId, 'budget':eveBug},
 							'hosting_id': {'id': logged.id},
-							'invited_id': {'id': $scope.selection[i].id},
+							'invited_id': {'id': $scope.selection[i].id}
 						}
 						temp3.push(temp2);
 						console.log(temp3);
@@ -64,7 +65,7 @@ angular.module('myApp')
 						empEvent.postArray(temp3)
 						.then(function(){
 							console.log('posted');
-							$scope.getEventhost();
+							
 						})
 						.then(function(){
 							
