@@ -248,7 +248,7 @@ input[type="date"]
 }
 
 input#form-deadline {
-    color: gray !important;
+  color: gray !important;
 }
 
 input[type="text"]:focus, 
@@ -291,7 +291,8 @@ button.btn {
     margin: 0;
     padding: 0 20px;
     vertical-align: middle;
-    background: rgb(83, 226, 93);
+    background: #5cb85c;
+    border-color: #4cae4c;
     border: 0;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
@@ -313,8 +314,9 @@ button.btn {
 }
 
 button.btn:hover {
-	opacity: 0.6;
 	color: #fff; 
+	background-color: #449d44;
+	border-color: #398439;
 }
 
 button.btn:active {
@@ -345,7 +347,13 @@ button.btn.btn-block {
 }
 
 button.btn.btn-default.modal-button-hover:hover {
-    background: rgba(83, 226, 93, 0.93);
+    background-color: #449d44;
+    border-color: #398439;
+}
+
+button.btn.dropdown-toggle.invite-users-btn:hover {
+    background: #3E3C3D;
+    opacity: 0.9;
 }
 
 .top-big-link {
@@ -463,8 +471,7 @@ a.list-group-item.active {
 }
 
 .modal-header {
-    background: #EC008C;
-    opacity: 0.8;
+    background: #BA1075;
     color: #fff;
     border-radius: 4px 4px 0 0;
     border-bottom: grey;
@@ -472,7 +479,6 @@ a.list-group-item.active {
 
 .modal-body {
     background: #EAE7E9;
-    opacity: 0.7;
 }
 
 a.list-group-item.active {
