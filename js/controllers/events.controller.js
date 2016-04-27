@@ -1,5 +1,5 @@
 angular.module('myApp')
-.controller('EventsController', function($scope, user, logged, empEvent, date, events, Pagination){
+.controller('EventsController', function($scope, user, logged, empEvent, date, fullDate, events, Pagination){
 	$scope.init = function(){
 		$scope.eventhost = [];
 		$scope.myEvents = [];
@@ -86,10 +86,8 @@ angular.module('myApp')
 		empEvent.eventhost(logged.id)
 		.then(function(res){
 			$scope.eventhost = res;
-			for(i = 0; i < $scope.eventhost.length; i++){
-			$scope.eventhost[i].events_id.createdDate = date.Func($scope.eventhost[i].events_id.createdDate);
-			$scope.eventhost[i].events_id.expirationDate = date.Func($scope.eventhost[i].events_id.expirationDate);
-			}
+			
+			$scope.eventhost = fullDate.Func($scope.eventhost);
 			
 			for(i = 0; i < $scope.eventhost.length; i++){
 				if(i === 0){

@@ -1,5 +1,5 @@
 angular.module('myApp')
-.controller('HomeController', function($scope, empEvent, date, logged){
+.controller('HomeController', function($scope, empEvent, date, fullDate, logged, Pagination){
 	
 	$scope.init = function(){
 		$scope.events = [];
@@ -18,10 +18,9 @@ angular.module('myApp')
 		empEvent.eventhost(logged.id)
 		.then(function(res){
 			$scope.eventhost = res;
-			for(i = 0; i < $scope.eventhost.length; i++){
-			$scope.eventhost[i].events_id.createdDate = date.Func($scope.eventhost[i].events_id.createdDate);
-			$scope.eventhost[i].events_id.expirationDate = date.Func($scope.eventhost[i].events_id.expirationDate);
-			}
+			
+			$scope.eventhost = fullDate.Func($scope.eventhost);
+			
 			for(i = 0; i < $scope.eventhost.length; i++){
 				if($scope.eventhost[i].moneyOWNED !== 0.0){
 					$scope.eHost.push($scope.eventhost[i]);
@@ -30,6 +29,7 @@ angular.module('myApp')
 			for(i = 0; i < $scope.eHost.length; i++){
 				$scope.eHost[i].moneyOWNED = Math.ceil($scope.eHost[i].moneyOWNED);
 			}
+			$scope.pages();
 		})
 		.then(function(){
 			
@@ -40,8 +40,8 @@ angular.module('myApp')
 		empEvent.eventwhere(logged.id)
 		.then(function(res){
 			$scope.eventwhere = res;
-			$scope.eventwhere[0].events_id.expirationDate = date.Func($scope.eventwhere[0].events_id.expirationDate);
-			console.log($scope.eventwhere);
+			$scope.eventwhere = fullDate.Func($scope.eventwhere);
+			$scope.pagesSec();
 		})
 		.then(function(){
 			
@@ -62,6 +62,7 @@ angular.module('myApp')
 	
 	$scope.sendFlag = function(id){
 		document.body.style.cursor = "wait";
+		console.log('clicked');
 		empEvent.flagNot(id)
 		.then(function(){
 			console.log('success');
@@ -79,6 +80,7 @@ angular.module('myApp')
 		console.log('clicked');
 		empEvent.money(id, temp)
 		.then(function(res){
+			console.log('money 0');
 			$scope.init();
 		})
 		.then(function(){
@@ -98,6 +100,20 @@ angular.module('myApp')
 			.then(function(){
 				
 			})
+	};
+	
+	$scope.pages = function(){
+		
+		$scope.pagination = Pagination.getNew(4);
+		$scope.pagination.numPages = Math.ceil($scope.eventhost.length / $scope.pagination.perPage);
+		
+	};
+	
+	$scope.pagesSec = function(){
+		
+		$scope.paginationSec = Pagination.getNew(4);
+		$scope.paginationSec.numPages = Math.ceil($scope.eventwhere.length / $scope.paginationSec.perPage);
+		
 	};
 
 	
