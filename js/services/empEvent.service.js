@@ -79,6 +79,32 @@ angular.module('myApp')
 	
 	//////////////////////////////put
 	
+	data.flagNot = function(id){
+		var defer = $q.defer();
+		
+		$http.put(url + '/api/empeventNOTIFY/' + id)
+		.success(function(res){
+			defer.resolve(res);
+		})
+		.error(function(err, status){
+			defer.reject(err);
+		})
+		return defer.promise;
+	};
+	
+	data.flagApr = function(id){
+		var defer = $q.defer();
+		
+		$http.put(url + '/api/empeventAPROVE/' + id)
+		.success(function(res){
+			defer.resolve(res);
+		})
+		.error(function(err, status){
+			defer.reject(err);
+		})
+		return defer.promise;
+	};
+	
 	data.money = function(id, val){
 		var defer = $q.defer();
 		

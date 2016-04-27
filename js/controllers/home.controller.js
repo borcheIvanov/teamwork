@@ -10,6 +10,7 @@ angular.module('myApp')
 		
 		$scope.getEventwhere();
 		$scope.getEventhost();
+		document.body.style.cursor = "auto";
 		
 	};
 	
@@ -35,21 +36,6 @@ angular.module('myApp')
 		})
 	};
 	
-	$scope.payMoney = function(id){
-		for(i = 0; i < $scope.eHost.length; i++){
-			if($scope.eHost[i].id === id){
-				$scope.eHost[i].moneyOWNED  = 0.0;
-				put.money(id, $scope.eHost[i])
-				.then(function(res){
-					$scope.getEventhost();
-				})
-				.then(function(){
-					
-				})
-			}
-		}
-	};
-	
 	$scope.getEventwhere = function(){
 		empEvent.eventwhere(logged.id)
 		.then(function(res){
@@ -72,6 +58,46 @@ angular.module('myApp')
 		.then(function(){
 			
 		})
+	};
+	
+	$scope.sendFlag = function(id){
+		document.body.style.cursor = "wait";
+		empEvent.flagNot(id)
+		.then(function(){
+			console.log('success');
+			$scope.init();
+		})
+		.then(function(){
+			
+		})
+		
+	};
+	
+	$scope.hasPaid = function(id){
+		document.body.style.cursor = "wait";
+		var temp = {'moneyOWNED':0.0};
+		console.log('clicked');
+		empEvent.money(id, temp)
+		.then(function(res){
+			$scope.init();
+		})
+		.then(function(){
+			
+		})
+	};
+	
+	$scope.flagAprove = function(id){
+		document.body.style.cursor = "wait";
+		console.log('clicked');
+		empEvent.flagApr(id)
+			.then(function(){
+				console.log('success');
+				$scope.hasPaid(id);
+				
+			})
+			.then(function(){
+				
+			})
 	};
 
 	
