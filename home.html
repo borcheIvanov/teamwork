@@ -323,20 +323,24 @@
 												<th>Status</th>
 											</tr>
 										</thead>
-										<tbody class="tbody-home">
-											<tr ng-repeat="event in eventwhere | filter:firstSearch">
+										<tbody class="tbody-home" ng-repeat="event in eventwhere | filter:firstSearch | filter:searching | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
+											<tr>
 												<td class="center">
 													<div class="action-button">
-														<a href="#logged-user-owe-collapse-row" class="green show-detail-btn detail-angle-icon" title="Show Details" data-toggle="collapse" onclick="return false;" ng-click="eventPanel(event.id)"><i class="fa fa-angle-double-up"></i><span class="sr-only">Details</span></a>
+														<a href="#{{event.id}}" class="green show-detail-btn detail-angle-icon" title="Show Details" data-toggle="collapse" onclick="return false;" ng-click="eventPanel(event.id)"><i class="fa fa-angle-double-up"></i><span class="sr-only">Details</span></a>
 													</div> 
 												</td>
 												<td>{{event.hosting_id.name}}</td>
 												<td>{{event.events_id.name}}</td>
 												<td>{{event.moneyOWNED}}den.</td>
 												<td>{{event.events_id.expirationDate}}</td>
-												<td><span class="label label-sm label-danger" ng-click="sendFlag(event.id)" style="cursor:pointer">Pay Money</span></td>
+												<td>
+													<span class="label label-sm label-danger" ng-hide="event.isFlag === true" ng-click="sendFlag(event.id)" style="cursor:pointer">Pay Money</span>
+													
+													<span class="label label-sm label-info" ng-show="event.isFlag === true" style="cursor:default"> Wait for confirm </span>
+												</td>
 											</tr>
-											<tr id="logged-user-owe-collapse-row" class="collapse detail-row">
+											<tr ng-attr-id="{{event.id}}" class="collapse detail-row">
 												<td colspan="8">
 													<div class="table-detail">
 														<div class="row">
@@ -444,7 +448,7 @@
 											<div class="dataTable_paginate">
 												<ul class="pagination pull-right">
 													<li><a href="" ng-click="pagination.prevPage()">&laquo;</a></li>
-													<li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: n == pagination.page}">
+													<li ng-repeat="n in [] | range: paginationSec.numPages" ng-class="{active: n == paginationSec.page}">
 													<a href="" ng-click="pagination.toPageId(n)">{{n + 1}}</a>
 													</li>
 													<li><a href="" ng-click="pagination.nextPage()">&raquo;</a></li>
@@ -485,12 +489,12 @@
 												<th>Status</th>
 											</tr>
 										</thead>
-										<tbody class="tbody-home">
+										<tbody class="tbody-home" ng-repeat="event in eHost | filter:secondSearch | filter:searching | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
 											
-											<tr ng-repeat="event in eHost | filter:secondSearch">
+											<tr>
 												<td class="center">
 													<div class="action-button" >
-														<a href="#user-owe-collapse-row" class="green show-detail-btn detail-angle-icon" title="Show Details" data-toggle="collapse" onclick="return false;" ng-click="eventPanel(event.id)"><i class="fa fa-angle-double-up"></i><span class="sr-only">Details</span></a>
+														<a href="#{{event.id}}" class="green show-detail-btn detail-angle-icon" title="Show Details" data-toggle="collapse" onclick="return false;" ng-click="eventPanel(event.id)"><i class="fa fa-angle-double-up"></i><span class="sr-only">Details</span></a>
 													</div> 
 												</td>
 												<td>{{event.invited_id.name}}</td>
@@ -501,13 +505,13 @@
 													<span class="label label-sm label-success" ng-hide="event.isFlag === true" style="cursor:pointer" ng-click="hasPaid(event.id)"> Has paid </span>
 												
 													<span ng-show="event.isFlag === true">
-														<span class="label label-sm label-primary" style="cursor:pointer" ng-click="flagAprove(event.id)"> Approve </span>
+														<span class="label label-sm label-primary" style="cursor:default" ng-click="flagAprove(event.id)"> Approve </span>
 														<i class="fa fa-bell"  aria-hidden="true" style="color:blue;"> </i>
 													</span>
 													
 												</td>
 											</tr>
-											<tr id="user-owe-collapse-row" class="collapse detail-row">
+											<tr ng-attr-id="{{event.id}}" class="collapse detail-row">
 												<td colspan="8">
 													<div class="table-detail">
 														<div class="row">
