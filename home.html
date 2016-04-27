@@ -334,7 +334,7 @@
 												<td>{{event.events_id.name}}</td>
 												<td>{{event.moneyOWNED}}den.</td>
 												<td>{{event.events_id.expirationDate}}</td>
-												<td><span class="label label-sm label-danger">Pay Money</span></td>
+												<td><span class="label label-sm label-danger" ng-click="sendFlag(event.id)" style="cursor:pointer">Pay Money</span></td>
 											</tr>
 											<tr id="logged-user-owe-collapse-row" class="collapse detail-row">
 												<td colspan="8">
@@ -425,7 +425,7 @@
 																	<div class="clearfix">
 																		
 					
-																		<button class="btn btn-sm btn-danger btn-round pay-my-dept-btn" type="button">
+																		<button class="btn btn-sm btn-danger btn-round pay-my-dept-btn" type="button" ng-click="sendFlag(panel.id)">
 																			Pay my debt
 																			<i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
 																		</button>
@@ -497,7 +497,15 @@
 												<td>{{event.events_id.name}}</td>
 												<td>{{event.moneyOWNED}}den.</td>
 												<td>{{event.events_id.expirationDate}}</td>
-												<td><span class="label label-sm label-success">Has paid</span></td>
+												<td> 
+													<span class="label label-sm label-success" ng-hide="event.isFlag === true" style="cursor:pointer" ng-click="hasPaid(event.id)"> Has paid </span>
+												
+													<span ng-show="event.isFlag === true">
+														<span class="label label-sm label-primary" style="cursor:pointer" ng-click="flagAprove(event.id)"> Approve </span>
+														<i class="fa fa-bell"  aria-hidden="true" style="color:blue;"> </i>
+													</span>
+													
+												</td>
 											</tr>
 											<tr id="user-owe-collapse-row" class="collapse detail-row">
 												<td colspan="8">
@@ -588,7 +596,7 @@
 																	<div class="clearfix">
 																		
 					
-																		<button class="btn btn-sm btn-danger btn-round pay-my-dept-btn" type="button">
+																		<button class="btn btn-sm btn-danger btn-round pay-my-dept-btn" type="button" ng-click="hasPaid(event.id)">
 																			The user has paid
 																			<i class="fa fa-arrow-right icon-on-right bigger-110"></i>
 																		</button>
