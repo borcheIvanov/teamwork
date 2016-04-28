@@ -176,19 +176,18 @@ angular.module('myApp')
 	};
 	
 	$scope.hasPaid = function(id){
-		/*
+		
 		document.body.style.cursor = "wait";
 		var temp = {'moneyOWNED':0.0};
 		console.log('clicked');
 		empEvent.money(id, temp)
 		.then(function(res){
-			console.log('money 0');
-			$scope.init();
+			document.body.style.cursor = "auto";
+			$scope.eventPanel(id);
 		})
 		.then(function(){
 			
 		})
-		*/
 	};
 	
 	
