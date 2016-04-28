@@ -9,4 +9,6 @@ public interface EventRepository {
 	List<Event> findAll();
 	Event save(Event user);
 	int delete(Long id);
+	List<Event> findActive();
+	List<Event> findClosed();
 }

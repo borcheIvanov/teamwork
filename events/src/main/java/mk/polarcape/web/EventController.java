@@ -26,6 +26,16 @@ public class EventController {
 	public List<Event> getEventss() {
 		return eventService.findAll();
 	}
+	@RequestMapping(value = "/eventactive", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Event> getEventActive() {
+		return eventService.findActive();
+	}
+	@RequestMapping(value = "/eventclosed", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Event> getEventClosed() {
+		return eventService.findClosed();
+	}
 	
 	@RequestMapping(value = "/event/{id}", method = RequestMethod.GET)
 	@ResponseBody
@@ -37,6 +47,7 @@ public class EventController {
 	@RequestMapping(value = "/event", method = RequestMethod.POST)
 	@ResponseBody
 	public Event createEvents(@RequestBody Event event) {
+		event.setArchived(false);//otvoren e eventot
 		return eventService.save(event);
 	}
 

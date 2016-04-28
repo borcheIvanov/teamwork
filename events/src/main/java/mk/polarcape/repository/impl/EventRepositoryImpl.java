@@ -86,7 +86,37 @@ public class EventRepositoryImpl implements EventRepository{
 
 	}
 
-	
+	@Override
+	public List<Event> findActive() {
+		Class<Event> type = Event.class;
 
-	
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<Event> cq = cb.createQuery(type);
+		final Root<Event> root = cq.from(type);
+
+		Predicate p = cb.equal(root.get("archived"), false);
+
+		cq.where(p);
+
+		TypedQuery<Event> query = em.createQuery(cq);
+
+		return query.getResultList();
+	}
+
+	@Override
+	public List<Event> findClosed() {
+		Class<Event> type = Event.class;
+
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<Event> cq = cb.createQuery(type);
+		final Root<Event> root = cq.from(type);
+
+		Predicate p = cb.equal(root.get("archived"), true);
+
+		cq.where(p);
+
+		TypedQuery<Event> query = em.createQuery(cq);
+
+		return query.getResultList();
+	}
 	}

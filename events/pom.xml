@@ -64,6 +64,12 @@
 
     <dependencies>
      <!-- milos add -->
+     
+     <dependency>
+	<groupId>com.google.code.gson</groupId>
+	<artifactId>gson</artifactId>
+	</dependency>
+     
      <dependency>
 	<groupId>io.jsonwebtoken</groupId>
 	<artifactId>jjwt</artifactId>
@@ -318,6 +324,14 @@
         <dependency>
         	<groupId>org.hibernate</groupId>
         	<artifactId>hibernate-jpamodelgen</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-starter-data-gemfire</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-starter-batch</artifactId>
         </dependency>
     </dependencies>
 
