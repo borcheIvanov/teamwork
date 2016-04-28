@@ -1,297 +1,3 @@
-<!-- 
-
-<div class="top-content">
-	<div class="overlay main-div-home"></div>
-	<div class="inner-bg">
-		<div class="container">
-			
-			<div class="row">
-				<div class="col-sm-6 form-box-event">
-					<div class="form-list">
-						<h3 class="register-text text-center">Dolzam</h3>
-					</div>
-					<div id="events-background" class="form-bottom pre-scrollable list-events-padding list-bg">
-						<div class="col-xs-12 events-border" ng-repeat="event in eventwhere">
-							<span ng-click="eventPanel(event.id)"  data-toggle="modal" href="#modalNew" style="color: black; cursor:pointer" onclick="return false;" > 
-								<div class="col-xs-6">
-									<h3 class="name-event">to: {{event.hosting_id.name}}</h3>
-								</div>
-								<div class="col-xs-6 text-right">
-								<div>
-									
-									<span class="calendar-name">money: {{event.moneyOWNED}}</span>
-								</div>
-								<div>
-									
-									<span class="posted-by">for: {{event.events_id.name}}</span>
-								</div>
-								</div>
-							</span> 
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-sm-6 form-box-event">
-					<div class="form-list">
-						<h3 class="register-text text-center">Mi dolzat</h3>
-					</div>
-					<div id="events-background" class="form-bottom pre-scrollable list-events-padding list-bg">
-					
-						<div class="col-xs-12 events-border" ng-repeat="event in eHost">
-							<span style="cursor:pointer" ng-click="eventPanel(event.id)"  data-toggle="modal" href="#modalOld" style="color: black; cursor:pointer" onclick="return false;"> 
-								<div class="col-xs-6">
-									<h3 class="name-event">user: {{event.invited_id.name}}</h3>
-								</div>
-								<div class="col-xs-6 text-right">
-								<div>
-									
-									<span class="calendar-name">Owe: {{event.moneyOWNED}}</span>
-								</div>
-								<div>
-									
-									<span class="posted-by">For: {{event.events_id.name}}</span>
-								</div>
-								<button type="button" style="float:right"  ng-click="payMoney(event.id)"> Has paid </button>
-								</div>
-								
-							</span> 
-						</div>
-					</div>
-				</div>
-			</div>
-			</div>
-		</div>
-	</div>
-
-<div id="modalNew" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-	    <!-- Modal content-->
-<!--     <div class="modal-content">
-	      	<div class="modal-header">
-		        <h4 class="modal-title fweight">Event name: &nbsp; {{panel.events_id.name}}</h4>
-	      	</div>
-	      	<div class="modal-body" style="padding-right:100px">
-	      		<div class="list-group">
-				    <h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Event budget:  <span style="float:right"> {{panel.events_id.budget}} den. </span> </h4>
-					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Created on: <span style="float:right"> {{panel.events_id.createdDate}}  </span> </h4>
-					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Deadline:  <span style="float:right"> {{panel.events_id.expirationDate}} </span> </h4>
-					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Created by:<span style="float:right">  {{panel.hosting_id.name}}  </span> </h4>
-					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; I should pay:<span style="float:right">  {{panel.moneyOWNED}} den.  </span> </h4>
-					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; <span style="float:right">  <button type="button"> pay your debt! </button>  </span> </h4>
-				</div>
-	      	</div>
-	      	<div class="modal-footer">
-	        	<button type="button" class="btn btn-default modal-button-hover" data-dismiss="modal"> Close </button>
-	      	</div>
-	    </div>
-  	</div>
-</div>
-
-<div id="modalOld" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-	    <!-- Modal content-->
-<!--      <div class="modal-content">
-	      	<div class="modal-header">
-		        <h4 class="modal-title fweight">Event name: &nbsp; {{panel.events_id.name}}</h4>
-	      	</div>
-	      	<div class="modal-body" style="padding-right:100px">
-	      		<div class="list-group">
-				    <h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Event budget:  <span style="float:right"> {{panel.events_id.budget}} den. </span> </h4>
-					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Created on: <span style="float:right"> {{panel.events_id.createdDate}}  </span> </h4>
-					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Deadline:  <span style="float:right"> {{panel.events_id.expirationDate}} </span> </h4>
-					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Created by:<span style="float:right">  {{panel.hosting_id.name}}  </span> </h4>
-					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; This user should pay you:<span style="float:right">  {{panel.moneyOWNED}} den.  </span> </h4>
-					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; <span style="float:right">  <button type="button"> The user has paid! </button>  </span> </h4>
-				</div>
-	      	</div>
-	      	<div class="modal-footer">
-	        	<button type="button" class="btn btn-default modal-button-hover" data-dismiss="modal"> Close </button>
-	      	</div>
-	    </div>
-  	</div>
-</div>
-
-
- -->
- 
- <!--  
-<div class="top-content-mybills">
-	<div class="inner-bg">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-6">
-							<div class="table-wrapper">
-						<div id="mybills-background" class="table-responsive" data-pattern="priority-columns">
-						  <table class="table table-bordered table-hover table-bg-color">
-						    <caption class="text-center bg-caption">A list of users that I owe</caption>
-						    <thead class="bg-thead color-thead">
-						      <tr>
-						        <th></th>
-						        <th data-priority="1">User</th>
-						        <th data-priority="2">Event</th>
-						        <th data-priority="3">Price</th>
-						        <th data-priority="4">Expiry Day</th>
-						        <th data-priority="4">Status</th>
-						      </tr>
-						    </thead>
-						    <tbody class="color-tbody">
-						      <tr ng-repeat="x in eventhost | filter:searching" ng-click="eventPanel(event.id)"  data-toggle="modal" href="#modalNew" style="color: black; cursor:pointer" onclick="return false;" >
-						        <td class="star-color"><i class="fa fa-star" style="cursor:pointer" ng-mouseover="info(x.id)" data-toggle="tooltip" data-placement="bottom" title="name: {{userId.invited_id.name}} &#013;Surname: {{userId.invited_id.surname}} &#013;Username:  {{userId.invited_id.username}}&#013;Email:  {{userId.invited_id.email}}"></i></td>
-						        <td>{{x.invited_id.name}}</td>
-						        <td>{{x.events_id.name}}</td>
-						        <td>{{x.moneyOWNED}}</td>
-						        <td>{{x.events_id.expirationDate}}</td>
-						        <td>
-						        	<div class="not-paid">
-						        	 	<button class="btn btn-default btn-danger btn-pay-style" type="button" ng-click="payMoney(event.id)"> Pay Money </button>
-						        	</div>
-						        </td>
-						      </tr>
-						    </tbody>
-						    <tfoot>
-						      <tr>
-				      		 	<td colspan="6" class="">
-						      		<div class="dataTables_length pull-left" id="datatable-responsive_length">
-							      		<label>
-								      		<select name="datatable-responsive_length" aria-controls="datatable-responsive" class="form-control display-select">
-									      		<option value="10">10</option>
-									      		<option value="25">25</option>
-									      		<option value="50">50</option>
-									      		<option value="100">100</option>
-								      		</select>
-							      		 	records per page
-							      		 </label>
-						      		 </div>
-									<ul class="pagination pull-right">
-										<li class="disabled"><a href="#">&laquo;</a></li>
-										<li class="active"><a href="#">1</a></li>
-										<li><a href="#">2</a></li>
-										<li><a href="#">3</a></li>
-										<li><a href="#">4</a></li>
-										<li><a href="#">5</a></li>
-										<li><a href="#">&raquo;</a></li>
-									</ul>
-								</td>
-						      </tr>
-						    </tfoot>
-						  </table>
-						</div>
-					</div>
-				</div>					
-				<div class="col-sm-6">
-    						<div class="table-wrapper">
-						<div id="mybills-background" class="table-responsive" data-pattern="priority-columns">
-						  <table class="table table-bordered table-hover table-bg-color">
-						    <caption class="text-center bg-caption">A list of users who owe</caption>
-						    <thead class="bg-thead color-thead">
-						      <tr>
-						        <th></th>
-						        <th data-priority="1">User</th>
-						        <th data-priority="2">Event</th>
-						        <th data-priority="3">Price</th>
-						        <th data-priority="4">Status</th>
-						      </tr>
-						    </thead>
-						    <tbody class="color-tbody">
-						      <tr ng-repeat="x in eventhost | filter:searching" ng-click="eventPanel(event.id)"  data-toggle="modal" href="#modalOld" style="color: black; cursor:pointer" onclick="return false;">
-						        <td class="star-color"><i class="fa fa-star" style="cursor:pointer" ng-mouseover="info(x.id)" data-toggle="tooltip" data-placement="bottom" title="name: {{userId.invited_id.name}} &#013;Surname: {{userId.invited_id.surname}} &#013;Username:  {{userId.invited_id.username}}&#013;Email: {{userId.invited_id.email}}"></i></td>
-						        <td>{{x.invited_id.name}}</td>
-						        <td>{{x.events_id.name}}</td>
-						        <td>{{x.moneyOWNED}}</td>
-						        <td>
-						        	<div class="has-paid" ng-show="x.moneyOWNED === 0.0">
-						        		<button class="btn btn-default btn-success btn-has-paid-style" type="button" ng-click="payMoney(event.id)"> Has paid </button>
-						        	</div>
-						        	<div class="not-paid" ng-hide="x.moneyOWNED === 0.0">
-						        	 	<button class="btn btn-default btn-danger btn-not-paid-style" type="button" ng-click="payMoney(event.id)"> Not paid </button>
-						        	</div>
-						        </td>
-						      </tr>
-						    </tbody>
-						    <tfoot>
-						      <tr>
-				      		 	<td colspan="6" class="">
-						      		<div class="dataTables_length pull-left" id="datatable-responsive_length">
-							      		<label>
-								      		<select name="datatable-responsive_length" aria-controls="datatable-responsive" class="form-control display-select">
-									      		<option value="10">10</option>
-									      		<option value="25">25</option>
-									      		<option value="50">50</option>
-									      		<option value="100">100</option>
-								      		</select>
-							      		 	records per page
-							      		 </label>
-						      		 </div>
-									<ul class="pagination pull-right">
-										<li class="disabled"><a href="#">&laquo;</a></li>
-										<li class="active"><a href="#">1</a></li>
-										<li><a href="#">2</a></li>
-										<li><a href="#">3</a></li>
-										<li><a href="#">4</a></li>
-										<li><a href="#">5</a></li>
-										<li><a href="#">&raquo;</a></li>
-									</ul>
-								</td>
-						      </tr>
-						    </tfoot>
-						  </table>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div id="modalNew" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-	    <!-- Modal content-->
-<!--     <div class="modal-content">
-	      	<div class="modal-header">
-		        <h4 class="modal-title fweight">Event name: &nbsp; {{panel.events_id.name}}</h4>
-	      	</div>
-	      	<div class="modal-body" style="padding-right:100px">
-	      		<div class="list-group">
-				    <h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Event budget:  <span style="float:right"> {{panel.events_id.budget}} den. </span> </h4>
-					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Created on: <span style="float:right"> {{panel.events_id.createdDate}}  </span> </h4>
-					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Deadline:  <span style="float:right"> {{panel.events_id.expirationDate}} </span> </h4>
-					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Created by:<span style="float:right">  {{panel.hosting_id.name}}  </span> </h4>
-					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; I should pay:<span style="float:right">  {{panel.moneyOWNED}} den.  </span> </h4>
-					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; <span style="float:right">  <button type="button"> pay your debt! </button>  </span> </h4>
-				</div>
-	      	</div>
-	      	<div class="modal-footer">
-	        	<button type="button" class="btn btn-default modal-button-hover" data-dismiss="modal"> Close </button>
-	      	</div>
-	    </div>
-  	</div>
-</div>
-
-<div id="modalOld" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-	    <!-- Modal content-->
-<!-- 	    <div class="modal-content">
-	      	<div class="modal-header">
-		        <h4 class="modal-title fweight">Event name: &nbsp; {{panel.events_id.name}}</h4>
-	      	</div>
-	      	<div class="modal-body" style="padding-right:100px">
-	      		<div class="list-group">
-				    <h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Event budget:  <span style="float:right"> {{panel.events_id.budget}} den. </span> </h4>
-					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Created on: <span style="float:right"> {{panel.events_id.createdDate}}  </span> </h4>
-					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Deadline:  <span style="float:right"> {{panel.events_id.expirationDate}} </span> </h4>
-					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; Created by:<span style="float:right">  {{panel.hosting_id.name}}  </span> </h4>
-					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; This user should pay you:<span style="float:right">  {{panel.moneyOWNED}} den.  </span> </h4>
-					<h4 class="list-group-item-heading text-left fweight"> &nbsp;&nbsp; <span style="float:right">  <button type="button"> The user has paid! </button>  </span> </h4>
-				</div>
-	      	</div>
-	      	<div class="modal-footer">
-	        	<button type="button" class="btn btn-default modal-button-hover" data-dismiss="modal"> Close </button>
-	      	</div>
-	    </div>
-  	</div>
-</div>
--->
-
 <div class="top-content-mybills">
 	<div class="inner-bg">
 		<div class="container">
@@ -353,7 +59,7 @@
 																			<a class="user-title-label" href="#">
 																				<i class="user-icon fa fa-circle light-green"></i>
 																				&nbsp;
-																				<span class="white">{{panel.invited_id.name}}</span>
+																				<span class="white">{{panel.hosting_id.username}}</span>
 																			</a>
 																		</div>
 																	</div>
@@ -368,7 +74,7 @@
 																		<div class="profile-info-name"> Username </div>
 					
 																		<div class="profile-info-value">
-																			<span>{{panel.invited_id.username}}</span>
+																			<span>{{panel.hosting_id.username}}</span>
 																		</div>
 																	</div>
 					
@@ -409,7 +115,7 @@
 																		<div class="profile-info-name"> Created By: </div>
 					
 																		<div class="profile-info-value">
-																			<span>{{panel.events_id.createdBy}}</span>
+																			<span>{{panel.hosting_id.name}}</span>
 																		</div>
 																	</div>
 																</div>
@@ -417,22 +123,30 @@
 					
 															<div class="col-xs-12 col-sm-3">
 																<div class="space visible-xs"></div>
-																<h4 class="header blue lighter less-margin">I should pay: {{panel.moneyOWNED}}den.</h4>
+																<h4 class="header blue lighter less-margin" ng-hide="panel.isFlag === true">I should pay: {{panel.moneyOWNED}}den.</h4>
+																
+																<h4 class="header blue lighter less-margin" ng-show="panel.isFlag === true">I paid: {{panel.moneyOWNED}}den.</h4>
 					
 																<div class="space-6"></div>
 					
-																<form>
-																	
+																<form>	
 					
 																	<div class="hr hr-dotted"></div>
 					
 																	<div class="clearfix">
 																		
 					
-																		<button class="btn btn-sm btn-danger btn-round pay-my-dept-btn" type="button" ng-click="sendFlag(panel.id)">
+																		<button class="btn btn-sm btn-danger btn-round pay-my-dept-btn" type="button" ng-click="sendFlag(panel.id)" ng-hide="panel.isFlag === true">
 																			Pay my debt
 																			<i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
 																		</button>
+																		
+																		<button class="btn btn-sm btn-info btn-round pay-my-dept-btn" type="button" ng-click="sendFlag(panel.id)" ng-show="panel.isFlag === true" disabled>
+																			Waiting <br>
+																			confirmation
+																			<!--<i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i> -->
+																		</button>
+																		
 																	</div>
 																</form>
 															</div>
@@ -449,11 +163,11 @@
 										<div class="col-xs-12">
 											<div class="dataTable_paginate">
 												<ul class="pagination pull-right">
-													<li><a href="" ng-hide="pagination.page == 0" ng-click="paginationSec.prevPage()">&laquo;</a></li>
+													<li><a href="" ng-hide="paginationSec.page == 0" ng-click="paginationSec.prevPage()">&laquo;</a></li>
 													<li ng-repeat="n in [] | range: paginationSec.numPages" ng-class="{active: n == paginationSec.page}">
-													<a href="" ng-click="pagination.toPageId(n)">{{n + 1}}</a>
+													<a href="" ng-click="paginationSec.toPageId(n)">{{n + 1}}</a>
 													</li>
-													<li><a href="" ng-hide="pagination.page + 1 >= pagination.numPages" ng-click="paginationSec.nextPage()">&raquo;</a></li>
+													<li><a href="" ng-hide="paginationSec.page + 1 >= paginationSec.numPages" ng-click="paginationSec.nextPage()">&raquo;</a></li>
 												</ul>
 											</div>
 										</div>
@@ -490,12 +204,12 @@
 												<th>Status</th>
 											</tr>
 										</thead>
-										<tbody class="tbody-home" ng-repeat="event in eHost | filter:secondSearch | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
+										<tbody class="tbody-home" ng-repeat="event in eHost | filter:secondSearch | filter:searching | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
 											
 											<tr>
 												<td class="center">
 													<div class="action-button" >
-														<a href="#{{event.id}}" class="green show-detail-btn detail-angle-icon" title="Show Details" data-toggle="collapse" onclick="return false;" ng-click="eventPanel(event.id)"><i class="fa fa-angle-double-up"></i><span class="sr-only">Details</span></a>
+														<a href="#first{{event.id}}" class="green show-detail-btn detail-angle-icon" title="Show Details" data-toggle="collapse" onclick="return false;" ng-click="eventPanel(event.id)"><i class="fa fa-angle-double-up"></i><span class="sr-only">Details</span></a>
 													</div> 
 												</td>
 												<td>{{event.invited_id.name}}</td>
@@ -506,13 +220,13 @@
 													<span class="label label-sm label-success" ng-hide="event.isFlag === true" style="cursor:pointer" ng-click="hasPaid(event.id)"> Has paid </span>
 												
 													<span ng-show="event.isFlag === true">
-														<span class="label label-sm label-primary" style="cursor:default" ng-click="flagAprove(event.id)"> Approve </span>
+														<span class="label label-sm label-primary" style="cursor:pointer" ng-click="flagAprove(event.id)"> Approve </span>
 														<i class="fa fa-bell"  aria-hidden="true" style="color:blue;"> </i>
 													</span>
 													
 												</td>
 											</tr>
-											<tr ng-attr-id="{{event.id}}" class="collapse detail-row">
+											<tr ng-attr-id="first{{event.id}}" class="collapse detail-row">
 												<td colspan="8">
 													<div class="table-detail">
 														<div class="row">
@@ -525,7 +239,11 @@
 																			<a class="user-title-label" href="#">
 																				<i class="user-icon fa fa-circle light-green"></i>
 																				&nbsp;
+<<<<<<< HEAD
+																				<span class="white">{{panel.invited_id.username}}</span>
+=======
 																				<span class="white">{{panel.hosting_id.username}}</span>
+>>>>>>> refs/remotes/origin/master
 																			</a>
 																		</div>
 																	</div>
@@ -549,7 +267,7 @@
 					
 																		<div class="profile-info-value">
 																			<i class="fa fa-file-text-o light-orange bigger-map-marker"></i>
-																			<span>{{panel.events_id.expirationDate}}</span>
+																			<span>{{panel.events_id.name}}</span>
 																		</div>
 																	</div>
 					
@@ -581,7 +299,7 @@
 																		<div class="profile-info-name"> Created By: </div>
 					
 																		<div class="profile-info-value">
-																			<span>{{panel.events_id.createdBy}}</span>
+																			<span>{{panel.hosting_id.username}}</span>
 																		</div>
 																	</div>
 																</div>
@@ -599,12 +317,17 @@
 																	<div class="hr hr-dotted"></div>
 					
 																	<div class="clearfix">
-																		
 					
-																		<button class="btn btn-sm btn-danger btn-round pay-my-dept-btn" type="button" ng-click="hasPaid(event.id)">
+																		<button class="btn btn-sm btn-danger btn-round pay-my-dept-btn" type="button" ng-click="hasPaid(event.id)" ng-hide="panel.isFlag === true">
 																			The user has paid
 																			<i class="fa fa-arrow-right icon-on-right bigger-110"></i>
 																		</button>
+																		
+																		<button class="btn btn-sm btn-primary btn-round pay-my-dept-btn" type="button" ng-click="flagAprove(event.id)" ng-show="panel.isFlag === true">
+																			Confirm<br>payment
+																			<!--<i class="fa fa-arrow-right icon-on-right bigger-110"></i> -->
+																		</button>
+																		
 																	</div>
 																</form>
 															</div>

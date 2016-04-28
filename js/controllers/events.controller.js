@@ -1,5 +1,5 @@
 angular.module('myApp')
-.controller('EventsController', function($scope, user, logged, date, empEvent, events, Pagination){
+.controller('EventsController', function($scope, user, ceil, logged, date, empEvent, events, Pagination){
 	$scope.init = function(){
 		$scope.eventhost = [];
 		$scope.myEvents = [];
@@ -7,7 +7,6 @@ angular.module('myApp')
 		$scope.users = [];
 		$scope.panel = [];
 		
-		$scope.id = '';
 		$scope.error = '';
 		$scope.eventName = '';
 		$scope.eventDate = '';
@@ -39,7 +38,6 @@ angular.module('myApp')
 			'budget': $scope.eventBudget,
 			'expirationDate': $scope.eventDate,
 			'createdBy': logged.username
-			
 		}
 		
 		document.body.style.cursor = 'progress';
@@ -52,7 +50,6 @@ angular.module('myApp')
 					var newId = lastId[lastId.length-1].id;
 					var eveBug = lastId[lastId.length-1].budget;
 					
-					console.log($scope.selection);
 					for(i = 0; i < $scope.selection.length; i++){
 						var temp2 = {
 							'events_id': {'id': newId, 'budget':eveBug},
@@ -60,7 +57,7 @@ angular.module('myApp')
 							'invited_id': {'id': $scope.selection[i].id}
 						}
 						temp3.push(temp2);
-						console.log(temp3);
+						
 					}
 						empEvent.postArray(temp3)
 						.then(function(){
@@ -96,11 +93,12 @@ angular.module('myApp')
 					$scope.myEvents.push($scope.eventhost[0]);
 				}
 				if(i !== 0){
-					if($scope.eventhost[i].events_id.id !== $scope.eventhost[i-1].events_id.id){
+					if($scope.eventhost[i].events_id.id !== $scope.eventhost[i-1].events_id.id && $scope.eventhost[i].events_id.isArchived !== true){
 						$scope.myEvents.push($scope.eventhost[i]);
 					}
 				}
 			} 
+			$scope.myEvents = $scope.myEvents.slice().reverse();
 			$scope.pages();
 		})
 		.then(function(){
@@ -137,7 +135,6 @@ angular.module('myApp')
 					$scope.selection[j] = $scope.selection[j+1];
 				}
 			}
-			
 		}
 		$scope.selection.length = $scope.selection.length - 1; 
 	};
@@ -148,6 +145,8 @@ angular.module('myApp')
 			$scope.panel = res;
 			$scope.panel.events_id.createdDate = date.oneByOne($scope.panel.events_id.createdDate);
 			$scope.panel.events_id.expirationDate = date.oneByOne($scope.panel.events_id.expirationDate);
+			
+			console.log(id);
 			$scope.getEventinv($scope.panel.events_id.id);
 		})
 		.then(function(){
@@ -156,12 +155,12 @@ angular.module('myApp')
 	};
 	
 	$scope.getEventinv = function(id){
-		
+		console.log(id);
 		empEvent.eventinv(id)
 		.then(function(res){
-			$scope.init();
 			$scope.eventinv = res;
-			console.log($scope.eventinv);
+			$scope.eventinv = ceil.money($scope.eventinv);
+			
 			
 		})
 		.then(function(){
@@ -174,6 +173,22 @@ angular.module('myApp')
 		$scope.pagination = Pagination.getNew(3);
 		$scope.pagination.numPages = Math.ceil($scope.myEvents.length / $scope.pagination.perPage);
 		
+	};
+	
+	$scope.hasPaid = function(id){
+		/*
+		document.body.style.cursor = "wait";
+		var temp = {'moneyOWNED':0.0};
+		console.log('clicked');
+		empEvent.money(id, temp)
+		.then(function(res){
+			console.log('money 0');
+			$scope.init();
+		})
+		.then(function(){
+			
+		})
+		*/
 	};
 	
 	

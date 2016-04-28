@@ -23,5 +23,11 @@ angular.module('myApp')
 		
 	};
 	
+	$scope.enter = function(){
+		if(event.which === 13){
+			$scope.access();
+		}
+	};
+	
 	$scope.init();
 })

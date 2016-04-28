@@ -1,11 +1,12 @@
 angular.module('myApp')
-.controller('HomeController', function($scope, empEvent, date, logged, Pagination){
+.controller('HomeController', function($scope, empEvent, date, logged, ceil, Pagination){
 	
 	$scope.init = function(){
 		$scope.events = [];
 		$scope.eventhost = [];
 		$scope.eHost = [];
 		$scope.eventwhere = [];
+		$scope.eventwhereTEMP = [];
 		$scope.panel = [];
 		
 		$scope.getEventwhere();
@@ -22,13 +23,20 @@ angular.module('myApp')
 			$scope.eventhost = date.empEventDate($scope.eventhost);
 			
 			for(i = 0; i < $scope.eventhost.length; i++){
-				if($scope.eventhost[i].moneyOWNED !== 0.0){
+				
+				if($scope.eventhost[i].isFlag === true){
 					$scope.eHost.push($scope.eventhost[i]);
 				}
 			}
-			for(i = 0; i < $scope.eHost.length; i++){
-				$scope.eHost[i].moneyOWNED = Math.ceil($scope.eHost[i].moneyOWNED);
+			
+			for(i = 0; i < $scope.eventhost.length; i++){
+				if($scope.eventhost[i].moneyOWNED !== 0.0 && $scope.eventhost[i].isFlag !== true){
+					$scope.eHost.push($scope.eventhost[i]);
+				}
 			}
+			
+			$scope.eHost = ceil.money($scope.eHost);
+			
 			$scope.pages();
 		})
 		.then(function(){
@@ -39,8 +47,16 @@ angular.module('myApp')
 	$scope.getEventwhere = function(){
 		empEvent.eventwhere(logged.id)
 		.then(function(res){
-			$scope.eventwhere = res;
-			$scope.eventwhere = date.empEventDate($scope.eventwhere);
+			$scope.eventwhereTEMP = res;
+			$scope.eventwhereTEMP = date.empEventDate($scope.eventwhereTEMP);
+			
+			for(i = 0; i < $scope.eventwhereTEMP.length; i++){
+				if($scope.eventwhereTEMP[i].moneyOWNED !== 0.0){
+					$scope.eventwhere.push($scope.eventwhereTEMP[i]);
+				}
+			}
+			
+			$scope.eventwhere = ceil.money($scope.eventwhere);
 			$scope.pagesSec();
 		})
 		.then(function(){
@@ -105,7 +121,7 @@ angular.module('myApp')
 	$scope.pages = function(){
 		
 		$scope.pagination = Pagination.getNew(4);
-		$scope.pagination.numPages = Math.ceil($scope.eventhost.length / $scope.pagination.perPage);
+		$scope.pagination.numPages = Math.ceil($scope.eHost.length / $scope.pagination.perPage);
 		
 	};
 	

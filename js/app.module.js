@@ -17,6 +17,10 @@ angular.module('myApp', ['ui.router', 'ngCookies', 'n3-pie-chart', 'simplePagina
 				event.preventDefault();
 				$state.go('login');
 			}
+			if(toState.name === 'events' && fromState.name === 'login'){
+				event.preventDefault();
+				$state.go('home');
+			}
 			
 			if(toState.name === 'login' && logged.username !== ''){
 				event.preventDefault();
