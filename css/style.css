@@ -27,7 +27,7 @@ a, a:hover, a:focus {
 
 .sign-up-description-text, .sign-in-description-text{
 	font-weight: 400;
-	color: #4aaf51;
+	color: #3E3C3D;
 }
 
 a.sign-up-description-text:hover, :focus, a.sign-in-description-text:hover, :focus {
@@ -146,12 +146,12 @@ button.btn.dropdown-toggle {
 .form-top {
 	overflow: hidden;
 	padding: 0 25px 15px 25px;
-	background: #EC008C;
+	background: #307ECC;
 	-moz-border-radius: 4px 4px 0 0;
 	-webkit-border-radius: 4px 4px 0 0;
 	border-radius: 4px 4px 0 0;
 	text-align: left;
-	opacity: 0.8;
+	/*opacity: 0.8;*/
 }
 
 .form-top-left {
@@ -604,7 +604,7 @@ h3.name-event.ng-binding {
 }
 
 i.fa.fa-calendar, i.fa.fa-user {
-     color: #F10993;
+     color: #fff;
 }
 
 span.calendar-name, span.posted-by {
@@ -1214,15 +1214,19 @@ select.input-sm {
 	.event-info-header {
 	    padding-left: 0;
 	    margin-right: 14px;
-}
+	}
 
 	.text-align-img-xs {
 		text-align: left;
 	}
 	
-	.width-80 {
-    width: 26%!important;
-}
+	.width-21 {
+    width: 21.5%!important;
+	}
+
+	.width-30 {
+    width: 29.5%!important;
+	}
 
 }
 
@@ -1241,9 +1245,14 @@ select.input-sm {
 	.event-info-header {
 		margin-right: 15px;
 }
+
+	.text-left {
+		text-align: left;
+	}
+	
 	.dataTable_paginate {
-    text-align: center;
-}
+   		 text-align: center;
+	}
 
 }
 
