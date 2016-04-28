@@ -1,5 +1,5 @@
 angular.module('myApp')
-.controller('MybillsController', function($scope, empEvent, date, logged, Pagination){
+.controller('MybillsController', function($scope, empEvent, ceil, date, logged, Pagination){
 	
 $scope.init = function(){
 	$scope.eventhost = []; //eventi kreirani od host = current user
@@ -19,7 +19,7 @@ $scope.init = function(){
 		.then(function(res){
 			$scope.eventhost = res;
 			$scope.eventhost = date.empEventDate($scope.eventhost);
-			
+			$scope.eventhost = ceil.money($scope.eventhost);
 			$scope.initArr = $scope.eventhost;
 			$scope.pages();
 		})

@@ -24,7 +24,7 @@ angular.module('myApp')
 			
 			for(i = 0; i < $scope.eventhost.length; i++){
 				
-				if($scope.eventhost[i].isFlag === true){
+				if($scope.eventhost[i].isFlag === true && $scope.eventhost[i].moneyOWNED !== 0.0){
 					$scope.eHost.push($scope.eventhost[i]);
 				}
 			}

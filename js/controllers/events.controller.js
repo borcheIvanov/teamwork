@@ -7,6 +7,8 @@ angular.module('myApp')
 		$scope.users = [];
 		$scope.panel = [];
 		
+		$scope.moneyRequired = 0.0;
+		
 		$scope.error = '';
 		$scope.eventName = '';
 		$scope.eventDate = '';
@@ -155,13 +157,15 @@ angular.module('myApp')
 	};
 	
 	$scope.getEventinv = function(id){
-		console.log(id);
+		$scope.moneyRequired = 0.0;
 		empEvent.eventinv(id)
 		.then(function(res){
 			$scope.eventinv = res;
 			$scope.eventinv = ceil.money($scope.eventinv);
-			
-			
+			for(i = 0; i < $scope.eventinv.length; i++){
+				$scope.moneyRequired += $scope.eventinv[i].moneyOWNED;
+				
+			}
 		})
 		.then(function(){
 			
@@ -172,6 +176,7 @@ angular.module('myApp')
 		
 		$scope.pagination = Pagination.getNew(3);
 		$scope.pagination.numPages = Math.ceil($scope.myEvents.length / $scope.pagination.perPage);
+		
 		
 	};
 	
