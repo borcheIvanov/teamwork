@@ -32,5 +32,16 @@ public class EventServiceImpl implements EventService {
 		return eventRepository.delete(id);
 	}
 
+	@Override
+	public List<Event> findActive() {
+		
+		return eventRepository.findActive();
+	}
+
+	@Override
+	public List<Event> findClosed() {
+		return eventRepository.findClosed();
+	}
+
 	
 }

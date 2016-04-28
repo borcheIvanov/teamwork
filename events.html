@@ -4,7 +4,7 @@
 		    <div class="row">
 		    	<div class="col-sm-8 col-sm-offset-2 text">
                 	<div class="logo">
-						<h1><a href="#">Polar Cape</a></h1>                        	
+						<!-- <h1><a href="#">Polar Cape</a></h1> -->                        	
                 	</div>
                     <div class="description"></div>
 	 				<!-- Trigger the modal with a button -->
@@ -34,7 +34,7 @@
 								
 								&nbsp;&nbsp;&nbsp;
 								
-									<i class="fa fa-exclamation-triangle" style="color:#EC008C"></i>
+									<i class="fa fa-exclamation-triangle" style="color:#307ECC"></i>
 									<span>Expiration date: {{x.events_id.expirationDate}}</span>
 								
 						</div>
@@ -83,7 +83,7 @@
 							</div>
 							<div ng-hide="clicked">
 								<div class="row">
-									<div class="col-sm-6" style="overflow: auto; height: 200px; color: gray">
+									<div class="col-sm-6 pre-scrollable">
 									<span class="sellect-user-color-events">Click to select user</span>
 										<table class="table"  style="color:#000; cursor:pointer; background:#C1C1C1" >
 											<tr ng-repeat="user in users">
@@ -91,7 +91,7 @@
 											</tr>
 										</table>
 									</div>
-									<div class="col-sm-6" style="overflow: auto; height: 200px color: gray">
+									<div class="col-sm-6 pre-scrollable">
 										<span class="user-color-events">Selected users</span>
 										<table  class="table" style="color:#000; cursor:pointer; background:#C1C1C1">
 											<tr ng-repeat="user in selection">
@@ -121,11 +121,17 @@
 	      	<div class="modal-header">
 		        <h4 class="modal-title fweight">
 					Event: &nbsp;  {{panel.events_id.name}}  
-					
+					<!--  
 					<span style="float:right" onClick="alert('blaaa')">	
 						<i class="fa fa-pencil" data-toggle="tooltip" data-placement="bottom" title="Edit" style="cursor:pointer"></i> &nbsp;
 						<i class="fa fa-close" data-toggle="tooltip" data-placement="bottom" title="Move to Archive" style="cursor:pointer"></i> &nbsp;
 						<i class="fa fa-trash" data-toggle="tooltip" data-placement="bottom" title="Delete event" style="cursor:pointer"></i>&nbsp;
+					</span>
+					-->
+					<span style="float:right" onclick="alert('blaaa')">
+						<a class="btn btn-outlined btn-primary" data-toggle="tooltip" data-placement="bottom" title="Edit" style="cursor:pointer"> <i class="fa fa-pencil bigger-120"></i></a>
+						<a class="btn btn-outlined btn-success" data-toggle="tooltip" data-placement="bottom" title="Delete event" style="cursor:pointer"><i class="fa fa-close bigger-120"></i></a>
+						<a class="btn btn-outlined btn-danger" data-toggle="tooltip" data-placement="bottom" title="Move to Archive" style="cursor:pointer"><i class="fa fa-trash-o bigger-120"></i></a>
 					</span>
 					
 				</h4>

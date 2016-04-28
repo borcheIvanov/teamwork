@@ -471,7 +471,7 @@ a.list-group-item.active {
 }
 
 .modal-header {
-    background: #BA1075;
+    background: #307ECC;
     color: #fff;
     border-radius: 4px 4px 0 0;
     border-bottom: grey;
@@ -604,7 +604,7 @@ h3.name-event.ng-binding {
 }
 
 i.fa.fa-calendar, i.fa.fa-user {
-     color: #fff;
+     color: #307ECC;
 }
 
 span.calendar-name, span.posted-by {
@@ -619,7 +619,7 @@ div.ng-scope.events-border {
 }
 
 .pre-scrollable{
- 	max-height: 500px;
+ 	max-height: 200px;
 }
 
 #events-background::-webkit-scrollbar-track {
