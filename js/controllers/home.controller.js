@@ -70,6 +70,7 @@ angular.module('myApp')
 			$scope.panel = res;
 			$scope.panel.events_id.createdDate = date.oneByOne($scope.panel.events_id.createdDate);
 			$scope.panel.events_id.expirationDate = date.oneByOne($scope.panel.events_id.expirationDate);
+			$scope.panel.moneyOWNED = Math.ceil($scope.panel.moneyOWNED);
 		})
 		.then(function(){
 			
