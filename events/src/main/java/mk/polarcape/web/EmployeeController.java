@@ -20,6 +20,7 @@ import mk.polarcape.service.EmployeeService;
 public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
+	
 
 	@RequestMapping(value = "/employee", method = RequestMethod.GET)
 	@ResponseBody
@@ -46,7 +47,6 @@ public class EmployeeController {
 	public Employee createemployee(@RequestBody Employee employee){
 		//////////////////////////////////
 		String pw_hash = BCrypt.hashpw(employee.getPassword(), BCrypt.gensalt(10)); 
-		/////////////////
 		employee.setPassword(pw_hash);
 		return employeeService.save(employee);
 	}
@@ -58,15 +58,21 @@ public class EmployeeController {
 		Employee currentemployee = employeeService.findById(id);
 		
 	//	System.out.println("json password is :" + employee.getPassword());
+		if(employee.getName()!=null)
 		currentemployee.setName(employee.getName());
+		if(employee.getSurname()!=null)
 		currentemployee.setSurname(employee.getSurname());
+		if(employee.getEmail()!=null)
 		currentemployee.setEmail(employee.getEmail());
+		if(employee.getUsername()!=null)
+		currentemployee.setUsername(employee.getUsername());
 		///////////////////////////
+		if(employee.getPassword()!=null){
 		String pw_hash = BCrypt.hashpw(employee.getPassword(), BCrypt.gensalt(10)); 
 		/////////////////////////
-		currentemployee.setUsername(employee.getUsername());
 		currentemployee.setPassword(pw_hash);
-		currentemployee.setActive(employee.isActive());
+		}
+		currentemployee.setActive(employee.getIsActive());
 	//	System.out.println("password after hashing :" + currentemployee.getPassword());
 		
 		return employeeService.save(currentemployee);
@@ -83,4 +89,5 @@ public class EmployeeController {
 	public Employee login(@PathVariable String username, @PathVariable String pass) {
 		return employeeService.login(username,  pass);
 	}
+	
 }

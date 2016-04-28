@@ -24,21 +24,25 @@ public class Event {
 	private String name;
 	private double budget;
 	
-	
-	
 	@OneToMany(mappedBy = "events_id")
 	@JsonIgnore
 	private List<Employee_event> events_id;
 	
-	 
 	    @NotNull
 	    private Date createdDate= new Date();
 	    
 	    private Date expirationDate;
 	    
 	    private String createdBy;
-	    
-	    private Boolean archived;
+	    public String getCreatedBy() {
+			return createdBy;
+		}
+
+		public void setCreatedBy(String createdBy) {
+			this.createdBy = createdBy;
+		}
+
+		private boolean archived;
 /////////////////////////////
 	public String getName() {
 		return name;
@@ -69,22 +73,10 @@ public class Event {
 		this.budget = budget;
 	}
 
-	public String getCreatedBy() {
-		return createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
-
 	@Override
 	public String toString() {
-		return "Event [id=" + id + ", name=" + name + ", budget=" + budget + ", events_id=" + events_id
-				+ ", createdDate=" + createdDate + ", expirationDate=" + expirationDate + ", createdBy=" + createdBy
-				+ "]";
+		return "Events [naem=" + name + ", budget=" + budget + ", invitedGuests="+"]";
 	}
-
-	
 
 	public List<Employee_event> getEvents_id() {
 		return events_id;
@@ -102,11 +94,11 @@ public class Event {
 		this.id = id;
 	}
 
-	public Boolean getArchived() {
+	public boolean getIsArchived() {
 		return archived;
 	}
 
-	public void setArchived(Boolean archived) {
+	public void setArchived(boolean archived) {
 		this.archived = archived;
 	}
 }

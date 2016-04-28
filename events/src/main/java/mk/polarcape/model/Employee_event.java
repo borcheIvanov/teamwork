@@ -30,9 +30,11 @@ public class Employee_event {
 	private Event events_id;
 	
 	private double moneyOWNED;
-	
-	private boolean flag;//platil ne platil
+	private boolean flag;
 ////////////////////
+	Employee_event(){
+		
+	}
 	public Long getId() {
 		return id;
 	}
@@ -73,7 +75,7 @@ public class Employee_event {
 		this.moneyOWNED = moneyOWNED;
 	}
 
-	public boolean isFlag() {
+	public boolean getIsFlag() {
 		return flag;
 	}
 
