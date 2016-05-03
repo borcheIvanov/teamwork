@@ -249,12 +249,14 @@ angular.module('myApp')
 			$scope.panel.events_id.name = title;
 			$scope.panel.events_id.budget = budget;
 			
+			
+			
 			var temp = {"name" : title, "budget" : budget};
 			
 			events.editEvent($scope.panel.events_id.id, temp)
 			.then(function(res){
 				console.log('saved');
-				$scope.init();
+				
 			})
 			.then(function(){
 				
