@@ -256,7 +256,7 @@ angular.module('myApp')
 			events.editEvent($scope.panel.events_id.id, temp)
 			.then(function(res){
 				console.log('saved');
-				
+				$scope.getEventhost();
 			})
 			.then(function(){
 				
