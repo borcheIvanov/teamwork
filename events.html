@@ -25,7 +25,7 @@
 					
 					<div ng-repeat="x in myEvents |filter:searchVal | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
 						
-						<div class="well well-sm" style="color:black; cursor:pointer" ng-click="eventPanel(x.id)" data-toggle="modal" href="#simplyModal" style="color: black; cursor:pointer" onclick="return false;">
+						<div class="well well-sm" ng-click="eventPanel(x.id)" data-toggle="modal" href="#simplyModal" style="color: black; cursor:pointer" onclick="return false;">
 								
 									<h3>{{x.events_id.name}}</h3>
 								
@@ -63,7 +63,7 @@
 				<h4 class="modal-title fweight">Event details:</h4>
 		    </div>
 		    <div class="modal-body">
-		 		
+					<span style="text-align:cente; color:red" ng-hide="regForm.username.$invalid || regForm.name.$invalid || regForm.surname.$invalid"> Invite users please </span>
 					<div class="form-bottom">
 						<form role="form" class="registration-form" name="regForm">	
 							<div class="form-group">
@@ -101,7 +101,8 @@
 									</div>
 								</div>
 							</div>
-							<button type="button" ng-click="createEvent()" class="btn btn-block"> Create Event </button>
+							<button type="button" ng-click="createEvent()" class="btn btn-block" data-dismiss="modal" ng-disabled
+							="regForm.username.$invalid || regForm.name.$invalid || regForm.surname.$invalid || definedArr === false"> Create Event </button>
 						</form>
 					</div>
 				
@@ -120,27 +121,28 @@
 	    <div class="modal-content">
 	      	<div class="modal-header">
 		        <h4 class="modal-title fweight">
-					Event: &nbsp;  {{panel.events_id.name}}  
-					<!--  
-					<span style="float:right" onClick="alert('blaaa')">	
-						<i class="fa fa-pencil" data-toggle="tooltip" data-placement="bottom" title="Edit" style="cursor:pointer"></i> &nbsp;
-						<i class="fa fa-close" data-toggle="tooltip" data-placement="bottom" title="Move to Archive" style="cursor:pointer"></i> &nbsp;
-						<i class="fa fa-trash" data-toggle="tooltip" data-placement="bottom" title="Delete event" style="cursor:pointer"></i>&nbsp;
-					</span>
-					-->
-					<span style="float:right" onclick="alert('blaaa')">
-						<a class="btn btn-outlined btn-primary" data-toggle="tooltip" data-placement="bottom" title="Edit" style="cursor:pointer"> <i class="fa fa-pencil bigger-120"></i></a>
-						<a class="btn btn-outlined btn-success" data-toggle="tooltip" data-placement="bottom" title="Delete event" style="cursor:pointer"><i class="fa fa-close bigger-120"></i></a>
+					Event: &nbsp; <span id="editable">{{panel.events_id.name}}</span>  
+					
+					
+					<span style="float:right">
+						
+						<a class="btn btn-outlined btn-primary" style="cursor:pointer" ng-hide="editor" ng-click="save()"> Save </a>
+					
+						<a class="btn btn-outlined btn-primary" data-toggle="tooltip" data-placement="bottom" title="Edit" style="cursor:pointer" ng-show="editor" ng-click="edit()"> <i class="fa fa-pencil bigger-120"></i></a>
+						<a class="btn btn-outlined btn-success"  data-placement="bottom" title="Close event" style="cursor:pointer" data-toggle="modal" href="#yesnodialog" ng-click="getId(eventinv[0].events_id.id)" onclick="return false;"><i class="fa fa-close bigger-120"></i></a>
 						
 						<span ng-hide="1 === 1">
 							<a class="btn btn-outlined btn-danger" data-toggle="tooltip" data-placement="bottom" title="Move to Archive" style="cursor:pointer"><i class="fa fa-trash-o bigger-120"></i></a>
 						</span>
 					</span>
 					
+					<br>
+					{{error}}
+					
 				</h4>
 	      	</div>
 	      	<div class="modal-body">
-				<h4 class="list-group-item-heading text-left fweight"> Invited <span style="float:right"> Event budget:&emsp; {{eventinv[0].events_id.budget}} den. &emsp;&emsp;&emsp;&emsp; </span> </h4> <hr>
+				<h4 class="list-group-item-heading text-left fweight"> Invited <span style="float:right"> Event budget:&emsp;<span id="editableSec" >{{eventinv[0].events_id.budget}}</span> den. &emsp;&emsp;&emsp;&emsp; </span> </h4> <hr>
 	      		<div class="list-group" ng-repeat="user in eventinv">
 				    <h4 class="list-group-item-heading text-left fweight"> {{user.invited_id.name}} {{user.invited_id.surname}} ({{user.invited_id.username}})  <span style="float:right"> -{{user.moneyOWNED}} den. &emsp; <button ng-click="hasPaid(user.id)" ng-hide="user.moneyOWNED === 0.0"> Paid </button> <span class="fa fa-check-square-o" style="color:green; font-size:25px; margin-left:13px; margin-right:14px" ng-show="user.moneyOWNED === 0.0"> </span> </span> </h4>
 				</div>
@@ -149,6 +151,24 @@
 			
 				Money collected: {{eventinv[0].events_id.budget - moneyRequired}} den.&emsp;&emsp; Money to collect:{{moneyRequired}} den. &emsp;&emsp;
 	        	<button type="button" class="btn btn-default modal-button-hover" data-dismiss="modal"> Close </button>
+	      	</div>
+	    </div>
+  	</div>
+</div>
+
+<div id="yesnodialog" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      	<div class="modal-header">
+		        <h4 class="modal-title fweight">
+					Move to Archive / Close event? 
+				</h4>
+	      	</div>
+	      	
+	      	<div class="modal-footer">
+				<button type="button" class="btn btn-default modal-button-hover" data-dismiss="modal" ng-click="moveToClosed()"> Yes </button>
+	        	<button type="button" class="btn btn-default modal-button-hover" data-dismiss="modal"> No </button>
 	      	</div>
 	    </div>
   	</div>

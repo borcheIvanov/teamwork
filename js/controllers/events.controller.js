@@ -9,11 +9,14 @@ angular.module('myApp')
 		
 		$scope.moneyRequired = 0.0;
 		
+		$scope.tempId = '';
 		$scope.error = '';
 		$scope.eventName = '';
 		$scope.eventDate = '';
 		$scope.eventBudget = '';
 		$scope.clicked = true;
+		$scope.editor = true;
+		$scope.definedArr = false;
 		
 		$scope.getEventhost();
 		
@@ -32,54 +35,53 @@ angular.module('myApp')
 	};
 	
 	$scope.createEvent = function(){
-		
-		var temp3 = [];
-		var temp2 = {};
-		var temp = {
-			'name' : $scope.eventName,
-			'budget': $scope.eventBudget,
-			'expirationDate': $scope.eventDate,
-			'createdBy': logged.username
-		}
-		
-		document.body.style.cursor = 'progress';
-		
-			events.postEvent(temp)
-			.then(function(){
-				events.getEvents()
-				.then(function(res){
-					var lastId = res;
-					var newId = lastId[lastId.length-1].id;
-					var eveBug = lastId[lastId.length-1].budget;
-					
-					for(i = 0; i < $scope.selection.length; i++){
-						var temp2 = {
-							'events_id': {'id': newId, 'budget':eveBug},
-							'hosting_id': {'id': logged.id},
-							'invited_id': {'id': $scope.selection[i].id}
-						}
-						temp3.push(temp2);
+			document.body.style.cursor = "wait";
+			var temp3 = [];
+			var temp2 = {};
+			var temp = {
+				'name' : $scope.eventName,
+				'budget': $scope.eventBudget,
+				'expirationDate': $scope.eventDate,
+				'createdBy': logged.username
+			}
+				events.postEvent(temp)
+				.then(function(){
+					events.getEvents()
+					.then(function(res){
+						var lastId = res;
+						var newId = lastId[lastId.length-1].id;
+						var eveBug = lastId[lastId.length-1].budget;
 						
-					}
-						empEvent.postArray(temp3)
-						.then(function(){
-							console.log('posted');
+						for(i = 0; i < $scope.selection.length; i++){
+							var temp2 = {
+								'events_id': {'id': newId, 'budget':eveBug},
+								'hosting_id': {'id': logged.id},
+								'invited_id': {'id': $scope.selection[i].id}
+							}
+							temp3.push(temp2);
 							
-						})
-						.then(function(){
-							
-						})
-					
-					document.body.style.cursor = 'auto';
-					$scope.init();
+						}
+							empEvent.postArray(temp3)
+							.then(function(){
+								console.log('posted');
+								document.body.style.cursor = "auto";
+								$scope.init();
+								
+							})
+							.then(function(){
+								
+							})
+						
+						$scope.init();
+					})
+					.then(function(){
+						
+					})
 				})
 				.then(function(){
 					
-				})
-			})
-			.then(function(){
-				
-			});		
+				});	
+		
 	};
 
 	
@@ -125,7 +127,12 @@ angular.module('myApp')
 				}
 			}
 		}
-		$scope.users.length = $scope.users.length - 1; 
+		$scope.users.length = $scope.users.length - 1;
+		if($scope.selection.length !== 0){
+			$scope.definedArr = true;
+		}else{
+			$scope.definedArr = false;
+		}		
 	};
 	
 	$scope.deselect = function(index){
@@ -139,6 +146,11 @@ angular.module('myApp')
 			}
 		}
 		$scope.selection.length = $scope.selection.length - 1; 
+		if($scope.selection.length !== 0){
+			$scope.definedArr = true;
+		}else{
+			$scope.definedArr = false;
+		}
 	};
 	
 	$scope.eventPanel = function(id){
@@ -148,7 +160,6 @@ angular.module('myApp')
 			$scope.panel.events_id.createdDate = date.oneByOne($scope.panel.events_id.createdDate);
 			$scope.panel.events_id.expirationDate = date.oneByOne($scope.panel.events_id.expirationDate);
 			
-			console.log(id);
 			$scope.getEventinv($scope.panel.events_id.id);
 		})
 		.then(function(){
@@ -177,7 +188,6 @@ angular.module('myApp')
 		$scope.pagination = Pagination.getNew(3);
 		$scope.pagination.numPages = Math.ceil($scope.myEvents.length / $scope.pagination.perPage);
 		
-		
 	};
 	
 	$scope.hasPaid = function(id){
@@ -193,6 +203,63 @@ angular.module('myApp')
 		.then(function(){
 			
 		})
+	};
+	
+	$scope.moveToClosed = function(){
+		console.log('clicked');
+		var temp = {"archived" : "true"};
+		events.editEvent($scope.tempId, temp)
+		.then(function(){
+			console.log('moved');
+			$scope.init();
+		})
+		.then(function(){
+			
+		})
+	};
+	
+	$scope.getId = function(id){
+		$scope.tempId = id;
+	};
+	
+	$scope.edit = function(){
+		$scope.editor = false;
+		document.getElementById('editable').setAttribute('contenteditable', true);
+		document.getElementById('editable').style.outline = '1px dotted black';
+		
+		document.getElementById('editableSec').setAttribute('contenteditable', true);
+		document.getElementById('editableSec').style.outline = '1px dotted black';
+	};
+	
+	$scope.save = function(){
+		
+		var title = document.getElementById('editable').innerHTML;
+		var budget = document.getElementById('editableSec').innerHTML;
+		
+		if(title === '' || budget === ''){
+			$scope.error = 'Please enter some values';
+		}else{
+			$scope.editor = true;
+			document.getElementById('editable').setAttribute('contenteditable', false);
+			document.getElementById('editable').style.outline = 'none';
+			
+			document.getElementById('editableSec').setAttribute('contenteditable', false);
+			document.getElementById('editableSec').style.outline = 'none';
+		
+			$scope.panel.events_id.name = title;
+			$scope.panel.events_id.budget = budget;
+			
+			var temp = {"name" : title, "budget" : budget};
+			
+			events.editEvent($scope.panel.events_id.id, temp)
+			.then(function(res){
+				console.log('saved');
+				$scope.init();
+			})
+			.then(function(){
+				
+			})
+		}
 	};
 	
 	

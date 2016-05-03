@@ -67,6 +67,23 @@ angular.module('myApp')
 		return defer.promise;
 	};
 	
+	//////////////////////////////put
+	
+	data.editEvent = function(id, temp){
+		var defer = $q.defer();
+		console.log(id);
+		console.log(temp);
+		$http.put(url + '/api/event/' + id, temp)
+		.success(function(res){
+			defer.resolve(res);
+		})
+		.then(function(err, status){
+			defer.reject(err);
+		})
+		
+		return defer.promise;
+	};
+	
 	
 	
 	return data;
