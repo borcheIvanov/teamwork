@@ -1247,6 +1247,10 @@ select.input-sm {
 	.width-30 {
     width: 29.5%!important;
 	}
+	
+	.dataTable_wrapper select {
+    margin: 0 -1px;
+	}
 
 }
 
@@ -1255,6 +1259,11 @@ select.input-sm {
 		text-align: center;
 	}
 
+
+	.dataTable_wrapper select {
+	    margin: 0px;
+	
+	}
 }
 
 @media (max-width: 415px) {
@@ -1274,5 +1283,17 @@ select.input-sm {
    		 text-align: center;
 	}
 
+}
+
+@media (max-width: 320px) {
+	
+	.user-owe-search input[type=search] {
+		    padding: 4px 0px;
+	}
+	
+	.dataTable_wrapper input[type=search] {
+    margin: 0 -6px;
+	}
+	
 }
 
