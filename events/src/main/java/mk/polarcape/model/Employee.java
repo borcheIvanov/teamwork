@@ -1,14 +1,10 @@
 package mk.polarcape.model;
 
+import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -22,7 +18,12 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-		
+	@Column(name = "username", nullable = false, unique=true)
+	private String username;
+	
+	@NotEmpty
+	private String password;
+
 	@Size(min=1, max=30)
 	private String Name;
 	
@@ -36,12 +37,22 @@ public class Employee {
 
 	private boolean active;
 
-	@Column(name = "username", nullable = false, unique=true)
-	private String username;
-	
-	@NotEmpty
-	private String password;
-	
+	 @ManyToMany(fetch = FetchType.EAGER)
+	    @JoinTable(
+	            name = "USER_AUTHORITY",
+	            joinColumns = {@JoinColumn(name = "USER_ID", referencedColumnName = "ID")},
+	            inverseJoinColumns = {@JoinColumn(name = "AUTHORITY_ID", referencedColumnName = "ID")})
+	    private List<Authority> authorities;
+
+	 @Column(name = "LASTPASSWORDRESETDATE")
+	    @Temporal(TemporalType.TIMESTAMP)
+	    @NotNull
+	    private Date lastPasswordResetDate;
+
+	  @Column(name = "ENABLED")
+	    @NotNull
+	    private Boolean enabled;
+	    
 	@OneToMany(mappedBy = "invited_id")
 	@JsonIgnore
 	private List<Employee_event> invitedGuests;
@@ -50,12 +61,7 @@ public class Employee {
 	@JsonIgnore
 	private List<Employee_event> hostingParty;
 	
-	@Column(name = "role")//da se smeni vo idnina poveke roles
-	private String role="ADMIN";
-	
-public String getRole() {
-		return role;
-	}
+
 
 
 	public void setId(Long id) {
@@ -134,7 +140,26 @@ public String getRole() {
 	public void setHostingParty(List<Employee_event> hostingParty) {
 		this.hostingParty = hostingParty;
 	}
+	  public List<Authority> getAuthorities() {
+	        return authorities;
+	    }
 
-	
+	    public void setAuthorities(List<Authority> authorities) {
+	        this.authorities = authorities;
+	    }
 
+		public Date getLastPasswordResetDate() {
+			return lastPasswordResetDate;
+		}
+
+		public void setLastPasswordResetDate(Date lastPasswordResetDate) {
+			this.lastPasswordResetDate = lastPasswordResetDate;
+		}
+		public Boolean getEnabled() {
+	        return enabled;
+	    }
+
+	    public void setEnabled(Boolean enabled) {
+	        this.enabled = enabled;
+	    }
 }
