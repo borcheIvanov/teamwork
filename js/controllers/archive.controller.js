@@ -1,7 +1,10 @@
 angular.module('myApp')
-	.controller('ArchiveController', function($scope, events, date, logged, Pagination){
+	.controller('ArchiveController', function($scope, events, date, logged, empEvent, ceil, Pagination){
 		$scope.init = function(){
 			$scope.events = [];
+			$scope.eventinv = [];
+			
+			$scope.moneyRequired = 0.0;
 			
 			$scope.getClosed();
 		};
@@ -19,10 +22,26 @@ angular.module('myApp')
 			})
 		};
 		
+		$scope.getEventinv = function(id){
+			$scope.moneyRequired = 0.0;
+			empEvent.eventinv(id)
+			.then(function(res){
+				$scope.eventinv = res;
+				$scope.eventinv = date.empEventDate($scope.eventinv);
+				$scope.eventinv = ceil.money($scope.eventinv);
+				for(i = 0; i < $scope.eventinv.length; i++){
+					$scope.moneyRequired += $scope.eventinv[i].moneyOWNED;
+				}
+			})
+			.then(function(){
+				
+			})
+		};
+		
 		$scope.pagesSec = function(){
 		
-			$scope.paginationSec = Pagination.getNew($scope.pagesPer);
-			$scope.paginationSec.numPages = Math.ceil($scope.events.length / $scope.paginationSec.perPage);
+			$scope.pagination = Pagination.getNew($scope.pagesPer);
+			$scope.pagination.numPages = Math.ceil($scope.events.length / $scope.pagination.perPage);
 			
 		};
 		
