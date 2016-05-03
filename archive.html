@@ -1,3 +1,5 @@
+
+<!-- 
 <br><br>
 					<div class="row">
 						<div class="col-xs-12">
@@ -79,3 +81,102 @@
 						</div>
 						</div>
 					</div>
+					
+ -->
+
+ 
+
+ <div class="top-content-mybills">
+	<div class="inner-bg">
+		<div class="container">
+			<div class="main-content">
+				<div class="row">
+						<div class="col-xs-12">
+							<div class="table-header">
+								Archived Events
+							</div>
+							<div id="display-archive" class="dataTable_wrapper">
+								<div class="row">
+									<div class="col-xs-6">
+										<div id="display-records" class="display-records-lenght form-inline">
+											<label>Display
+												<select class="form-control input-sm" ng-model="pagesPer" ng-click="pagesSec()">
+													<option value="5">5</option>
+													<option value="10">10</option>
+													<option value="25">25</option>
+													<option value="50">50</option>
+													<option value="100">100</option>
+												</select>
+												records
+											</label>
+										</div>
+									</div>
+									<div class="col-xs-6">
+										<div id="user-owe" class="user-owe-search">
+											<label>Search:<input type="search" class="form-control input-sm " ng-model="firstSearch"></label>
+										</div>
+									</div>
+								</div>
+								<div class="row bg-archive">
+									<div class="col-md-10 col-md-offset-1">
+										<div class="table-responsive table-responsive-home">
+											<table class="table">
+												<thead>
+													<tr>
+														<th style="width: 50px;"></th>
+						      							<th><i class="fa fa-tasks bigger-archive-icon fa-fw"></i>Event name</th>
+						     						 	<th><i class="fa fa-money bigger-archive-icon fa-fw"></i>Price</th>
+						      							<th><i class="fa fa-archive bigger-archive-icon fa-fw"></i>Status</th>
+						    						</tr>
+												</thead>
+												<tbody class="tbody-archive">
+												    <tr>
+												      <td></td>
+												      <td><span class="label label-sm label-success">Easter Event</span></td>
+												      <td>3500den.</td>
+												      <td><span class="label label-sm label-info">Archived</span></td>
+												    </tr>
+												    <tr>
+												      <td></td>
+												      <td><span class="label label-sm label-success">Business Event</span></td>
+												      <td>8000den.</td>
+												      <td><span class="label label-sm label-info">Archived</span></td>
+												    </tr>
+												    <tr>
+												      <td></td>
+												      <td><span class="label label-sm label-success">Wedding Event</span></td>
+												      <td>10000den.</td>
+												      <td><span class="label label-sm label-info">Archived</span></td>
+												    </tr>
+												    <tr>
+												      <td></td>
+												      <td><span class="label label-sm label-success">New Year Event</span></td>
+												      <td>6000den.</td>
+												      <td><span class="label label-sm label-info">Archived</span></td>
+												    </tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="row bg-archive ">
+											<div class="col-xs-12">
+												<div class="dataTable_paginate">
+													<ul class="pagination pull-right">
+														<li><a href="" ng-hide="pagination.page == 0" ng-click="pagination.prevPage()">&laquo;</a></li>
+														<li ng-repeat="n in [] | range: pagination.numPages" ng-class="{active: n == pagination.page}">
+														  <a href="" ng-click="pagination.toPageId(n)">{{n + 1}}</a>
+														</li>
+														<li><a href="" ng-hide="pagination.page + 1 >= pagination.numPages" ng-click="pagination.nextPage()">&raquo;</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+ 

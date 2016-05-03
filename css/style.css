@@ -1186,9 +1186,29 @@ select.input-sm {
 	text-align: left;
 }
 
+/*Archive*/
 
+.main-content {
+    background-color: #fff;
+}
 
+.bigger-archive-icon {
+    margin-right: 2px;
+}
 
+.row.bg-archive {
+    background: none!important;
+    border-bottom: none!important;
+}
+
+.tbody-archive {
+    text-align: left;
+    color: #393939;
+}
+
+.label {
+	font-weight: 500;
+}
 
 /***** Media queries *****/
 
