@@ -1,101 +1,92 @@
 angular.module('myApp')
-.controller('StatsController', function($scope, empEvent, logged){
+.controller('StatsController', function($scope, empEvent, ceil, logged){
 	$scope.init = function(){
-		$scope.arr2 = [];
-		$scope.arr = [];
+		
+		var tempArr = [];
+		$scope.bills = [];
+		$scope.events = [];
+		
+		
+		$scope.paidPercent = 0.0;
+		$scope.restPercent = 0.0;
+		
+		$scope.typeSelector = 'pie';
 		
 		$scope.moneyTotal = 0.0;
 		$scope.moneyPaid = 0.0;
 		$scope.moneyRest = 0.0;
 		
-		$scope.getSth();
-		
+		$scope.getEvents();
 	};
 	
-	$scope.getSth = function(){
+	$scope.getEvents = function(){
 		empEvent.eventhost(logged.id)
 		.then(function(res){
-			$scope.arr2 = res;
-			for(i = 0; i < $scope.arr2.length; i++){
-				if(i === 0){
-					$scope.arr.push($scope.arr2[0]);
-				}
-				if(i !== 0){
-					if($scope.arr2[i].events_id.id !== $scope.arr2[i-1].events_id.id){
-						$scope.arr.push($scope.arr2[i]);
-					}
-				}
-			}
+			$scope.bills = res;
+			calculate(res);
 			
-			for(i = 0; i < $scope.arr.length; i++){
-				$scope.moneyTotal += $scope.arr[i].events_id.budget;
-			}
-			for(i = 0; i < $scope.arr2.length; i++){
-				$scope.moneyPaid += $scope.arr2[i].moneyOWNED;
-			}
-			$scope.moneyRest = $scope.moneyTotal - $scope.moneyPaid;
-			$scope.printPie();
-			
-		})
-	};
-	
-	$scope.printPie = function(){
-		$scope.data = [
-		  {label: "To collect: ", value: $scope.moneyRest, color: "red"}, 
-		  {label: "Collected: ", value: $scope.moneyPaid, color: "#00ff00"}
-		  
-		];
-
-		$scope.gauge_data = [
-		  {label: "CPU", value: 75, suffix: "%", color: "steelblue"}
-		];
-		
-		$scope.options = {thickness: 80};
-		
-	};
-	
-	
-	$scope.init();
-})
-
-.controller('statsTwoCtrl', function($scope, empEvent, logged){
-	
-	$scope.init = function(){
-		$scope.numArr = [];
-		$scope.userArr = [];
-		$scope.numArr2 = [];
-		$scope.chartArray = [];
-		$scope.chartPrint = [];
-		
-		$scope.getNumbers();
-	};
-	
-	$scope.getNumbers = function(){
-		empEvent.eventhost(logged.id)
-		.then(function(res){
-			$scope.userArr = res;
-			$scope.printChart();
 		})
 		.then(function(){
 			
 		})
 	};
 	
-	$scope.printChart = function(){
+	$scope.selectEvent = function(){
+		$scope.moneyPaid = 0.0;
+		$scope.moneyRest = 0.0;
+		$scope.moneyTotal = 0.0;
 		
-		for(i = 0; i < $scope.userArr.length; i++){
+		if($scope.eventSelector === 'all' || $scope.eventSelector === undefined){
+			$scope.init();
+		}else{
+			for(i = 0; i < $scope.bills.length; i++){
+				if($scope.bills[i].events_id.id == $scope.eventSelector){
+					$scope.moneyRest += $scope.bills[i].moneyOWNED;
+					$scope.moneyTotal = $scope.bills[i].events_id.budget;
+				}
+			}
 			
-			$scope.chartArray.push({'x': $scope.userArr[i].invited_id.name, 'y': [ $scope.userArr[i].moneyOWNED, 500 ]});
+			$scope.moneyPaid = $scope.moneyTotal - $scope.moneyRest;
+			draw();
 		}
+	};
+	
+	var calculate = function(niza){
+		var events = [];
 		
-		$scope.chartArray.forEach(function(n) {
-					
-						$scope.chartPrint.push(n);
-					});
+		for(i = 0; i < niza.length; i++){
+			if(i === 0){
+				events.push(niza[0]);
+			}
+			if(i !== 0){
+				if(niza[i].events_id.id !== niza[i-1].events_id.id){
+					events.push(niza[i]);
+				}
+			}
+		}
+		ceil.money(niza);
 		
+		for(i = 0; i < niza.length; i++){
+			$scope.moneyTotal += niza[i].events_id.budget;
+			$scope.moneyRest += niza[i].moneyOWNED;
+		}
+		$scope.moneyPaid = $scope.moneyTotal - $scope.moneyRest;
+		
+		$scope.events = events;
+		
+		draw();
+	};
+	
+	var draw = function(){
+		
+		
+		console.log($scope.moneyTotal, $scope.moneyRest, $scope.moneyPaid);
+		
+		$scope.paidPercent = Math.floor(($scope.moneyPaid / $scope.moneyTotal) * 100);
+		$scope.restPercent = Math.floor(($scope.moneyRest / $scope.moneyTotal) * 100);
 		
 		$scope.config = {
-			title: 'paid/not paid',
+			title: 'Pie',
 			tooltips: true,
 			labels: false,
 			legend: {
@@ -103,12 +94,21 @@ angular.module('myApp')
 				position: 'right'
 			}
 		};
-
 		$scope.data = {
-				series: ['Paid', 'Owe'],
-				data: $scope.chartPrint
-			};
-	};
+			series: ['Paid', 'Not Paid'],
+			data: [{
+				x: "Paid",
+				y: [$scope.paidPercent],
+				tooltip: $scope.paidPercent + "% Paid"
+			}, {
+				x: "Not Paid",
+				y: [$scope.restPercent],
+				tooltip: $scope.restPercent + "% Not Paid"
+			}]
+		};
+		
+		
+	}
 	
 	
 	$scope.init();
