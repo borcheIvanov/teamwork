@@ -4,6 +4,8 @@ angular.module('myApp')
 			$scope.events = [];
 			$scope.eventinv = [];
 			
+			$scope.pagesPer = 5;
+			
 			$scope.moneyRequired = 0.0;
 			
 			$scope.getClosed();
