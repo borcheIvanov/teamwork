@@ -3,6 +3,7 @@ angular.module('myApp')
 		$scope.init = function(){
 			$scope.events = [];
 			$scope.eventinv = [];
+			$scope.tempArr = [];
 			
 			$scope.pagesPer = 5;
 			
@@ -14,7 +15,15 @@ angular.module('myApp')
 		$scope.getClosed = function(){
 			events.getClosed()
 			.then(function(res){
-				$scope.events = res;
+				$scope.tempArr = res;
+				console.log($scope.tempArr);
+				for(i = 0; i < $scope.tempArr.length; i++){
+					if($scope.tempArr[i].createdBy === logged.username){
+						$scope.events.push($scope.tempArr[i]);
+					}
+				}
+				
+				
 				$scope.events = date.eventDate($scope.events);
 				$scope.pagesSec();
 				
