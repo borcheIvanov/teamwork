@@ -129,7 +129,7 @@
 						      							<th><i class="fa fa-archive bigger-archive-icon fa-fw"></i>Status</th>
 						    						</tr>
 												</thead>
-												<tbody class="tbody-archive" ng-repeat="event in events | filter:search" >
+												<tbody class="tbody-archive" ng-repeat="event in events | filter:search  |filter:searchVal | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
 												    <tr style="cursor:pointer" data-toggle="modal" href="#simplyModal" onclick="return false;" ng-click="getEventinv(event.id)">
 												      <td></td>
 												      <td><span class="label label-sm label-success">{{event.name}}</span></td>
@@ -169,17 +169,22 @@
 	    <div class="modal-content">
 	      	<div class="modal-header">
 		        <h4 class="modal-title fweight">
-					Event : {{eventinv[0].events_id.name}} <br>
-					Created date: {{eventinv[0].events_id.createdDate}} <br>
-					Deadline: {{eventinv[0].events_id.expirationDate}} <br>
-					Budget: {{eventinv[0].events_id.budget}} 
-					
-					
+					Event details
 				</h4>
 	      	</div>
 	      	<div class="modal-body">
 				
-				<h4 class="list-group-item-heading text-left fweight"> Invited users: <span style="float:right">  </span> </h4> <br>
+				<div class="list-group">
+				    <h4 class="list-group-item-heading text-left fweight">
+						Event name: <span style="float:right"> {{eventinv[0].events_id.name}} &emsp;</span>  <br>
+						Created date: <span style="float:right"> {{eventinv[0].events_id.createdDate}} &emsp;</span> <br>
+						Deadline:  <span style="float:right"> {{eventinv[0].events_id.expirationDate}}&emsp; </span> <br>
+						Budget: <span style="float:right"> {{eventinv[0].events_id.budget}} &emsp;</span>  <hr>
+					</h4>
+				</div>
+				
+				<h4 class="list-group-item-heading text-left fweight"> Invited users: <span style="float:right">  </span> </h4> 
+				
 	      		<div class="list-group" ng-repeat="user in eventinv">
 				    <h4 class="list-group-item-heading text-left fweight"> {{user.invited_id.name}} {{user.invited_id.surname}} ({{user.invited_id.username}})  <span style="float:right"> -{{user.moneyOWNED}} den. &emsp; <span class="fa fa-times-circle-o" style="color:red; font-size:25px; margin-left:13px; margin-right:14px" ng-hide="user.moneyOWNED === 0.0"> </span> <span class="fa fa-check-square-o" style="color:green; font-size:25px; margin-left:13px; margin-right:14px" ng-show="user.moneyOWNED === 0.0"> </span> </span> </h4>
 				</div>
