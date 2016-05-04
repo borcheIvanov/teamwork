@@ -4,21 +4,33 @@
 <hr>
 
 <div class="container">
-	<div>
-		<h2 style="color:white"> Total budget: {{moneyTotal}} </h2>
-		<pie-chart data="data" options="options" style="height:300px"></pie-chart>
-	</div>
-	<br><br><br>
-	<div  ng-controller="statsTwoCtrl">
-		<h2 style="color:white"> Bars </h2>
+
+	Select event: 
+	<select style="color:black" ng-model="eventSelector" ng-click="selectEvent()">
+		<option value="all">All</option>
+		<option ng-repeat="event in events" value="{{event.events_id.id}}">{{event.events_id.name}}</option>
+	</select>
+
 		
-		<div 
-			data-ac-chart="'bar'" 
+		<div
+			data-ac-chart="'pie'" 
 			data-ac-data="data" 
 			data-ac-config="config" 
 			class="chart" style="width: auto; height: 400px">
 		</div>
-	</div>
+		
+		<br>
+		
+		<h3 style="color:white"> 
+			Total budget: {{moneyTotal}} den.  <br>
+			Money collected: {{moneyPaid}} den. - {{paidPercent}}%  <br>
+			Money not paid {{moneyRest}} den. - {{restPercent}}%  
+		</h3>
+		
+		<hr>
+		
+		
+
 </div>
 
 

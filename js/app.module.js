@@ -1,4 +1,4 @@
-angular.module('myApp', ['ui.router', 'ngCookies', 'n3-pie-chart', 'simplePagination', 'angularCharts'])
+angular.module('myApp', ['ui.router', 'ngCookies', 'simplePagination', 'angularCharts'])
 
 .run(function(logged, $rootScope, $state, $cookies) {
 	
