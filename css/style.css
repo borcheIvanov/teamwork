@@ -1224,6 +1224,9 @@ select.input-sm {
     margin-left: -16px;
 }
 
+button.btn.btn-sm.btn-danger.btn-round.pay-my-dept-btn {
+	padding: 4px 1px;
+}
 
 
 }
@@ -1242,14 +1245,6 @@ select.input-sm {
 		text-align: left;
 	}
 	
-	.width-21 {
-    width: 21.5%!important;
-	}
-
-	.width-30 {
-    width: 29.5%!important;
-	}
-	
 	.dataTable_wrapper select {
     margin: 0 -1px;
 	}
@@ -1258,13 +1253,18 @@ select.input-sm {
 		width: 0px!important;
 	}
 	
+	.dataTable_wrapper input[type=search] {
+    margin: 0 2px;
+	}
+	
+	
+	
 }
 
 @media (min-width: 767px) {
 	.text-center {
 		text-align: center;
 	}
-
 
 	.dataTable_wrapper select {
 	    margin: 0px;
@@ -1293,27 +1293,7 @@ select.input-sm {
    		 text-align: center;
 	}
 	
-	.dataTable_wrapper input[type=search] {
-    margin: 0px;
-	}
-
 }
 
-@media (max-width: 425px) {
-	.dataTable_wrapper input[type=search] {
-    margin: 0px;
-	}
-}
 
-@media (max-width: 320px) {
-	
-	.user-owe-search input[type=search] {
-		    padding: 4px 0px;
-	}
-	
-	.dataTable_wrapper input[type=search] {
-    margin: 0 -6px;
-	}
-	
-}
 
