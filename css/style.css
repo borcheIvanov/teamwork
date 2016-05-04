@@ -1224,6 +1224,8 @@ select.input-sm {
     margin-left: -16px;
 }
 
+
+
 }
 
 @media (max-width: 767px) {
@@ -1251,7 +1253,11 @@ select.input-sm {
 	.dataTable_wrapper select {
     margin: 0 -1px;
 	}
-
+	
+	th.archive-th-width {
+		width: 0px!important;
+	}
+	
 }
 
 @media (min-width: 767px) {
@@ -1263,6 +1269,10 @@ select.input-sm {
 	.dataTable_wrapper select {
 	    margin: 0px;
 	
+	}
+	
+	th.archive-th-width {
+		width: 50px!important;
 	}
 }
 
@@ -1282,7 +1292,17 @@ select.input-sm {
 	.dataTable_paginate {
    		 text-align: center;
 	}
+	
+	.dataTable_wrapper input[type=search] {
+    margin: 0px;
+	}
 
+}
+
+@media (max-width: 425px) {
+	.dataTable_wrapper input[type=search] {
+    margin: 0px;
+	}
 }
 
 @media (max-width: 320px) {
