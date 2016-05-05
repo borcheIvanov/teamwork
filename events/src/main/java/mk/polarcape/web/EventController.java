@@ -67,7 +67,12 @@ public class EventController {
 		List<Employee_event> emp = empService.selectInvited(id);
 		int size=emp.size();
 		for(Employee_event e:emp){
-			e.setMoneyOWNED(event.getBudget()/size);
+			if(e.getIsPayed()==true){
+			e.setMoneyOWNED(event.getBudget()/size-e.getMoneyOWNED());
+			e.setPayed(false);
+			}
+			else 
+				e.setMoneyOWNED(event.getBudget()/size);
 		}
 		}
 		return eventService.save(currentEvents);
