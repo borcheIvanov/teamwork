@@ -1,91 +1,4 @@
 
-<!-- 
-<br><br>
-					<div class="row">
-						<div class="col-xs-12">
-							
-							<div class="table-header">
-								Archived events
-							</div>
-							<div id="table_wrapper" class="dataTable_wrapper">
-								<div class="row">
-									
-									<div class="col-xs-6">
-										<div id="display-records" class="display-records-lenght form-inline">
-											<label>Display
-												<select class="form-control input-sm" ng-model="pagesPer" ng-click="pagesSec()">
-													<option value="5">5</option>
-													<option value="10">10</option>
-													<option value="25">25</option>
-													<option value="50">50</option>
-													<option value="100">100</option>
-												</select>
-												records
-											</label>
-										</div>
-									</div>
-									
-									<div class="col-xs-6">
-										<div id="user-owe" class="user-owe-search">
-											<label>Search:<input type="search" class="form-control input-sm " ng-model="firstSearch"></label>
-										</div>
-									</div>
-								</div>
-								<div class="table-responsive">
-									<table id="simple-table" class="table table-striped table-bordered table-hover dataTable ">
-										<thead>
-											<tr>
-												<th class="detail-col">Details</th>
-												<th>Title</th>
-												<th>Price</th>
-												<th>Event</th>
-												<th><i class="fa fa-clock-o bigger-clock-icon"></i>Expiry Day</th>
-												<th>Status</th>
-											</tr>
-										</thead>
-										<tbody class="tbody-home" >
-											<tr ng-repeat="event in events | filter:firstSearch | filter:searching | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
-												<td class="center">
-													<div class="action-button">
-														<a href="#{{event.id}}" class="green show-detail-btn detail-angle-icon" title="Show Details" data-toggle="collapse" onclick="return false;" ng-click="eventPanel(event.id)"><i class="fa fa-angle-double-up"></i><span class="sr-only">Details</span></a>
-													</div> 
-												</td>
-												<td>{{event.name}}</td>
-												<td>{{event.budget}}den.</td>
-												<td>{{event.createdDate}}</td>
-												<td>{{event.expirationDate}}</td>
-												<td>
-													<span class="label label-sm label-danger" ng-hide="event.isFlag === true" ng-click="sendFlag(event.id)" style="cursor:pointer">Archived</span>
-													
-													<span class="label label-sm label-info" ng-show="event.isFlag === true" style="cursor:default"> Wait for confirm </span>
-												</td>
-											</tr>
-											
-										</tbody>
-									</table>
-									<div class="row">
-										<div class="col-xs-12">
-											<div class="dataTable_paginate">
-												<ul class="pagination pull-right">
-													<li><a href="" ng-hide="paginationSec.page == 0" ng-click="pagination.prevPage()">&laquo;</a></li>
-													<li ng-repeat="n in [] | range: paginationSec.numPages" ng-class="{active: n == paginationSec.page}">
-													<a href="" ng-click="pagination.toPageId(n)">{{n + 1}}</a>
-													</li>
-													<li><a href="" ng-hide="paginationSec.page + 1 >= pagination.numPages" ng-click="pagination.nextPage()">&raquo;</a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						</div>
-					</div>
-					
- -->
-
- 
-
  <div class="top-content-mybills">
 	<div class="inner-bg">
 		<div class="container">
@@ -186,7 +99,7 @@
 				<h4 class="list-group-item-heading text-left fweight"> Invited users: <span style="float:right">  </span> </h4> 
 				
 	      		<div class="list-group" ng-repeat="user in eventinv">
-				    <h4 class="list-group-item-heading text-left fweight"> {{user.invited_id.name}} {{user.invited_id.surname}} ({{user.invited_id.username}})  <span style="float:right"> -{{user.moneyOWNED}} den. &emsp; <span class="fa fa-times-circle-o" style="color:red; font-size:25px; margin-left:13px; margin-right:14px" ng-hide="user.moneyOWNED === 0.0"> </span> <span class="fa fa-check-square-o" style="color:green; font-size:25px; margin-left:13px; margin-right:14px" ng-show="user.moneyOWNED === 0.0"> </span> </span> </h4>
+				    <h4 class="list-group-item-heading text-left fweight"> {{user.invited_id.name}} {{user.invited_id.surname}} ({{user.invited_id.username}})  <span style="float:right"> {{user.moneyOWNED}} den. &emsp; <span class="fa fa-times-circle-o" style="color:red; font-size:25px; margin-left:13px; margin-right:14px" ng-hide="user.moneyOWNED === 0.0"> </span> <span class="fa fa-check-square-o" style="color:green; font-size:25px; margin-left:13px; margin-right:14px" ng-show="user.moneyOWNED === 0.0"> </span> </span> </h4>
 				</div>
 	      	</div>
 	      	<div class="modal-footer">
