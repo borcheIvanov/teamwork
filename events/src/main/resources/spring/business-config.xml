@@ -12,7 +12,6 @@
 	<import resource="persistence-config.xml" />
 
 	<context:component-scan base-package="mk.polarcape.service" />
-	<context:component-scan base-package="mk.polarcape.security.service" />
 	
 
 </beans>

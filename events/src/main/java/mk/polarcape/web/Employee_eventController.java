@@ -49,6 +49,10 @@ public class Employee_eventController {
 		return Employee_eventService.findById(id);
 	}
 	////////////////////specialni
+	@RequestMapping(value = "/empeventNOTPAYED/{events_id}", method = RequestMethod.GET)
+	public List<Employee_event> getEmployee_eventnotpayed(@PathVariable Long events_id) {
+		return Employee_eventService.InvitedNotPayed(events_id);
+	}
 	@RequestMapping(value = "/empeventinv/{events_id}", method = RequestMethod.GET)
 	public List<Employee_event> getEmployee_eventInvited(@PathVariable Long events_id) {
 		return Employee_eventService.selectInvited(events_id);
@@ -66,7 +70,7 @@ public class Employee_eventController {
 	@RequestMapping(value="/empevent", method = RequestMethod.POST)
 	@ResponseBody
 	public List<Employee_event> createEmployee_event(@RequestBody List<Employee_event> Es){
-	/*	Gson gson = new Gson();
+	/*	Gson gson = new Gson();//ako se praka string
 		List<Employee_event> Es= gson.fromJson(Ees, new TypeToken<List<Employee_event>>(){}.getType());*/
 		int c=Es.size();
 		double cash= Es.get(0).getEvents_id().getBudget();
@@ -76,11 +80,12 @@ public class Employee_eventController {
 		for(Employee_event e:Es){
 		e.setMoneyOWNED(cash/c);        //selected e broj na povikani useri
 		e.setFlag(false);
+		e.setPayed(false);
 		System.out.println(e);
 		Employee_eventService.save(e);
 	}
 		for(Employee_event e:Es)
-		Employee_eventService.initMail(e);
+		Employee_eventService.inviteMail(e);
 		
 		return Es;
 	}
@@ -96,11 +101,9 @@ public class Employee_eventController {
 		currentEmployee_event.setInvited_id(Employee_event.getInvited_id());
 		if(Employee_event.getEvents_id()!=null)
 		currentEmployee_event.setEvents_id(Employee_event.getEvents_id());
-		currentEmployee_event.setMoneyOWNED(Employee_event.getMoneyOWNED());
-		Employee_eventService.initMail(currentEmployee_event);
+		currentEmployee_event.setPayed(Employee_event.getIsPayed());
 		Employee_eventService.save(currentEmployee_event);
 		archiveCheck();
-		
 		return currentEmployee_event;
 	}
 	//NOTIFIKACIJA DEKA PLATIL
@@ -109,27 +112,33 @@ public class Employee_eventController {
 	public Employee_event notifyEmployee_event(@PathVariable Long id){
 		
 		Employee_event ce = Employee_eventService.findById(id);
-		System.out.println(ce.getIsFlag() +" and "+ce.getMoneyOWNED());
-		if(ce.getIsFlag()==false&&ce.getMoneyOWNED()!=0)
-		ce.setFlag(true);//platilts
+		//System.out.println(ce.getIsFlag() +" and "+ce.getMoneyOWNED());
+		if(ce.getIsFlag()==false&&ce.getIsPayed()==false)
+		ce.setFlag(true);//platil
 		return Employee_eventService.save(ce);
 }
 	//NOTIFIKACIJA MAIL do site sto ne platile za daden event
-		@RequestMapping(value="/empeventmailNOTIFY/{id}", method = RequestMethod.PUT)
+		@RequestMapping(value="/mail/notify/{id}", method = RequestMethod.PUT)
 		@ResponseBody
 		public void mailnotifyEmployee_event(@PathVariable Long id){
 			Employee_eventService.notifyMail(id);
 	}
+		//MAIL DEKA PLATIL
+		@RequestMapping(value="/mail/payed/{id}", method = RequestMethod.PUT)
+		@ResponseBody
+		public void mailpayedEmployee_event(@PathVariable Long id){
+			Employee_eventService.payedMail(id);
+	}
+		
 	//
 	@RequestMapping(value="/empeventAPROVE/{id}", method = RequestMethod.PUT)
 	@ResponseBody
 	public Employee_event aproveEmployee_event(@PathVariable Long id){
 		Employee_event ce = Employee_eventService.findById(id);
-		if(ce.getIsFlag()==true&&ce.getMoneyOWNED()!=0){
-		ce.setFlag(false);//platilts
-		ce.setMoneyOWNED(0);
+		if(ce.getIsFlag()==true){
+		ce.setFlag(false);//platil
+		ce.setPayed(true);
 		Employee_eventService.save(ce);
-		Employee_eventService.initMail(ce);
 		archiveCheck();
 		}
 		return ce;
@@ -146,7 +155,7 @@ public class Employee_eventController {
 		int size=ee.size();
 		//System.out.println(size);
 		for(Employee_event s:ee){//ako brojot na site sto platitle e ist so golemina na nizata stavi vo arhiva eventot
-			if(s.getMoneyOWNED()==0)
+			if(s.getIsPayed()==true)
 				counter++;
 		}
 		//System.out.println(counter);
