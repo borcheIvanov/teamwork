@@ -4,9 +4,12 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
@@ -22,7 +25,12 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-		
+	@Column(name = "username", nullable = false, unique=true)
+	private String username;
+	
+	@NotEmpty
+	private String password;
+
 	@Size(min=1, max=30)
 	private String Name;
 	
@@ -35,27 +43,22 @@ public class Employee {
 	
 
 	private boolean active;
-
-	@Column(name = "username", nullable = false, unique=true)
-	private String username;
 	
-	@NotEmpty
-	private String password;
-	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "authority_name")
+	private Authority authority_name;
+	    
 	@OneToMany(mappedBy = "invited_id")
 	@JsonIgnore
 	private List<Employee_event> invitedGuests;
 	
+
+
 	@OneToMany(mappedBy = "hosting_id")
 	@JsonIgnore
 	private List<Employee_event> hostingParty;
 	
-	@Column(name = "role")//da se smeni vo idnina poveke roles
-	private String role="ADMIN";
-	
-public String getRole() {
-		return role;
-	}
+
 
 
 	public void setId(Long id) {
@@ -134,7 +137,11 @@ public String getRole() {
 	public void setHostingParty(List<Employee_event> hostingParty) {
 		this.hostingParty = hostingParty;
 	}
+	public Authority getAuthority_name() {
+		return authority_name;
+	}
 
-	
-
+	public void setAuthority_name(Authority authority_name) {
+		this.authority_name = authority_name;
+	}
 }

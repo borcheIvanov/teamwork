@@ -129,4 +129,20 @@ public class Employee_eventRepositoryImpl implements Employee_eventRepository {
 		final TypedQuery<Employee_event> query = em.createQuery(cq);
 		return query.getResultList();
 	}
+	
+	public List<Employee_event> InvitedNotPayed(Long events_id) {
+		Class<Employee_event> type = Employee_event.class;
+
+		final CriteriaBuilder cb = em.getCriteriaBuilder();
+		final CriteriaQuery<Employee_event> cq = cb.createQuery(type);
+		final Root<Employee_event> root = cq.from(type);
+	
+		Predicate p2 = cb.equal(root.get("events_id"), events_id);
+		Predicate p3 = cb.equal(root.get("payed"), false);
+		
+		cq.where(p2,p3);
+
+		final TypedQuery<Employee_event> query = em.createQuery(cq);
+		return query.getResultList();
+	}
 }

@@ -28,22 +28,22 @@ public class MailNotifier {
 	///send mail to people who didnt pay 1 day prior expiration date
 		@Scheduled(fixedRate=24*60*60*1000)
 		public void mailNotifier(){
-			Date cd =new Date();//datum current
+			Date cd =new Date();//date current
 			List<Event> evn = EventRepository.findAll();
 			for(Event ev:evn){
-				Date dayBefore = new Date(ev.getExpirationDate().getTime() - 24*3600*1000);
+				Date dayBefore = new Date(ev.getExpirationDate().getTime() - 24*3600*1000);	
 				if(cd.compareTo(dayBefore)>=0){
 				List<Employee_event> empev = Employee_eventRepository.selectInvited(ev.getId());
 				for(Employee_event ee:empev){
-					if(ee.getMoneyOWNED()>0){
+					if(ee.getIsPayed()==false){
 	       SimpleMailMessage mailMessage=new SimpleMailMessage();
 	         try{     
 	      mailMessage.setTo(ee.getInvited_id().getEmail());
 	      mailMessage.setFrom("polarcape@outlook.com");
-	       mailMessage.setSubject("Event");
+	       mailMessage.setSubject("Expiraton date to pay for event");
 	       mailMessage.setText("Dear " +ee.getInvited_id().getName() +"\n "+ee.getInvited_id().getEmail() + "\n You have to pay for the event: "
 	       		+ ev.getName() + ". Event created by:" + ee.getHosting_id().getName() + ".\n"
-	       				+ " Expiration date is in 1 day. Money to pay " + ee.getMoneyOWNED() );
+	       				+ " Expiration date is less then 1 day. Money to pay " + ee.getMoneyOWNED() );
 	       javaMailService.send(mailMessage);
 	       
 	      /* System.out.println("Dear " +ee.getInvited_id().getName() +"\n "+ee.getInvited_id().getEmail() + "\n You have to pay for the event: "
@@ -51,7 +51,7 @@ public class MailNotifier {
 	   				+ " Expiration date is in less than 1 day. Money to pay " + ee.getMoneyOWNED() );*/
 	         }
 	         catch(Exception e){
-	       	  System.out.println("greska");
+	       	  //System.out.println("greska");
 	       	  System.out.println(e);
 	         }
 					}//if money

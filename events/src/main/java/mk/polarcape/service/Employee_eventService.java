@@ -13,7 +13,9 @@ public interface Employee_eventService {
 	public List<Employee_event> selectInvited(Long events_id);
 	public List<Employee_event> selectHosting(Long hosting_id);
 	public List<Employee_event> selectWhere(Long invited_id);
-
+	public List<Employee_event> InvitedNotPayed(Long events_id);
+	
 	public void notifyMail(Long id);
-	public void initMail(Employee_event Emoloyee_event);
+	public void inviteMail(Employee_event Emoloyee_event);
+	public void payedMail(Long id);
 }

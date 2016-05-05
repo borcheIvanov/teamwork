@@ -31,7 +31,15 @@ public class Employee_event {
 	
 	private double moneyOWNED;
 	private boolean flag;
-////////////////////
+	private boolean payed;
+	
+public boolean getIsPayed() {
+		return payed;
+	}
+	public void setPayed(boolean payed) {
+		this.payed = payed;
+	}
+	////////////////////
 	Employee_event(){
 		
 	}
