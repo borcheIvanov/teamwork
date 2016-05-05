@@ -24,13 +24,13 @@ angular.module('myApp')
 			
 			for(i = 0; i < $scope.eventhost.length; i++){
 				
-				if($scope.eventhost[i].isFlag === true && $scope.eventhost[i].moneyOWNED !== 0.0){
+				if($scope.eventhost[i].isFlag === true && $scope.eventhost[i].isPayed !== true){
 					$scope.eHost.push($scope.eventhost[i]);
 				}
 			}
 			
 			for(i = 0; i < $scope.eventhost.length; i++){
-				if($scope.eventhost[i].moneyOWNED !== 0.0 && $scope.eventhost[i].isFlag !== true){
+				if($scope.eventhost[i].isPayed !== true && $scope.eventhost[i].isFlag !== true){
 					$scope.eHost.push($scope.eventhost[i]);
 				}
 			}
@@ -51,7 +51,7 @@ angular.module('myApp')
 			$scope.eventwhereTEMP = date.empEventDate($scope.eventwhereTEMP);
 			
 			for(i = 0; i < $scope.eventwhereTEMP.length; i++){
-				if($scope.eventwhereTEMP[i].moneyOWNED !== 0.0){
+				if($scope.eventwhereTEMP[i].isPayed !== true){
 					$scope.eventwhere.push($scope.eventwhereTEMP[i]);
 				}
 			}
@@ -93,7 +93,7 @@ angular.module('myApp')
 	
 	$scope.hasPaid = function(id){
 		document.body.style.cursor = "wait";
-		var temp = {'moneyOWNED':0.0};
+		var temp = {'payed':1};
 		console.log('clicked');
 		empEvent.money(id, temp)
 		.then(function(res){

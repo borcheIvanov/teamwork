@@ -95,7 +95,7 @@ angular.module('myApp')
 	data.flagApr = function(id){
 		var defer = $q.defer();
 		
-		$http.put(url + '/api/empeventAPROVE/' + id)
+		$http.put(url + '/api/empeventAPPROVE/' + id)
 		.success(function(res){
 			defer.resolve(res);
 		})
