@@ -43,7 +43,7 @@
 </div>
 =======
  --> 
->>>>>>> refs/remotes/origin/master
+
 
 
 <div class="top-content-mybills">
@@ -84,25 +84,25 @@
 											<table class="table table-hover">
 												<tbody>
 												<tr>
-												  <td colspan="3">Total Budget: <span class="pull-right">2000den</span></td>
+												  <td colspan="3">Total Budget: <span class="pull-right">{{moneyTotal}} den.</span></td>
 												</tr>
 												<tr>
 												  <td colspan="3">Money Collected:
 													  <span class="label label-info pull-right" style="margin-left: .5em;">
-													  	50%
+													  	{{paidPercent}}%
 													  </span>
 													   <span class="pull-right">
-													  	900den
+													  	{{moneyPaid}} den.
 													  </span>
 												  </td>
 												</tr>
 												<tr>
 												  <td colspan="3">Money not paid:
 													  <span class="label label-danger pull-right" style="margin-left: .5em;">
-													  	50%
+													  	{{restPercent}}%
 													  </span>
 													  <span class="pull-right">
-													  	900den
+													  {{moneyRest}} den.
 													  </span>
 												  </td>
 												</tr>	
