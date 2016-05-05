@@ -27,7 +27,13 @@ angular.module('myApp')
 	$scope.getUsers = function(){
 		user.getUsers()
 		.then(function(res){
-			$scope.users = res;
+			var temp = [];
+			temp = res;
+			for(i = 0; i < temp.length; i++){
+					if(temp[i].isActive === true){
+					$scope.users.push(temp[i]);
+				}
+			}
 		})
 		.then(function(){
 			
@@ -88,16 +94,23 @@ angular.module('myApp')
 	$scope.getEventhost = function(){
 		empEvent.eventhost(logged.id)
 		.then(function(res){
-			$scope.eventhost = res;
+			var temp = [];
+			temp = res;
 			
-			$scope.eventhost = date.empEventDate($scope.eventhost);
+			temp = date.empEventDate(temp);
+			
+			for(i = 0; i < temp.length; i++){
+				if(temp[i].events_id.isArchived !== true){
+					$scope.eventhost.push(temp[i]);
+				}
+			}
 			
 			for(i = 0; i < $scope.eventhost.length; i++){
 				if(i === 0){
 					$scope.myEvents.push($scope.eventhost[0]);
 				}
 				if(i !== 0){
-					if($scope.eventhost[i].events_id.id !== $scope.eventhost[i-1].events_id.id && $scope.eventhost[i].events_id.isArchived !== true){
+					if($scope.eventhost[i].events_id.id !== $scope.eventhost[i-1].events_id.id){
 						$scope.myEvents.push($scope.eventhost[i]);
 					}
 				}
