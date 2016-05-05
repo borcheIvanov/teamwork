@@ -47,6 +47,7 @@ public class EmployeeController {
 	public Employee createemployee(@RequestBody Employee employee){
 		//////////////////////////////////
 		String pw_hash = BCrypt.hashpw(employee.getPassword(), BCrypt.gensalt(10)); 
+		employee.setActive(true);
 		employee.setPassword(pw_hash);
 		return employeeService.save(employee);
 	}
