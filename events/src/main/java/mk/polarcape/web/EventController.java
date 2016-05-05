@@ -62,18 +62,20 @@ public class EventController {
 		Event currentEvents = eventService.findById(id);
 		if(event.getName()!=null)
 		currentEvents.setName(event.getName());
+		if(event.getBudget()!=currentEvents.getBudget()){
 		currentEvents.setBudget(event.getBudget());
 		List<Employee_event> emp = empService.selectInvited(id);
 		int size=emp.size();
 		for(Employee_event e:emp){
 			if(e.getIsPayed()==true){
-			e.setMoneyOWNED(event.getBudget()/size-e.getMoneyOWNED());
+			e.setMoneyOWNED((event.getBudget()/size)-e.getMoneyOWNED());
 			e.setPayed(false);
 			}
 			else 
 				e.setMoneyOWNED(event.getBudget()/size);
+			empService.save(e);
 		}
-		
+		}//if
 		return eventService.save(currentEvents);
 	}
 	
