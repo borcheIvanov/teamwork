@@ -62,7 +62,6 @@ public class EventController {
 		Event currentEvents = eventService.findById(id);
 		if(event.getName()!=null)
 		currentEvents.setName(event.getName());
-		if(event.getBudget()!=0){
 		currentEvents.setBudget(event.getBudget());
 		List<Employee_event> emp = empService.selectInvited(id);
 		int size=emp.size();
@@ -74,7 +73,7 @@ public class EventController {
 			else 
 				e.setMoneyOWNED(event.getBudget()/size);
 		}
-		}
+		
 		return eventService.save(currentEvents);
 	}
 	

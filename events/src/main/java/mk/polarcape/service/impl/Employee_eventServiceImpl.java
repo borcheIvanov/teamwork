@@ -66,9 +66,9 @@ public class Employee_eventServiceImpl implements Employee_eventService {
           }
 	}
 	public void payedMail(Long id){
-		 List<Employee_event> emp = Employee_eventRepository.selectInvited(id);
+		 Employee_event e = Employee_eventRepository.findById(id);
 	        SimpleMailMessage mailMessage=new SimpleMailMessage();
-	        for(Employee_event e:emp){    
+	          
 	        	  if(e.getIsPayed()==true){//ako platil
 	       mailMessage.setTo(e.getInvited_id().getEmail());
 	       mailMessage.setFrom("polarcape@outlook.com");
@@ -77,7 +77,7 @@ public class Employee_eventServiceImpl implements Employee_eventService {
 	        		+ e.getEvents_id().getName() + ". Event created by:" + e.getHosting_id().getName() + ".\n"
 	        				+ "Money payed "+ e.getMoneyOWNED() + "\n\n Sincerely,\n Polarcape team" );
 	        	  javaMailService.send(mailMessage);}
-	        	  }
+	        	  
 	}
 	public void notifyMail(Long id){
 	  List<Employee_event> emp = Employee_eventRepository.selectInvited(id);

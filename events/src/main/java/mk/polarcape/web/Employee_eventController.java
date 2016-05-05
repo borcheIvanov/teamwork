@@ -117,13 +117,13 @@ public class Employee_eventController {
 		ce.setFlag(true);//platil
 		return Employee_eventService.save(ce);
 }
-	//NOTIFIKACIJA MAIL do site sto ne platile za daden event
+	//NOTIFIKACIJA MAIL do site sto ne platile za daden event 
 		@RequestMapping(value="/mail/notify/{id}", method = RequestMethod.PUT)
 		@ResponseBody
 		public void mailnotifyEmployee_event(@PathVariable Long id){
 			Employee_eventService.notifyMail(id);
 	}
-		//MAIL DEKA PLATIL
+		//MAIL DEKA PLATIL // moze i kako del od aprrove ili put ama gi usporuva
 		@RequestMapping(value="/mail/payed/{id}", method = RequestMethod.PUT)
 		@ResponseBody
 		public void mailpayedEmployee_event(@PathVariable Long id){
@@ -131,7 +131,7 @@ public class Employee_eventController {
 	}
 		
 	//
-	@RequestMapping(value="/empeventAPROVE/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value="/empeventAPPROVE/{id}", method = RequestMethod.PUT)
 	@ResponseBody
 	public Employee_event aproveEmployee_event(@PathVariable Long id){
 		Employee_event ce = Employee_eventService.findById(id);

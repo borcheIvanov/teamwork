@@ -46,12 +46,14 @@ public class Employee {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "authority_name")
-	private Employee authority_name;
+	private Authority authority_name;
 	    
 	@OneToMany(mappedBy = "invited_id")
 	@JsonIgnore
 	private List<Employee_event> invitedGuests;
 	
+
+
 	@OneToMany(mappedBy = "hosting_id")
 	@JsonIgnore
 	private List<Employee_event> hostingParty;
@@ -135,5 +137,11 @@ public class Employee {
 	public void setHostingParty(List<Employee_event> hostingParty) {
 		this.hostingParty = hostingParty;
 	}
-	  
+	public Authority getAuthority_name() {
+		return authority_name;
+	}
+
+	public void setAuthority_name(Authority authority_name) {
+		this.authority_name = authority_name;
+	}
 }

@@ -2,6 +2,9 @@ package mk.polarcape.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 @Entity
@@ -19,6 +22,7 @@ public class Authority {
 
 	
     @OneToMany(mappedBy = "authority_name")
+    @JsonIgnore
     private List<Employee> users;
 
     public Long getId() {
