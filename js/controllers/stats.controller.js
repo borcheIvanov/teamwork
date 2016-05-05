@@ -47,7 +47,7 @@ angular.module('myApp')
 			}
 			
 			$scope.moneyPaid = $scope.moneyTotal - $scope.moneyRest;
-			drawPie();
+			draw();
 		}
 	};
 	
@@ -74,30 +74,24 @@ angular.module('myApp')
 		
 		$scope.events = events;
 		
-		drawPie();
-		drawChart();
+		draw();
 	};
 	
-	var drawPie = function(){
+	var draw = function(){
 		
 		
 		console.log($scope.moneyTotal, $scope.moneyRest, $scope.moneyPaid);
 		
-		if($scope.moneyTotal !== 0.0){
-			$scope.paidPercent = Math.floor(($scope.moneyPaid / $scope.moneyTotal) * 100);
-			$scope.restPercent = Math.floor(($scope.moneyRest / $scope.moneyTotal) * 100);
-		}else{
-			$scope.paidPercent = 0;
-			$scope.restPercent = 0;
-		}
+		$scope.paidPercent = Math.floor(($scope.moneyPaid / $scope.moneyTotal) * 100);
+		$scope.restPercent = Math.floor(($scope.moneyRest / $scope.moneyTotal) * 100);
 		
 		$scope.config = {
-			title: '',
+			title: 'Pie',
 			tooltips: true,
 			labels: false,
 			legend: {
 				display: true,
-				position: 'left'
+				position: 'right'
 			}
 		};
 		$scope.data = {
@@ -111,32 +105,10 @@ angular.module('myApp')
 				y: [$scope.restPercent],
 				tooltip: $scope.restPercent + "% Not Paid"
 			}]
-		};	
-	};
-	
-	var drawChart = function(){
-		$scope.configSec = {
-			title: 'Users',
-			tooltips: true,
-			labels: false,
-			legend: {
-				display: true,
-				position: 'right'
-			}
 		};
-		$scope.dataSec = {
-			series: ['Paid', 'Not Paid'],
-			data: [{
-				x: "Paid",
-				y: [100,200],
-				tooltip: "% Paid"
-			}, {
-				x: "Not Paid",
-				y: [300, 500],
-				tooltip: "% Not Paid"
-			}]
-		};
-	};
+		
+		
+	}
 	
 	
 	$scope.init();
