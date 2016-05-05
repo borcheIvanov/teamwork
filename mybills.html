@@ -58,7 +58,7 @@
 												<td><i class="fa fa-user fa-fw bigger-clock-icon" style="cursor:pointer" ng-mouseover="info(x.id)" data-toggle="tooltip" data-placement="bottom" title="name:          {{userId.invited_id.name}} &#013;Surname:    {{userId.invited_id.surname}} &#013;Username:  {{userId.invited_id.username}}&#013;Email:          {{userId.invited_id.email}}"></i>{{x.invited_id.name}}</td>
 										        <td>  <i class="fa fa-info-circle fa-fw bigger-clock-icon" style="cursor:pointer" ng-mouseover="info(x.id)" data-toggle="tooltip" data-placement="bottom" title="name:        {{userId.events_id.name}} &#013;Created:    {{userId.events_id.createdDate}} &#013;Expiry:        {{userId.events_id.expirationDate}}&#013;Budget:     {{userId.events_id.budget}} den."></i>{{x.events_id.name}}</td>
 										        <td>{{x.moneyOWNED}}</td>
-										        <td><div class="has-paid" ng-show="x.moneyOWNED === 0.0"><span class="label label-sm label-success">Has paid</span> </div> <div class="not-paid" ng-hide="x.moneyOWNED === 0.0"><span class="label label-sm label-danger">Not paid</span></div></td>
+										        <td><div class="has-paid" ng-show="x.isPayed"><span class="label label-sm label-success">Has paid</span> </div> <div class="not-paid" ng-hide="x.isPayed"><span class="label label-sm label-danger">Not paid</span></div></td>
 										        <td>{{x.events_id.expirationDate}}</td>
 											</tr>
 											

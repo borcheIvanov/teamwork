@@ -41,7 +41,9 @@ angular.module('myApp')
 		}else{
 			for(i = 0; i < $scope.bills.length; i++){
 				if($scope.bills[i].events_id.id == $scope.eventSelector){
-					$scope.moneyRest += $scope.bills[i].moneyOWNED;
+					if($scope.bills[i].isPayed === false){
+						$scope.moneyRest += $scope.bills[i].moneyOWNED;
+					}
 					$scope.moneyTotal = $scope.bills[i].events_id.budget;
 				}
 			}
@@ -87,14 +89,16 @@ angular.module('myApp')
 	
 	var draw = function(){
 		
-		
-		console.log($scope.moneyTotal, $scope.moneyRest, $scope.moneyPaid);
-		
-		$scope.paidPercent = Math.floor(($scope.moneyPaid / $scope.moneyTotal) * 100);
-		$scope.restPercent = Math.floor(($scope.moneyRest / $scope.moneyTotal) * 100);
+		if($scope.moneyTotal > 0.0){
+			$scope.paidPercent = Math.floor(($scope.moneyPaid / $scope.moneyTotal) * 100);
+			$scope.restPercent = Math.floor(($scope.moneyRest / $scope.moneyTotal) * 100);
+		}else{
+			$scope.paidPercent = 0.0;
+			$scope.restPercent = 0.0
+		}
 		
 		$scope.config = {
-			title: 'Pie',
+			title: '',
 			tooltips: true,
 			labels: false,
 			legend: {

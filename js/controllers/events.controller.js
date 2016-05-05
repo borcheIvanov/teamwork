@@ -186,8 +186,11 @@ angular.module('myApp')
 		.then(function(res){
 			$scope.eventinv = res;
 			$scope.eventinv = ceil.money($scope.eventinv);
+			
 			for(i = 0; i < $scope.eventinv.length; i++){
-				$scope.moneyRequired += $scope.eventinv[i].moneyOWNED;
+				if($scope.eventinv[i].isPayed === false){
+					$scope.moneyRequired += $scope.eventinv[i].moneyOWNED;
+				}
 				
 			}
 		})
@@ -206,7 +209,7 @@ angular.module('myApp')
 	$scope.hasPaid = function(id){
 		
 		document.body.style.cursor = "wait";
-		var temp = {'moneyOWNED':0.0};
+		var temp = {'payed': 1};
 		console.log('clicked');
 		empEvent.money(id, temp)
 		.then(function(res){
@@ -269,7 +272,10 @@ angular.module('myApp')
 			events.editEvent($scope.panel.events_id.id, temp)
 			.then(function(res){
 				console.log('saved');
-				$scope.getEventhost();
+				
+				$scope.getEventinv($scope.panel.events_id.id);
+				//$scope.getEventhost();
+				$scope.init();
 			})
 			.then(function(){
 				

@@ -144,13 +144,25 @@
 	      	<div class="modal-body">
 				<h4 class="list-group-item-heading text-left fweight"> Invited <span style="float:right"> Event budget:&emsp;<span id="editableSec" >{{eventinv[0].events_id.budget}}</span> den. &emsp;&emsp;&emsp;&emsp; </span> </h4> <hr>
 	      		<div class="list-group" ng-repeat="user in eventinv">
-				    <h4 class="list-group-item-heading text-left fweight"> {{user.invited_id.name}} {{user.invited_id.surname}} ({{user.invited_id.username}})  <span style="float:right"> {{user.moneyOWNED}} den. &emsp; <button ng-click="hasPaid(user.id)" ng-hide="user.moneyOWNED === 0.0"> Paid </button> <span class="fa fa-check-square-o" style="color:green; font-size:25px; margin-left:13px; margin-right:14px" ng-show="user.moneyOWNED === 0.0"> </span> </span> </h4>
+				    <h4 class="list-group-item-heading text-left fweight"> 
+						{{user.invited_id.name}} {{user.invited_id.surname}} ({{user.invited_id.username}})  <span style="float:right"> {{user.moneyOWNED}} den. &emsp; <button ng-click="hasPaid(user.id)" ng-hide="user.isPayed"> Paid </button> <span class="fa fa-check-square-o" style="color:green; font-size:25px; margin-left:13px; margin-right:14px" ng-show="user.isPayed"> </span> </span> 
+					</h4>
 				</div>
+				
+					<span style="float:right"> <button style="color:black; ">Send email</button> </span> <br>
 	      	</div>
 	      	<div class="modal-footer">
-			
-				Money collected: {{eventinv[0].events_id.budget - moneyRequired}} den.&emsp;&emsp; Money to collect:{{moneyRequired}} den. &emsp;&emsp;
-	        	<button type="button" class="btn btn-default modal-button-hover" data-dismiss="modal" > Close </button>
+				<div class="row">
+					<div class="col-sm-5">
+						Money collected: {{eventinv[0].events_id.budget - moneyRequired}} den.
+					</div>
+					<div class="col-sm-5">
+						Money to collect:{{moneyRequired}} den.
+					</div>
+					<div class="col-sm-2">
+						<button type="button" class="btn btn-default modal-button-hover" data-dismiss="modal" > Close </button>
+					</div>
+				</div>
 	      	</div>
 	    </div>
   	</div>

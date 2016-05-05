@@ -46,7 +46,7 @@ $scope.init = function(){
 			$scope.tempArr = $scope.initArr;
 			$scope.eventhost=[];
 			for(i = 0; i < $scope.tempArr.length; i++){
-				if($scope.tempArr[i].moneyOWNED !== 0.0){
+				if($scope.tempArr[i].isPayed !== true){
 					$scope.eventhost.push($scope.tempArr[i]);
 				}
 			}
@@ -54,7 +54,7 @@ $scope.init = function(){
 			$scope.tempArr = $scope.initArr;
 			$scope.eventhost=[];
 			for(i = 0; i < $scope.tempArr.length; i++){
-				if($scope.tempArr[i].moneyOWNED === 0.0){
+				if($scope.tempArr[i].isPayed === true){
 					$scope.eventhost.push($scope.tempArr[i]);
 				}
 			}
