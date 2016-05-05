@@ -64,6 +64,10 @@
 
     <dependencies>
      <!-- milos add -->
+     <dependency>
+	<groupId>org.springframework.mobile</groupId>
+	<artifactId>spring-mobile-device</artifactId>
+	</dependency>
      
      <dependency>
 	<groupId>com.google.code.gson</groupId>

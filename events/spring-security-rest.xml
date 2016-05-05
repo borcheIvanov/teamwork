@@ -32,8 +32,8 @@
           xmlns="http://www.springframework.org/schema/security">
         <anonymous enabled="false" />
         
-        <intercept-url pattern="/api/opticians" access="permitAll" />
-        <intercept-url pattern="/api/**" access="hasRole('APP')" />
+        <intercept-url pattern="/api/login" access="permitAll" />
+        <intercept-url pattern="/api/**" access="hasRole('ADMIN')" />
         
         <custom-filter ref="cors" before="CHANNEL_FILTER" />
         <custom-filter ref="resourceServerFilter" before="PRE_AUTH_FILTER" />
