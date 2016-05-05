@@ -53,6 +53,14 @@ angular.module('myApp')
 	
 	var calculate = function(niza){
 		var events = [];
+		var temp = [];
+		
+		for(i = 0; i < niza.length; i++){
+				if(niza[i].events_id.isArchived !== true){
+					temp.push(niza[i]);
+				}
+			}
+		niza = temp;
 		
 		for(i = 0; i < niza.length; i++){
 			if(i === 0){
