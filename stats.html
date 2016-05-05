@@ -46,56 +46,76 @@
 >>>>>>> refs/remotes/origin/master
 
 
-
 <div class="top-content-mybills">
 	<div class="inner-bg">
-		<div class="container">
-			<div class="row row-col-join panel-earnings">
-				<div>
-	            <div class="col-xs-12 col-sm-4 col-lg-3">
-	             	<div class="panel">
-		                
-	                	<div class="panel-heading">
-	                  		<h4 class="panel-title">Total Budget</h4>
-	                	</div>
-		                <div class="panel-body">
-		                	<h3 class="earning-amount">2000den.</h3>
-		                	
-		
-			                <ul class="list-group">
-			                	<li class="list-group-item">Money Collected<span class="pull-right">1000den.</span></li>
-			                	<li class="list-group-item">Money Not Paid<span class="pull-right">1000den.</span></li>
-			                </ul>
-			                <hr class="invisible">
-			                <p>This month budget: 30000den.</p>
-		                </div>
-	              </div><!-- panel -->
-	            </div>
-	            <div class="col-xs-12 col-sm-8 col-lg-9">
-	            	<div class="panel budget-graph-margin ">
-	                	<div class="panel-heading">
-	                  		<h4 class="panel-title">Budget Graph Overview</h4>
-	                	</div>
-	                	<div class="panel-body">
-	                		<div
-								data-ac-chart="'pie'" 
-								data-ac-data="data" 
-								data-ac-config="config" 
-								class="chart" style="width: auto; height: 400px">
+		<div class="container">			
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="panel panel-primary">
+					    <div class="panel-heading text-left">
+					    	<div class="row">
+						    	<div class="col-xs-6">
+							    	<span><i class="fa fa-pie-chart"></i>Statistic for all events in %</span>
+						    	</div>
 							</div>
-                		</div>
-					</div>
+					    </div>
+					    <div class="total-budget-padding">
+						    <div class="panel-body">
+						    	<div class="row">
+						    		<div class="col-xs-6 col-xs-offset-3 col-sm-3 col-sm-offset-0 form-inline col-md-3 col-md-offset-0">
+						    			<label>
+											Select event: 
+											<select class="form-control input-sm" style="color:black" ng-model="eventSelector" ng-click="selectEvent()">
+												<option value="all">All</option>
+												<option ng-repeat="event in events" value="{{event.events_id.id}}">{{event.events_id.name}}</option>
+											</select>
+										</label>
+						    		</div>
+						    		<div class="col-xs-10 col-xs-offset-2 col-sm-5 col-sm-offset-0 col-md-6 col-md-offset-0">
+						    			<div
+											data-ac-chart="'pie'" 
+											data-ac-data="data" 
+											data-ac-config="config" 
+											class="chart" style="width: auto; height: 400px">
+										</div>
+						    		</div>
+						    		<div class="col-xs-12  col-sm-4 col-md-offset-0 col-md-3 col-md-offset-0">
+						    			<div class="table-responsive table-responsive-home">
+											<table class="table table-hover">
+												<tbody>
+												<tr>
+												  <td colspan="3">Total Budget: <span class="pull-right">2000den</span></td>
+												</tr>
+												<tr>
+												  <td colspan="3">Money Collected:
+													  <span class="label label-info pull-right" style="margin-left: .5em;">
+													  	50%
+													  </span>
+													   <span class="pull-right">
+													  	900den
+													  </span>
+												  </td>
+												</tr>
+												<tr>
+												  <td colspan="3">Money not paid:
+													  <span class="label label-danger pull-right" style="margin-left: .5em;">
+													  	50%
+													  </span>
+													  <span class="pull-right">
+													  	900den
+													  </span>
+												  </td>
+												</tr>	
+											</tbody>
+											</table>
+										</div>
+						    		</div>
+						    	</div>
+						    </div>
+					    </div>
+ 					</div>
 				</div>
 			</div>
 		</div>
-		</div>
 	</div>
 </div>
-				
-
-    
-  
- 
-
-  
- 
