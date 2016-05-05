@@ -5,7 +5,8 @@ angular.module('myApp')
 		var tempArr = [];
 		$scope.bills = [];
 		$scope.events = [];
-		
+		$scope.chartPrint = [];
+		$scope.chartArray = [];
 		
 		$scope.paidPercent = 0.0;
 		$scope.restPercent = 0.0;
@@ -49,7 +50,7 @@ angular.module('myApp')
 			}
 			
 			$scope.moneyPaid = $scope.moneyTotal - $scope.moneyRest;
-			draw();
+			drawPie();
 		}
 	};
 	
@@ -62,6 +63,7 @@ angular.module('myApp')
 					temp.push(niza[i]);
 				}
 			}
+		
 		niza = temp;
 		
 		for(i = 0; i < niza.length; i++){
@@ -77,17 +79,39 @@ angular.module('myApp')
 		ceil.money(niza);
 		
 		for(i = 0; i < niza.length; i++){
-			$scope.moneyTotal += niza[i].events_id.budget;
-			$scope.moneyRest += niza[i].moneyOWNED;
+			if(niza[i].isPayed === false){
+				$scope.moneyRest += niza[i].moneyOWNED;
+			}
 		}
-		$scope.moneyPaid = $scope.moneyTotal - $scope.moneyRest;
 		
+		for(i = 0; i < events.length; i++){
+			$scope.moneyTotal += events[i].events_id.budget;
+		}
+		
+		$scope.moneyPaid = $scope.moneyTotal - $scope.moneyRest;
 		$scope.events = events;
 		
-		draw();
+		// chart calculate
+		
+		for(i = 0; i < $scope.bills.length; i++){
+			if($scope.bills[i].isPayed === true){
+				$scope.chartArray.push({'x': $scope.bills[i].invited_id.username, 'y': [ $scope.bills[i].moneyOWNED, 0 ]});
+			}else{
+				$scope.chartArray.push({'x': $scope.bills[i].invited_id.username, 'y': [ 0, $scope.bills[i].moneyOWNED ]});
+			}
+		}
+		
+		$scope.chartArray.forEach(function(n) {			
+			$scope.chartPrint.push(n);
+		});
+		
+		console.log($scope.chartPrint);
+		
+		drawPie();
+		drawChart();
 	};
 	
-	var draw = function(){
+	var drawPie = function(){
 		
 		if($scope.moneyTotal > 0.0){
 			$scope.paidPercent = Math.floor(($scope.moneyPaid / $scope.moneyTotal) * 100);
@@ -118,9 +142,23 @@ angular.module('myApp')
 				tooltip: $scope.restPercent + "% Not Paid"
 			}]
 		};
-		
-		
-	}
+	};
+	
+	var drawChart = function(){
+		$scope.configSec = {
+			title: '',
+			tooltips: true,
+			labels: false,
+			legend: {
+				display: true,
+				position: 'right'
+			}
+		};
+		$scope.dataSec = {
+			series: ['Paid', 'Owe'],
+			data: $scope.chartPrint
+		};
+	};
 	
 	
 	$scope.init();
