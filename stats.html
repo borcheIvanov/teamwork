@@ -1,9 +1,9 @@
  
 <br>
 <br>
-<hr>
 
-<div class="container">
+
+<div class="container" style="float:left">
 
 	Select event: 
 	<select style="color:black" ng-model="eventSelector" ng-click="selectEvent()">
@@ -26,11 +26,19 @@
 			Money collected: {{moneyPaid}} den. - {{paidPercent}}%  <br>
 			Money not paid {{moneyRest}} den. - {{restPercent}}%  
 		</h3>
-		
-		<hr>
-		
-		
 
+</div>
+
+<div class="container" id="slidingContainer" style="overflow:auto">
+	<hr>
+	
+	<div
+			data-ac-chart="'bar'" 
+			data-ac-data="dataSec" 
+			data-ac-config="configSec" 
+			class="chart" style="width: auto; height: 400px">
+		</div>
+	
 </div>
 
 
