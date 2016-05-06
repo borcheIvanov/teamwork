@@ -70,7 +70,7 @@ h4.fweight {
 }
 
 h4.list-group-item-heading {
-	color: black;
+	color: #393939;
 }
 
 .header-space {
@@ -93,15 +93,12 @@ h1.events-text {
 	color: #fff;
 }
 
-.events-list-main-div {
-	border-top: 4px solid #307ECC!important;
-    border-left: 4px solid #307ECC;
-}
-
 .event-list-header {
-	color: #307ECC;
-    margin-top: 4px;
-    background-color: #ccc;
+	color: #fff;
+    margin-top: -10px;
+    background-color: #307ECC;
+    margin-left: -10px;
+    margin-right: -10px;
 }
 
 img {
@@ -623,7 +620,11 @@ h3.name-event.ng-binding {
 }
 
 i.fa.fa-calendar, i.fa.fa-user {
-     color: #307ECC;
+     color: #707070;
+}
+
+i.fa.fa-exclamation-triangle {
+	color: #707070;
 }
 
 span.calendar-name, span.posted-by {
@@ -675,6 +676,13 @@ div.ng-scope.events-border {
 	background-color: #555;
 }
 
+input.form-control.search-events {
+    background: #F5F5F5!important;
+}
+
+.modal-events-footer {
+	color: #393939;
+}
 
 /*My Bills*/
 h2 {
@@ -1213,6 +1221,7 @@ i.fa.fa-user.fa-fw.bigger-user-icon {
 
 .bigger-info-icon {
 	margin-right: 2px;
+	color: #707070;
 }
 
 /*Archive*/
@@ -1253,6 +1262,10 @@ i.fa.fa-user.fa-fw.bigger-user-icon {
 
 td.ng-binding {
 	text-align: left;
+}
+
+.col-xs-12.stats-pie-bottom {
+    margin-bottom: 20px;
 }
 
 /***** Media queries *****/

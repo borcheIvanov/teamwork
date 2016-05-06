@@ -16,12 +16,12 @@
 						</div>
 						<div class="col-sm-6">
 							<div class="top-big-link">
-								 <input class="form-control" type="text" placeholder="search events" ng-model="searchVal">
+								 <input class="form-control search-events" type="text" placeholder="search events" ng-model="searchVal">
 							</div>
 						</div>
 					</div>
 					
-					<hr>
+					<br />
 					
 					<div class="events-list-main-div" ng-repeat="x in myEvents |filter:searchVal | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
 						
@@ -34,7 +34,7 @@
 								
 								&nbsp;&nbsp;&nbsp;
 								
-									<i class="fa fa-exclamation-triangle" style="color:#307ECC"></i>
+									<i class="fa fa-exclamation-triangle"></i>
 									<span>Expiration date: {{x.events_id.expirationDate}}</span>
 								
 						</div>
@@ -153,10 +153,10 @@
 	      	</div>
 	      	<div class="modal-footer">
 				<div class="row">
-					<div class="col-sm-5">
+					<div class="col-sm-5 modal-events-footer">
 						Money collected: {{eventinv[0].events_id.budget - moneyRequired}} den.
 					</div>
-					<div class="col-sm-5">
+					<div class="col-sm-5 modal-events-footer">
 						Money to collect:{{moneyRequired}} den.
 					</div>
 					<div class="col-sm-2">
