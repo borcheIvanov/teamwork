@@ -23,11 +23,11 @@
 					
 					<hr>
 					
-					<div ng-repeat="x in myEvents |filter:searchVal | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
+					<div class="events-list-main-div" ng-repeat="x in myEvents |filter:searchVal | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
 						
 						<div class="well well-sm" ng-click="eventPanel(x.id)" data-toggle="modal" href="#simplyModal" style="color: black; cursor:pointer" onclick="return false;">
 								
-									<h3>{{x.events_id.name}}</h3>
+									<h3 class="event-list-header">{{x.events_id.name}}</h3>
 								
 									<i class="fa fa-calendar"></i>
 									<span>Created date: {{x.events_id.createdDate}}</span>

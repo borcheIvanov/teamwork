@@ -73,6 +73,14 @@ h4.list-group-item-heading {
 	color: black;
 }
 
+.header-space {
+	padding-top: 30px
+}
+
+.header2-space {
+	padding-top: 27px
+}
+
 .form-top-left .login-text, .register-text {
 	color: #fff;
 }
@@ -83,6 +91,17 @@ h4.list-group-item-heading {
 
 h1.events-text {
 	color: #fff;
+}
+
+.events-list-main-div {
+	border-top: 4px solid #307ECC!important;
+    border-left: 4px solid #307ECC;
+}
+
+.event-list-header {
+	color: #307ECC;
+    margin-top: 4px;
+    background-color: #ccc;
 }
 
 img {
@@ -113,7 +132,7 @@ img {
 }
 
 .top-content .description {
-	margin: 20px 0 10px 0;
+	margin: 40px 0 10px 0;
 }
 
 .form-box {
@@ -604,7 +623,7 @@ h3.name-event.ng-binding {
 }
 
 i.fa.fa-calendar, i.fa.fa-user {
-     color: #fff;
+     color: #307ECC;
 }
 
 span.calendar-name, span.posted-by {
@@ -921,8 +940,9 @@ tr.detail-row>td {
     display: table-cell;
 }
 
-.bigger-map-marker {
+.bigger-tasks {
     font-size: 110%!important;
+    margin-right: 2px;
 }
 
 .light-green {
@@ -1003,7 +1023,7 @@ button.btn.btn-sm.btn-danger.btn-round.pay-my-dept-btn:active, button.btn.btn-sm
 }
 
 .dataTable_wrapper input[type=search] {
-	    margin-bottom: 0!important;
+	margin-bottom: 0!important;
     margin: 0 4px;
 }
 
@@ -1186,6 +1206,15 @@ select.input-sm {
 	text-align: left;
 }
 
+i.fa.fa-user.fa-fw.bigger-user-icon {
+	margin-right: 2px;
+	color: #337ab7;
+}
+
+.bigger-info-icon {
+	margin-right: 2px;
+}
+
 /*Archive*/
 
 .main-content {
@@ -1210,10 +1239,20 @@ select.input-sm {
 	font-weight: 500;
 }
 
+.search-archive {
+	margin-bottom: 0!important;
+    margin: 0 0px!important;
+    margin-left: 4px!important;
+}
+
 /*Stats*/
 
 .total-budget-padding {
     padding-top: 35px;
+}
+
+td.ng-binding {
+	text-align: left;
 }
 
 /***** Media queries *****/
@@ -1259,10 +1298,15 @@ button.btn.btn-sm.btn-danger.btn-round.pay-my-dept-btn {
 		width: 0px!important;
 	}
 	
-	.dataTable_wrapper input[type=search] {
-    margin: 0 2px;
+	#user-owe.responsive-search-mybills input[type=search]{
+    	width: 100%!important;
+	    padding: 4px 0!important;
 	}
 	
+	#user-owe.responsive-search-archive input[type=search] {
+		width: 100%!important;
+	    padding: 4px 0!important;
+	}
 	
 	
 }
