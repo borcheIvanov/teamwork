@@ -5,7 +5,7 @@
 				<div class="col-xs-12">
 					<div class="row">
 						<div class="col-xs-12">
-							<h3>Tables</h3>
+							<h3 class="header-space"></h3>
 							<div class="clearfix">
 								<div class="pull-right tableTools-container">
 									<div class="btn-group">
@@ -35,7 +35,7 @@
 										</div>
 									</div>
 									<div class="col-xs-6">
-										<div id="user-owe" class="user-owe-search">
+										<div id="user-owe" class="user-owe-search responsive-search-mybills">
 											<label>Search:<input type="search" class="form-control input-sm" ng-model="searching"></label>
 										</div>
 									</div>
@@ -55,8 +55,8 @@
 										<tbody class="tbody-home">
 											<tr ng-repeat="x in eventhost | filter:searching | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
 												
-												<td><i class="fa fa-user fa-fw bigger-clock-icon" style="cursor:pointer" ng-mouseover="info(x.id)" data-toggle="tooltip" data-placement="bottom" title="name:          {{userId.invited_id.name}} &#013;Surname:    {{userId.invited_id.surname}} &#013;Username:  {{userId.invited_id.username}}&#013;Email:          {{userId.invited_id.email}}"></i>{{x.invited_id.name}}</td>
-										        <td>  <i class="fa fa-info-circle fa-fw bigger-clock-icon" style="cursor:pointer" ng-mouseover="info(x.id)" data-toggle="tooltip" data-placement="bottom" title="name:        {{userId.events_id.name}} &#013;Created:    {{userId.events_id.createdDate}} &#013;Expiry:        {{userId.events_id.expirationDate}}&#013;Budget:     {{userId.events_id.budget}} den."></i>{{x.events_id.name}}</td>
+												<td><i class="fa fa-user fa-fw bigger-user-icon" style="cursor:pointer" ng-mouseover="info(x.id)" data-toggle="tooltip" data-placement="bottom" title="name:          {{userId.invited_id.name}} &#013;Surname:    {{userId.invited_id.surname}} &#013;Username:  {{userId.invited_id.username}}&#013;Email:          {{userId.invited_id.email}}"></i>{{x.invited_id.name}}</td>
+										        <td>  <i class="fa fa-info-circle fa-fw bigger-info-icon" style="cursor:pointer" ng-mouseover="info(x.id)" data-toggle="tooltip" data-placement="bottom" title="name:        {{userId.events_id.name}} &#013;Created:    {{userId.events_id.createdDate}} &#013;Expiry:        {{userId.events_id.expirationDate}}&#013;Budget:     {{userId.events_id.budget}} den."></i>{{x.events_id.name}}</td>
 										        <td>{{x.moneyOWNED}}</td>
 										        <td><div class="has-paid" ng-show="x.isPayed"><span class="label label-sm label-success">Has paid</span> </div> <div class="not-paid" ng-hide="x.isPayed"><span class="label label-sm label-danger">Not paid</span></div></td>
 										        <td>{{x.events_id.expirationDate}}</td>

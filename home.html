@@ -5,7 +5,7 @@
 				<div class="col-xs-12">
 					<div class="row">
 						<div class="col-xs-12">
-							<h3>Tables</h3>
+							<h3 class="header-space"></h3>
 							<div class="table-header">
 								A list of users that I owe
 							</div>
@@ -25,7 +25,7 @@
 												<th>User</th>
 												<th>Event</th>
 												<th>Price</th>
-												<th><i class="fa fa-clock-o bigger-clock-icon"></i>Expiry Day</th>
+												<th><i class="fa fa-clock-o fa-fw bigger-clock-icon"></i>Expiry Day</th>
 												<th>Status</th>
 											</tr>
 										</thead>
@@ -82,7 +82,7 @@
 																		<div class="profile-info-name"> Event Name </div>
 					
 																		<div class="profile-info-value">
-																			<i class="fa fa-tasks light-orange bigger-map-marker"></i>
+																			<i class="fa fa-tasks bigger-tasks"></i>
 																			<span>{{panel.events_id.name}}</span>
 																		</div>
 																	</div>
@@ -144,7 +144,6 @@
 																		<button class="btn btn-sm btn-info btn-round pay-my-dept-btn" type="button" ng-click="sendFlag(panel.id)" ng-show="panel.isFlag === true" disabled>
 																			Waiting <br>
 																			confirmation
-																			<!--<i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i> -->
 																		</button>
 																		
 																	</div>
@@ -180,11 +179,11 @@
 					
 					<div class="row">
 						<div class="col-xs-12">
-							<h3>Tables</h3>
+							<h3 class="header2-space"></h3>
 							<div class="table-header">
 								A list of users who owe me
 							</div>
-							<div id="table_wrapper" class="dataTable_wrapper">
+							<div id="table_wrapper" class="dataTable_wrapper  responsive-search-home">
 								<div class="row">
 									<div class="col-xs-12">
 										<div id="user-owe" class="user-owe-search">
@@ -221,7 +220,7 @@
 												
 													<span ng-show="event.isFlag === true">
 														<span class="label label-sm label-primary" style="cursor:pointer" ng-click="flagAprove(event.id)"> Approve </span>
-														<i class="fa fa-bell"  aria-hidden="true" style="color:blue;"> </i>
+														<i class="fa fa-bell"  aria-hidden="true" style="color: #337ab7;"> </i>
 													</span>
 													
 												</td>
@@ -266,7 +265,7 @@
 																		<div class="profile-info-name"> Event Name </div>
 					
 																		<div class="profile-info-value">
-																			<i class="fa fa-tasks light-orange bigger-map-marker"></i>
+																			<i class="fa fa-tasks bigger-tasks"></i>
 																			<span>{{panel.events_id.name}}</span>
 																		</div>
 																	</div>
@@ -324,8 +323,7 @@
 																		</button>
 																		
 																		<button class="btn btn-sm btn-primary btn-round pay-my-dept-btn" type="button" ng-click="flagAprove(event.id)" ng-show="panel.isFlag === true">
-																			Confirm<br>payment
-																			<!--<i class="fa fa-arrow-right icon-on-right bigger-110"></i> -->
+																			Confirm<br>
 																		</button>
 																		
 																	</div>
