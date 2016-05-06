@@ -214,6 +214,7 @@ angular.module('myApp')
 		empEvent.money(id, temp)
 		.then(function(res){
 			document.body.style.cursor = "auto";
+			$scope.sendMail(id);
 			$scope.eventPanel(id);
 		})
 		.then(function(){
@@ -283,12 +284,22 @@ angular.module('myApp')
 		}
 	};
 	
-	$scope.sendMail = function(id){
+	$scope.notifyMail = function(id){
 		events.notifyMail(id)
 		.then(function(res){
-			console.log('mail send');
+			console.log('mail send to all');
 		})
 		.then(function(err){
+			
+		})
+	};
+	
+	$scope.sendMail = function(id){
+		empEvent.mail(id)
+		.then(function(){
+			console.log('mail send');
+		})
+		.then(function(){
 			
 		})
 	};
