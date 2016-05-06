@@ -283,6 +283,16 @@ angular.module('myApp')
 		}
 	};
 	
+	$scope.sendMail = function(id){
+		events.notifyMail(id)
+		.then(function(res){
+			console.log('mail send');
+		})
+		.then(function(err){
+			
+		})
+	};
+	
 	
 	$scope.init();
 });

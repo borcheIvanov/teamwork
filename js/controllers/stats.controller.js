@@ -92,9 +92,9 @@ angular.module('myApp')
 		$scope.events = events;
 		
 		// chart calculate
-		
+		console.log($scope.bills);
 		for(i = 0; i < $scope.bills.length; i++){
-			if($scope.bills[i].isPayed === true){
+			if($scope.bills[i].isPayed === true && $scope.bills[i].events_id.isArchived !== true){
 				$scope.chartArray.push({'x': $scope.bills[i].invited_id.username, 'y': [ $scope.bills[i].moneyOWNED, 0 ]});
 			}else{
 				$scope.chartArray.push({'x': $scope.bills[i].invited_id.username, 'y': [ 0, $scope.bills[i].moneyOWNED ]});
@@ -104,8 +104,6 @@ angular.module('myApp')
 		$scope.chartArray.forEach(function(n) {			
 			$scope.chartPrint.push(n);
 		});
-		
-		console.log($scope.chartPrint);
 		
 		drawPie();
 		drawChart();
@@ -151,7 +149,7 @@ angular.module('myApp')
 			labels: false,
 			legend: {
 				display: true,
-				position: 'right'
+				position: 'left'
 			}
 		};
 		$scope.dataSec = {
