@@ -84,6 +84,19 @@ angular.module('myApp')
 		return defer.promise;
 	};
 	
+	data.notifyMail = function(id){
+		var defer = $q.defer();
+		
+		$http.put(url + '/mail/notify/' + id)
+		.success(function(res){
+			defer.resolve(res);
+		})
+		.error(function(err, status){
+			defer.reject(err);
+		})
+		return defer.promise;
+	};
+	
 	
 	
 	return data;
