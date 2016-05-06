@@ -98,6 +98,7 @@ angular.module('myApp')
 		empEvent.money(id, temp)
 		.then(function(res){
 			console.log('money 0');
+			$scope.sendMail(id);
 			$scope.init();
 		})
 		.then(function(){
@@ -117,6 +118,16 @@ angular.module('myApp')
 			.then(function(){
 				
 			})
+	};
+	
+	$scope.sendMail = function(id){
+		empEvent.mail(id)
+		.then(function(){
+			console.log('mail send');
+		})
+		.then(function(){
+			
+		})
 	};
 	
 	$scope.pages = function(){
