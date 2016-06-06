@@ -1,0 +1,1 @@
+//tuka ke se kreiraat site custom partials so nasi iminja i vnatre sass kod.

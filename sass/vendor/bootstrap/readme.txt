@@ -1,0 +1,1 @@
+Ke se kreiraat site scss partials od bootstrap-sass koj sto ke gi override-ovame kako na pr.  _variables.scss

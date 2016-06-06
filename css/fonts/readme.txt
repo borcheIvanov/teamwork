@@ -1,0 +1,1 @@
+//tuka 2 folderi treba da ima edniot so gliphicons i font-awsome

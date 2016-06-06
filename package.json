@@ -1,0 +1,14 @@
+{
+  "name": "bootstrapSassGulp",
+  "version": "0.0.1",
+  "description": "polar cape",
+  "author": "Slagjana",
+  "devDependencies": {
+    "bootstrap-sass": "^3.3.6",
+    "gulp": "^3.9.0",
+    "gulp-jshint": "^1.9.0",
+    "gulp-ruby-sass": "^1.0.5",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-webserver": "^0.9.1"
+  }
+}
