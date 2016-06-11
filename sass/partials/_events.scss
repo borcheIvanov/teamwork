@@ -1,0 +1,114 @@
+/*samo kaj events za space go koristam, moja klasa */
+.inner-bg .logo {
+	padding-bottom: 20px;
+}
+
+/*ja ima vo events. moja klasa*/
+.top-big-link {
+    margin-top: 45px;
+}
+
+/*ja ima events. moja klasa*/
+input.form-control.search-events {
+    background: #F5F5F5!important;
+}
+
+/*ja ima events. moja klasa*/
+.event-list-header {
+	color: #fff;
+    margin-top: -10px;
+    background-color: #307ECC;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+/*events*/
+i.fa.fa-calendar {
+     color: #707070;
+}
+
+/*ja ima events. za icon izvicnik*/
+i.fa.fa-exclamation-triangle {
+	color: #707070;
+}
+
+/*ja ima events, za modal. vsusnost e override-no .modal-header so go ima vo modals.less*/
+.modal-header {
+    background: #307ECC;
+    color: #fff;
+    border-radius: 4px 4px 0 0;
+    border-bottom: grey;
+}
+
+/*go ima events. vsusnost e override-no <h4> go ima vo bootstrap.css vo type.less*/
+h4.fweight {
+	font-weight: 300;
+}
+
+/*go ima events. vsusnost e override-no .modal-body so go ima vo modals.less no i od nego e zadrzan stil*/
+.modal-body {
+    background: #EAE7E9;
+}
+
+/*ja ima events. e override na .list-group-item-heading so se naogja vo list-group.less*/
+h4.list-group-item-heading {
+	color: #393939;
+}
+
+/*ja ima events. vsusnost sum ja override-la .modal-footer koja se naogja vo bootstrap.css, no i od nea sum zadrzala stil*/
+.modal-footer {
+    background: #D3D6D6;
+}
+
+/*events, modals*/
+.modal-events-footer {
+	color: #393939;
+}
+
+/*ja ima event.moja klasa*/
+button.btn.btn-default.modal-button-hover:hover {
+    background-color: #449d44;
+    border-color: #398439;
+}
+
+/*ja ima events(modal). moja klasa*/
+input#form-deadline {
+  color: gray !important;
+}
+
+/*ja ima events(modal).moja klasa*/
+.btn-group.invite-users-width {
+    width: 100%;
+}
+
+/*go ima events(modal)*/
+button.btn.dropdown-toggle {
+    background: #3E3C3D;
+}
+
+/*ja ima events(modal) moja klasa*/
+span.sellect-user-color-events {
+    color: black;
+}
+
+/*events(modal)*/
+span.user-color-events {
+    color: black;
+}
+
+/*events(modal-invite-user-button)*/
+button.btn.dropdown-toggle.invite-users-btn:hover {
+    background: #3E3C3D;
+    opacity: 0.9;
+}
+
+
+
+
+
+
+
+
+
+
+

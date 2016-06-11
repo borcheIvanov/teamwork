@@ -1,0 +1,656 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #888;
+    line-height: 30px;
+    text-align: center;
+    background: url(../images/people_22.jpg) no-repeat 50% 0% fixed; 
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.inner-bg {
+    padding: 100px 0 170px 0;
+}
+
+.header-space {
+	padding-top: 30px
+}
+
+h1, h2 {
+	margin-top: 10px;
+	font-size: 38px;
+    font-weight: 100;
+    color: #555;
+    line-height: 50px;
+}
+
+h3 {
+	font-size: 22px;
+    font-weight: 300;
+    color: #555;
+    line-height: 30px;
+}
+
+img {
+	max-width: 100%; 
+}
+
+/* go imam vo login i register. inaku <a> ja ima i vo bootstrap.css, scafolding.less, normalize.less i od tamu imam nesto zemeno. za <a> go ima vo home view, a e override-no <a> */
+a, a:hover, a:focus {
+	color: #333;
+	text-decoration: none;
+    -o-transition: all .3s;
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    -ms-transition: all .3s; 
+    transition: all .3s;
+}
+
+::-moz-selection {
+	background: #4aaf51;
+	color: #fff;
+	text-shadow: none; 
+}
+::selection {
+	background: #4aaf51;
+	color: #fff;
+	text-shadow: none;
+}
+
+.form-list {
+	overflow: hidden;
+	padding: -2px 25px -2pxpx 25px !important;
+	margin-top: -61px;
+	background: #EC008C;
+	-moz-border-radius: 4px 4px 0 0;
+	-webkit-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+	text-align: left;
+	opacity: 0.8;
+}
+
+input[type="text"], 
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="date"]
+{
+	height: 50px;
+    margin: 0;
+    padding: 0 20px;
+    vertical-align: middle;
+   	background: #3E3C3D;
+    border: none;
+    border-bottom: 1px solid grey;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 50px;
+    color: #fff !important;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -o-transition: all .3s;
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    -ms-transition: all .3s;
+    transition: all .3s;
+}
+
+input[type="text"]:focus, 
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus
+ {
+	outline: 0;
+	background: #fff;
+    border: 1px solid #ccc;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #0D0C0C !important;
+}
+
+input[type="text"]:-moz-placeholder, input[type="password"]:-moz-placeholder, input[type="email"]:-moz-placeholder {
+	color: #888;
+}
+
+input[type="text"]:-ms-input-placeholder, input[type="password"]:-ms-input-placeholder, input[type="email"]:-ms-input-placeholder { 
+	color: #888;
+}
+
+input[type="text"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder, input[type="email"]::-webkit-input-placeholder { 
+	color: #888; 
+}
+
+input[type="number"]::-webkit-input-placeholder, input[type="number"]::-webkit-input-placeholder, input[type="number"]::-webkit-input-placeholder { 
+	color: #888; 
+}
+
+input[type="date"]::-webkit-input-placeholder, input[type="date"]::-webkit-input-placeholder, input[type="date"]::-webkit-input-placeholder { 
+	color: #888; 
+}
+
+button.btn {
+	height: 50px;
+    margin: 0;
+    padding: 0 20px;
+    vertical-align: middle;
+    background: #5cb85c;
+    border-color: #4cae4c;
+    border: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 50px;
+    color: #fff;
+	-moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+	border-radius: 4px;
+    text-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -o-transition: all .3s;
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    -ms-transition: all .3s;
+	transition: all .3s;
+}
+
+/*vo login, register i events view go koristam.a inaku .btn:hover go imam override-no a plus imam nesto zadrzano i od .btn:hover koj se naogja vo button.less*/
+button.btn:hover {
+	color: #fff; 
+	background-color: #449d44;
+	border-color: #398439;
+}
+/*go imam override-no, no imam i zadrzano nesto i od .btn:active so go ima vo vendor-prefixes.less*/
+button.btn:active {
+	outline: 0;
+	opacity: 0.6;
+	color: #fff;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none; 
+}
+/*go imam vo login, register, events. go imam override-no, no imam zadrzano i od .btn:focus so go ima vo bootstrap.css*/
+button.btn:focus { 
+	outline: 0;
+	opacity: 0.6;
+	background: #4aaf51;
+	color: #fff; 
+}
+/*go imam vo login,register, events, no go imam override-no, no imam i nesto zadrzano go ima vo bootstrap.css*/
+button.btn:active:focus, button.btn.active:focus {
+	outline: 0;
+	background: #4aaf51;
+	color: #fff; 
+}
+
+/*ja imam vo register, login, events. ja imam override-no, no imam nesto zadrzano i od button.btn.btn-block so ja ima vo button.less*/
+button.btn.btn-block {
+    opacity: 1;
+}
+
+/*go imam override-no, no imam i nesto zadrzano go ima vo navbar.less*/
+.navbar {
+	margin-bottom: 0;
+	background: #444;
+	border: 0;
+	-o-transition: all .6s;
+	-moz-transition: all .6s;
+	-webkit-transition: all .6s;
+	-ms-transition: all .6s;
+	transition: all .6s;
+}
+/*moja klasa no vsusnost go imam override-no .navbar-inverse so se naogja vo navbar.less, a inaku samo <nav> go ima vo normalize.less*/
+.navbar.navbar-no-bg {
+	background: #444;
+	background: rgba(0, 0, 0, 0.6); 
+}
+/*moj stil*/
+.navbar-right {
+	margin-right: 0; 
+}
+/*sum go override-la .navbar-nav so go ima vo navbar.less*/
+ul.navbar-nav {
+	font-size: 15px;
+	color: #fff;
+	text-transform: uppercase;
+}
+/*sum ja override-la .navbar-inverse .navbar-nav>li>a  so ja ima vo bootstrap.css*/
+.navbar-inverse ul.navbar-nav li a {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: #fff;
+	opacity: 0.8; 
+}
+/*moj stil dadeno za hover na a, a vsusnost go imam override-no navbar-inverse .navbar-nav>li>a:focus so se naogja vo navbar.less*/
+.navbar-inverse ul.navbar-nav li a:hover { 
+	color: #fff;
+	opacity: 1;
+	outline: 0;
+}
+/*moj stil dadeno za fokus na a, a vsusnost go imam override-no navbar-inverse .navbar-nav>li>a:focus so se naogja vo navbar.less*/
+.navbar-inverse ul.navbar-nav li a:focus {
+	color: #fff;
+	outline: 0;
+	opacity: 1;
+}
+
+.navbar-text a {
+	margin: 0 8px;
+	font-size: 26px;
+	color: #fff;
+	line-height: 28px;
+	opacity: 0.8;
+}
+.navbar-text a:hover {
+	opacity: 1;
+}
+/*.navbar-toggle go imam override-no , no imam i prifateno so se naogja vo bootstrap.css i vo navbar.less*/
+.navbar-toggle {
+	margin-top: 13px;
+	margin-bottom: 13px;
+}
+
+.navbar-brand {
+	width: 75px;
+	height: 60px;
+}
+.navbar>.container .navbar-brand {
+	margin-left: 0;
+}
+/*moj stil za da ima crticka na hover na <a>, a ima za :after i od vendor-prefixes.less so se zema*/
+ul.navbar-nav li a:after {
+    content: "";
+    position: absolute;
+    bottom: 12px;
+    left: 45%;
+    width: 10%;
+    height: 1px;
+    background: #fff;
+    opacity: 0;
+    -o-transition: all .3s;
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    -ms-transition: all .3s;
+    transition: all .3s;
+}
+ul.navbar-nav li a:hover:after, ul.navbar-nav li a:focus:after {
+    opacity: 1;
+}
+
+.p {
+  text-align: center;
+  padding-top: 140px;
+  font-size: 14px;
+}
+
+.table-hover>tbody>tr:hover {
+    background-color: #EFF3F8;
+}
+
+/*moj stil ja ima home,mybills,archive*/
+.table>thead>tr {
+    color: #707070;
+    font-weight: 400;
+    background: #F2F2F2;
+}
+
+
+ /*moja klasa ja ima vo home, mybills, archive*/  
+.table-header {
+    background-color: #307ECC;
+    color: #FFF;
+    font-size: 17px;
+    line-height: 38px;
+    padding-left: 12px;
+    font-weight: 400;
+}
+
+/*go ima kaj home, mybills, archive . a vsusnost e override-na label i od nea ima nesto zadrzano so se naogja vo forms.less*/
+.dataTable_wrapper label {
+    display: inline-block;
+    font-weight: 400;
+}
+
+/*moja klasa ja ima vo home, mybills, stats,archive*/
+.table-responsive.table-responsive-home {
+    margin-bottom: 0;
+}
+
+/*go ima vo home, mybills. moja klasa a vsusnost e override-na .table so se naogja vo bootstrap.css, tables.less, normalize.less i od niv e zadrzan nekoj stil*/
+table.dataTable {
+    clear: both;
+    max-width: none!important;
+}
+/*go ima vo home, mybills. moja klasa a vsusnost e override-na .table so se naogja vo bootstrap.css, tables.less, normalize.less i od niv e zadrzan nekoj stil*/
+.dataTable {
+    margin-bottom: 0;
+}
+
+
+
+/*moja klasa ja ima home, mybills*/
+.tbody-home {
+	background: #F9F9F9;
+	text-align: left;
+	color: #393939
+}
+
+/*ja ima home,events(modals), mybills, stats, archive. moja klasa*/
+td.ng-binding {
+	text-align: left;
+}
+
+
+/*ja ima archive, home, mybills. moja*/
+.dataTable_wrapper .row:last-child {
+    border-bottom: 1px solid #e0e0e0;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #EFF3F8;
+}
+
+/*ja ima archive,home,mybills. overroad na row, grid-framework.less*/
+.dataTable_wrapper .row {
+    margin: 0!important;
+}
+
+/*ja ima vo stats, home, mybills, archive. form-control ja imam override-vano no imam i zadrzano stil i od .form-control od normalize.less, scafolding.less */
+.form-control, select {
+    border-radius: 0;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+    color: #858585;
+    background-color: #FFF;
+    border: 1px solid #D5D5D5;
+}
+
+/*ja ima home, mybills, archive. moja klasa*/
+.dataTable_paginate {
+    text-align: right;
+}
+
+/*ja ima home, mybills, archive. override-na e .paginations.less no i od nea ima zadrzano stil*/
+.dataTable_paginate .pagination {
+    margin: 0 12px;
+}
+
+/*ja ima events modals, mybills. ovaa klasa e override na .btn-primary so ja ima vo bootstrap.css*/
+.btn-outlined.btn-primary {
+    background: #fff;
+    border: 2px solid #428bca;
+    color: #428bca;
+}
+
+/*ja ima events modals, mybills. ovaa klasa e override na .btn-primary:hover so ja ima vo bootstrap.css*/
+.btn-outlined.btn-primary:hover,
+.btn-outlined.btn-primary:active {
+    color: #FFF;
+    background: #428bca;
+    border-color: #428bca;
+}
+
+/*ja ima events modals, mybills. ovaa klasa ja ima vo bootstrap 4*/
+.btn-outlined {
+    border-radius: 0;
+    -webkit-transition: all 0.3s;
+       -moz-transition: all 0.3s;
+            transition: all 0.3s;
+}
+
+/*ja ima events,mybills. vsusnost e override na .btn-success so se naogja vo bootstrap.css*/
+.btn-outlined.btn-success {
+    background: #fff;
+    border: 2px solid #5cb85c;
+    color: #5cb85c;
+}
+
+/*ja ima events modals, mybills. ovaa klasa e override na .btn-success:hover so ja ima vo bootstrap.css*/
+.btn-outlined.btn-success:hover,
+.btn-outlined.btn-success:active {
+    color: #FFF;
+    background: #47a447;
+}
+
+/*ja ima events,mybills. vsusnost e override na .btn-danger so se naogja vo bootstrap.css*/
+.btn-outlined.btn-danger {
+    background: #fff;
+    border: 2px solid #d9534f;
+    color: #d9534f;
+}
+
+/*ja ima events, mybills. vsusnost e override na .btn-danger:hover so se naogja vo bootstrap.css*/
+.btn-outlined.btn-danger:hover,
+.btn-outlined.btn-danger:active {
+    color: #FFF;
+    background: #d2322d;
+}
+
+/*ja ima archive, mybills. overroad na row, grid-framework.less*/
+.dataTable_wrapper .row:first-child {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #EFF3F8;
+}
+
+/*ja ima vo archive,mybills.moja klasa*/
+.display-records-lenght {
+	text-align: left;
+}
+
+/*ja ima vo stats, mybills. override na select.input-sm so se naogja vo forms.less, no e zadrzan i od negoviot stil*/
+select.input-sm {
+    border-radius: 0;
+    padding: 2px 3px;
+}
+
+/*kaj select, mybills*/
+.display-records-lenght select {
+    height: 25px;
+    padding: 2px 3px;
+}
+
+/*kaj select, mybills*/
+.dataTable_wrapper select {
+    margin-bottom: 0!important;
+    margin: 0 4px;
+}
+
+/*moja klasa ja ima vo home, mybills, archive */
+.user-owe-search {
+	text-align: right;
+}
+
+/* ja ima archive, mybills. vsusnost e override-na input[type=search] so se naogja vo forms.less, bootstrap.css, normalize.less i nesto e prfateno  i uste e override-na i od kaj input-sm so se naogja vo forms.less  */
+.user-owe-search input[type=search] {
+	width: 125px;
+    height: 18px;
+    line-height: 18px;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    padding: 4px 6px;
+    border-radius: 0!important;
+    color: #858585;
+    background-color: #FFF;
+    border: 1px solid #D5D5D5;
+    font-size: 14px;
+    font-family: inherit;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+    -webkit-transition-duration: .1s;
+    transition-duration: .1s;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/*ja ima kaj select, mybills*/
+.dataTable_wrapper input[type=search] {
+	margin-bottom: 0!important;
+    margin: 0 4px;
+}
+
+/*moja klasa za stil na gliphicon-ot clock. go ima home, mybills*/
+.bigger-clock-icon {
+	margin-right: 2px;
+}
+
+/*ja ima home, mybills, stats, archive. moj stil, override-na e .label so ja ima vo labels.less*/
+.label {
+	font-weight: 500;
+}
+
+/*moja klasa, go imam vo login i register*/
+a.sign-up-description-text:hover, :focus, a.sign-in-description-text:hover, :focus {
+    color: #fff;
+}
+
+/*za login i register i vo events(modal) -moja klasa*/
+.form-bottom {
+	padding: 25px 25px 30px 25px;
+	background: none;
+	-moz-border-radius: 0 0 4px 4px;
+	-webkit-border-radius: 0 0 4px 4px;
+	border-radius: 0 0 4px 4px;
+	text-align: left;
+}
+
+/*.form-group override-na ja ima vo bootstrap css (ja imam kaj login, register i events(modal))*/
+.form-group {
+    margin-bottom: 0;
+}
+
+/*za login i register, events. go imam override-no btn*/
+.form-bottom form button.btn {
+	width: 100%;
+}
+
+/* background-picture za login i register */
+.top-content { 
+  background: url(../images/login-background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/*za login i register za background picture*/
+.main-div-login {
+	position: fixed;
+    width: 1349px;
+}
+
+/* .overlay class za login i register za background picture*/
+ .overlay {
+    
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(241, 246, 247, 0.9);
+    opacity: 0.2;
+    filter: alpha(opacity=40);
+}
+
+/*za login, register za extra space -moja klasa */
+.top-content .description {
+	margin: 40px 0 10px 0;
+}
+
+/*za login i register -moja klasa*/
+.form-box {
+	margin-top: 35px;
+}
+
+/*za login i register -moja klasa za (login,register to our site delot)*/
+.form-top {
+	overflow: hidden;
+	padding: 0 25px 15px 25px;
+	background: #307ECC;
+	-moz-border-radius: 4px 4px 0 0;
+	-webkit-border-radius: 4px 4px 0 0;
+	border-radius: 4px 4px 0 0;
+	text-align: left;
+	/*opacity: 0.8;*/
+}
+
+/*za login i register,za (login,register to our site delot) -moja klasa */
+.form-top-left {
+	float: left;
+	width: 75%;
+	padding-top: 25px;
+}
+
+/*za login i register, boja na hederot -moi klasi*/
+.form-top-left .login-text, .register-text {
+	color: #fff;
+}
+
+/*za login i register -moja klasa*/
+.form-top-left h3 {
+	margin-top: 0;
+}
+
+/*za login, register ,ova paragrafot se boi bel -moi klasi*/
+ .login-description-text, .register-description-text {
+	color: #fff;
+}
+
+/*za login i register za katanceto i user ikonata -moja klasa*/
+.form-top-right {
+	float: left;
+	width: 25%;
+	padding-top: 5px;
+	font-size: 66px;
+	color: #fff;
+	line-height: 100px;
+	text-align: right;
+}
+
+/*moja klasa ja imam kaj login i register*/
+#signup-button, #signin-button {
+	text-align: right;
+	padding: 15px;
+}
+
+/*ja imam kaj login i register(za <a>). moja klasa*/
+.sign-up-description-text, .sign-in-description-text{
+	font-weight: 400;
+	color: #3E3C3D;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

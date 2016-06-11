@@ -1,3 +1,4 @@
+/* za site view-a, plus background image za home,events, mybills, stats, archive. inaky body go ima vo scafolding.less i normalize.less i od tamu imam nesto zemeno */
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
@@ -5,16 +6,14 @@ body {
     color: #888;
     line-height: 30px;
     text-align: center;
-}
-
-body { 
-	background: url(../images/people_22.jpg) no-repeat 50% 0% fixed; 
+    background: url(../images/people_22.jpg) no-repeat 50% 0% fixed; 
 	-moz-background-size: cover;
 	-webkit-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
 }
 
+/* go imam vo login i register. inaku <a> ja ima i vo bootstrap.css, scafolding.less, normalize.less i od tamu imam nesto zemeno. za <a> go ima vo home view, a e override-no <a> */
 a, a:hover, a:focus {
 	color: #333;
 	text-decoration: none;
@@ -24,12 +23,12 @@ a, a:hover, a:focus {
     -ms-transition: all .3s; 
     transition: all .3s;
 }
-
+/*ja imam kaj login i register(za <a>). moja klasa*/
 .sign-up-description-text, .sign-in-description-text{
 	font-weight: 400;
 	color: #3E3C3D;
 }
-
+/*moja klasa, go imam vo login i register*/
 a.sign-up-description-text:hover, :focus, a.sign-in-description-text:hover, :focus {
     color: #fff;
 }
@@ -57,22 +56,22 @@ h1, h2 {
     color: #555;
     line-height: 50px;
 }
-
+/*ja ima login , register, events. vsusnost e override-no <h3>*/
 h3 {
 	font-size: 22px;
     font-weight: 300;
     color: #555;
     line-height: 30px;
 }
-
+/*go ima events. vsusnost e override-no <h4> go ima vo bootstrap.css vo type.less*/
 h4.fweight {
 	font-weight: 300;
 }
-
+/*ja ima events. e override na .list-group-item-heading so se naogja vo list-group.less*/
 h4.list-group-item-heading {
 	color: #393939;
 }
-
+/*moja klasa ja ima vo home, mybills, archive*/
 .header-space {
 	padding-top: 30px
 }
@@ -80,11 +79,11 @@ h4.list-group-item-heading {
 .header2-space {
 	padding-top: 27px
 }
-
+/*za login i register, boja na hederot -moi klasi*/
 .form-top-left .login-text, .register-text {
 	color: #fff;
 }
-
+/*za login, register i (events-nema) ova paragrafot se boi bel -moi klasi*/
  .login-description-text, .register-description-text, .events-description-text {
 	color: #fff;
 }
@@ -92,7 +91,7 @@ h4.list-group-item-heading {
 h1.events-text {
 	color: #fff;
 }
-
+/*ja ima events. moja klasa*/
 .event-list-header {
 	color: #fff;
     margin-top: -10px;
@@ -100,7 +99,7 @@ h1.events-text {
     margin-left: -10px;
     margin-right: -10px;
 }
-
+/*ja imam home. moj stil*/
 img {
 	max-width: 100%; 
 }
@@ -115,7 +114,7 @@ img {
 	color: #fff;
 	text-shadow: none;
 }
-
+/*za site view-a -moja klasa*/
 .inner-bg {
     padding: 100px 0 170px 0;
 }
@@ -127,11 +126,11 @@ img {
 .top-content .text h1 {
 	color: #fff;
 }
-
+/*za login, register za extra space -moja klasa */
 .top-content .description {
 	margin: 40px 0 10px 0;
 }
-
+/*za login i register -moja klasa*/
 .form-box {
 	margin-top: 35px;
 }
@@ -139,11 +138,11 @@ img {
 .form-box-event {
 	margin-top: 61px;
 }
-
+/*ja ima events(modal).moja klasa*/
 .btn-group.invite-users-width {
     width: 100%;
 }
-
+/*go ima events(modal)*/
 button.btn.dropdown-toggle {
     background: #3E3C3D;
 }
@@ -158,7 +157,7 @@ button.btn.dropdown-toggle {
 	text-align: left;
 	opacity: 0.8;
 }
-
+/*za login i register -moja klasa za (login,register to our site delot)*/
 .form-top {
 	overflow: hidden;
 	padding: 0 25px 15px 25px;
@@ -169,17 +168,17 @@ button.btn.dropdown-toggle {
 	text-align: left;
 	/*opacity: 0.8;*/
 }
-
+/*za login i register,za (login,register to our site delot) -moja klasa */
 .form-top-left {
 	float: left;
 	width: 75%;
 	padding-top: 25px;
 }
-
+/*za login i register -moja klasa*/
 .form-top-left h3 {
 	margin-top: 0;
 }
-
+/*za login i register za katanceto i user ikonata -moja klasa*/
 .form-top-right {
 	float: left;
 	width: 25%;
@@ -189,7 +188,7 @@ button.btn.dropdown-toggle {
 	line-height: 100px;
 	text-align: right;
 }
-
+/*za login i register i vo events(modal) -moja klasa*/
 .form-bottom {
 	padding: 25px 25px 30px 25px;
 	background: none;
@@ -202,28 +201,28 @@ button.btn.dropdown-toggle {
 .list-events-padding {
 	padding: 8px 25px 30px 25px;
 }
-
+/*.form-group override-na ja ima vo bootstrap css (ja imam kaj login, register i events(modal))*/
 .form-group {
     margin-bottom: 0;
 }
-
+/*da vidam dali se koristi nekade*/
 form-control {
 	border:none;
 }
-
+/*za login i register, events. go imam override-no btn*/
 .form-bottom form button.btn {
 	width: 100%;
 }
-
+/*moja klasa ja imam kaj login i register*/
 #signup-button, #signin-button {
 	text-align: right;
 	padding: 15px;
 }
-
+/*samo kaj events za space go koristam, moja klasa */
 .inner-bg .logo {
 	padding-bottom: 20px;
 }
-
+/*
 .inner-bg .logo a {
 	display: inline-block;
 	width: 150px;
@@ -231,7 +230,8 @@ form-control {
 	background: url(../images/polar-cape-logo.png) center center no-repeat;
 	text-indent: -99999px;
 }
-
+*/
+/*za site view-a, od form-control(forms-less) e override-no, no i od nego ima nesto zadrzano, samo input go ima vo normalize i scafolding less, od tamu ima malku zemeno*/
 input[type="text"], 
 input[type="password"],
 input[type="email"],
@@ -262,11 +262,11 @@ input[type="date"]
     -ms-transition: all .3s;
     transition: all .3s;
 }
-
+/*ja ima events(modal). moja klasa*/
 input#form-deadline {
   color: gray !important;
 }
-
+/*ova e override-no, vsusnost e smeneto od form-control:focus(vendor-prefixes-less)*/
 input[type="text"]:focus, 
 input[type="password"]:focus,
 input[type="email"]:focus,
@@ -281,7 +281,7 @@ input[type="date"]:focus
     box-shadow: none;
     color: #0D0C0C !important;
 }
-
+/*ovoj stil nemozam so f12 da si go najdam */
 input[type="text"]:-moz-placeholder, input[type="password"]:-moz-placeholder, input[type="email"]:-moz-placeholder {
 	color: #888;
 }
@@ -301,7 +301,7 @@ input[type="number"]::-webkit-input-placeholder, input[type="number"]::-webkit-i
 input[type="date"]::-webkit-input-placeholder, input[type="date"]::-webkit-input-placeholder, input[type="date"]::-webkit-input-placeholder { 
 	color: #888; 
 }
-
+/*go imam override .btn, ama koristam i plus nesto od .btn so go ima vo button less, a samo button go ima vo scafolding less, normalize less, go ima vo site view osven vo archive*/
 button.btn {
 	height: 50px;
     margin: 0;
@@ -328,13 +328,13 @@ button.btn {
     -ms-transition: all .3s;
 	transition: all .3s;
 }
-
+/*vo login, register i events view go koristam.a inaku .btn:hover go imam override-no a plus imam nesto zadrzano i od .btn:hover koj se naogja vo button.less*/
 button.btn:hover {
 	color: #fff; 
 	background-color: #449d44;
 	border-color: #398439;
 }
-
+/*go imam override-no, no imam i zadrzano nesto i od .btn:active so go ima vo vendor-prefixes.less*/
 button.btn:active {
 	outline: 0;
 	opacity: 0.6;
@@ -343,39 +343,39 @@ button.btn:active {
 	-webkit-box-shadow: none;
 	box-shadow: none; 
 }
-
+/*go imam vo login, register, events. go imam override-no, no imam zadrzano i od .btn:focus so go ima vo bootstrap.css*/
 button.btn:focus { 
 	outline: 0;
 	opacity: 0.6;
 	background: #4aaf51;
 	color: #fff; 
 }
-
+/*go imam vo login,register, events, no go imam override-no, no imam i nesto zadrzano go ima vo bootstrap.css*/
 button.btn:active:focus, button.btn.active:focus {
 	outline: 0;
-	opacity: 0.6;
 	background: #4aaf51;
 	color: #fff; 
 }
 
+/*ja imam vo register, login, events. ja imam override-no, no imam nesto zadrzano i od button.btn.btn-block so ja ima vo button.less*/
 button.btn.btn-block {
     opacity: 1;
 }
-
+/*ja ima event.moja klasa*/
 button.btn.btn-default.modal-button-hover:hover {
     background-color: #449d44;
     border-color: #398439;
 }
-
+/*events(modal-invite-user-button)*/
 button.btn.dropdown-toggle.invite-users-btn:hover {
     background: #3E3C3D;
     opacity: 0.9;
 }
-
+/*ja ima vo events. moja klasa*/
 .top-big-link {
     margin-top: 45px;
 }
-
+/* background-picture za login i register */
 .top-content { 
   background: url(../images/login-background.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -395,7 +395,7 @@ button.btn.dropdown-toggle.invite-users-btn:hover {
 .overlay {
     background: rgba(24,64,76,0.6);
 }
-
+/*go imam override-no, no imam i nesto zadrzano go ima vo navbar.less*/
 .navbar {
 	margin-bottom: 0;
 	background: #444;
@@ -406,31 +406,35 @@ button.btn.dropdown-toggle.invite-users-btn:hover {
 	-ms-transition: all .6s;
 	transition: all .6s;
 }
+/*moja klasa no vsusnost go imam override-no .navbar-inverse so se naogja vo navbar.less, a inaku samo <nav> go ima vo normalize.less*/
 .navbar.navbar-no-bg {
 	background: #444;
 	background: rgba(0, 0, 0, 0.6); 
 }
-
+/*moj stil*/
 .navbar-right {
 	margin-right: 0; 
 }
-
+/*sum go override-la .navbar-nav so go ima vo navbar.less*/
 ul.navbar-nav {
 	font-size: 15px;
 	color: #fff;
 	text-transform: uppercase;
 }
-
+/*sum ja override-la .navbar-inverse .navbar-nav>li>a  so ja ima vo bootstrap.css*/
 .navbar-inverse ul.navbar-nav li a {
 	padding-top: 20px;
 	padding-bottom: 20px;
 	color: #fff;
 	opacity: 0.8; 
 }
+/*moj stil dadeno za hover na a, a vsusnost go imam override-no navbar-inverse .navbar-nav>li>a:focus so se naogja vo navbar.less*/
 .navbar-inverse ul.navbar-nav li a:hover { 
 	color: #fff;
 	opacity: 1;
+	outline: 0;
 }
+/*moj stil dadeno za fokus na a, a vsusnost go imam override-no navbar-inverse .navbar-nav>li>a:focus so se naogja vo navbar.less*/
 .navbar-inverse ul.navbar-nav li a:focus {
 	color: #fff;
 	outline: 0;
@@ -447,7 +451,7 @@ ul.navbar-nav {
 .navbar-text a:hover {
 	opacity: 1;
 }
-
+/*.navbar-toggle go imam override-no , no imam i prifateno so se naogja vo bootstrap.css i vo navbar.less*/
 .navbar-toggle {
 	margin-top: 13px;
 	margin-bottom: 13px;
@@ -460,7 +464,7 @@ ul.navbar-nav {
 .navbar>.container .navbar-brand {
 	margin-left: 0;
 }
-
+/*moj stil za da ima crticka na hover na <a>, a ima za :after i od vendor-prefixes.less so se zema*/
 ul.navbar-nav li a:after {
     content: "";
     position: absolute;
@@ -485,14 +489,14 @@ a.list-group-item.active {
     opacity: 0.8;
     border: none;
 }
-
+/*ja ima events, za modal. vsusnost e override-no .modal-header so go ima vo modals.less*/
 .modal-header {
     background: #307ECC;
     color: #fff;
     border-radius: 4px 4px 0 0;
     border-bottom: grey;
 }
-
+/*go ima events. vsusnost e override-no .modal-body so go ima vo modals.less no i od nego e zadrzan stil*/
 .modal-body {
     background: #EAE7E9;
 }
@@ -501,7 +505,7 @@ a.list-group-item.active {
     background-color: #3E3C3D;
     border: none;
 }
-
+/*ja ima events. vsusnost sum ja override-la .modal-footer koja se naogja vo bootstrap.css, no i od nea sum zadrzala stil*/
 .modal-footer {
     background: #D3D6D6;
 }
@@ -513,7 +517,7 @@ a.list-group-item.active {
     opacity: 0.7;
     filter: alpha(opacity=35);
 }
-
+/* .overlay class za login i register za background picture*/
  .overlay {
     position: absolute;
     width: 100%;
@@ -529,12 +533,12 @@ a.list-group-item.active {
 	position: fixed;
     width: 1349px;
 }
-
+/*za background picture, register, -moja klasa*/
 .main-div-register {
 	position: fixed;
     width: 1349px;
 }
-
+/*za login i register za background picture*/
 .main-div-login {
 	position: fixed;
     width: 1349px;
@@ -599,11 +603,11 @@ span.sellect-user-color {
 span.user-color {
     color: #fff;
 }
-
+/*ja ima events(modal) moja klasa*/
 span.sellect-user-color-events {
     color: black;
 }
-
+/*events(modal)*/
 span.user-color-events {
     color: black;
 }
@@ -619,10 +623,14 @@ h3.name-event.ng-binding {
     font-size: 19px;
 }
 
-i.fa.fa-calendar, i.fa.fa-user {
+i.fa.fa-user.big-user-icon {
+	color: #fff;
+}
+/*events*/
+i.fa.fa-calendar {
      color: #707070;
 }
-
+/*ja ima events. za icon izvicnik*/
 i.fa.fa-exclamation-triangle {
 	color: #707070;
 }
@@ -637,7 +645,7 @@ div.ng-scope.events-border {
     content: "";
     border-bottom: 1px solid #3E3C3D;
 }
-
+/*ja ima events. ja imam override-no .pre-scrollable so se naogja grid.less */
 .pre-scrollable{
  	max-height: 200px;
 }
@@ -675,11 +683,11 @@ div.ng-scope.events-border {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 	background-color: #555;
 }
-
+/*ja ima events. moja klasa*/
 input.form-control.search-events {
     background: #F5F5F5!important;
 }
-
+/*events, modals*/
 .modal-events-footer {
 	color: #393939;
 }
@@ -689,7 +697,7 @@ h2 {
   text-align: center;
   padding: 20px 0;
 }
-
+/*ja ima vo home, mybills. vsusnost ja ima istata klasa so istiot stil vo bootstrap.css ama dali zaradi important nesto sum ja prepisala*/
 .table-bordered {
   border: 1px solid #ddd !important;
 }
@@ -744,15 +752,15 @@ td.star-color {
     color:#337ab7;
     text-align: center;
 }
-
+/*ja ima home, mybills, stats, archive. vsusnost e override-no .table-hover>tbody>tr:hover so se naogja vo tables.less*/
 .table-hover>tbody>tr:hover {
     background-color: #EFF3F8;
 }
-
+/*my bills*/
 .has-paid {
 	color:rgb(83, 226, 93);
 }
-
+/*mybills*/
 .not-paid {
 	color:red;
 }
@@ -806,61 +814,62 @@ button.btn.btn-default.btn-danger.btn-not-paid-style {
 
 
 /*-------*/
-
+/*moja klasa ja ima home*/
 th.detail-col {
 	width: 48px;
 	tex-align: center;
 }
-
+/*
 .table>thead>tr {
 	color: #707070;
 }
-
+*/
+/*moj stil ja ima home,mybills,archive*/
 .table>thead>tr {
     color: #707070;
     font-weight: 400;
     background: #F2F2F2;
 }
-
+/*moja klasa za stil na gliphicon-ot clock. go ima home, mybills*/
 .bigger-clock-icon {
 	margin-right: 2px;
 }
-
+/*moja klasa za strelkata od tabelata ja ima home, */
 .action-button {
     text-align: center;
 }
-
+/*moja klasa da se oboi strelkata zelena . ja ima home.vsusnost e override-no <a> za bojata.*/
 .green {
 	color: #69AA46!important;
 }
-
+/*moja klasa ja ima home, mybills*/
 .tbody-home {
 	background: #F9F9F9;
 	text-align: left;
 	color: #393939
 }
 /*modal tabela*/
-
+/*moja klasa. ja ima home*/
 .table-detail {
     background-color: #fff;
     border: 1px solid #dcebf7;
     width: 100%;
     padding: 12px;
 }
-
+/*go ima home. moj stil, override-no td, so se naogja vo tables.less, normalize.less*/
 tr.detail-row>td {
     background-color: #f1f6f8;
     border-top: 3px solid #d1e1ea!important;
 }
-
+/*ja ima home. moja klasa. vsusnost e override-no .thumbnail, no od nea imam zadrzano stil a ja ima vo thumbnails.less*/
 .inline {
     display: inline-block!important;
 }
-
+/*ja ima home. moja klasa. vsusnost e override-no .thumbnail, no od nea imam zadrzano stil a ja ima vo thumbnails.less*/
 .no-margin-bottom {
     margin-bottom: 0!important;
 }
-
+/*home vo colapsot kaj label-ta so ime*/
 .label-xlg {
     padding: .3em .7em .4em;
     font-size: 14px;
@@ -876,7 +885,7 @@ tr.detail-row>td {
 .width-80 {
     width: 80%!important;
 }
-
+/*moja klasa. ja ima home*/
 .position-relative {
     position: relative;
 }
@@ -884,36 +893,37 @@ tr.detail-row>td {
 .light-green {
     color: #B0D877!important;
 }
-
+/*moja klasa. ja ima home. za topceto vo collapsot vo tabelata pod slikat*/
 .user-icon {
 	text-align: center;
 }
-
+/*moja klasa. ja ima home.*/
 .white {
     color: #FFF!important;
 }
-
+/*moja klasa.a ima home. za colapsot e.*/
 .space {
     max-height: 1px;
     min-height: 1px;
     overflow: hidden;
     margin: 12px 0;
 }
-
+/*ja ima home. moja klasa, za collapsot*/
 .profile-user-info-striped {
     border: 1px solid #DCEBF7;
 }
+/*ja ima home. moja klasa, za collapsot*/
 .profile-user-info {
     display: table;
     width: 98%;
     width: calc(100% - 24px);
     margin: 0 auto;
 }
-
+/*ja ima home. moja klasa, za collapsot*/
 .profile-info-row {
     display: table-row;
 }
-
+/*ja ima home. moja klasa, za collapsot*/
 .profile-info-name {
     border-top: none;
     color: #336199;
@@ -926,46 +936,46 @@ tr.detail-row>td {
     display: table-cell;
     border-top: 1px solid #F7FBFF;
 }
-
+/*ja ima home. moja klasa, za collapsot*/
 .profile-info-row:first-child .profile-info-name {
     border-top: none;
 }
-
+/*ja ima home. moja klasa, za collapsot*/
 .profile-user-info-striped .profile-info-value {
     border-top: 1px dotted #DCEBF7;
     padding-left: 12px;
 }
-
+/*ja ima home. moja klasa, za collapsot*/
 .profile-info-value {
     padding: 6px 4px 6px 12px;
 }
-
+/*ja ima home. moja klasa, za collapsot*/
  .profile-info-row:first-child .profile-info-value {
     border-top: none;
 }
-
+/*ja ima home. moja klasa, za collapsot*/
 .profile-info-value {
     display: table-cell;
 }
-
+/*ja ima home. moja klasa, za collapsot, za icon tasks*/
 .bigger-tasks {
     font-size: 110%!important;
     margin-right: 2px;
 }
-
+/*moja klasa.ja ima home.  za topceto vo collapsot vo tabelata pod slikata e zeleno*/
 .light-green {
     color: #B0D877!important;
 }
-
+/*ja ima home. moja klasa*/
 .header.blue {
     border-bottom-color: #d5e3ef;
 }
-
+/*ja ima home. moja klasa*/
 .header.less-margin {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
+/*ja ima home. moja klasa i stil*/
 .header {
     line-height: 28px;
     margin-bottom: 16px;
@@ -973,31 +983,32 @@ tr.detail-row>td {
     padding-bottom: 4px;
     border-bottom: 1px solid #CCC;
 }
-
+/*moja klasa . ja ima home vo collapsot*/
 .blue {
     color: #337AB7!important;
     font-weight: 400!important;
 }
-
+/*
 .lighter {
     font-weight: lighter;
 }
-
+*/
+/*moja klasa . ja ima home vo collapsot*/
 .space-6 {
     max-height: 1px;
     min-height: 1px;
     overflow: hidden;
     margin: 6px 0 5px;
 }
-
+/*ja ima home. moja klasa*/
 .btn.btn-round {
     border-radius: 4px!important;
 }
-
+/*ja ima home. moja klasa*/
  .btn.btn-round {
     border-bottom-width: 2px!important;
 }
-
+/*ja ima home. moja klasa , a vsusnost e override-no .btn so se naogja vo buttons.less*/
 button.btn.btn-sm.btn-danger.btn-round.pay-my-dept-btn {
 	border-color: #D15B47!important;
     color: #fff!important;
@@ -1016,7 +1027,7 @@ button.btn.btn-sm.btn-danger.btn-round.pay-my-dept-btn:active, button.btn.btn-sm
 }
 
 /*Second Table-Home*/
-   
+ /*moja klasa ja ima vo home, mybills, archive*/  
 .table-header {
     background-color: #307ECC;
     color: #FFF;
@@ -1025,16 +1036,16 @@ button.btn.btn-sm.btn-danger.btn-round.pay-my-dept-btn:active, button.btn.btn-sm
     padding-left: 12px;
     font-weight: 400;
 }
-
+/*moja klasa ja ima vo home, mybills, archive */
 .user-owe-search {
 	text-align: right;
 }
-
+/*ja ima kaj select, mybills*/
 .dataTable_wrapper input[type=search] {
 	margin-bottom: 0!important;
     margin: 0 4px;
 }
-
+/* ja ima archive, mybills. vsusnost e override-na input[type=search] so se naogja vo forms.less, bootstrap.css, normalize.less i nesto e prfateno  i uste e override-na i od kaj input-sm so se naogja vo forms.less  */
 .user-owe-search input[type=search] {
 	width: 125px;
     height: 18px;
@@ -1056,46 +1067,47 @@ button.btn.btn-sm.btn-danger.btn-round.pay-my-dept-btn:active, button.btn.btn-sm
     display: inline-block;
     vertical-align: middle;
 }
-
+/*
 .user-owe-search label {
     display: inline-block;
     font-weight: 400;
 }
-
+*/
+/*ja ima archive, mybills. overroad na row, grid-framework.less*/
 .dataTable_wrapper .row:first-child {
     padding-top: 12px;
     padding-bottom: 12px;
     background-color: #EFF3F8;
 }
-
+/*ja ima archive,home,mybills. overroad na row, grid-framework.less*/
 .dataTable_wrapper .row {
     margin: 0!important;
 }
-
+/*ja ima archive,home,mybills. moja*/
 .dataTable_wrapper .row:last-child {
     border-bottom: 1px solid #e0e0e0;
     padding-top: 12px;
     padding-bottom: 12px;
     background-color: #EFF3F8;
 }
-
+/*go ima vo home, mybills. moja klasa a vsusnost e override-na .table so se naogja vo bootstrap.css, tables.less, normalize.less i od niv e zadrzan nekoj stil*/
 table.dataTable {
     clear: both;
     max-width: none!important;
 }
-
+/*go ima vo home, mybills. moja klasa a vsusnost e override-na .table so se naogja vo bootstrap.css, tables.less, normalize.less i od niv e zadrzan nekoj stil*/
 .dataTable {
     margin-bottom: 0;
 }
-
+/*ja ima home, mybills, archive. moja klasa*/
 .dataTable_paginate {
     text-align: right;
 }
-
+/*ja ima home, mybills, archive. override-na e .paginations.less no i od nea ima zadrzano stil*/
 .dataTable_paginate .pagination {
     margin: 0 12px;
 }
-
+/*moja klasa ja ima vo home, mybills, stats,archive*/
 .table-responsive.table-responsive-home {
     margin-bottom: 0;
 }
@@ -1134,73 +1146,76 @@ table.dataTable {
 }*/
 
 
-
+/*ja ima vo mybills. moja klasa za trite batoni*/
 .tableTools-container {
     margin-bottom: 5px;
     position: relative;
 }
-
+/*ja ima events modals, mybills. ovaa klasa ja ima vo bootstrap 4*/
 .btn-outlined {
     border-radius: 0;
     -webkit-transition: all 0.3s;
        -moz-transition: all 0.3s;
             transition: all 0.3s;
 }
+/*ja ima events modals, mybills. ovaa klasa e override na .btn-primary so ja ima vo bootstrap.css*/
 .btn-outlined.btn-primary {
     background: #fff;
     border: 2px solid #428bca;
     color: #428bca;
 }
+/*ja ima events modals, mybills. ovaa klasa e override na .btn-primary:hover so ja ima vo bootstrap.css*/
 .btn-outlined.btn-primary:hover,
 .btn-outlined.btn-primary:active {
     color: #FFF;
     background: #428bca;
-    border-color: #428bca:
+    border-color: #428bca;
 }
-
+/*ja ima events,mybills. vsusnost e override na .btn-success so se naogja vo bootstrap.css*/
 .btn-outlined.btn-success {
     background: #fff;
     border: 2px solid #5cb85c;
     color: #5cb85c;
 }
-
+/*ja ima events modals, mybills. ovaa klasa e override na .btn-success:hover so ja ima vo bootstrap.css*/
 .btn-outlined.btn-success:hover,
 .btn-outlined.btn-success:active {
     color: #FFF;
     background: #47a447;
 }
-
+/*ja ima events,mybills. vsusnost e override na .btn-danger so se naogja vo bootstrap.css*/
 .btn-outlined.btn-danger {
     background: #fff;
     border: 2px solid #d9534f;
     color: #d9534f;
 }
+/*ja ima events, mybills. vsusnost e override na .btn-danger:hover so se naogja vo bootstrap.css*/
 .btn-outlined.btn-danger:hover,
 .btn-outlined.btn-danger:active {
     color: #FFF;
     background: #d2322d;
 }
-
+/*go ima kaj home, mybills, archive . a vsusnost e override-na label i od nea ima nesto zadrzano so se naogja vo forms.less*/
 .dataTable_wrapper label {
     display: inline-block;
     font-weight: 400;
 }
-
+/*kaj select, mybills*/
 .dataTable_wrapper select {
     margin-bottom: 0!important;
     margin: 0 4px;
 }
-
+/*kaj select, mybills*/
 .display-records-lenght select {
     height: 25px;
     padding: 2px 3px;
 }
-
+/*ja ima vo stats, mybills. override na select.input-sm so se naogja vo forms.less, no e zadrzan i od negoviot stil*/
 select.input-sm {
     border-radius: 0;
     padding: 2px 3px;
 }
-
+/*ja ima vo stats, home, mybills, archive. form-control ja imam override-vano no imam i zadrzano stil i od .form-control od normalize.less, scafolding.less */
 .form-control, select {
     border-radius: 0;
     -webkit-box-shadow: none!important;
@@ -1209,16 +1224,16 @@ select.input-sm {
     background-color: #FFF;
     border: 1px solid #D5D5D5;
 }
-
+/*ja ima vo archive,mybills.moja klasa*/
 .display-records-lenght {
 	text-align: left;
 }
-
+/*ja ima mybills.moja klasa za icon user.*/
 i.fa.fa-user.fa-fw.bigger-user-icon {
 	margin-right: 2px;
 	color: #337ab7;
 }
-
+/*ja ima mybills.moja klasa za icon info.*/
 .bigger-info-icon {
 	margin-right: 2px;
 	color: #707070;
@@ -1229,11 +1244,11 @@ i.fa.fa-user.fa-fw.bigger-user-icon {
 .main-content {
     background-color: #fff;
 }
-
+/*ja ima archive, moja klasa za icon*/
 .bigger-archive-icon {
     margin-right: 2px;
 }
-
+/*ja ima archiv. moja*/
 .row.bg-archive {
     background: none!important;
     border-bottom: none!important;
@@ -1243,11 +1258,11 @@ i.fa.fa-user.fa-fw.bigger-user-icon {
     text-align: left;
     color: #393939;
 }
-
+/*ja ima home, mybills, stats, archive. moj stil, override-na e .label so ja ima vo labels.less*/
 .label {
 	font-weight: 500;
 }
-
+/*kaj archive. moja klasa.*/
 .search-archive {
 	margin-bottom: 0!important;
     margin: 0 0px!important;
@@ -1255,15 +1270,15 @@ i.fa.fa-user.fa-fw.bigger-user-icon {
 }
 
 /*Stats*/
-
+/*ja ima vo stats. moja klasa*/
 .total-budget-padding {
     padding-top: 35px;
 }
-
+/*ja ima home,events(modals), mybills, stats, archive. moja klasa*/
 td.ng-binding {
 	text-align: left;
 }
-
+/*moja klasa ja ima vo stats*/
 .col-xs-12.stats-pie-bottom {
     margin-bottom: 20px;
 }

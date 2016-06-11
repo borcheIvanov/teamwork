@@ -1,16 +1,22 @@
 //import na vendor lib- ova ke gi importira site bootstrap originali plus site nasi override-vanja i override-vanja treba da se importiraat pred originalite.
-@import "vendor/bootstrap/imports";
-h1 {
-	color: green;
-}
+//@import "vendor/bootstrap/bootstrap-custom";
+//@import "partials/home"; //ova e home partial i treba da ima stil za home view
 
 
+//Modules
+@import 'modules/layout-variables';
+@import 'modules/colours';
+
+//Vendor libraries
+@import 'vendor/bootstrap/bootstrap-custom';
+//@import 'vendor/font-awesome/font-awesome-custom';
 
 
-
-
-
-
-
-
-
+//Partials
+@import 'partials/register';
+@import 'partials/home';
+@import 'partials/events';
+@import 'partials/mybills';
+@import 'partials/stats';
+@import 'partials/archive';
+@import 'partials/base';

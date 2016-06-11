@@ -1,0 +1,269 @@
+.header2-space {
+	padding-top: 27px
+}
+
+.main-div-home {
+	position: fixed;
+    width: 1349px;
+}
+
+.home-overlay {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    /*background: rgba(241, 246, 247, 0.9);*/
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    background: -webkit-linear-gradient(left, rgba(228, 0, 121, 0.75) 10%, rgba(0, 145, 234, 0.75) 90%);
+    background: -moz-linear-gradient(left, rgba(228, 0, 121, 0.75) 10%, rgba(0, 145, 234, 0.75) 90%);
+    background: -ms-linear-gradient(left, rgba(228, 0, 121, 0.75) 10%, rgba(0, 145, 234, 0.75) 90%);
+    background: -o-linear-gradient(left, rgba(228, 0, 121, 0.75) 10%, rgba(0, 145, 234, 0.75) 90%);
+    background: linear-gradient(left, rgba(228, 0, 121, 0.75) 10%, rgba(0, 145, 234, 0.75) 90%);
+}
+
+/*Home*/
+
+button.btn.btn-default.btn-danger.btn-pay-style {
+	-moz-border-radius: 15px;
+  	-webkit-border-radius: 15px;
+    border-radius: 15px;
+    padding: 1% 2%;
+    background-color: #D15B47!important;
+    border-color: #D15B47;
+    height: 30px;
+   	font-size: 14px;
+   	line-height: 1.42857143;
+}
+
+button.btn.btn-default.btn-success.btn-has-paid-style {
+	-moz-border-radius: 15px;
+  	-webkit-border-radius: 15px;
+    border-radius: 15px;
+    padding: 1% 2%;
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    height: 30px;
+   	font-size: 14px;
+   	line-height: 1.42857143;
+}
+
+button.btn.btn-default.btn-danger.btn-not-paid-style {
+	-moz-border-radius: 15px;
+  	-webkit-border-radius: 15px;
+    border-radius: 15px;
+    padding: 1% 2%;
+    background-color: #D15B47!important;
+    border-color: #D15B47;
+    height: 30px;
+   	font-size: 14px;
+   	line-height: 1.42857143;
+}
+
+th.detail-col {
+	width: 48px;
+	tex-align: center;
+}
+
+/*moja klasa za strelkata od tabelata ja ima home, */
+.action-button {
+    text-align: center;
+}
+
+.green {
+	color: #69AA46!important;
+}
+
+/*moja klasa. ja ima home*/
+.table-detail {
+    background-color: #fff;
+    border: 1px solid #dcebf7;
+    width: 100%;
+    padding: 12px;
+}
+
+/*go ima home. moj stil, override-no td, so se naogja vo tables.less, normalize.less*/
+tr.detail-row>td {
+    background-color: #f1f6f8;
+    border-top: 3px solid #d1e1ea!important;
+}
+
+/*ja ima home, vo colapsot za labelata so ime. moja klasa. vsusnost e override-no .thumbnail, no od nea imam zadrzano stil a ja ima vo thumbnails.less*/
+.inline {
+    display: inline-block!important;
+}
+
+/*ja ima home. moja klasa. vsusnost e override-no .thumbnail, no od nea imam zadrzano stil a ja ima vo thumbnails.less*/
+.no-margin-bottom {
+    margin-bottom: 0!important;
+}
+
+/*moja klasa. ja ima home. za topceto vo collapsot vo tabelata pod slikat*/
+.user-icon {
+	text-align: center;
+}
+
+/*moja klasa. ja ima home.*/
+.white {
+    color: #FFF!important;
+}
+
+/*moja klasa. ja ima home,vo colapsot za labelata so ime*/
+.position-relative {
+    position: relative;
+}
+
+/*moja klasa.a ima home. za colapsot e.*/
+.space {
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+    margin: 12px 0;
+}
+
+/*ja ima home. moja klasa, za collapsot*/
+.profile-user-info-striped {
+    border: 1px solid #DCEBF7;
+}
+
+/*ja ima home. moja klasa, za collapsot*/
+.profile-user-info {
+    display: table;
+    width: 98%;
+    width: calc(100% - 24px);
+    margin: 0 auto;
+}
+
+/*ja ima home. moja klasa, za collapsot*/
+.profile-info-row {
+    display: table-row;
+}
+
+/*ja ima home. moja klasa, za collapsot*/
+.profile-info-name {
+    border-top: none;
+    color: #336199;
+    background-color: #EDF3F4;
+    text-align: right;
+    padding: 6px 10px 6px 4px;
+    font-weight: 400;
+    width: 110px;
+    vertical-align: middle;
+    display: table-cell;
+    border-top: 1px solid #F7FBFF;
+}
+
+/*ja ima home. moja klasa, za collapsot*/
+.profile-info-row:first-child .profile-info-name {
+    border-top: none;
+}
+
+/*ja ima home. moja klasa, za collapsot*/
+.profile-user-info-striped .profile-info-value {
+    border-top: 1px dotted #DCEBF7;
+    padding-left: 12px;
+}
+
+/*ja ima home. moja klasa, za collapsot*/
+.profile-info-value {
+    padding: 6px 4px 6px 12px;
+}
+
+/*ja ima home. moja klasa, za collapsot*/
+ .profile-info-row:first-child .profile-info-value {
+    border-top: none;
+}
+
+/*ja ima home. moja klasa, za collapsot*/
+.profile-info-value {
+    display: table-cell;
+}
+
+/*ja ima home. moja klasa, za collapsot, za icon tasks*/
+.bigger-tasks {
+    font-size: 110%!important;
+    margin-right: 2px;
+}
+
+/*moja klasa.ja ima home.  za topceto vo collapsot vo tabelata pod slikata e zeleno*/
+.light-green {
+    color: #B0D877!important;
+}
+
+/*ja ima home. moja klasa*/
+.header.blue {
+    border-bottom-color: #d5e3ef;
+}
+
+/*ja ima home. moja klasa*/
+.header.less-margin {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*ja ima home. moja klasa i stil*/
+.header {
+    line-height: 28px;
+    margin-bottom: 16px;
+    margin-top: 18px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #CCC;
+}
+
+/*moja klasa . ja ima home vo collapsot*/
+.blue {
+    color: #337AB7!important;
+    font-weight: 400!important;
+}
+
+/*moja klasa . ja ima home vo collapsot*/
+.space-6 {
+    max-height: 1px;
+    min-height: 1px;
+    overflow: hidden;
+    margin: 6px 0 5px;
+}
+/*ja ima home. moja klasa*/
+.btn.btn-round {
+    border-radius: 4px!important;
+}
+/*ja ima home. moja klasa*/
+ .btn.btn-round {
+    border-bottom-width: 2px!important;
+}
+/*ja ima home. moja klasa , a vsusnost e override-no .btn so se naogja vo buttons.less*/
+button.btn.btn-sm.btn-danger.btn-round.pay-my-dept-btn {
+	border-color: #D15B47!important;
+    color: #fff!important;
+    border-width: 1px;
+    background-color: #D15B47!important;
+    border: 1px solid #FFF;
+    padding: 4px 9px;
+    line-height: 1.38;
+    text-shadow: none!important;
+}
+
+/*go ima home. moj stil, override-no td, so se naogja vo tables.less, normalize.less*/
+tr.detail-row>td {
+    background-color: #f1f6f8;
+    border-top: 3px solid #d1e1ea!important;
+}
+
+/*home vo colapsot kaj label-ta so ime*/
+.label-xlg {
+    padding: .3em .7em .4em;
+    font-size: 14px;
+    line-height: 1.3;
+    height: 28px;
+    color: #FFF;
+    display: inline-block;
+    border-radius: 0;
+    font-weight: 400;
+    background: #337ab7;
+}
+
+
+
+
