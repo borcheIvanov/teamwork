@@ -4,9 +4,10 @@
 
 
 
-//@import "variables";
+@import "variables";
 @import "code";
 @import "pagination";
+@import "mixins";
 
 @import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap-compass';
 @import "imports";

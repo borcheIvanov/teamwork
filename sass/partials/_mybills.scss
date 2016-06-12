@@ -5,15 +5,23 @@
 }
 
 /*ja ima mybills.moja klasa za icon user.*/
-i.fa.fa-user.fa-fw.bigger-user-icon {
-	margin-right: 2px;
-	color: #337ab7;
+i {
+	&.fa{
+		&.fa-user{
+			&.fa-fw{
+				&.bigger-user-icon {
+					margin-right: 2px;
+					color: #337ab7;
+				}
+			}
+		}
+	}
 }
 
 /*ja ima mybills.moja klasa za icon info.*/
 .bigger-info-icon {
 	margin-right: 2px;
-	color: #707070;
+	color: $veryDarkGray2;
 }
 
 /*my bills*/
