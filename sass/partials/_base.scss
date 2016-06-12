@@ -60,17 +60,20 @@ img {
     transition: all .3s;
 }
 */
-
+/*
 a, a:hover, a:focus {
 	color: #333;
 	text-decoration: none;
    	@include transition (all, 0.3s, ease);
 }
+*/
 
-
-
-
-
+$a-tags: 'a, a:hover, a:focus';
+#{$a-tags} {
+    color: #333;
+	text-decoration: none;
+   	@include transition (all, 0.3s, ease);
+}
 
 
 
@@ -115,17 +118,11 @@ input[type="date"]
     font-weight: 300;
     line-height: 50px;
     color: #fff !important;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
+    @include border-radius(4px);
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
-    -o-transition: all .3s;
-    -moz-transition: all .3s;
-    -webkit-transition: all .3s;
-    -ms-transition: all .3s;
-    transition: all .3s;
+   @include transition (all, 0.3s, ease);
 }
 
 input[type="text"]:focus, 
@@ -136,7 +133,8 @@ input[type="date"]:focus
  {
 	outline: 0;
 	background: $whiteColor;
-    border: 1px solid #ccc;
+	@include customBorder(1px, #ccc, solid);
+   /* border: 1px solid #ccc;*/
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -144,23 +142,23 @@ input[type="date"]:focus
 }
 
 input[type="text"]:-moz-placeholder, input[type="password"]:-moz-placeholder, input[type="email"]:-moz-placeholder {
-	color: #888;
+	color: $darkGray;
 }
 
 input[type="text"]:-ms-input-placeholder, input[type="password"]:-ms-input-placeholder, input[type="email"]:-ms-input-placeholder { 
-	color: #888;
+	color: $darkGray;
 }
 
 input[type="text"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder, input[type="email"]::-webkit-input-placeholder { 
-	color: #888; 
+	color: $darkGray; 
 }
 
 input[type="number"]::-webkit-input-placeholder, input[type="number"]::-webkit-input-placeholder, input[type="number"]::-webkit-input-placeholder { 
-	color: #888; 
+	color: $darkGray; 
 }
 
 input[type="date"]::-webkit-input-placeholder, input[type="date"]::-webkit-input-placeholder, input[type="date"]::-webkit-input-placeholder { 
-	color: #888; 
+	color: $darkGray; 
 }
 
 button.btn {
@@ -176,23 +174,43 @@ button.btn {
     font-weight: 300;
     line-height: 50px;
     color: $whiteColor;
-	-moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-	border-radius: 4px;
+	@include border-radius(4px);
     text-shadow: none;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
     @include transition (all, 0.3s, ease);
+    &:hover {
+    	color: $whiteColor; 
+		background-color: $darkLimeGreen3;
+		border-color: $darkLimeGreen4;
+    }
+    &:active {
+    	outline: 0;
+		opacity: 0.6;
+		color: $whiteColor;
+		-moz-box-shadow: none;
+		-webkit-box-shadow: none;
+		box-shadow: none; 
+    }
+    &:focus {
+    	outline: 0;
+		opacity: 0.6;
+		background: #4aaf51;
+		color: $whiteColor; 
+    }
 }
 
 /*vo login, register i events view go koristam.a inaku .btn:hover go imam override-no a plus imam nesto zadrzano i od .btn:hover koj se naogja vo button.less*/
+/*
 button.btn:hover {
 	color: $whiteColor; 
 	background-color: $darkLimeGreen3;
 	border-color: $darkLimeGreen4;
 }
+*/
 /*go imam override-no, no imam i zadrzano nesto i od .btn:active so go ima vo vendor-prefixes.less*/
+/*
 button.btn:active {
 	outline: 0;
 	opacity: 0.6;
@@ -201,26 +219,47 @@ button.btn:active {
 	-webkit-box-shadow: none;
 	box-shadow: none; 
 }
+*/
 /*go imam vo login, register, events. go imam override-no, no imam zadrzano i od .btn:focus so go ima vo bootstrap.css*/
+
+/*
 button.btn:focus { 
 	outline: 0;
 	opacity: 0.6;
 	background: #4aaf51;
 	color: $whiteColor; 
 }
+*/
+
 /*go imam vo login,register, events, no go imam override-no, no imam i nesto zadrzano go ima vo bootstrap.css*/
+/*
 button.btn:active:focus, button.btn.active:focus {
 	outline: 0;
 	background: #4aaf51;
 	color: $whiteColor; 
 }
+*/
+
 
 /*ja imam vo register, login, events. ja imam override-no, no imam nesto zadrzano i od button.btn.btn-block so ja ima vo button.less*/
-button.btn.btn-block {
+/*button.btn.btn-block {
     opacity: 1;
 }
+*/
+
+button {
+	&.btn {
+		&.btn-block{
+			opacity: 1;
+		}
+	}
+}
+
+
+
 
 /*go imam override-no, no imam i nesto zadrzano go ima vo navbar.less*/
+/*
 .navbar {
 	margin-bottom: 0;
 	background: #444;
@@ -231,40 +270,120 @@ button.btn.btn-block {
 	-ms-transition: all .6s;
 	transition: all .6s;
 }
+*/
 /*moja klasa no vsusnost go imam override-no .navbar-inverse so se naogja vo navbar.less, a inaku samo <nav> go ima vo normalize.less*/
+/*
 .navbar.navbar-no-bg {
 	background: #444;
 	background: rgba(0, 0, 0, 0.6); 
 }
+*/
+
+.navbar {
+	margin-bottom: 0;
+	background: #444;
+	border: 0;
+	@include transition (all, 0.6s, ease);
+	&.navbar-no-bg {
+		background: rgba(0, 0, 0, 0.6); 
+	}
+}
+
+
+
+
+
 /*moj stil*/
+/*
 .navbar-right {
 	margin-right: 0; 
 }
+*/
 /*sum go override-la .navbar-nav so go ima vo navbar.less*/
+/*
 ul.navbar-nav {
 	font-size: 15px;
 	color: $whiteColor;
 	text-transform: uppercase;
 }
+*/
+
+ul{
+	&.navbar-nav {
+		font-size: 15px;
+		color: $whiteColor;
+		text-transform: uppercase;
+	}
+		&.navbar-right {
+			margin-right: 0; 
+		}
+}
+
+
+
+
 /*sum ja override-la .navbar-inverse .navbar-nav>li>a  so ja ima vo bootstrap.css*/
+/*
 .navbar-inverse ul.navbar-nav li a {
 	padding-top: 20px;
 	padding-bottom: 20px;
 	color: $whiteColor;
 	opacity: 0.8; 
 }
+*/
+
+
+.navbar-inverse {
+	ul {
+		&.navbar-nav {
+			li {
+				a {
+					padding-top: 20px;
+					padding-bottom: 20px;
+					color: $whiteColor;
+					opacity: 0.8; 
+					&:hover {
+						color: $whiteColor;
+						opacity: 1;
+						outline: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+
 /*moj stil dadeno za hover na a, a vsusnost go imam override-no navbar-inverse .navbar-nav>li>a:focus so se naogja vo navbar.less*/
+/*
 .navbar-inverse ul.navbar-nav li a:hover { 
 	color: $whiteColor;
 	opacity: 1;
 	outline: 0;
 }
+*/
+
+
+
+
+
+
 /*moj stil dadeno za fokus na a, a vsusnost go imam override-no navbar-inverse .navbar-nav>li>a:focus so se naogja vo navbar.less*/
 .navbar-inverse ul.navbar-nav li a:focus {
 	color: $whiteColor;
 	outline: 0;
 	opacity: 1;
 }
+
+
+
+
+
+
+
+
+
+
 
 .navbar-text a {
 	margin: 0 8px;
@@ -388,12 +507,14 @@ td.ng-binding {
 
 /*ja ima vo stats, home, mybills, archive. form-control ja imam override-vano no imam i zadrzano stil i od .form-control od normalize.less, scafolding.less */
 .form-control, select {
-    border-radius: 0;
+	@include border-radius(0px);
+    /*border-radius: 0;*/
     -webkit-box-shadow: none!important;
     box-shadow: none!important;
     color: $darkGray2;
     background-color: $whiteColor;
-    border: 1px solid $lightGray;
+    @include customBorder(1px, $lightGray, solid);
+    /*border: 1px solid $lightGray;*/
 }
 
 /*ja ima home, mybills, archive. moja klasa*/
@@ -409,7 +530,8 @@ td.ng-binding {
 /*ja ima events modals, mybills. ovaa klasa e override na .btn-primary so ja ima vo bootstrap.css*/
 .btn-outlined.btn-primary {
     background: $whiteColor;
-    border: 2px solid $moderateBlue;
+    @include customBorder(2px, $moderateBlue, solid);
+    /*border: 2px solid $moderateBlue;*/
     color: $moderateBlue;
 }
 
@@ -423,7 +545,8 @@ td.ng-binding {
 
 /*ja ima events modals, mybills. ovaa klasa ja ima vo bootstrap 4*/
 .btn-outlined {
-    border-radius: 0;
+	@include border-radius(0px);
+    /*border-radius: 0;*/
     -webkit-transition: all 0.3s;
        -moz-transition: all 0.3s;
             transition: all 0.3s;
@@ -432,7 +555,8 @@ td.ng-binding {
 /*ja ima events,mybills. vsusnost e override na .btn-success so se naogja vo bootstrap.css*/
 .btn-outlined.btn-success {
     background: $whiteColor;
-    border: 2px solid $limeGreen;
+    @include customBorder(2px, $limeGreen, solid);
+    /*border: 2px solid $limeGreen;*/
     color: $limeGreen;
 }
 
@@ -446,7 +570,8 @@ td.ng-binding {
 /*ja ima events,mybills. vsusnost e override na .btn-danger so se naogja vo bootstrap.css*/
 .btn-outlined.btn-danger {
     background: $whiteColor;
-    border: 2px solid $softRed;
+    @include customBorder(2px, $softRed, solid);
+    /*border: 2px solid $softRed;*/
     color: $softRed;
 }
 
@@ -471,7 +596,8 @@ td.ng-binding {
 
 /*ja ima vo stats, mybills. override na select.input-sm so se naogja vo forms.less, no e zadrzan i od negoviot stil*/
 select.input-sm {
-    border-radius: 0;
+	@include border-radius(0px);
+    /*border-radius: 0;*/
     padding: 2px 3px;
 }
 
@@ -504,7 +630,8 @@ select.input-sm {
     border-radius: 0!important;
     color: $darkGray2;
     background-color: $whiteColor;
-    border: 1px solid $lightGray;
+    @include customBorder(1px, $lightGray, solid);
+    /*border: 1px solid $lightGray;*/
     font-size: 14px;
     font-family: inherit;
     -webkit-box-shadow: none!important;

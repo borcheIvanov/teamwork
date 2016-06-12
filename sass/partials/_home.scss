@@ -30,9 +30,10 @@ button.btn.btn-default.btn-success.btn-has-paid-style {
 }
 
 button.btn.btn-default.btn-danger.btn-not-paid-style {
-	-moz-border-radius: 15px;
+	@include border-radius(15px);
+/*	-moz-border-radius: 15px;
   	-webkit-border-radius: 15px;
-    border-radius: 15px;
+    border-radius: 15px;  */
     padding: 1% 2%;
     background-color: $moderateRed;
     border-color: $moderateRed;
@@ -58,7 +59,8 @@ th.detail-col {
 /*moja klasa. ja ima home*/
 .table-detail {
     background-color: $whiteColor;
-    border: 1px solid #dcebf7;
+    @include customBorder(1px, #dcebf7, solid);
+    /*border: 1px solid #dcebf7;*/
     width: 100%;
     padding: 12px;
 }
@@ -104,7 +106,8 @@ tr.detail-row>td {
 
 /*ja ima home. moja klasa, za collapsot*/
 .profile-user-info-striped {
-    border: 1px solid #DCEBF7;
+	@include customBorder(1px, #DCEBF7, solid);
+    /*border: 1px solid #DCEBF7;*/
 }
 
 /*ja ima home. moja klasa, za collapsot*/
@@ -218,7 +221,8 @@ button.btn.btn-sm.btn-danger.btn-round.pay-my-dept-btn {
     color: #fff!important;
     border-width: 1px;
     background-color: $moderateRed;
-    border: 1px solid $whiteColor;
+    @include customBorder(1px, $whiteColor, solid);
+    /*border: 1px solid $whiteColor;*/
     padding: 4px 9px;
     line-height: 1.38;
     text-shadow: none!important;
@@ -238,7 +242,8 @@ tr.detail-row>td {
     height: 28px;
     color: $whiteColor;
     display: inline-block;
-    border-radius: 0;
+    @include border-radius(0px);
+    /*border-radius: 0;*/
     font-weight: 400;
     background: #337ab7;
 }

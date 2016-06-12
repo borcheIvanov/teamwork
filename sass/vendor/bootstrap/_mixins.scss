@@ -17,3 +17,39 @@
     -o-transition:      $what $time $how;
     transition:         $what $time $how;
 }
+
+
+@mixin customBorder ($width: 1px, $color: black, $style: solid) {
+	border: {
+		width: $width;
+		color: $color;
+		style: $style;
+	}
+}
+
+
+@mixin border-radius($radius: 5px) {
+	-moz-border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
