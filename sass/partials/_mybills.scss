@@ -1,10 +1,8 @@
-/*ja ima vo mybills. moja klasa za trite batoni*/
 .tableTools-container {
     margin-bottom: 5px;
     position: relative;
 }
 
-/*ja ima mybills.moja klasa za icon user.*/
 i {
 	&.fa{
 		&.fa-user{
@@ -18,18 +16,15 @@ i {
 	}
 }
 
-/*ja ima mybills.moja klasa za icon info.*/
 .bigger-info-icon {
 	margin-right: 2px;
 	color: $veryDarkGray2;
 }
 
-/*my bills*/
 .has-paid {
 	color:rgb(83, 226, 93);
 }
 
-/*mybills*/
 .not-paid {
 	color:red;
 }

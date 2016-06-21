@@ -1,12 +1,8 @@
-/*kaj archive. moja klasa.*/
-
 .search-archive {
     margin: 0 0px!important;
     margin-left: 4px!important;
 }
 
-
-/*ja ima archiv. moja*/
 .row {
 	&.bg-archive {
 		background: #fff!important;
@@ -14,7 +10,6 @@
 	}
 }
 
-/*ja ima archive, moja klasa za icon*/
 .bigger-archive-icon {
     margin-right: 2px;
 }
@@ -24,3 +19,24 @@
     color: $archive-price-font-color;
 }
 
+#user-owe {
+	&.responsive-search-archive {
+ 		input[type=search] {
+			@media (max-width: 767px) {
+				width: 100%!important;
+			    padding: 4px 0!important;
+			}
+		}
+	}
+}
+
+th {
+	&.archive-th-width {
+		@media (max-width: 767px) {
+			width: 0px!important;
+		}
+		@media (min-width: 767px) {
+			width: 50px!important;
+		}
+	}
+}

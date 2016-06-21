@@ -1,14 +1,11 @@
-/*samo kaj events za space go koristam, moja klasa */
 .inner-bg .logo {
 	padding-bottom: 20px;
 }
 
-/*ja ima vo events. moja klasa*/
 .top-big-link {
     margin-top: 45px;
 }
 
-/*ja ima events. moja klasa*/
 input.form-control.search-events {
     background: $veryLightGray;
 }
@@ -17,7 +14,6 @@ input.form-control.search-events {
     background: $veryLightGray;
 }
 
-/*ja ima events. moja klasa*/
 .event-list-header {
 	color: $whiteColor;
     margin-top: -10px;
@@ -26,17 +22,14 @@ input.form-control.search-events {
     margin-right: -10px;
 }
 
-/*events*/
 i.fa.fa-calendar {
      color: $veryDarkGray2;
 }
 
-/*ja ima events. za icon izvicnik*/
 i.fa.fa-exclamation-triangle {
 	color: $veryDarkGray2;
 }
 
-/*ja ima events, za modal. vsusnost e override-no .modal-header so go ima vo modals.less*/
 .modal-header {
     background: $strongBlue;
     color: $whiteColor;
@@ -44,50 +37,41 @@ i.fa.fa-exclamation-triangle {
     border-bottom: grey;
 }
 
-/*go ima events. vsusnost e override-no <h4> go ima vo bootstrap.css vo type.less*/
 h4.fweight {
 	font-weight: 300;
 }
 
-/*go ima events. vsusnost e override-no .modal-body so go ima vo modals.less no i od nego e zadrzan stil*/
 .modal-body {
     background: $lightGrayishPink;
 }
 
-/*ja ima events. e override na .list-group-item-heading so se naogja vo list-group.less*/
 h4.list-group-item-heading {
 	color: $veryDarkGray3;
 }
 
-/*ja ima events. vsusnost sum ja override-la .modal-footer koja se naogja vo bootstrap.css, no i od nea sum zadrzala stil*/
 .modal-footer {
     background: $grayishCyan;
 }
 
-/*events, modals*/
 .modal-events-footer {
 	color: $veryDarkGray3;
 }
 
-/*ja ima event.moja klasa*/
 button.btn.btn-default.modal-button-hover:hover {
     background-color: $darkLimeGreen3;
     border-color: $darkLimeGreen4;
 }
 
-/*ja ima events(modal). moja klasa*/
 input#form-deadline {
   color: gray !important;
 }
 
-/*ja ima events(modal).moja klasa*/
 .btn-group {
 	&.invite-users-width {
 		 width: 100%;
 	}
 }
 
-/*go ima events(modal)*/
 button {
 	&.btn {
 		&.dropdown-toggle {
@@ -96,14 +80,12 @@ button {
 	}
 }
 
-/*ja ima events(modal) moja klasa*/
 span {
 	&.sellect-user-color-events {
 		 color: black;
 	}
 }
 
-/*events(modal)*/
 span {
 	&.user-color-events {
 		 color: black;
@@ -111,14 +93,16 @@ span {
    
 }
 
-/*events(modal-invite-user-button)*/
 button.btn.dropdown-toggle.invite-users-btn:hover {
     background: $veryDarkGrayishPink;
     opacity: 0.9;
 }
 
-
-
+.text-left {
+	@media (max-width: 415px) {
+		text-align: left;
+	}
+}
 
 
 
